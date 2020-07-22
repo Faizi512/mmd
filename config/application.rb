@@ -10,7 +10,12 @@ module MegaMobileDeals
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-
+    if Rails.env.production? || Rails.env.staging?
+      config.filter_parameters << :password
+      Raven.configure do |config|
+        config.dsn = ENV['SENTRY_DSN']
+      end
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
