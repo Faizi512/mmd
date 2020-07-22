@@ -474,7 +474,7 @@ module PagesHelper
       optin_url: '',
       sid: nil,
       ssid: nil,
-      source:'google-home-page',
+      source:'home-page',
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
