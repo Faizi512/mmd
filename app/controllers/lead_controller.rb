@@ -32,7 +32,7 @@ class LeadController < ApplicationController
     request = Net::HTTP::Get.new(url, {'Content-Type' => 'application/json'})
     response = http.request(request)
     puts "****" * 30
-    puts JSON.parse(response.body)
+    puts response.body
     puts "****" * 30
     render json: {status: 200, response: JSON.parse(response.body)}
   end

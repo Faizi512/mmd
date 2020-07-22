@@ -461,6 +461,11 @@ class Common {
             CI.fetchRedirectUrl(json.response.leadId)
           }
         },
+        error: function(s){
+          setTimeout(function(){
+            CI.redirectUrl =  "https://mtrk5.co.uk/?a=14118&c=33110"
+          }, 2000);
+        },
         dataType: "json"
       })
     }
