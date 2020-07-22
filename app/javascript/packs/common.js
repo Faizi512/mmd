@@ -453,7 +453,7 @@ class Common {
 
       $.ajax({
         type: "POST",
-        url: "/mmd-exit-lead",
+        url: "/mmd-exit-lead?campid=MMDEXIT",
         data: {phone1: phone1, bc: bc, c3: c3, source: source, handset: handset, postcode: postcode },
         success: function(json) {
           console.log(json)
