@@ -135,12 +135,11 @@ class FbPhoneDeals extends Common {
   }
 
   getData(){
+    var track = "";
     try {
-      var track = AnyTrack('formSubmit') || "";
+      track = AnyTrack('formSubmit') || "";
     }
-    catch (e) {
-      this.track = "";
-    }
+    catch (e) {}
     return {
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
       firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
