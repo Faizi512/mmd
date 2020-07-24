@@ -132,7 +132,12 @@ class Home extends Common {
   }
 
   getData() {
-    var track = AnyTrack('formSubmit') || "";
+    try {
+      var track = AnyTrack('formSubmit') || "";
+    }
+    catch (e) {
+      this.track = "";
+    }
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
