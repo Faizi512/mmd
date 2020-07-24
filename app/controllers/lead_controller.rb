@@ -73,6 +73,8 @@ class LeadController < ApplicationController
         @redirect_url = "/rmktg-sweet?check=1"
       when "Exit 8 (Energy / Awin)"
         @redirect_url = "/e-deals-awin?check=1"
+      when "Exit 10 (E 2 Save)"
+        @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=exit&ued=https%3A%2F%2Fwww.e2save.com%2F"
       else
         @redirect_url = "https://mtrk5.co.uk/?a=14118&c=33110"
       end
