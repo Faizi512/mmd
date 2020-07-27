@@ -464,6 +464,22 @@ module PagesHelper
     }.to_json
   end
 
+  def breeze_mobile
+    @details = {
+      camp_id: 'BREEZE-MOBILE',
+      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      form_name: 'Breeze-Mobile',
+      optin_url: '/breeze-mobile',
+      sid: nil,
+      ssid: nil,
+      source:'Charles Duke',
+      quick_submit: true,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
 
   def home
     @details = {
