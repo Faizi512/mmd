@@ -605,7 +605,7 @@ module PagesHelper
       {
         name: "Samsung A20",
         data: "Unlimited",
-        image: "phone/samsung-a20.webp",
+        image: "phone/samsung-a20.png",
         calls: "Unlimited",
         texts: "Unlimited",
         url:"/success",
@@ -807,7 +807,7 @@ module PagesHelper
       {
         name: "Samsung A20",
         data: "Unlimited",
-        image: "phone/samsung-a20.webp",
+        image: "phone/samsung-a20.png",
         calls: "Unlimited",
         texts: "Unlimited",
         url:"/success",
