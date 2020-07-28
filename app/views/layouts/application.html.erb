@@ -29,6 +29,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <% if params[:mkwid].present? %>
+      <!-- BEGIN: Marin Software Tracking Script (Landing Page) -->
+      <script type='text/javascript'>
+      var _mTrack = _mTrack || [];
+      _mTrack.push(['trackPage']);
+      (function() {
+      var mClientId = '1fexuyzkduuouz';
+      var mProto = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+      var mHost = 'tracker.marinsm.com';
+      var mt = document.createElement('script'); mt.type = 'text/javascript'; mt.async = true; mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+      var fscr = document.getElementsByTagName('script')[0]; fscr.parentNode.insertBefore(mt, fscr);
+      })();
+      </script>
+      <!-- END: Copyright Marin Software -->
+    <% end %>
 
     <% if params[:page_name] == "fb-phone-deals" || !@bc  %>
         <title>Buy Best Contract Phones | Network Sign Up Offers | Monthly Payments</title>
@@ -46,6 +61,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
+    <% if params[:mkwid].present? %>
+      <noscript>
+        <img width="1" height="1" src="https://tracker.marinsm.com/tp?act=1&cid=1fexuyzkduuouz&script=no" />
+      </noscript>
+    <% end %>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBQJ5ZD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
