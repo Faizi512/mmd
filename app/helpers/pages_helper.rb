@@ -467,8 +467,8 @@ module PagesHelper
   def breeze_mobile
     @details = {
       camp_id: 'BREEZE-MOBILE',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: '/breeze-success',
+      bad_success_url: '/breeze-success',
       form_name: 'Breeze-Mobile',
       optin_url: '/breeze-mobile',
       sid: nil,

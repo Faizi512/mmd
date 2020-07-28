@@ -4,11 +4,10 @@ class Breeze extends Common {
   constructor() {
     super();
     var CI = this
+    this.device1 = '';
     this.getFormDetails('#dealform')
-    debugger
-
     $('.deals2').click(function() {
-      debugger
+       CI.device1 = $(this).find('.device').text()
       CI.postData();
     });
     
@@ -22,7 +21,7 @@ class Breeze extends Common {
     CI.successUrl()
   }
   successUrl(){
-    window.location = this.details.success_url
+    window.location = this.details.success_url + "?device=" + this.device1
   }
 
   getData() {

@@ -76,7 +76,17 @@
 .lh-34{line-height:34px}
 .lh-n{line-height:normal}
 .lh-0{line-height:0px}
-
+  
+.bg-img-success{
+  background-image: image-url('bg-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.fs-185{
+  font-size: 185px;
+}
 .min-h{
   min-height: 190px;
 }
@@ -500,6 +510,12 @@ input:hover ~ .input-deals:after{
   }
 }
 @media only screen  and (max-width: 768px) {
+  .bg-img-success{
+    height: 65vh;
+  }
+  .fs-185{
+    font-size: 130px;
+  }
   .mobile {
     display: block !important;
   }
@@ -509,6 +525,12 @@ input:hover ~ .input-deals:after{
 
 }
 @media only screen and (max-width: 520px) {
+  .bg-img-success{
+    height: 71vh;
+  }
+  .fs-185{
+    font-size: 60px;
+  }
   .w500{
     width: 250px;
   }
@@ -568,6 +590,9 @@ input:hover ~ .input-deals:after{
   }
   .fs-md-15{
     font-size: 15px !important;
+  }
+  .fs-md-36{
+    font-size: 36px !important;
   }
   .lis-list{
     padding-left: 13% !important;
