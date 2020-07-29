@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 	# AMP
+  get '/sitemap' => 'sitemap#index',defaults: {format: "xml"}
   get '/amp' => 'amp#index'
   get '/amp/sim-deal-only' => 'amp#sim_deal_only'
   post '/validate_data' => 'form_validation#valid_data'
