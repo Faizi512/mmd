@@ -3,10 +3,13 @@ import Common from "./common.js"
 class Lotto extends Common {
   constructor() {
     super();
-    var CI = this;
     this.getFormDetails('#dealform')
     this.showToolTip()
+    this.call();
+  }
 
+  call = () => {
+    var CI = this;
     $( ".save-energy" ).change(function() {
       if ($("input[name='save-energy']:checked").val() == "yes") {
         $(".form").addClass("in-progress")
