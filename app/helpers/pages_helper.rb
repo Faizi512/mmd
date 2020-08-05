@@ -480,6 +480,21 @@ module PagesHelper
     }.to_json
   end
 
+  def lotto
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://bill-switchers.com/sp-exit?exit=1',
+      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      form_name: 'Lotto',
+      optin_url: '/lotto',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
 
   def home
     @details = {
