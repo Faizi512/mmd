@@ -11,7 +11,7 @@
                   <%= image_tag(phone[:image], class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
                   <input type="hidden" id="phone_name" name="phone_name" value="<%= phone[:handset] %>">
                 </div>
-                <div class="col-6 mobile price-details">
+                <div class="col-6 col-md-7 mobile price-details">
                   <div class="detail-box p-3 rounded">
                     <span class="text-muted fs-14 font-weight-normal">
                       <%= phone[:bluetext] %>
@@ -27,23 +27,29 @@
                     <%= phone[:name] %>
                   </h5>
                   <div class="row features">
-                    <div class="col box text-center">
-                      <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %> </h6>
-                      <span class="text-muted fs-14 font-weight-normal">
-                        Data
-                      </span>
+                    <div class="col px-md-2 px-1">
+                      <div class="box text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %> </h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          Data
+                        </span>
+                      </div>
                     </div>
-                    <div class="col box text-center">
-                      <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:calls] %></h6>
-                      <span class="text-muted fs-14 font-weight-normal">
-                        Calls
-                      </span>
+                    <div class="col px-md-2 px-1">
+                      <div class="box text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:calls] %></h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          Calls
+                        </span>
+                      </div>
                     </div>
-                    <div class="col box text-center">
-                      <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:texts] %></h6>
-                      <span class="text-muted fs-14 font-weight-normal">
-                        Texts
-                      </span>
+                    <div class="col px-md-2 px-1">
+                      <div class="box text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:texts] %></h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          Texts
+                        </span>
+                      </div>
                     </div>
                   </div>
                    <hr>
