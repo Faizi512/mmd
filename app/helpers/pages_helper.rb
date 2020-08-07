@@ -448,6 +448,22 @@ module PagesHelper
     }.to_json
   end
 
+  def rmktg_awin2
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      form_name: 'rmktg-awin',
+      optin_url: '/rmktg-awin',
+      sid: 1,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: true,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def rmktg_sweet
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
