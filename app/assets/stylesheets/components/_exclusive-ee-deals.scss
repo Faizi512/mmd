@@ -1,0 +1,22 @@
+.font-cabin{
+  font-family: 'Cabin Sketch', cursive !important;
+}
+.head-logo{
+  width: 180px;
+}
+.background-header{
+  background: asset-url('compare/banner.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+
+.img-wrapper {
+    display: inline-block; 
+    overflow-x: hidden; 
+    .img {
+    transition: all .2s ease;
+    vertical-align: middle;
+  } 
+}
