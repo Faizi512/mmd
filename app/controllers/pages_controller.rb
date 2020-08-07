@@ -13,6 +13,10 @@ class PagesController < ApplicationController
       format.html {@partial = render_to_string partial: params[:page_name].to_s}
       format.js {}
     end
+    if params[:page_name] == 'rmktg-awin'
+      url = "/rmktg-awin2?"+params.to_unsafe_h.to_query
+      redirect_to url
+    end
 	end
 
   private
