@@ -35,6 +35,15 @@ class Common {
     }
   }
 
+  popupTerms(){
+    $( ".close-b" ).click(function() {
+      $('.modal2').hide();
+    });
+
+    $('.term-text').click(function(){
+      $('.modal2').show();
+    });
+  }
   getFormDetails(form){
     var data = $(form)[0].dataset.details
     this.details = JSON.parse(data)
