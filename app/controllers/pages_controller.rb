@@ -15,6 +15,10 @@ class PagesController < ApplicationController
     end
 	end
 
+  def exclusive_ee_deals
+    @products = Product.all
+  end
+
   private
   def set_cookies
     @cookie_uuid =  cookies[:_msuuid_1fexuyzkduuouz] || "SS#{SecureRandom.uuid}"

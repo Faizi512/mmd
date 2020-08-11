@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get '/fetch-redirect-url/:id' => 'lead#fetch_redirect_url'
 
   root 'pages#index'
+  get '/exclusive-ee-deals' => 'pages#exclusive-ee-deals'
   get '/:page_name' => 'pages#show'
 end
