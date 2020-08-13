@@ -16,7 +16,8 @@ class PagesController < ApplicationController
 	end
 
   def exclusive_ee_deals
-    @products = Product.all
+    exclusive_ee_deal
+    @products = Product.where(product_type: params[:type] || 0)
   end
 
   private

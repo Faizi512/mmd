@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_155919) do
 
   create_table "products", force: :cascade do |t|
     t.integer "product_type"
+    t.string "title"
     t.string "img"
     t.integer "monthly_cost"
     t.integer "upfront"
