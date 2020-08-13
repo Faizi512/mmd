@@ -19,6 +19,11 @@ class PagesController < ApplicationController
     end
 	end
 
+  def exclusive_ee_deals
+    exclusive_ee_deal
+    @products = Product.where(product_type: params[:type] || 0)
+  end
+
   private
   def set_cookies
     @cookie_uuid =  cookies[:_msuuid_1fexuyzkduuouz] || "SS#{SecureRandom.uuid}"
