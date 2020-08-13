@@ -13,8 +13,8 @@
         <div class="col-xl-3 mb-4 mb-xl-0">
           <div class="bg-light-jam p-3 rounded">
             <div class="row m-0 justify-content-center w-100">
-              <div class="position-relative mt-2 mt-md-0 input-div"> 
-                <a data-turbolinks="false" for="phone-deals" href="/exclusive_ee_deals?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-3 mb-md-0">
+              <div class="position-relative input-div"> 
+                <a data-turbolinks="false" for="phone-deals" href="/exclusive_ee_deals?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p">
                   <i class="fas fa-mobile-alt mr-2"></i>Phone deals
                 </a>
               </div>
@@ -31,7 +31,7 @@
                 <div class="row w-100 align-items-center justify-content-md-start justify-content-center pl-md-5" id="title-div">
                   <h5 class="mb-2 text-jam font-weight-bold pl-md-5"><%= product[:title] %></h5>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-3 text-center mb-3 mb-md-0">
                   <%= image_tag(product[:img], class: "", width: "60" ) %>
                   <%= image_tag("company/ee.png", class: "", width: "20" ) %>
                 </div>
@@ -42,16 +42,16 @@
                       <p class="m-0"><strong class="text-green">£<%= product[:monthly_cost] %></strong> Monthly</p>
                       <ul class="list-unstyled">
                         <li class="d-flex align-items-center">
-                          <i class="fas fa-check text-jam mr-1"></i>
-                          <p class="m-0">Free Delivery</p>
+                          <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                          <p class="m-0 fs-md-13">Free Delivery</p>
                         </li>
                         <li class="d-flex align-items-center">
-                          <i class="fas fa-check text-jam mr-1"></i>
-                          <p class="m-0"><%= product[:contract] %> Months Contract</p>
+                          <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                          <p class="m-0 fs-md-13"><%= product[:contract] %> Months Contract</p>
                         </li>
                       </ul>
                     </div>
-                    <div class="col-6 px-2">
+                    <div class="col-6 px-2 text-md-left text-right">
                       <% if product[:data] == 0 %>
                         <p class="m-0"> <strong class="data text-green">Unlimited</strong> Data</p>
                       <% else %>
@@ -75,9 +75,9 @@
                 </div>
                 <div class="col-md-4 text-center align-self-center">
                   <div class="text-center">
-                    <h6 class="text-jam font-weight-bold">Available Colours</h6>
+                    <h6 class="text-jam font-weight-bold m-0">Available Colours</h6>
                   </div>
-                  <div class="d-flex justify-content-center my-3">
+                  <div class="d-flex justify-content-center my-2">
                     <% product[:color].split(",").each do |color| %>
                       <div class="color border border-secondary" style="background-color: <%= color %>; width: 25px; height: 25px; border-radius: 50px; margin: 5px;">
                       </div>
