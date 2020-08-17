@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'csv'
-CSV.foreach('ee_sheet.csv', headers: true ) do |row|
+CSV.foreach('o2_sheet.csv', headers: true ) do |row|
+  retailers = row['Retailers']
   img = row['Url']
   p_type = row['Type']
   title = row['Title']
@@ -18,8 +19,9 @@ CSV.foreach('ee_sheet.csv', headers: true ) do |row|
   call = row['Calls'].to_i
   text = row['Text'].to_i
   contr = row['Contract'].to_i
-  
-  
-  Product.create(img: img, product_type: p_type, title: title, color: color, monthly_cost: monthly, upfront: upfront, data: data, calls: call, text: text, contract: contr, ) 
+  roaming = row['Roaming']
+  f_gift = row['Gifts']
+   
+  Product.create(retailer: retailers, img: img, product_type: p_type, title: title, color: color, monthly_cost: monthly, upfront: upfront, data: data, calls: call, text: text, contract: contr, free_gift: f_gift, data_roaming: roaming,) 
 end
 puts "done"

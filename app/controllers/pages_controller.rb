@@ -19,9 +19,18 @@ class PagesController < ApplicationController
     end
 	end
 
+  def exclusive_o2_deals
+    exclusive_o2_deal
+    fetch_products('o2')
+  end
+
   def exclusive_ee_deals
     exclusive_ee_deal
-    @products = Product.where(product_type: params[:type] || 0)
+    fetch_products('ee')
+  end
+
+  def fetch_products(company)
+    @products = Product.where(product_type: params[:type] || 0 ).where(retailer: company)
   end
 
   private

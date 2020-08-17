@@ -1,5 +1,5 @@
   <%= javascript_pack_tag 'exclusive_o2_deals', 'data-turbolinks-track': 'reload', defer: true %>
-<form id="dealsform" data-details="<%= @details %>">
+<form id="o2dealsform" data-details="<%= @details %>">
   <div class="bg-white">
     <header class="container row w-100 m-auto align-items-center justify-content-center py-3">
       <%= image_tag("logo.png", class: "head-logo" ) %>
@@ -13,9 +13,14 @@
         <div class="col-xl-3 mb-4 mb-xl-0">
           <div class="bg-light-jam p-3 rounded">
             <div class="row m-0 justify-content-center w-100">
-              <div class="position-relative input-div"> 
-                <a data-turbolinks="false" for="phone-deals" href="/exclusive_ee_deals?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p">
+              <div class="position-relative input-div mx-1 mx-xl-0"> 
+                <a data-turbolinks="false" for="phone-deals" href="/exclusive_o2_deals?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
                   <i class="fas fa-mobile-alt mr-2"></i>Phone deals
+                </a>
+              </div>
+              <div class="position-relative input-div mx-1 mx-xl-0"> 
+                <a data-turbolinks="false" for="sim-deals" href="/exclusive_o2_deals?type=1"class="input-radio py-2 px-md-3 mx-auto cursor-p">
+                  <i class="fas fa-sim-card mr-2"></i></i>SIM deals
                 </a>
               </div>
             </div>
@@ -32,23 +37,31 @@
                   <h5 class="mb-2 text-jam font-weight-bold pl-md-5"><%= product[:title] %></h5>
                 </div>
                 <div class="col-md-3 text-center mb-3 mb-md-0">
-                  <%= image_tag(product[:img], class: "", width: "60" ) %>
-                  <%= image_tag("company/ee.png", class: "", width: "20" ) %>
+                  <%= image_tag(product[:img], class: "", width: "70" ) %>
+                  <%= image_tag("company/02.png", class: "", width: "30" ) %>
                 </div>
                 <div class="col-md-5 px-1">
                   <div class="row w-100 m-0">
                     <div class="col-6 px-0">
-                      <p class="m-0"><strong class="text-green">£<%= product[:upfront] %></strong> Upfront</p>
+                      <% if product[:product_type] == 0 %>
+                        <p class="m-0"><strong class="text-green">£<%= product[:upfront] %></strong> Upfront</p>
+                      <% end %>
                       <p class="m-0"><strong class="text-green">£<%= product[:monthly_cost] %></strong> Monthly</p>
                       <ul class="list-unstyled">
-                        <li class="d-flex align-items-center">
-                          <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                        <li class="d-flex align-items-start">
+                          <i class="fas fa-check text-jam mr-1 fs-md-13 mt-1"></i>
                           <p class="m-0 fs-md-13">Free Delivery</p>
                         </li>
-                        <li class="d-flex align-items-center">
-                          <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                        <li class="d-flex align-items-start">
+                          <i class="fas fa-check text-jam mr-1 fs-md-13 mt-1"></i>
                           <p class="m-0 fs-md-13"><%= product[:contract] %> Months Contract</p>
                         </li>
+                        <% if product[:free_gift].present? %>
+                          <li class="d-flex align-items-start">
+                            <i class="fas fa-check text-jam mr-1 fs-md-13 mt-1"></i>
+                            <p class="m-0 fs-md-13"><%= product[:free_gift] %></p>
+                          </li>
+                        <% end %>
                       </ul>
                     </div>
                     <div class="col-6 px-2 text-md-left text-right">
@@ -74,15 +87,23 @@
                   </div>
                 </div>
                 <div class="col-md-4 text-center align-self-center">
-                  <div class="text-center">
-                    <h6 class="text-jam font-weight-bold m-0">Available Colours</h6>
-                  </div>
-                  <div class="d-flex justify-content-center my-2">
-                    <% product[:color].split(",").each do |color| %>
-                      <div class="color border border-secondary" style="background-color: <%= color %>; width: 25px; height: 25px; border-radius: 50px; margin: 5px;">
-                      </div>
-                    <% end %>
-                  </div>
+                  <% if product[:color].present? %>
+                    <div class="text-center">
+                      <h6 class="text-jam font-weight-bold m-0">Available Colours</h6>
+                    </div>
+                    <div class="d-flex justify-content-center my-2">
+                      <% product[:color].split(",").each do |color| %>
+                        <div class="color border border-secondary" style="background-color: <%= color %>; width: 25px; height: 25px; border-radius: 50px; margin: 5px;">
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <% if product[:data_roaming].present? %>
+                    <div>
+                      <h6 class="text-jam font-weight-bold mb-2 mb-md-3">Roaming : <span class="text-green"> <%= product[:data_roaming] %></span>
+                      </h6>
+                    </div>
+                  <% end %>
                   <input type="hidden" name="device" id="device" value="<%= product[:title] %>">
                   <button type="button" class="btn btn-deal text-white font-weight-bold w-100">Get Deal</button>
                 </div>

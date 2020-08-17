@@ -4,7 +4,7 @@ class ExclusiveO2Deals extends Common {
   constructor() {
     super();
     var CI = this;
-    this.getFormDetails('#dealsform');
+    this.getFormDetails('#o2dealsform');
 
     $('.btn-deal').click(function() {
       CI.postData()

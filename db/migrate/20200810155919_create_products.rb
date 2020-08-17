@@ -12,6 +12,9 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :contract
       t.string :network_img
       t.string :color
+      t.string :retailer
+      t.string :free_gift
+      t.string :data_roaming
       t.timestamps
     end
   end

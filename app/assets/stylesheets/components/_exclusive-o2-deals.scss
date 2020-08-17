@@ -1,0 +1,139 @@
+#o2dealsform{
+  $base-color: #23236A;
+
+  .font-cabin{
+    font-family: 'Cabin Sketch', cursive !important;
+  }
+  .head-logo{
+    width: 180px;
+  }
+  .background-header{
+    background: asset-url('compare/o2-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 440px;
+  }
+  .text-jam{
+    color: $base-color;
+  }
+  .input-radio{
+    background-color: white;
+    width: 100%;
+    border: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px !important;
+    text-decoration: none;
+    color: black;
+  }
+  .input-radio:hover{
+    color: white;
+    background-color: $base-color;
+    border: 1px solid $base-color;
+    text-decoration: none;
+  }
+  .input-radio:checked ~ .input-radio{
+    color: white;
+    background-color: $base-color;
+  }
+  .input-tag-radio{
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+  }
+  input:hover ~ .input-radio{
+    border: 1px solid $base-color;
+    color: white;
+    background-color: $base-color;
+  }
+  input:hover ~ .input-radio:after{
+    border: 1px solid $base-color;
+  }
+  .input-div{
+    width: 100%;
+  }
+  .cursor-p{
+    cursor: pointer;
+  }
+  .bg-light-jam{
+    background-color: #ecf7ff;
+  }
+  .btn-deal{
+    background: linear-gradient(180deg,#23236A 0,#107AC0 100%);
+    font-size: 20px !important;
+    border-radius: 50px !important;
+    border: none;
+  }
+  .btn-deal:hover{
+    background: linear-gradient(180deg,#107AC0 0,#23236A 100%);
+  }
+  .text-green{
+    color: #107AC0;
+  }
+  @media only screen and (max-width: 1025px) {
+    .background-header{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 340px;
+    }
+    .input-div{
+      width: 46%;
+    }   
+  }
+  @media only screen and (max-width: 768px) {
+    .input-div{
+      width: 46%;
+    }
+    .background-header{
+      background-size: cover;
+      background-position: center top;
+      height: 215px;
+    }
+  }
+  @media only screen and (max-width: 520px) {
+    .input-div{
+      width: 45%;
+    }
+    .background-header{
+      background: asset-url('compare/O2-Extra.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      max-width: 100%;
+      height: 279px;
+    }
+    .fs-md-13{
+      font-size: 13px;
+    }
+    .input-radio{
+      justify-content: center;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .background-header{
+      height: 254px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .background-header{
+      height: 214px;
+    }
+    .bg-height{
+      height: 100vh !important;
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+  .bg-height{
+    height: 87vh !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .bg-height{
+    height: 100vh !important;
+  }
+}
