@@ -120,6 +120,14 @@ class FbPhoneDeals extends Common {
       window.location = this.details.success_url+this.paramsforSuccess2()
     }else if(this.deliveryName == "Exit Lotto"){
       window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "(Energy / Voxi)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "(Energy / E2Save)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "Voxi Exit"){
+      window.location = this.details.success_url
+    }else if(this.deliveryName == "Exit 10 (E 2 Save)"){
+      window.location = this.details.success_url
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }

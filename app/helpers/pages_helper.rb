@@ -544,6 +544,38 @@ module PagesHelper
     }.to_json
   end
 
+  def e_deals_voxi
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://bill-switchers.com/sp-exit?exit=1',
+      bad_success_url: 'https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&clickref=social-exit-voxi&ued=https%3A%2F%2Fwww.voxi.co.uk%2Fplans',
+      form_name: 'e-deals-voxi',
+      optin_url: '/e-deals-voxi',
+      sid: 1,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
+  def e_deals_e2save
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://bill-switchers.com/sp-exit?exit=1',
+      bad_success_url: 'https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=social-exit&ued=https%3A%2F%2Fwww.e2save.com%2F',
+      form_name: 'e-deals-e2save',
+      optin_url: '/e-deals-e2save',
+      sid: 1,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def home
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
