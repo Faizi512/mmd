@@ -30,7 +30,8 @@ class PagesController < ApplicationController
   end
 
   def fetch_products(company)
-    @products = Product.where(product_type: params[:type] || 0 ).where(retailer: company)
+    @products = Product.where(retailer: company).order(:product_type)
+    @products = @products.where(product_type: params[:type]) if params[:type].present? 
   end
 
   private

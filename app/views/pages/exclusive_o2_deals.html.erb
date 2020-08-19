@@ -38,7 +38,11 @@
                 </div>
                 <div class="col-md-3 text-center mb-3 mb-md-0">
                   <%= image_tag(product[:img], class: "", width: "70" ) %>
-                  <%= image_tag("company/02.png", class: "", width: "30" ) %>
+                  <% if product[:product_type] == 0 %>
+                    <%= image_tag("company/02.png", class: "", width: "30" ) %>
+                  <% else %>
+                    <%= image_tag("compare/disney.png", class: "", width: "40" ) %>
+                  <% end %>
                 </div>
                 <div class="col-md-5 px-1">
                   <div class="row w-100 m-0">
