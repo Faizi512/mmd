@@ -1,37 +1,37 @@
-Url,Type,Title,Colours,Monthly,Upfront,Data,Calls,Text,Contract
-phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",29,0,4,0,0,12
-phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",41,0,75,0,0,12
-phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",26,0,5,0,0,12
-phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",41,39,75,0,0,12
-phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",23,0,5,0,0,12
-phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",47,39,100,0,0,12
-phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",17,0,2,0,0,12
-phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",23,0,5,0,0,12
-phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",68,179,0,0,0,12
-phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",47,5,100,0,0,12
-phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",37,0,10,0,0,12
-phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",38,0,25,0,0,12
-phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",32,0,25,0,0,12
-phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",38,29,50,0,0,12
-phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",29,0,15,0,0,12
-phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",44,25,100,0,0,12
-phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",21,29,4,0,0,12
-phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",45,99,40,0,0,12
-phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",21,0,4,0,0,12
-phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",21,39,4,0,0,12
-phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",69,145,40,0,0,12
-phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",50,0,0,0,0,12
-phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",38,0,50,0,0,12
-phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",38,15,50,0,0,12
-phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",35,0,50,0,0,12
-phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",44,0,100,0,0,12
-phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",32,0,50,0,0,12
-phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",47,0,100,0,0,12
-phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",29,0,25,0,0,12
-phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",54,0,0,0,0,12
-phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",23,0,5,0,0,12
-phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",29,0,25,0,0,12
-phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",69,199,100,0,0,12
-phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",52,0,0,0,0,12
-phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",41,0,75,0,0,12
-phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",41,0,75,0,0,12
+Retailers,Url,Type,Title,Colours,Monthly,Upfront,Data,Calls,Text,Contract,Roaming,Gifts
+ee,phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",29,0,4,0,0,12,,
+ee,phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",41,0,75,0,0,12,,
+ee,phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",26,0,5,0,0,12,,
+ee,phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",41,39,75,0,0,12,,
+ee,phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",23,0,5,0,0,12,,
+ee,phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",47,39,100,0,0,12,,
+ee,phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",17,0,2,0,0,12,,
+ee,phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",23,0,5,0,0,12,,
+ee,phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",68,179,0,0,0,12,,
+ee,phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",47,5,100,0,0,12,,
+ee,phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",37,0,10,0,0,12,,
+ee,phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",38,0,25,0,0,12,,
+ee,phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",32,0,25,0,0,12,,
+ee,phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",38,29,50,0,0,12,,
+ee,phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",29,0,15,0,0,12,,
+ee,phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",44,25,100,0,0,12,,
+ee,phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",21,29,4,0,0,12,,
+ee,phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",45,99,40,0,0,12,,
+ee,phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",21,0,4,0,0,12,,
+ee,phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",21,39,4,0,0,12,,
+ee,phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",69,145,40,0,0,12,,
+ee,phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",50,0,0,0,0,12,,
+ee,phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",38,0,50,0,0,12,,
+ee,phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",38,15,50,0,0,12,,
+ee,phone/apple-iphone-se.png,0,iPhone SE 64GB,"#00000,#ffffff,#ff0000",35,0,50,0,0,12,,
+ee,phone/samsungs10.png,0,Samsung S10,"#00000,#0000ff,#C0C0C0,#2ECC71 ",44,0,100,0,0,12,,
+ee,phone/galaxy-a71.png,0,Samsung A71,"#00000,#C0C0C0",32,0,50,0,0,12,,
+ee,phone/iphonexr.png,0,iPhone XR 64GB,"#00000,#0000ff,#ff7f50,#F4D03F ,#ff0000,#ffffff",47,0,100,0,0,12,,
+ee,phone/galaxy-a51.png,0,Samsung A51,"#00000,#ffffff",29,0,25,0,0,12,,
+ee,phone/iphone11.png,0,iPhone 11 64GB,"#00000,#ffffff,#ff0000,#F4D03F ,#8548D8 ,#2ECC71 ",54,0,0,0,0,12,,
+ee,phone/samsung-a20.png,0,Samsung Galaxy A20e,"#00000,#ffffff,#0000ff,#ff7f50",23,0,5,0,0,12,,
+ee,phone/iphone-7.png,0,iPhone 7 32GB,"#00000,#C0C0C0,#FFD700,#b7756e",29,0,25,0,0,12,,
+ee,phone/1iphone-11-pro-max.png,0,iPhone 11 Pro Max 64GB,"#808080 ,#C0C0C0,#FFD700,#485F43 ",69,199,100,0,0,12,,
+ee,phone/samsung-galaxy-s20-plus.png,0,Samsung Galaxy S20,"#808080 ,#0000ff,#FF5AAF ",52,0,0,0,0,12,,
+ee,phone/samsung-galaxy-s10e.png,0,Samsugn Galaxy S10e,"#00000,#ffffff",41,0,75,0,0,12,,
+ee,phone/huaweip30.png,0,Huawei P30 Pro,"#00000,#76D7C4 ,#D6EAF8 ",41,0,75,0,0,12,,

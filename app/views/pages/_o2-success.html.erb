@@ -1,0 +1,19 @@
+<%= javascript_pack_tag 'common', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div class="bg-img-success bg-height">
+  <div class="container">
+    <div class="row w-100 mx-0 pt-5">
+      <div class="col-md-8 mx-auto text-center">
+        <div class="bg-secondary rounded py-5 px-md-4 px-2">
+          <%= image_tag("compare/o2-logo-white.png", class: "", width: "180" ) %>
+          <h1 class="fs-md-36 fs-60 text-white pt-3">Thank You</h1>
+          <h5 class="fs-md-17 text-white text-decoration-none">O2 will call you shortly from xxxx xxx xxxx to discuss your deal.</h5>
+          <h5 class="fs-md-17 text-white">The device you are interested in is <span class="text-warning font-weight-bold"><%= params[:device] %></span></h5>
+          <p class="mb-1 text-white">Remember these are exclusive deals from o2 that you won't find anywhere else.</p>
+          <p class="mb-1 text-white small">*Promotional deals end at the end of this month*</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/common/footer' %>
