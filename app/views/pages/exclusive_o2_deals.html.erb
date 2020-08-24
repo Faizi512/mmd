@@ -43,7 +43,7 @@
                   <% else %>
                     <%= image_tag("compare/disney.png", class: "", width: "40" ) %>
                   <% end %>
-                </div>
+                </div> 
                 <div class="col-md-5 px-1">
                   <div class="row w-100 m-0">
                     <div class="col-6 px-0">
@@ -108,6 +108,7 @@
                       </h6>
                     </div>
                   <% end %>
+                  <input type="hidden" name="p-type" id="p-type" value="<%= product[:product_type] %>">
                   <input type="hidden" name="device" id="device" value="<%= product[:title] %>">
                   <button type="button" class="btn btn-deal text-white font-weight-bold w-100">Get Deal</button>
                 </div>
