@@ -34,7 +34,7 @@
             <% @products.each do |product| %>
               <div class="row w-100 m-0 bg-light-jam rounded p-3 mb-3 shadow-sm">
                 <div class="row w-100 align-items-center justify-content-md-start justify-content-center pl-md-5" id="title-div">
-                  <h5 class="mb-2 text-jam font-weight-bold pl-md-5"><%= product[:title] %></h5>
+                  <h5 class="mb-2 text-jam font-weight-bold pl-md-5 text-capitalize"><%= product[:title] %></h5>
                 </div>
                 <div class="col-md-3 text-center mb-3 mb-md-0">
                   <%= image_tag(product[:img], class: "", width: "70" ) %>
