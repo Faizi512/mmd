@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   include PagesHelper
+  include SweetMobileHelper
   before_action :set_cookies
 	def index
     @amp = true
@@ -22,6 +23,10 @@ class PagesController < ApplicationController
   def exclusive_ee_deals
     exclusive_ee_deal
     @products = Product.where(product_type: params[:type] || 0)
+  end
+
+  def sweet_mobile
+    sweet_deals_data
   end
 
   private
