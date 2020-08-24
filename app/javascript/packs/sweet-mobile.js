@@ -19,6 +19,12 @@ class SweetMobile extends Common {
       $('.county').val($(this).find("option:selected").data("province"))
     });
 
+    $(".numbertt").change(function() {
+      if ($("#numbertt :selected").val() == "yes") {
+        $('.div-numbr').show();
+      }
+    });
+
 
     $( "#btn-nextstep" ).click(() => {
       CI.nextStep(1)

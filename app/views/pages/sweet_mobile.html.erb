@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="col-md-3 text-center align-self-center">
-                <button data-toggle="modal" data-target="#stepform" type="button" class="fs-md-12 btn btn-success px-4 btn-offers mb-2">GET OFFER <i class="fas fa-chevron-right text-white ml-2"></i></button>
+                <button data-toggle="modal" data-target="#stepform" type="button" class="font-weight-bold py-2 fs-md-12 btn btn-success px-4 btn-offers mb-2">GET OFFER <i class="fas fa-chevron-right text-white ml-2"></i></button>
                 <p class="m-0 small fs-12 d-flex flex-column align-items-center">Provided by : <%= image_tag("new-sims/sweet-logo1.png", class: "", width: "60" ) %>
                 </p>
               </div>
@@ -97,11 +97,11 @@
               <form id="dealslistform" data-details="<%= @details %>" method="post" action="javascript:;">
                 <div  class="tab " id="slide1">
                   <div class="my-3">
-                    <h5 class="text-success text-center">Let's get started with your name</h5>
+                    <h5 class="text-success text-center font-weight-bold">Let's get started with your name</h5>
                   </div>
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-7 col-sm-7  col-12">
-                      <label>First Name</label>
+                      <label class="font-weight-bold">First Name</label>
                       <input
                       name="first_name"
                       required
@@ -109,13 +109,13 @@
                       data-parsley-required-message="Please Enter First Name" data-parsley-pattern-message="First Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
                       data-parsley-group="block-0"
                       type="text"
-                      class="first_name form-control hero-input ignoreStep3"
+                      class="first_name form-control h-50 hero-input ignoreStep3"
                       placeholder="First Name" >
                        <i class="validate success fa fa-check-circle"></i>
                       <i class="validate error fa fa-times-circle"></i>
                     </div>
                     <div class="form-group col-lg-7  col-sm-7 col-12">
-                      <label>Last Name</label>
+                      <label class="font-weight-bold">Last Name</label>
                       <input
                       name="last_name"
                       required
@@ -124,7 +124,7 @@
                       data-parsley-group="block-0"
                       data-parsley-pattern-message="Last Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
                       type="text"
-                      class="form-control ignoreStep3 last_name"
+                      class="form-control h-50 ignoreStep3 last_name"
                       placeholder="Surname" >
                        <i class="validate success fa fa-check-circle"></i>
                       <i class="validate error fa fa-times-circle"></i>
@@ -133,12 +133,12 @@
                 </div>
                 <div class="tab display-none">
                   <div class="row justify-content-center">
-                    <div class=" mt-4 text-center form-group">
-                      <label class="d-flex justify-content-start">Date Of Birth</label>
+                    <div class="col-lg-7 col-12 mt-4 text-center form-group">
+                      <label class="d-flex justify-content-start font-weight-bold">Date Of Birth</label>
                       <div class="field row  text-center w-100 mx-auto mt-3">
-                        <div class="col-md-4">
+                        <div class="col-md-4 px-1">
                           <select name="dayOfBirth "
-                          class="form-control dayOfBirth dob w-100 mb-2"
+                          class="form-control h-50 dayOfBirth dob w-100 mb-2"
                           id="dayOfBirth"
                           required=""
                           data-parsley-group="block-1"
@@ -178,9 +178,9 @@
                             <option value="31">31</option>
                           </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 px-1">
                           <select name="monthOfBirth"
-                          class="form-control monthOfBirth dob w-100 mb-2"
+                          class="form-control h-50 monthOfBirth dob w-100 mb-2"
                           id="monthOfBirth"
                           required=""
                           data-parsley-group="block-1"
@@ -201,9 +201,9 @@
                             <option value="12">December</option>
                           </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 px-1">
                           <select name="yearOfBirth"
-                          class="form-control yearOfBirth dob w-100 mb-2"
+                          class="form-control h-50 yearOfBirth dob w-100 mb-2"
                           id="yearOfBirth"
                           required=""
                           data-parsley-group="block-1"
@@ -296,7 +296,7 @@
                   <div class="row justify-content-center">
                     <!-- postcode -->
                     <div class="form-group col-lg-7 col-12">
-                      <label>Postcode</label>
+                      <label class="font-weight-bold">Postcode</label>
                       <div class="w-100 justify-content-center">
                         <input
                         name="postcode"
@@ -306,21 +306,21 @@
                         data-parsley-group="block-2"
                         data-parsley-validapipostcode
                         type="text"
-                        class="postcode form-control ignoreStep4 approve"
+                        class="postcode form-control h-50 ignoreStep4 approve"
                         placeholder="Postcode">
-                        <button type="button" class="btn btn-success rounded-right left-0r findAddress-btn">Find Address</button>
+                        <button type="button" class="btn btn-success rounded-right left-0r findAddress-btn h-50 ">Find Address</button>
                       </div>
                       <div class="error-checkbox"></div>
                     </div>
                     <div class="form-group col-lg-7 col-12 property-div display-none">
-                      <label>Your Property</label>
+                      <label class="font-weight-bold">Your Property</label>
                       <input type="hidden" name="towncity" class="towncity" >
                       <input type="hidden" name="street1" class="street1" >
                       <input type="hidden" name="county" class="county" >
                       <select
                         id="property"
                         name="property"
-                        class="property w-100 form-control ignoreStep4 text-dark"
+                        class="property w-100 form-control h-50 ignoreStep4 text-dark"
                         data-parsley-required="true"
                         data-parsley-required-message="Please Select Your property"
                         data-parsley-group="block-2"
@@ -328,14 +328,14 @@
                       </select>
                     </div>
                     <div class="form-group col-lg-7 col-12 address-div display-none">
-                      <label class="d-flex justify-content-start  text-black f-25 mb-2">
+                      <label class="d-flex justify-content-start  text-black f-25 mb-2 font-weight-bold">
                         First Line Of Address
                       </label>
                       <input
                         placeholder="Address"
                         id="address"
                         name="address"
-                        class="address form-control ignoreStep4"
+                        class="address form-control h-50 ignoreStep4"
                         data-parsley-required="true"
                         data-parsley-required-message="Please Enter Your Address"
                         data-parsley-group="block-2"
@@ -346,24 +346,60 @@
                 </div>
                 <div class="tab display-none">
                   <div class="form-group col-lg-7 col-12 mx-auto">
-                    <label class="d-flex justify-content-start ">
-                      Number To Transfer <small class="m-0"> (optional)</small>
+                    <label class="d-flex justify-content-start font-weight-bold">
+                      Would you like to transfer any Number?
                     </label>
-                    <input
-                      placeholder="Number"
-                      id="NumberstoTransfer"
-                      name="NumberstoTransfer"
-                      class="NumberstoTransfer form-control ignoreStep4"
+                    <select name="numbertt"
+                      class="form-control h-50 numbertt w-100 mb-2"
+                      id="numbertt"
+                      required=""
                       data-parsley-group="block-3"
-                      type="text"
-                      >
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one">
+                      <option value="no" selected="">No</option>
+                      <option value="yes">Yes</option>
+                    </select>
+                    <div class="div-numbr display-none">
+                      <div class="form-group px-0 col-12 mx-auto">
+                        <label class="d-flex justify-content-start font-weight-bold">
+                          Number To Transfer
+                        </label>
+                        <input
+                          placeholder="Number"
+                          id="NumberstoTransfer"
+                          name="NumberstoTransfer"
+                          class="NumberstoTransfer form-control h-50 ignoreStep4"
+                          data-parsley-group="block-3"
+                          type="text"
+                          data-parsley-required="true"
+                          data-parsley-required-message="Please Enter Your Number">
+                        <i class="validate success fa fa-check-circle"></i>
+                        <i class="validate error fa fa-times-circle"></i>
+                      </div>
+                      <div class="form-group px-0 col-12 mx-auto">  
+                        <label class="d-flex justify-content-start font-weight-bold">
+                          PAC
+                        </label>
+                        <input
+                          placeholder="PAC"
+                          id="pac"
+                          name="pac"
+                          class="pac form-control h-50 ignoreStep4"
+                          data-parsley-group="block-3"
+                          type="text"
+                          data-parsley-required="true"
+                          data-parsley-required-message="Please Enter PAC">
+                          <i class="validate success fa fa-check-circle"></i>
+                          <i class="validate error fa fa-times-circle"></i>
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group col-lg-7 col-12 mx-auto">
-                    <label class="d-flex justify-content-start">
+                    <label class="d-flex justify-content-start font-weight-bold">
                       Quantity
                     </label>
                     <select name="quantity"
-                      class="form-control quantity w-100 mb-2"
+                      class="form-control h-50 quantity w-100 mb-2"
                       id="quantity"
                       required=""
                       data-parsley-group="block-3"
@@ -379,7 +415,7 @@
                 <div  class="tab phoneEmailTab display-none" id="slide3">
                   <div class="row justify-content-center">
                     <div class="form-group  mb-3  col-lg-7 col-md-7 phone-div">
-                      <label class="w-100">Mobile Number</label>
+                      <label class="w-100 font-weight-bold">Mobile Number</label>
                       <input
                       type="number"
                       name="telephone"
@@ -389,13 +425,13 @@
                       data-parsley-type="number"
                       data-parsley-group="block-4"
                       data-parsley-validphone
-                      class="form-control hero-input phone telephone"
+                      class="form-control h-50 hero-input phone telephone"
                       placeholder="Mobile Number">
                       <i class="validate success fa fa-check-circle"></i>
                       <i class="validate error fa fa-times-circle"></i>
                     </div>
                     <div class="form-group mb-3  col-lg-7 col-md-7 email-div">
-                      <label class="w-100">Email Address</label>
+                      <label class="w-100 font-weight-bold">Email Address</label>
                       <div class="clearfix"></div>
                       <input
                       type="email"
@@ -408,13 +444,13 @@
                       data-parsley-group="block-4"
                       data-parsley-validemail
                       value=""
-                      class="form-control nme_inpu email"
+                      class="form-control h-50 nme_inpu email"
                       placeholder="Email Address">
                       <i class="validate success fa fa-check-circle"></i>
                       <i class="validate error fa fa-times-circle"></i>
                     </div>
                     <div class="custom-checkbox col-lg-7">
-                      <label>Accept</label>
+                      <label class="font-weight-bold">Accept</label>
                       <div class="onoffswitch">
                         <input type="hidden" name="c1">
                         <input
@@ -436,13 +472,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-7 col-12 mx-auto justify-content-center">
-                  <div class="row w-100 m-0 justify-content-center flex-sm-row-reverse">
+                <div class="col-lg-7 col-12 mx-auto align-self-center px-0">
+                  <div class="row w-100 mx-0 my-4 justify-content-center flex-sm-row-reverse">
                     <div class=" col-md-6 text-center mb-2 mb-md-0">
-                      <button id="btn-nextstep" type="button" class="w-100 btn btn-success btn-offers mb-2 px-4 " >CONTINUE <i class="fas fa-chevron-right text-white ml-2"></i></button>
+                      <button id="btn-nextstep" type="button" class="font-weight-bold w-100 py-2 btn btn-success btn-offers" >CONTINUE <i class="fas fa-chevron-right text-white ml-2"></i></button>
                     </div>
-                    <div class=" col-md-6">
-                      <button id="btn-backstep" type="button" class="w-100 btn btn-success btn-offers"><i class="fas fa-chevron-left text-white mr-2"></i>BACK</button>
+                    <div class="col-md-6">
+                      <button id="btn-backstep" type="button" class="font-weight-bold w-100 py-2 btn btn-success btn-offers"><i class="fas fa-chevron-left text-white mr-2"></i>BACK</button>
                     </div>
                   </div>
                 </div>

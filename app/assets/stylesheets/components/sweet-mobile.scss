@@ -93,6 +93,27 @@
     background: #F7F7F7;
     border-color: #027a00 !important;
   }
+  .validate.success{
+    display: none;
+    color: #4CAF50 !important;
+    position: relative;
+    float: right;
+    font-size: 25px;
+    margin-top: -36px;
+    right: 6px;
+  }
+  .validate.error{
+    display: none;
+    color: red !important;
+    position: relative;
+    float: right;
+    font-size: 25px;
+    margin-top: -36px;
+    right: 6px;
+  }
+  .h-50{
+    height: 50px !important;
+  }
   @media only screen and (max-width: 768px) {
     .fs-md-12{
       font-size: 12px !important;
