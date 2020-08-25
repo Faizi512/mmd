@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   get '/exclusive_ee_deals' => 'pages#exclusive_ee_deals'
+  get '/exclusive_o2_deals' => 'pages#exclusive_o2_deals'
   get '/sweet-mobile' => 'pages#sweet_mobile'
   get '/:page_name' => 'pages#show'
 end
