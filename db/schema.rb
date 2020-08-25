@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2020_08_10_155919) do
     t.integer "contract"
     t.string "network_img"
     t.string "color"
+    t.string "retailer"
+    t.string "free_gift"
+    t.string "data_roaming"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

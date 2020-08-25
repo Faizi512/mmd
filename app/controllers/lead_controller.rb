@@ -75,6 +75,12 @@ class LeadController < ApplicationController
         @redirect_url = "/e-deals-awin?check=1"
       when "Exit Lotto"
         @redirect_url = "/lotto?check=1"
+      when "(Energy / Voxi)"
+        @redirect_url = "/e-deals-voxi?check=1"
+      when "Voxi Exit"
+        @redirect_url = "https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&clickref=social-exit-voxi&ued=https%3A%2F%2Fwww.voxi.co.uk%2Fplans"
+      when "(Energy / E2Save)"
+        @redirect_url = "/e-deals-e2save?check=1"
       when "Exit 10 (E 2 Save)"
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=exit&ued=https%3A%2F%2Fwww.e2save.com%2F"
       else
