@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   include PagesHelper
+  include SweetMobileHelper
   before_action :set_cookies
 	def index
     @amp = true
@@ -19,7 +20,7 @@ class PagesController < ApplicationController
     end
 	end
 
-  def exclusive_o2_deals
+ def exclusive_o2_deals
     exclusive_o2_deal
     fetch_products('o2')
   end
@@ -32,6 +33,9 @@ class PagesController < ApplicationController
   def fetch_products(company)
     @products = Product.where(retailer: company).order(:product_type)
     @products = @products.where(product_type: params[:type]) if params[:type].present? 
+  end
+  def sweet_mobile
+    sweet_deals_data
   end
 
   private
