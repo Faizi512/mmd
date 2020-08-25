@@ -23,7 +23,41 @@ class SweetMobile extends Common {
 
     $(".numbertt").change(function() {
       if ($("#numbertt :selected").val() == "yes") {
-        $('.div-numbr').show();
+        var html = `<div class="form-group px-0 col-12 mx-auto">
+                  <label class="d-flex justify-content-start font-weight-bold">
+                    Number To Transfer
+                  </label>
+                  <input
+                    placeholder="Number"
+                    id="NumberstoTransfer"
+                    name="NumberstoTransfer"
+                    class="NumberstoTransfer form-control h-50 ignoreStep4"
+                    data-parsley-group="block-3"
+                    type="text"
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please Enter Your Number">
+                  <i class="validate success fa fa-check-circle"></i>
+                  <i class="validate error fa fa-times-circle"></i>
+                </div>
+                <div class="form-group px-0 col-12 mx-auto">
+                  <label class="d-flex justify-content-start font-weight-bold">
+                    PAC
+                  </label>
+                  <input
+                    placeholder="PAC"
+                    id="pac"
+                    name="pac"
+                    class="pac form-control h-50 ignoreStep4"
+                    data-parsley-group="block-3"
+                    type="text"
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please Enter PAC">
+                    <i class="validate success fa fa-check-circle"></i>
+                    <i class="validate error fa fa-times-circle"></i>
+                </div>`
+             $('.div-numbr').html(html)
+      }else{
+        $('.div-numbr').html("");
       }
     });
 

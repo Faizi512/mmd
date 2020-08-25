@@ -7,7 +7,7 @@ module SweetMobileHelper
           image: "new-sims/100gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£31",
+          monthly: "31",
           contract: "12",
           dealid: 22,
           toptext: "EU Roaming included"
@@ -18,7 +18,7 @@ module SweetMobileHelper
           image: "new-sims/500mb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£19",
+          monthly: "19",
           contract: "12",
           dealid: 24,
           toptext: "Great UK coverage using O2"
@@ -29,7 +29,7 @@ module SweetMobileHelper
           image: "new-sims/2gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£20",
+          monthly: "20",
           contract: "12",
           dealid: 46,
           toptext: "Great UK coverage using O2"
@@ -40,7 +40,7 @@ module SweetMobileHelper
           image: "new-sims/5gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£23",
+          monthly: "23",
           contract: "12",
           dealid: 14,
           toptext: "Great UK coverage using O2"
@@ -51,7 +51,7 @@ module SweetMobileHelper
           image: "new-sims/10gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£26",
+          monthly: "26",
           contract: "12",
           dealid: 23,
           toptext: "Great UK coverage using O2"
@@ -62,7 +62,7 @@ module SweetMobileHelper
           image: "new-sims/2gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£32",
+          monthly: "32",
           contract: "12",
           dealid: 23,
           toptext: "EU Roaming included"
@@ -73,7 +73,7 @@ module SweetMobileHelper
           image: "new-sims/alcatel.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "£47",
+          monthly: "47",
           contract: "12",
           dealid: 23,
           toptext: "£20 for airtime plus 3 payments of £27 phone finance"
