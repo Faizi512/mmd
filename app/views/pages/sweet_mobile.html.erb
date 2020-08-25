@@ -6,12 +6,12 @@
     <div class="row w-100 m-0">
       <div class="col-xl-3 px-lg-3 px-0 mb-3 mb-lg-0">
         <div class="row w-100 m-0">
-          <div class="position-relative input-div mx-1 mx-xl-0"> 
+          <div class="position-relative input-div mx-1 mx-xl-0">
             <a data-turbolinks="false" for="phone-deals" href="/sweet-mobile?type=0" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
               <i class="fas fa-mobile-alt mx-2"></i>Handset deals
             </a>
           </div>
-          <div class="position-relative input-div mx-1 mx-xl-0"> 
+          <div class="position-relative input-div mx-1 mx-xl-0">
             <a data-turbolinks="false" for="sim-deals" href="/sweet-mobile?type=1" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
               <i class="fas fa-sim-card mx-2"></i>SIM deals
             </a>
@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="col-md-3 text-center align-self-center">
-                <button data-toggle="modal" data-target="#stepform" type="button" class="font-weight-bold py-2 fs-md-12 btn btn-success px-4 btn-offers mb-2">GET OFFER <i class="fas fa-chevron-right text-white ml-2"></i></button>
+                <button data-toggle="modal" data-target="#stepform" data-deal-id="<%= data[:dealid] %>" data-price="<%= data[:monthly] %>" type="button" class="font-weight-bold py-2 fs-md-12 btn btn-success px-4 btn-offers mb-2 getoffer">GET OFFER <i class="fas fa-chevron-right text-white ml-2"></i></button>
                 <p class="m-0 small fs-12 d-flex flex-column align-items-center">Provided by : <%= image_tag("new-sims/sweet-logo1.png", class: "", width: "60" ) %>
                 </p>
               </div>
@@ -376,7 +376,7 @@
                         <i class="validate success fa fa-check-circle"></i>
                         <i class="validate error fa fa-times-circle"></i>
                       </div>
-                      <div class="form-group px-0 col-12 mx-auto">  
+                      <div class="form-group px-0 col-12 mx-auto">
                         <label class="d-flex justify-content-start font-weight-bold">
                           PAC
                         </label>

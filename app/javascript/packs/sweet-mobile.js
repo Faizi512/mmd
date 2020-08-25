@@ -3,6 +3,8 @@ import Common from "./common.js"
 class SweetMobile extends Common {
   constructor() {
     super();
+    this.dealNumber = null
+    this.price_monthly = null
     var CI = this;
     this.validate("#dealslistform")
     this.showToolTip()
@@ -25,9 +27,13 @@ class SweetMobile extends Common {
       }
     });
 
-
     $( "#btn-nextstep" ).click(() => {
       CI.nextStep(1)
+    });
+
+    $( ".getoffer" ).click(function() {
+      CI.dealNumber = this.dataset.dealId
+      CI.price_monthly = this.dataset.price
     });
 
     $( "#btn-backstep" ).click(function() {
@@ -68,7 +74,7 @@ class SweetMobile extends Common {
     var yearofb = $("#yearOfBirth :selected").val();
     var monthofb = $("#monthOfBirth :selected").val();
     var dateofbirth = dayofb+"/"+monthofb+"/"+yearofb
-    return {
+    var data = {
       Postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
       FirstName: this.getUrlParameter('firstname') || $(".first_name").val() || '',
       LastName: this.getUrlParameter('lastname') || $(".last_name").val() || '',
@@ -78,14 +84,17 @@ class SweetMobile extends Common {
       Town: this.getUrlParameter('towncity') || $(".towncity").val() || '',
       County: this.getUrlParameter('County') || '',
       NumberstoTransfer: this.getUrlParameter('NumberstoTransfer') ||  $(".NumberstoTransfer").val() || '',
-      pay_amount: this.getUrlParameter('pay_amount') || $(".pay_amount") || '',
+      pay_amount: this.getUrlParameter('pay_amount') ||this.price_monthly || '',
       subid: this.getUrlParameter('subid') || $(".subid").val() || '',
-      DealId: this.getUrlParameter('subid') || $(".dealid").val() || '',
+      DealId: this.dealNumber,
       Quantity: this.getUrlParameter('keyword') || $("#quantity :selected").val() || '',
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
-      DOB: this.getUrlParameter('dateofbirth') || dateofbirth || '',
+      DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
     };
+    debugger
+    window.location = `https://sweetmobile.co.uk/pay.php?subid=&FirstName=${data.FirstName}&Mobile=${data.Mobile}&LastName=${data.LastName}&pay_amount=${data.pay_amount}&Email=${data.Email}&DealId=${data.DealId}&Quantity=${data.Quantity}&NumberstoTransfer=${data.NumberstoTransfer}&PAC=${data.PAC}&DOB=${data.DOB}&Address1=${data.Address1}&Address2=${data.Address1}&Town=${data.Town}&County=${data.County}&Postcode=${data.Postcode}`
   }
+
 }
 export default new SweetMobile();
 
