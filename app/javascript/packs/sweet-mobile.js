@@ -101,7 +101,7 @@ class SweetMobile extends Common {
       if (CI.currentTab >= tabs.length) {
         var data = CI.getData();
         var params = Object.keys(data).map(key => key + '=' + data[key]).join('&');
-       window.location = '' + '?' +params;
+       window.location = 'https://sweetmobile.co.uk/pay.php?subid=' +params;
       }
       CI.showTab(CI.currentTab);
     })
@@ -112,7 +112,7 @@ class SweetMobile extends Common {
     var yearofb = $("#yearOfBirth :selected").val();
     var monthofb = $("#monthOfBirth :selected").val();
     var dateofbirth = dayofb+"/"+monthofb+"/"+yearofb
-    var data = {
+     return {
       Postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
       FirstName: this.getUrlParameter('firstname') || $(".first_name").val() || '',
       LastName: this.getUrlParameter('lastname') || $(".last_name").val() || '',
@@ -129,7 +129,6 @@ class SweetMobile extends Common {
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
       DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
     };
-    window.location = `https://sweetmobile.co.uk/pay.php?subid=&FirstName=${data.FirstName}&Mobile=${data.Mobile}&LastName=${data.LastName}&pay_amount=${data.pay_amount}&Email=${data.Email}&DealId=${data.DealId}&Quantity=${data.Quantity}&NumberstoTransfer=${data.NumberstoTransfer}&PAC=${data.PAC}&DOB=${data.DOB}&Address1=${data.Address1}&Address2=${data.Address1}&Town=${data.Town}&County=${data.County}&Postcode=${data.Postcode}`
   }
 
 }
