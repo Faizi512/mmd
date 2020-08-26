@@ -101,7 +101,8 @@ class SweetMobile extends Common {
       if (CI.currentTab >= tabs.length) {
         var data = CI.getData();
         var params = Object.keys(data).map(key => key + '=' + data[key]).join('&');
-       window.location = 'https://sweetmobile.co.uk/pay.php?subid=' +params;
+        debugger
+       window.location = 'https://sweetmobile.co.uk/pay.php?' +params;
       }
       CI.showTab(CI.currentTab);
     })
@@ -123,7 +124,7 @@ class SweetMobile extends Common {
       County: this.getUrlParameter('County') || '',
       NumberstoTransfer: this.getUrlParameter('NumberstoTransfer') ||  $(".NumberstoTransfer").val() || '',
       pay_amount: this.getUrlParameter('pay_amount') ||this.price_monthly || '',
-      subid: this.getUrlParameter('subid') || $(".subid").val() || '',
+      subid: this.getUrlParameter('source') ||  '',
       DealId: this.dealNumber,
       Quantity: this.getUrlParameter('keyword') || $("#quantity :selected").val() || '',
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
