@@ -1,23 +1,18 @@
 <%= javascript_pack_tag 'sweet-mobile', 'data-turbolinks-track': 'reload', defer: true %>
 
 <%= render 'layouts/sp-exit/header' %>
-<div class="bg-light pt-5" id="sweetmobile">
+<div class="bg-light pt-5 m-h" id="sweetmobile">
   <div class="container">
     <div class="row w-100 m-0">
       <div class="col-xl-3 px-lg-3 px-0 mb-3 mb-lg-0">
         <div class="row w-100 m-0">
           <div class="position-relative input-div mx-1 mx-xl-0">
-            <a data-turbolinks="false" for="phone-deals" href="/sweet-mobile?type=0" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
-              <i class="fas fa-mobile-alt mx-2"></i>Handset deals
-            </a>
-          </div>
-          <div class="position-relative input-div mx-1 mx-xl-0">
-            <a data-turbolinks="false" for="sim-deals" href="/sweet-mobile?type=1" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
+            <a data-turbolinks="false" href="/sweet-mobile" id="sim-deals" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-2">
               <i class="fas fa-sim-card mx-2"></i>SIM deals
             </a>
           </div>
         </div>
-      </div>
+      </div> 
       <div class="col-xl-9">
         <% @dealslist.each do |data| %>
           <div class="bg-white shadow-sm rounded-lg bold-border mb-3">
@@ -458,3 +453,6 @@
     </div>
   </div>
 </div>
+<div class="border-top"></div>
+<%= render 'layouts/common/footer' %>
+
