@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/fetch-redirect-url/:id' => 'lead#fetch_redirect_url'
 
   root 'pages#index'
+  get '/exclusive_o2_deals_load' => 'pages#exclusive_o2_deals_load'
   get '/exclusive_ee_deals' => 'pages#exclusive_ee_deals'
   get '/exclusive_o2_deals' => 'pages#exclusive_o2_deals'
   get '/sweet-mobile' => 'pages#sweet_mobile'
