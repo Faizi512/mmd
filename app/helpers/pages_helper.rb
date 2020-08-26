@@ -544,6 +544,22 @@ module PagesHelper
     }.to_json
   end
 
+  def sweet_mobiles
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: '/sweet-mobile?',
+      bad_success_url: '',
+      form_name: 'sweet-mobile',
+      optin_url: '/sweet-mobile',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def exclusive_o2_load
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
