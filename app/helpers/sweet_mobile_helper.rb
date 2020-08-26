@@ -72,18 +72,6 @@ module SweetMobileHelper
           type: 0,
           dealid: 23,
           toptext: "EU Roaming included"
-        },
-        {
-          title: "Alcatel 1B",
-          data: "2GB",
-          image: "new-sims/alcatel.png",
-          calls: "Unlimited",
-          texts: "Unlimited",
-          monthly: "47",
-          contract: "12",
-          type: 1,
-          dealid: 23,
-          toptext: "£20 for airtime plus 3 payments of £27 phone finance"
         }
       ]
   end
