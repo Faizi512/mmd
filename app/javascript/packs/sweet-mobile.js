@@ -65,10 +65,6 @@ class SweetMobile extends Common {
       CI.nextStep(1)
     });
 
-    $( "#phone-deals" ).click(() => {
-      
-    });
-
     $( ".getoffer" ).click(function() {
       CI.dealNumber = this.dataset.dealId
       CI.price_monthly = this.dataset.price
@@ -101,7 +97,6 @@ class SweetMobile extends Common {
       if (CI.currentTab >= tabs.length) {
         var data = CI.getData();
         var params = Object.keys(data).map(key => key + '=' + data[key]).join('&');
-        debugger
        window.location = 'https://sweetmobile.co.uk/pay.php?' +params;
       }
       CI.showTab(CI.currentTab);
@@ -124,7 +119,7 @@ class SweetMobile extends Common {
       County: this.getUrlParameter('County') || '',
       NumberstoTransfer: this.getUrlParameter('NumberstoTransfer') ||  $(".NumberstoTransfer").val() || '',
       pay_amount: this.getUrlParameter('pay_amount') ||this.price_monthly || '',
-      subid: this.getUrlParameter('source') ||  '',
+      subid: this.getUrlParameter('source') ||  1,
       DealId: this.dealNumber,
       Quantity: this.getUrlParameter('keyword') || $("#quantity :selected").val() || '',
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
