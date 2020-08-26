@@ -65,6 +65,10 @@ class SweetMobile extends Common {
       CI.nextStep(1)
     });
 
+    $( "#phone-deals" ).click(() => {
+      
+    });
+
     $( ".getoffer" ).click(function() {
       CI.dealNumber = this.dataset.dealId
       CI.price_monthly = this.dataset.price
@@ -125,7 +129,6 @@ class SweetMobile extends Common {
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
       DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
     };
-    debugger
     window.location = `https://sweetmobile.co.uk/pay.php?subid=&FirstName=${data.FirstName}&Mobile=${data.Mobile}&LastName=${data.LastName}&pay_amount=${data.pay_amount}&Email=${data.Email}&DealId=${data.DealId}&Quantity=${data.Quantity}&NumberstoTransfer=${data.NumberstoTransfer}&PAC=${data.PAC}&DOB=${data.DOB}&Address1=${data.Address1}&Address2=${data.Address1}&Town=${data.Town}&County=${data.County}&Postcode=${data.Postcode}`
   }
 

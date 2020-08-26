@@ -1,26 +1,27 @@
 <%= javascript_pack_tag 'sweet-mobile', 'data-turbolinks-track': 'reload', defer: true %>
 
 <%= render 'layouts/sp-exit/header' %>
-<div class="bg-light pt-5" id="sweetmobile">
+<div class="bg-light pt-5 m-h" id="sweetmobile">
   <div class="container">
     <div class="row w-100 m-0">
       <div class="col-xl-3 px-lg-3 px-0 mb-3 mb-lg-0">
         <div class="row w-100 m-0">
           <div class="position-relative input-div mx-1 mx-xl-0">
-            <a data-turbolinks="false" for="phone-deals" href="/sweet-mobile?type=0" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
+            <a data-turbolinks="false" href="/sweet-mobile?type=1" id="phone-deals" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
               <i class="fas fa-mobile-alt mx-2"></i>Handset deals
             </a>
           </div>
           <div class="position-relative input-div mx-1 mx-xl-0">
-            <a data-turbolinks="false" for="sim-deals" href="/sweet-mobile?type=1" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
+            <a data-turbolinks="false" href="/sweet-mobile?type=0" id="sim-deals" class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
               <i class="fas fa-sim-card mx-2"></i>SIM deals
             </a>
           </div>
         </div>
-      </div>
+      </div> 
       <div class="col-xl-9">
         <% @dealslist.each do |data| %>
-          <div class="bg-white shadow-sm rounded-lg bold-border mb-3">
+          <% if params[:type].nil? %>
+            <div class="bg-white shadow-sm rounded-lg bold-border mb-3">
             <div class="row align-items-center w-100 m-0 px-md-5 pl-2 py-3">
               <%= image_tag("company/02.png", class: "mr-2", width: "25" ) %>
               <h5 class="m-0 font-weight-bold"><%= data[:title] %></h5>
@@ -60,7 +61,50 @@
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          <% elsif data[:type] == params[:type].to_i %>
+            <div class="bg-white shadow-sm rounded-lg bold-border mb-3">
+              <div class="row align-items-center w-100 m-0 px-md-5 pl-2 py-3">
+                <%= image_tag("company/02.png", class: "mr-2", width: "25" ) %>
+                <h5 class="m-0 font-weight-bold"><%= data[:title] %></h5>
+              </div>
+              <div class="row w-100 m-0 pb-3">
+                <div class="col-md-3 text-center align-self-center">
+                  <%= image_tag(data[:image], class: "", width: "80" ) %>
+                </div>
+                <div class="col-md-6 px-1 text-md-left text-center mt-md-0 mt-2">
+                  <h6 class="m-0"> <span class="font-weight-bold"><%= data[:contract] %></span> month contract</h6>
+                  <p class="mb-1"><%= data[:toptext] %></p>
+                  <div class="row w-100 m-0">
+                    <div class="col-md-3 col-6 text-center align-self-center mb-2">
+                      <i class="fas fa-globe text-success"></i>
+                      <p class="mb-0 fs-md-12"><%= data[:data] %></p>
+                      <p class="m-0 fs-md-11">Data</p>
+                    </div>
+                    <div class="col-md-3 col-6 text-center align-self-center mb-2">
+                      <i class="fas fa-sms text-success"></i>
+                      <p class="mb-0 fs-md-12"><%= data[:texts] %></p>
+                      <p class="m-0 fs-md-11">Texts</p>
+                    </div>
+                    <div class="col-md-3 col-6 text-center align-self-center mb-2">
+                      <i class="fas fa-phone-alt text-success"></i>
+                      <p class="mb-0 fs-md-12"><%= data[:calls] %></p>
+                      <p class="m-0 fs-md-11">Minutes</p>
+                    </div>
+                    <div class="col-md-3 col-6 text-center align-self-center px-0">
+                      <h5 class="m-0 text-success  fw-400"><span class="font-weight-bold">
+                        <%= data[:monthly] %></span> p/m</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 text-center align-self-center">
+                  <button data-toggle="modal" data-target="#stepform" data-deal-id="<%= data[:dealid] %>" data-price="<%= data[:monthly] %>" type="button" class="font-weight-bold py-2 fs-md-12 btn btn-success px-4 btn-offers mb-2 getoffer">GET OFFER <i class="fas fa-chevron-right text-white ml-2"></i></button>
+                  <p class="m-0 small fs-12 d-flex flex-column align-items-center">Provided by : <%= image_tag("new-sims/sweet-logo1.png", class: "", width: "60" ) %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -458,3 +502,6 @@
     </div>
   </div>
 </div>
+<div class="border-top"></div>
+<%= render 'layouts/common/footer' %>
+

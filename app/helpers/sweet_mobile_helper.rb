@@ -9,6 +9,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "31",
           contract: "12",
+          type: 0,
           dealid: 22,
           toptext: "EU Roaming included"
         },
@@ -20,6 +21,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "19",
           contract: "12",
+          type: 0,
           dealid: 24,
           toptext: "Great UK coverage using O2"
         },
@@ -31,6 +33,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "20",
           contract: "12",
+          type: 0,
           dealid: 46,
           toptext: "Great UK coverage using O2"
         },
@@ -42,6 +45,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "23",
           contract: "12",
+          type: 0,
           dealid: 14,
           toptext: "Great UK coverage using O2"
         },
@@ -53,6 +57,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "26",
           contract: "12",
+          type: 0,
           dealid: 23,
           toptext: "Great UK coverage using O2"
         },
@@ -64,6 +69,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "32",
           contract: "12",
+          type: 0,
           dealid: 23,
           toptext: "EU Roaming included"
         },
@@ -75,6 +81,7 @@ module SweetMobileHelper
           texts: "Unlimited",
           monthly: "47",
           contract: "12",
+          type: 1,
           dealid: 23,
           toptext: "£20 for airtime plus 3 payments of £27 phone finance"
         }
