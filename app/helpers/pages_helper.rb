@@ -544,6 +544,22 @@ module PagesHelper
     }.to_json
   end
 
+  def exclusive_o2_load
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: '/o2-success',
+      bad_success_url: '/o2-success',
+      form_name: 'exclusive_o2_deals_load',
+      optin_url: '/exclusive_o2_deals_load',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def e_deals_voxi
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
