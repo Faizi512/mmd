@@ -40,6 +40,7 @@ class PagesController < ApplicationController
     @products = @products.where(product_type: params[:type]) if params[:type].present? 
   end
   def sweet_mobile
+    sweet_mobiles
     sweet_deals_data
   end
 
