@@ -20,7 +20,6 @@ class SweetMobile extends Common {
       $('.county').val($(this).find("option:selected").data("province"))
     });
 
-
     $(".numbertt").change(function() {
       if ($("#numbertt :selected").val() == "yes") {
         var html = `<div class="form-group px-0 col-12 mx-auto">
@@ -84,14 +83,6 @@ class SweetMobile extends Common {
       $('.custom-progress-bar').find("li").eq(num - 1).removeClass("is-active")
       $('.custom-progress-bar').find("li").eq(0 - 1).removeClass("is-complete")
     }
-  }
-  showTab(n=0) {
-    var tabs = $(".tab");
-    if (!tabs[n]) return;
-    tabs[n].style.display = "block";
-    this.fixStepIndicator(n)
-    $(".btn-success").removeClass("in-progress")
-    $(".postcode").focus();
   }
   nextStep(n) {
     var CI = this;
