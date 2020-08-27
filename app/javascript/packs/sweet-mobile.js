@@ -10,7 +10,6 @@ class SweetMobile extends Common {
     this.showToolTip()
     this.fillform()
     this.showTab(this.currentTab)
-
     $( ".property" ).change(function() {
       var tabs = $(".tab");
       tabs[CI.currentTab].style.display = "none";
@@ -85,7 +84,6 @@ class SweetMobile extends Common {
       $('.custom-progress-bar').find("li").eq(0 - 1).removeClass("is-complete")
     }
   }
-
   nextStep(n) {
     var CI = this;
     $('#dealslistform').parsley().whenValidate({
