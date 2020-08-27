@@ -119,7 +119,7 @@ class SweetMobile extends Common {
       pay_amount: this.getUrlParameter('pay_amount') ||this.price_monthly || '',
       subid: this.getUrlParameter('source') ||  1,
       DealId: this.dealNumber,
-      Quantity: this.getUrlParameter('keyword') || $("#quantity :selected").val() || '',
+      Quantity: 1,
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
       DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
     };
