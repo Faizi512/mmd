@@ -10,7 +10,6 @@ class SweetMobile extends Common {
     this.showToolTip()
     this.fillform()
     this.showTab(this.currentTab)
-
     $( ".property" ).change(function() {
       var tabs = $(".tab");
       tabs[CI.currentTab].style.display = "none";
@@ -20,6 +19,7 @@ class SweetMobile extends Common {
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
     });
+
 
     $(".numbertt").change(function() {
       if ($("#numbertt :selected").val() == "yes") {
@@ -85,7 +85,14 @@ class SweetMobile extends Common {
       $('.custom-progress-bar').find("li").eq(0 - 1).removeClass("is-complete")
     }
   }
-
+  showTab(n=0) {
+    var tabs = $(".tab");
+    if (!tabs[n]) return;
+    tabs[n].style.display = "block";
+    this.fixStepIndicator(n)
+    $(".btn-success").removeClass("in-progress")
+    $(".postcode").focus();
+  }
   nextStep(n) {
     var CI = this;
     $('#dealslistform').parsley().whenValidate({
