@@ -84,7 +84,7 @@ class LeadController < ApplicationController
       when "Exit 10 (E 2 Save)"
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=exit&ued=https%3A%2F%2Fwww.e2save.com%2F"
       when "Exit Sweet-Mobile"
-        @redirect_url = "https://sweetmobile.co.uk/pay.php?"
+        @redirect_url = "/sweet-mobile?check=1"
       else
         @redirect_url = "https://mtrk5.co.uk/?a=14118&c=33110"
       end
