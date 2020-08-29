@@ -547,7 +547,7 @@ module PagesHelper
   def sweet_mobiles
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: '/sweet-mobile?',
+      success_url: 'https://sweetmobile.co.uk/pay.php',
       bad_success_url: '',
       form_name: 'sweet-mobile',
       optin_url: '/sweet-mobile',
