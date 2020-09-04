@@ -432,21 +432,30 @@ class Common {
     })
   }
 
-  submitLead(data, campid){
+  submitLead(formData, campid){
     var CI = this
     $.ajax({
       type: "POST",
       url: "/mmd-lead?campid=" + campid,
-      data: data,
+      data: formData,
       success: function(data) {
         console.log(data)
         if(data.response.code == 1){
           dataLayer.push({'transactionId': data.response.leadId, "transactionTotal": 3})
+          CI.submitCustomerIo(formData, data.response.leadId)
         }
         CI.firePixel()
       },
       dataType: "json"
     })
+  }
+
+  submitCustomerIo(formData, leadId){
+     try {
+      _cio.identify($.extend(formData, {id: leadId}))
+      _cio.track("leadSold");
+    }
+    catch (e) {}
   }
 
   sendMmdExitLead(){
