@@ -150,7 +150,7 @@ class Home extends Common {
       track = AnyTrack('formSubmit') || "";
     }
     catch (e) {}
-    
+
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
