@@ -85,6 +85,10 @@ class LeadController < ApplicationController
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=exit&ued=https%3A%2F%2Fwww.e2save.com%2F"
       when "Exit Sweet-Mobile"
         @redirect_url = "https://dl.reliatrk.com/?a=2&c=4"
+      when "Exit e2save - cashback deals"
+        @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=EXIT+chasback+deals&ued=https%3A%2F%2Fwww.e2save.com%2Fcontract%2Fcashback-deals"
+      when "Exit e2save - pay monthly contract deals"
+        @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=EXIT+pay+monthly+contract+deals&ued=https%3A%2F%2Fwww.e2save.com%2Fcontract"
       else
         @redirect_url = "https://mtrk5.co.uk/?a=14118&c=33110"
       end
