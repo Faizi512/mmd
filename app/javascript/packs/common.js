@@ -452,7 +452,8 @@ class Common {
 
   submitCustomerIo(formData, leadId){
      try {
-      _cio.identify($.extend(formData, {id: leadId}))
+      const timestamp = Math.round(new Date() / 1000)
+      _cio.identify($.extend(formData, {id: leadId, lead_date: timestamp, created_at: timestamp}))
       _cio.track("leadSold");
     }
     catch (e) {}
