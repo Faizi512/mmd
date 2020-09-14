@@ -483,7 +483,7 @@ class Common {
         },
         error: function(s){
           setTimeout(function(){
-            CI.redirectUrl =  "https://mtrk5.co.uk/?a=14118&c=33110"
+            CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
           }, 2000);
         },
         dataType: "json"
@@ -521,7 +521,7 @@ class Common {
         CI.fetchRedirectUrl(lead_id)
       }, 2000);
     }else{
-      this.redirectUrl =  "https://mtrk5.co.uk/?a=14118&c=33110"
+      this.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
     }
   }
   additionalParams(){
