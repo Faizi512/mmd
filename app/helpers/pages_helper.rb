@@ -21,8 +21,8 @@ module PagesHelper
   def compare_phones
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Compare-Phones',
       optin_url: '/compare-phones',
       sid: nil,
@@ -37,8 +37,8 @@ module PagesHelper
   def new_mmd
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'MEGA-MOBILE-DEALS',
       optin_url: '/new-mmd',
       sid: nil,
@@ -53,8 +53,8 @@ module PagesHelper
   def mmd_post
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'mmd-post',
       optin_url: '/mmd-post',
       sid: nil,
@@ -69,8 +69,8 @@ module PagesHelper
   def mmd_loans_2
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'mmd_loans_2',
       optin_url: '/mmd_loans_2',
       sid: nil,
@@ -85,8 +85,8 @@ module PagesHelper
   def mmd_success
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'mmd-success',
       optin_url: '/mmd-success',
       sid: nil,
@@ -101,8 +101,8 @@ module PagesHelper
   def returning_loans
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'returning-loans',
       optin_url: '/returning-loans',
       sid: nil,
@@ -117,8 +117,8 @@ module PagesHelper
   def sims_returning
     @details = {
       camp_id: 'SIM',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Sims-Returning',
       optin_url: '/sims_returning',
       sid: nil,
@@ -149,8 +149,8 @@ module PagesHelper
   def latest_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Latest-Deals',
       optin_url: '/latest-deals',
       sid: 2,
@@ -165,8 +165,8 @@ module PagesHelper
   def returning
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'returning',
       optin_url: '/returning',
       sid: nil,
@@ -181,8 +181,8 @@ module PagesHelper
   def sim_deals
     @details = {
       camp_id: 'SIM',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Sim-Deals',
       optin_url: '/sim-deals',
       sid: 1,
@@ -197,8 +197,8 @@ module PagesHelper
   def fb_phone_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'fb-phone-deals',
       optin_url: '/fb-phone-deals',
       sid: 157,
@@ -213,8 +213,8 @@ module PagesHelper
   def social_phone_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'social-phone-deals',
       optin_url: '/social-phone-deals',
       sid: 157,
@@ -229,8 +229,8 @@ module PagesHelper
   def mega_phone_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'mega-phone-deals',
       optin_url: '/mega-phone-deals',
       sid: 15643,
@@ -260,8 +260,8 @@ module PagesHelper
   def youtube_success
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'youtube-success',
       optin_url: '/youtube-success',
       sid: nil,
@@ -276,8 +276,8 @@ module PagesHelper
   def step_form
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Mega-Mobile-Deals',
       optin_url: '',
       sid: nil,
@@ -292,8 +292,8 @@ module PagesHelper
   def step_form_sim_deal_only
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Mega-Mobile-Deals',
       optin_url: '',
       sid: nil,
@@ -308,8 +308,8 @@ module PagesHelper
   def sim_deal_only
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'sim-deal-only',
       optin_url: '/sim-deal-only',
       sid: nil,
@@ -324,8 +324,8 @@ module PagesHelper
   def exclusive_sim_deal
      @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'exclusive_sim_deal',
       optin_url: '/exclusive-sim-deal',
       sid: nil,
@@ -340,8 +340,8 @@ module PagesHelper
   def exclusive_top_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'exclusive-top-deals',
       optin_url: '/exclusive-top-deals',
       sid: nil,
@@ -356,8 +356,8 @@ module PagesHelper
   def credit_report
     @details = {
       camp_id: 'GUY-CREDIT-REPORT',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Credit-Report',
       optin_url: '/credit-report',
       sid: 1,
@@ -373,7 +373,7 @@ module PagesHelper
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://bill-switchers.com/sp-exit?exit=1',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'e_deals',
       optin_url: '/e_deals',
       sid: 1,
@@ -419,8 +419,8 @@ module PagesHelper
   def handsets
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'handset',
       optin_url: '/handset',
       sid: 1,
@@ -435,8 +435,8 @@ module PagesHelper
   def rmktg_awin
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'rmktg-awin',
       optin_url: '/rmktg-awin',
       sid: 1,
@@ -451,8 +451,8 @@ module PagesHelper
   def rmktg_awin2
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'rmktg-awin2',
       optin_url: '/rmktg-awin2',
       sid: 1,
@@ -467,8 +467,8 @@ module PagesHelper
   def rmktg_sweet
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'rmktg-sweet',
       optin_url: '/rmktg-sweet',
       sid: 1,
@@ -500,7 +500,7 @@ module PagesHelper
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://bill-switchers.com/sp-exit?exit=1',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Lotto',
       optin_url: '/lotto',
       sid: nil,
@@ -611,8 +611,8 @@ module PagesHelper
   def home
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'Mega-Mobile-Deals',
       optin_url: '',
       sid: nil,

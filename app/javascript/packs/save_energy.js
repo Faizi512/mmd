@@ -53,7 +53,7 @@ class SaveEnergy extends Common {
       url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=ENERGY",
       data: data,
       success: function(res) {
-        var url = "http://mtrk5.co.uk/?a=14118&c=36909&s1=bbexit&s5="+ CI.getUrlParameter('postcode')
+        var url = "http://mtrk11.co.uk/?a=14118&c=36909&s1=bbexit&s5="+ CI.getUrlParameter('postcode')
         window.location = url;
       },
       error: function(res) {

@@ -78,7 +78,7 @@ class FormValidationController < ApplicationController
           end
         end
         if params[:free_credit].present? && params[:casino].present?
-          set_header "https://mtrk5.co.uk/?a=14118&c=33110#{additionalParamsFoBC}"
+          set_header "https://mtrk11.co.uk/?a=14118&c=33110#{additionalParamsFoBC}"
         end
       end
       render :valid_data, status: @status
