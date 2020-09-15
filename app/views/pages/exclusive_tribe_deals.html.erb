@@ -1,0 +1,140 @@
+<%= javascript_pack_tag 'exclusive_tribe_deals', 'data-turbolinks-track': 'reload', defer: true %>
+  <form id="tribedealform" data-details="<%= @details %>">
+    <div class="bg-white">
+      <header class="container row w-100 m-auto align-items-center justify-content-center py-3">
+        <%= image_tag("logo.png", class: "head-logo" ) %>
+      </header>
+    </div>
+    <div class="bg-dark text-center py-4 py-md-5">
+      <%= image_tag("compare/tribe-banner.png", class: "img-fluid px-2") %>
+    </div>
+    <div class="bg-white">
+      <div class="mx-md-5 mx-2">
+        <div class="row align-items-start m-0 w-100 py-4">
+          <div class="col-xl-3 mb-4 mb-xl-0">
+            <div class="bg-light p-3 rounded">
+              <div class="row m-0 justify-content-center w-100">
+                <div class="position-relative input-div mx-1 mx-xl-0">
+                  <a data-turbolinks="false" for="sim-deals" href="/exclusive_tribe_deals?type=1"class="input-radio py-2 px-md-3 mx-auto cursor-p">
+                  <i class="fas fa-sim-card mr-2"></i></i>SIM deals
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-xl-9">
+            <% if @products.length == 0 %>
+                <h5 class="text-center">No Product Found!</h5>
+            <% else %>
+              <% @products.each do |product| %>
+                <div class=" row w-100 m-0 bg-light rounded shadow mb-4 p-3">
+                    <div class=" row w-100 justify-content-md-start justify-content-center align-items-center m-0 px-md-4 px-lg-3 pb-2">
+                      <h5 class="product-head m-0 text-md-left font-weight-bold"><%= product[:title] %></h5>
+                    </div>
+                    <div class="col-lg-2 col-md-3 text-md-right text-center pb-ms-2 align-self-center">
+                        <%= image_tag(product[:img], class: "", width: "80" ) %>
+                        <%= image_tag("compare/tribe-black.png", class: "", width: "30" ) %>
+                    </div>
+                    <ul class="m-0 py-md-0 py-3 col-md-3 list-unstyled">
+                      <li class="d-flex align-items-start">
+                        <p class="fs-md-15 m-0 mx-2"><strong class="text-green">£<%= product[:monthly_cost] %></strong> Monthly</p>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="mt-1 mx-2 fas fa-check-square"></i>
+                        <p class="fs-md-15 mb-0">Free Delivery</p>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <i class="mt-1 mx-2 fas fa-check-square"></i>
+                        <p class="fs-md-15 my-0">12 Months Contract</p>
+                      </li>
+                      <% if product[:free_gift].present? %>
+                        <li class="d-flex align-items-start">
+                          <i class="fas fa-check-square text-jam mx-2 mt-1"></i>
+                          <p class="m-0 fs-md-13"><%= product[:free_gift] %></p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  <div class="row col-lg-5 col-md-3 px-0  m-0">
+                    <div class="col-md-12 px-1 text-md-left text-center mt-md-0 mt-2">
+                      <div class="row w-100 m-0">
+                        <div class="col-lg-4 col-md-12 col-4 text-center align-self-center px-md-3 px-1 mb-2 mb-md-0 mb-lg-2">
+                          <div class="pb-2" >
+                            <% if product[:data] == 0 %>
+                              <div class="progress">
+                                  <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="100"  aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 pt-2 m-0"> <strong class="data text-green">Unlimited</strong></p>
+                              <p class="fs-md-13 m-0">Data</p>
+                            <% else %>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar"  aria-valuenow="100" style="width:<%= product[:data] %>%" aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 pt-2 m-0"> <strong class="data text-green"><%= product[:data] %> GB</strong></p>
+                              <p class="fs-md-13 m-0">Data</p>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-4 text-center align-self-center px-md-3 px-1 mb-2 mb-md-0 mb-lg-2">
+                          <div class="pb-2">
+                            <% if product[:text] == 0 %>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar"  aria-valuenow="100"  aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 pt-2 m-0"> <strong class="data text-green">Unlimited</strong></p>
+                              <p class="fs-md-13 m-0">Texts</p>
+                            <% else %>
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar"  aria-valuenow="100" style="width:<%= product[:text] %>%" aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 m-0"> <strong class="data text-green"><%= product[:text] %></strong></p>
+                              <p class="fs-md-13 m-0">Texts</p>
+                            <% end %>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-4 text-center align-self-center px-md-3 px-1 mb-2 mb-md-0 mb-lg-2">
+                          <div class="pb-2">
+                            <% if product[:calls] == 0 %>
+                              <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 pt-2 m-0"> <strong class="calls text-green">Unlimited</strong></p>
+                              <p class="fs-md-13 m-0">Call</p>
+                            <% else %>
+                              <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width:<%= product[:calls] %>"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <p class="fs-md-13 fs-md-15 pt-2 m-0"> <strong class="calls text-green"><%= product[:calls] %></strong> Call</p>
+                              <p class="fs-md-13 m-0">Call</p>
+
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 text-center align-self-center px-0">
+                    <% if product[:data_roaming].present? %>
+                      <div>
+                        <h6 class="text-jam font-weight-bold mb-2 mb-md-3">Roaming : <span class="text-green"> <%= product[:data_roaming] %></span>
+                        </h6>
+                      </div>
+                    <% end %>
+                    <% if product[:product_type] == 0 %>
+                      <h5 class="mt-0 text-jam fw-400"><span class="font-weight-bold">
+                      <%= product[:upfront] %></span> Upfornt</h5>
+                    <% end %>
+                    <div class="pt-2 pb-3  text-center align-self-center">
+                      <input type="hidden" name="device" id="device" value="<%= product[:title] %>">
+                      <button type="button" class="btn btn-deal text-white font-weight-bold px-md-0 px-5 w-md-100">Get Offer</button>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+<%= render 'layouts/common/footer' %>

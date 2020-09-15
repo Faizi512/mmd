@@ -1,0 +1,123 @@
+
+#tribedealform{
+  $base-color: #f4d419;
+
+  .font-cabin{
+    font-family: 'Cabin Sketch', cursive !important;
+  }
+  .head-logo{
+    width: 180px;
+  }
+  .background-header{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 340px;
+    background: linear-gradient(45deg,#595959,#000 40%);
+  }
+  .text-jam{
+    color: $base-color;
+  }
+  .product-head, .fa-check-square{
+    color: $base-color;
+  }
+
+
+  .progress{
+    height: 5px;
+  }
+  .progress-bar{
+    width: 100%;
+  }
+  .input-radio{
+    background-color: white;
+    width: 100%;
+    border: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px !important;
+    text-decoration: none;
+    color: black;
+  }
+  .input-radio:hover{
+    color: white;
+    background-color: $base-color;
+    border: 1px solid $base-color;
+    text-decoration: none;
+  }
+  .input-radio:checked ~ .input-radio{
+    color: white;
+    background-color: $base-color;
+  }
+  .input-tag-radio{
+    opacity: 0;
+    width: 100%;
+    height: 55px;
+  }
+  input:hover ~ .input-radio{
+    border: 1px solid $base-color;
+    color: white;
+    background-color: $base-color;
+  }
+  input:hover ~ .input-radio:after{
+    border: 1px solid $base-color;
+  }
+  .input-div{
+    width: 100%;
+  }
+  .cursor-p{
+    cursor: pointer;
+  }
+  .bg-light-jam{
+    background-color: #fcf7ff;
+  }
+  .btn-deal {
+    background: linear-gradient(to right, #f4d431, #1b2025);
+    font-size: 20px !important;
+    border-radius: 50px !important;
+    border: none;
+}
+  .btn-deal:hover{
+    background: linear-gradient(to left, #f4d431, #1b2025);
+  }
+  .text-green{
+    color: $base-color;
+  }
+   @media screen and (min-width: 768px) {
+    .w-md-100{
+      width: 100% !important;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .input-div{
+      width: 50%;
+    }
+    .background-header{
+      background-size: contain;
+      background-position: center top;
+      height: 192px;
+    }
+  }
+  @media only screen and (max-width: 520px) {
+    .background-header{
+      background: asset-url('compare/mobile-banner.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 337px;
+    }
+    .input-div{
+      width: 100%;
+    }
+    .fs-md-13{
+      font-size: 13px;
+    }
+    .fs-md-15{
+      font-size: 15px;
+    }
+    .input-radio{
+      justify-content: center;
+    }
+  }
+}
