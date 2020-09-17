@@ -30,6 +30,11 @@ class PagesController < ApplicationController
     fetch_products('ee')
   end
 
+  def exclusive_tribe_deals
+    exclusive_tribe_deal
+    fetch_products('tribe')
+  end
+
   def exclusive_o2_deals_load
     exclusive_o2_load
     fetch_products('o2')
@@ -37,7 +42,7 @@ class PagesController < ApplicationController
 
   def fetch_products(company)
     @products = Product.where(retailer: company).order(:product_type)
-    @products = @products.where(product_type: params[:type]) if params[:type].present? 
+    @products = @products.where(product_type: params[:type]) if params[:type].present?
   end
   def sweet_mobile
     sweet_mobiles

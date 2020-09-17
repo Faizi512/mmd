@@ -544,6 +544,23 @@ module PagesHelper
     }.to_json
   end
 
+
+  def exclusive_tribe_deal
+    @details = {
+      camp_id: 'BREEZE-MOBILE',
+      success_url: '/tribe-success',
+      bad_success_url: '/tribe-success',
+      form_name: 'exclusive_tribe_deals',
+      optin_url: '/exclusive_tribe_deals',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def sweet_mobiles
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
