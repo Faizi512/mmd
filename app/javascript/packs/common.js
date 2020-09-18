@@ -373,6 +373,7 @@ class Common {
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
+      matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       prize: this.getUrlParameter('prize') || 35,
       apidown: this.apiDown,

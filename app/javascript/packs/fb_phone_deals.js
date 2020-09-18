@@ -181,6 +181,7 @@ class FbPhoneDeals extends Common {
       prize: this.getUrlParameter('prize') || 35,
       apidown: this.apiDown,
       anytrack: track,
+      matchtype: this.getUrlParameter('matchtype') || "",
       utm_source: this.getUrlParameter('utm_source'),
       tps_result: this.tps_result,
       timestamp: new Date,

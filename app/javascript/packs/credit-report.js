@@ -107,6 +107,7 @@ class CreditReport extends Common {
       optinurl: 'http://deals.megamobiledeals.com/credit-report',
       ipaddress: this.ip_Address,
       timestamp: new Date,
+      matchtype: this.getUrlParameter('matchtype') || "",
       user_agent: window.navigator.userAgent,
     }
   }

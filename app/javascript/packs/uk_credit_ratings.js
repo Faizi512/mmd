@@ -132,6 +132,7 @@ class UkCreditRatings extends Common {
       dob: this.getUrlParameter('dob') || dateofbirth,
       keyword: this.getUrlParameter('keyword') || '',
       prize: this.getUrlParameter('prize')|| '2',
+      matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid')|| 'megamobiledeals/uk-credit-ratings',
       c1: this.getUrlParameter('transid')|| this.getUrlParameter('c1') || 'unknown',
       optindate: this.getFormattedCurrentDate(),

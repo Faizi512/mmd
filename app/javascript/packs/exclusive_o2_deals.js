@@ -41,6 +41,7 @@ class ExclusiveO2Deals extends Common {
       keyword: this.getUrlParameter('keyword') || '',
       bad_credit_customer: (customer_type) ? "yes" : "no",
       campaignkey: 'E9F2N6A3R5',
+      matchtype: this.getUrlParameter('matchtype') || "",
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       ipaddress: this.ip_Address,

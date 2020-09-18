@@ -121,6 +121,7 @@ class SweetMobile extends Common {
       source: 'SMB',
       DealId: this.dealNumber,
       Quantity: 1,
+      matchtype: this.getUrlParameter('matchtype') || "",
       ClickId: this.getUrlParameter('c2') || '',
       PAC: this.getUrlParameter('pac') || $(".pac").val() || '',
       DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
