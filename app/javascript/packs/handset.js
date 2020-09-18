@@ -211,6 +211,7 @@ class Handset extends Common {
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       prize: this.getUrlParameter('prize') || 35,
       timestamp: new Date,
+      matchtype: this.getUrlParameter('matchtype') || "",
       tps_result: this.tps_result,
       apidown: this.apiDown,
       user_agent: window.navigator.userAgent,

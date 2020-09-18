@@ -28,6 +28,7 @@ class ExclusiveO2Load extends Common {
       ssid: this.getUrlParameter('ssid') || this.details.ssid ||1,
       ad_set:this.getUrlParameter('ad_set') || 1,
       source: this.source || this.getSource() || '',
+      matchtype: this.getUrlParameter('matchtype') || "",
       c1: this.getUrlParameter('c1') || this.getUrlParameter('bstransid') || this.getUrlParameter('transid') || '',
       adgroupid: this.getUrlParameter('adgroupid') || '',
       campaign: this.getUrlParameter('campaign') || '',
