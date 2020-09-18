@@ -46,17 +46,6 @@ module SweetMobileHelper
           toptext: "Great UK coverage using O2"
         },
         {
-          title: "10GB Sim Only Deal",
-          data: "10GB",
-          image: "new-sims/10gb.png",
-          calls: "Unlimited",
-          texts: "Unlimited",
-          monthly: "31",
-          contract: "12",
-          dealid: 22,
-          toptext: "Great UK coverage using O2"
-        },
-        {
           title: "Unlimited Sim Only Deal",
           data: "Unlimited",
           image: "new-sims/2gb.png",
