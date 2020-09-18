@@ -127,7 +127,6 @@ class SweetMobile extends Common {
       DOB: this.getUrlParameter('dateofbirth') || dateofbirth || ''
     };
   }
-
 }
 export default new SweetMobile();
 

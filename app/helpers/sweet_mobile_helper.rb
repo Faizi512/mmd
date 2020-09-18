@@ -51,9 +51,9 @@ module SweetMobileHelper
           image: "new-sims/10gb.png",
           calls: "Unlimited",
           texts: "Unlimited",
-          monthly: "26",
+          monthly: "31",
           contract: "12",
-          dealid: 23,
+          dealid: 22,
           toptext: "Great UK coverage using O2"
         },
         {
