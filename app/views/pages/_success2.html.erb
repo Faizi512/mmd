@@ -1,0 +1,20 @@
+<%= javascript_pack_tag 'common', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div class="bg-light border-bottom py-3 py-md-5">
+  <div class="text-center">
+    <%= image_tag("thumb-up.png", class: "", width: "120") %>
+  </div>
+  <div class="container">
+    <div class="row w-100 mx-0">
+      <div class="col-md-9 mx-auto text-center">
+        <div class="">
+          <h1 class="fs-md-36 text-success fs-60">Thank You !</h1>
+          <h5 class="fs-md-17 text-dark">Someone will contact your from xxx xxxx xxx shortly with an exclusive O2 offer.</h5>
+          <h4 class="text-center font-weight-bold ">Which Includes <span class="small">(6 months free Disney Plus)</span></h4>
+          <%= image_tag("disney.gif", class: "rounded-circle pt-3 disney-gif", width: "550") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/common/footer' %>

@@ -437,13 +437,17 @@ class Common {
     var CI = this
     $.ajax({
       type: "POST",
-      url: "/mmd-lead?campid=" + campid,
+      url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + campid,
       data: formData,
       success: function(data) {
+        debugger
         console.log(data)
-        if(data.response.code == 1){
-          dataLayer.push({'transactionId': data.response.leadId, "transactionTotal": 3})
-          CI.submitCustomerIo(formData, data.response.leadId)
+        if(data.code == 1 && data.records[0].status != "Rejected"){
+           window.location = "/success2"
+        }
+        if(data.code == 1 && data.records[0].response.code == 1){
+          dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
+          CI.submitCustomerIo(formData, data.records[0].response.leadId)
         }
         CI.firePixel()
       },
