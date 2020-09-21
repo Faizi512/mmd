@@ -747,6 +747,39 @@ module PagesHelper
         handset: ""
       },
       {
+        name: "Samsung Galaxy Note 20 Ultra 5G",
+        data: "Unlimited",
+        image: "phone/note-20-b.png",
+        calls: "Unlimited",
+        texts: "Unlimited",
+        url:"/success",
+        bluetext: "Personal Hotspot, Data Roaming",
+        deposit: "£0",
+        handset: ""
+      },
+      {
+        name: "Apple iPhone 11 Pro",
+        data: "Unlimited",
+        image: "phone/iphone11pro.png",
+        calls: "Unlimited",
+        texts: "Unlimited",
+        url:"/success",
+        bluetext: "",
+        deposit: "£0",
+        handset: ""
+      },
+      {
+        name: "Samsung Galaxy Note 20 5G",
+        data: "Unlimited",
+        image: "phone/note-20.jpg",
+        calls: "Unlimited",
+        texts: "Unlimited",
+        url:"/success",
+        bluetext: "",
+        deposit: "£0",
+        handset: ""
+      },
+      {
         name: "Samsung A20",
         data: "Unlimited",
         image: "phone/samsung-a20.png",
@@ -789,17 +822,6 @@ module PagesHelper
         bluetext: "Personal Hotspot, Data Roaming",
         deposit: "£0",
         handset: "Samsung A10"
-      },
-      {
-        name: "Apple iPhone 11 Pro",
-        data: "Unlimited",
-        image: "phone/iphone11pro.png",
-        calls: "Unlimited",
-        texts: "Unlimited",
-        url:"/success",
-        bluetext: "",
-        deposit: "£0",
-        handset: ""
       },
       {
         name: "Huawei Y7",
