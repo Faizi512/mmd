@@ -77,7 +77,6 @@
 .lh-n{line-height:normal}
 .lh-0{line-height:0px}
   
-
 .modal2 {
   display: none; 
   position: fixed;
@@ -564,6 +563,10 @@ input:hover ~ .input-deals:after{
 
 }
 @media only screen and (max-width: 520px) {
+  .disney-gif{
+    width: 300px !important;
+    max-width: 100% !important;
+  }
   .bg-img-success{
     height: 71vh;
   }

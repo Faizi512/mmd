@@ -39,14 +39,6 @@ class Home extends Common {
       CI.backStep(-1)
     });
 
-    $("input[name='finance']").click(function() {
-      console.log("fance")
-      if (this.value == "yes") {
-        CI.financeLead()
-      }
-      CI.successUrl()
-    });
-
     $(document).on("click", '.open-form', function() {
       CI.phoneName = $(this).find('input').val()
       $('#deal-form-modal').modal('show')
@@ -133,14 +125,11 @@ class Home extends Common {
     }
   }
 
-  financeLead(){
-    var data = this.getData();
-    this.submitLead(data, "MMD-finance")
-  }
-
   handleBadCustomerForm(){
+    var CI = this;
     if (this.currentTab == 2) {
       this.mmdLead()
+      CI.successUrl();
     }
   }
 
