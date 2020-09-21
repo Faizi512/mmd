@@ -8,6 +8,14 @@ Rails.application.routes.draw do
   # Autopilot and facebook audience update
   resources :facebook_custom_audience
 
+  # WebHooks
+  namespace 'api', defaults: { format: :json } do
+    namespace 'v1' do
+       namespace 'webhooks' do
+        resources :google_leads, only:[ :create, :index]
+      end
+    end
+  end
   # lead quaue resolve
   get '/redirect-webhook' => 'lead#redirect_webhook'
   post '/redirect-webhook' => 'lead#redirect_webhook'
