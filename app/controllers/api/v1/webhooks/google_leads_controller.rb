@@ -25,6 +25,8 @@ class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
     end
     pp @data
     post_lead
+
+    render json:{}, status: :ok
   end
 
   def get_lead_data
