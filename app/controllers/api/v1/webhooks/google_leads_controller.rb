@@ -1,6 +1,6 @@
 class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
   def index
-    render json: {umar: "Dsad"}
+    render json: {status:  :ok}
   end
   def create
     get_lead_data
@@ -37,7 +37,7 @@ class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
         sid: 1,
         ssid: 1,
         ad_set: 1,
-        source: params[:source] || 'google-lead-form',
+        source: 'google-native-LF',
         adgroupid: params[:adgroupid] || '',
         campaign: params[:campaign_id] || '',
         bad_credit_customer: "no",
