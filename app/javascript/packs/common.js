@@ -522,7 +522,7 @@ class Common {
   setTimerToApiCall(lead_id){
     var CI = this
     this.fetchRequest = this.fetchRequest + 1
-    if(this.fetchRequest < 20 && this.redirectUrl ==  null){
+    if(this.fetchRequest < 10 && this.redirectUrl ==  null){
       setTimeout(function(){
         CI.fetchRedirectUrl(lead_id)
       }, 2000);

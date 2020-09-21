@@ -126,8 +126,10 @@ class Home extends Common {
   }
 
   handleBadCustomerForm(){
+    var CI = this;
     if (this.currentTab == 2) {
       this.mmdLead()
+      CI.successUrl();
     }
   }
 
