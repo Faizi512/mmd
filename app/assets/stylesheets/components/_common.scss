@@ -560,6 +560,9 @@ input:hover ~ .input-deals:after{
   .desktop {
     display: none !important;
   }
+  .maxw-100{
+    max-width: 100% !important;
+  }
 
 }
 @media only screen and (max-width: 520px) {
