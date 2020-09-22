@@ -6,18 +6,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav w-100 justify-content-around open-form">
+      <% if @bc == true %>
+      <ul class="navbar-nav w-100 justify-content-end">
+        <%= render 'layouts/header/header_all_creditscores' %>
+      <% else %>
+        <ul class="navbar-nav w-100 justify-content-around">
         <%= render 'layouts/header/header_signup_offer' %>
-
-        <% if @bc == true %>
-          <%= render 'layouts/header/header_all_creditscores' %>
-        <% else %>
-          <li class="nav-item active">
-            <a class="nav-link h4 mb-0" href="javascript:;">UK's Top Networks</a>
-          </li>
-        <% end %>
-
-      </ul> 
+        <li class="nav-item active">
+          <a class="nav-link h4 mb-0" href="javascript:;">UK's Top Networks</a>
+        </li>
+      <% end %>
+      </ul>
     </div>
   </div>
 </nav>
