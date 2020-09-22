@@ -560,9 +560,15 @@ input:hover ~ .input-deals:after{
   .desktop {
     display: none !important;
   }
+  .maxw-100{
+    max-width: 100% !important;
+  }
 
 }
 @media only screen and (max-width: 520px) {
+  .maxw-100{
+    max-width: 100% !important;
+  }
   .disney-gif{
     width: 300px !important;
     max-width: 100% !important;
