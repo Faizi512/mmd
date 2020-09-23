@@ -145,6 +145,9 @@
 .bt-orng2:hover{
   background-color: #ffa940 !important;
 }
+.maxw-100{
+  max-width: 100% !important;
+}
 .btn-hot{
   background: linear-gradient(to right,#f55a00, #ff9b00, #f55a00) !important;
   border-radius: 50px !important;
@@ -567,9 +570,6 @@ input:hover ~ .input-deals:after{
 
 }
 @media only screen and (max-width: 520px) {
-  .maxw-100{
-    max-width: 100% !important;
-  }
   .disney-gif{
     width: 300px !important;
     max-width: 100% !important;
