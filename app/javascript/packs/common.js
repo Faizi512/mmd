@@ -440,8 +440,8 @@ class Common {
       url: "https://go.webformsubmit.com/dukeleads/waitsubmit?key=eecf9b6b61edd9e66ca0f7735dfa033a&campid=" + campid,
       data: formData,
       success: function(data) {
-        debugger
         console.log(data)
+        CI.firePixel()
         if(data.code == 1 && data.records[0].status != "Rejected"){
            window.location = "/success2"
         }
@@ -449,7 +449,6 @@ class Common {
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
           CI.submitCustomerIo(formData, data.records[0].response.leadId)
         }
-        CI.firePixel()
       },
       dataType: "json"
     })
