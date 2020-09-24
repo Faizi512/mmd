@@ -441,7 +441,6 @@ class Common {
       data: formData,
       success: function(data) {
         console.log(data)
-        CI.firePixel()
         if(data.code == 1 && data.records[0].status != "Rejected"){
            window.location = "/success2"
         }
@@ -452,6 +451,7 @@ class Common {
       },
       dataType: "json"
     })
+    this.firePixel()
   }
 
   submitCustomerIo(formData, leadId){
