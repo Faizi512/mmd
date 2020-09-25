@@ -9,10 +9,23 @@ class StepForm extends Common {
     this.showToolTip()
     this.showClock()
     this.fillform()
+    this.popupTerms()
     this.showTab(this.currentTab);
 
     window.Parsley.on('field:error', function() {
       $(".btn-success").removeClass("in-progress")
+      $(".tab").removeClass("in-progress")
+    });
+
+    $( ".property" ).change(function() {
+      var tabs = $(".tab");
+      tabs[CI.currentTab].style.display = "none";
+      CI.currentTab = CI.currentTab + 1;
+      CI.showTab(CI.currentTab);
+      $('.towncity').val($(this).find("option:selected").data("city"))
+      $('.street1').val($(this).find("option:selected").data("street"))
+      $('.county').val($(this).find("option:selected").data("province"))
+      $('.houseNumber').val($(this).find("option:selected").data("housenum"))
     });
 
     $( "#btn-continue" ).click(() => {
@@ -23,40 +36,6 @@ class StepForm extends Common {
       CI.backStep(-1)
     });
 
-    $("input[name='save-energy-bc-no']").click(function() {
-      if (this.value == "yes") {
-        CI.nextStep(1);
-        $( "#btn-continue").show()
-      }else{
-        if(CI.getBcFromParams()){
-           CI.nextStep(2);
-        }else{
-          CI.successUrl()
-        }
-      }
-    });
-
-    $("input[name='finance']").click(function() {
-      console.log("fance")
-      if (this.value == "yes") {
-        CI.financeLead()
-      }
-      CI.nextStep(1);
-    });
-
-    $("input[name='free-credit']").click(function() {
-      if (this.value == "yes") {
-        CI.freeCreditLead()
-      }
-      CI.checklastStep()
-    });
-
-    $("input[name='casino']").click(function() {
-      if (this.value == "yes") {
-        CI.casinoLead()
-      }
-      CI.checklastStep()
-    });
 
     $(document).on("click", '.open-form', function() {
       $('#deal-form-modal').modal('show')
@@ -65,11 +44,16 @@ class StepForm extends Common {
     });
   }
 
-  checklastStep(){
-    var CI = this
-    if($("input[name='free-credit']:checked").length > 0 && $("input[name='casino']:checked").length > 0){
-      this.successUrl()
-    }
+  successUrl(){
+    var CI = this;
+    $("#loaderPopup").css('height', '100%')
+    setTimeout(function(){
+      if (CI.redirectUrl) {
+        CI.urlSelection()
+      }else {
+        CI.successUrl()
+      }
+    }, 1000)
   }
 
   nextStep(n) {
@@ -86,6 +70,35 @@ class StepForm extends Common {
     })
   }
 
+  urlSelection(){
+
+    if(this.deliveryName == "Exit 1 (Energy)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "Exit 2 (Credit)"){
+      window.location = this.details.success_url+this.paramsforSuccess()
+    }else if(this.deliveryName == "Exit 4 (sweetmobile)"){
+      window.location = this.details.success_url
+    }else if(this.deliveryName == "Exit 5 (UK Credit Ratings)"){
+      window.location = this.details.success_url+this.paramsforSuccess()
+    }else if(this.deliveryName == "Exit 8 (Energy / Awin)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "Exit Lotto"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "(Energy / Voxi)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "(Energy / E2Save)"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
+    }else if(this.deliveryName == "Voxi Exit"){
+      window.location = this.details.success_url
+    }else if(this.deliveryName == "Exit 10 (E 2 Save)"){
+      window.location = this.details.success_url
+    }else if(this.deliveryName == "Exit Sweet-Mobile"){
+      window.location = this.details.success_url+this.paramsforSuccess()
+    }else{
+      window.location = this.details.success_url+this.additionalParamsFoBC()
+    }
+  }
+
   mmdLead(){
     if (this.customValidator('#dealform') == true && this.isPhone == true && this.isEmail == true){
       this.postMMDData()
@@ -97,75 +110,37 @@ class StepForm extends Common {
   postMMDData() {
     this.firePixel()
     var data = this.getData();
+    $(".tab").addClass("in-progress")
     $( "#btn-continue").hide()
     $( "#btn-back").hide()
     $( ".progress").hide()
     $(".postcode_holder").html($(".postcode").val() || this.getUrlParameter("postcode")  || "");
     // Form Submisson
     this.updateFacebookAudience(data)
+    this.sendMmdExitLead()
     this.submitLead(data, this.details.camp_id)
-  }
-
-  energyLead(){
-    var data = this.getDataEnergy();
-    this.submitLead(data, "ENERGY")
     if(!this.getBcFromParams()){
-      this.currentTab  = 3
       this.successUrl()
     }
   }
 
-  financeLead(){
-    var data = this.getData();
-    this.submitLead(data, "MMD-finance")
-  }
-
-  freeCreditLead(){
-    var data = this.getData();
-    this.submitLead(data, "MMD-free-credit")
-  }
-  casinoLead(){
-    var data = this.getData();
-    this.submitLead(data, "MMD-Casino")
-  }
 
   handleBadCustomerForm(){
+    var CI = this;
     if (this.currentTab == 2) {
       this.mmdLead()
-    }else if (this.currentTab == 4) {
-      $( "#btn-continue").hide()
-      $( "#btn-back").hide()
-      this.energyLead()
+      CI.successUrl();
     }
   }
 
-  getDataEnergy() {
-    return {
-      postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
-      firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
-      lastname: this.getUrlParameter('lastname') || $(".last_name").val() || '',
-      email: this.getUrlParameter('email') || $(".email").val() || '',
-      phone1: this.getUrlParameter('phone1') || $(".phone").val() || '',
-      street1: this.getUrlParameter('street1')|| $(".street1").val(),
-      lead_id: this.getUrlParameter('lead_id')|| '',
-      sid: 1,
-      source: 'MMD',
-      ssid: this.getUrlParameter('ssid') || 'unknown',
-      paymentmethod: this.getUrlParameter('paymentmethod')|| 'prepayment',
-      currentprovider: this.getUrlParameter('currentprovider')|| 'other',
-      prize: this.getUrlParameter('prize')|| 'mobilephone',
-      trafficid: this.getUrlParameter('trafficid')|| 'Save Energy Bill',
-      towncity: this.getUrlParameter('towncity')|| 'unknown',
-      title: this.getUrlParameter('title')|| 'Mr',
-      optindate: this.getFormattedCurrentDate(),
-      optinurl: 'http://deals.megamobiledeals.com/',
-      ipaddress: this.ip_Address,
-      timestamp: new Date,
-      user_agent: window.navigator.userAgent,
-    };
-  }
-
   getData() {
+
+    var track = "";
+    try {
+      track = AnyTrack('formSubmit') || "";
+    }
+    catch (e) {}
+    
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
