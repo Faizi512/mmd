@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'step_form', 'data-turbolinks-track': 'reload', defer: true %>
-<div class="bg-white bg-img-non">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="bg-white bg-img-non form-page">
+  <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
     <div class="modal-content deal-form-box">
       <div class="modal-header">
          <h1><span class="text-blue">You are just</span> 30 seconds <span class="text-blue"> away from your dream phone</span></h1>
@@ -46,20 +46,53 @@
           <div  class="tab display-none" id="slide2">
             <div class="row justify-content-center">
               <!-- postcode -->
-              <div class="form-group col-lg-7  col-sm-7 col-12">
+              <div class="form-group col-lg-7  col-12">
                 <label>Postcode*</label>
+                <div class="w-100 justify-content-center">
+                  <input
+                  name="postcode"
+                  required
+                  data-parsley-required="true"
+                  data-parsley-required-message="Please Enter Postcode"
+                  data-parsley-group="block-1"
+                  data-parsley-validapipostcode
+                  type="text"
+                  class="postcode form-control ignoreStep4 approve"
+                  placeholder="Postcode">
+                  <button type="button" class="btn btn-success rounded-right left-0r findAddress-btn">Find Address</button>
+                </div>
+                <div class="error-checkbox"></div>
+              </div>
+              <div class="form-group col-lg-7 col-12 property-div display-none">
+                <label>Your Property*</label>
+                <input type="hidden" name="towncity" class="towncity" >
+                <input type="hidden" name="street1" class="street1" >
+                <input type="hidden" name="county" class="county" >
+                <input type="hidden" name="houseNumber" class="houseNumber" >
+                <select
+                  id="property"
+                  name="property"
+                  class="property w-100 form-control ignoreStep4 text-dark"
+                  data-parsley-required="true"
+                  data-parsley-required-message="Please Select Your property"
+                  data-parsley-group="block-1"
+                  required>
+                </select>
+              </div>
+              <div class="form-group col-lg-7 col-12 address-div display-none">
+                <label class="d-flex justify-content-start  text-black f-25 mb-2">
+                  First Line Of Address
+                </label>
                 <input
-                name="postcode"
-                required
-                data-parsley-required="true"
-                data-parsley-required-message="Please Enter Postcode"
-                data-parsley-group="block-1"
-                data-parsley-valid-postcode
-                type="text"
-                class="postcode form-control ignoreStep4"
-                placeholder="Postcode">
-                <i class="validate success fa fa-check-circle"></i>
-                <i class="validate error fa fa-times-circle"></i>
+                  placeholder="Address"
+                  id="address"
+                  name="address"
+                  class="address form-control ignoreStep4"
+                  data-parsley-required="true"
+                  data-parsley-required-message="Please Enter Your Address"
+                  data-parsley-group="block-1"
+                  type="text"
+                  >
               </div>
             </div>
           </div>
@@ -130,241 +163,6 @@
               </div>
             </div>
           </div>
-          <div  class="tab display-none" id="slide4">
-            <div class="row justify-content-center">
-              <h4 class="text-center">Great your mobile deal is ready! it's on the next page </h4>
-              <h5 class="text-center text-orange">
-                After you get your mobile deal would you also like to save on your energy bills? All we need is your first line of address, to see if you can get a better deal. It's that simple
-              </h5>
-
-              <div class="form-group col-lg-7  col-sm-7 col-12">
-                 <div class="row w-100 m-0 justify-content-around">
-                    <div class="col-6 text-center">
-                      <input
-                        id="save-energy-bc-no"
-                        name="save-energy-bc-no"
-                        class="save-energy-bc-no opacity-0 yes-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                        data-parsley-required="true"
-                        data-parsley-group="block-3"
-                        type="radio"
-                        value="yes"
-                        required=""
-                        >
-                       <label for="save-energy-bc-no" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                          <div class="iconic-and-text">
-                            <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                            <div class="mt-2">
-                              <h4 class="mx-md-4 px-md-3 text-center">Yes</h4>
-                            </div>
-                            <i></i>
-                          </div>
-                       </label>
-                    </div>
-                    <div class="col-6 text-center">
-                      <input
-                        id="save-energy-bc-ye"
-                        name="save-energy-bc-no"
-                        class="save-energy-bc-no opacity-0 no-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                        data-parsley-required="true"
-                        data-parsley-group="block-3"
-                        type="radio"
-                        value="no"
-                        required=""
-                        >
-                       <label for="save-energy-bc-ye" class="input-radio with-icn no-hover border rounded pt-4 pb-2 cursor-p">
-                          <div class="iconic-and-text">
-                            <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                            <div class="mt-2">
-                              <h4 class="mx-md-4 px-md-3 text-center">No</h4>
-                            </div>
-                            <i></i>
-                          </div>
-                       </label>
-                    </div>
-                 </div>
-              </div>
-            </div>
-          </div>
-          <div  class="tab display-none" id="slide5">
-            <div class="row justify-content-center">
-              <!-- address -->
-              <div class="form-group col-lg-7  col-sm-7 col-12">
-                 <label>First Line Of Address?</label>
-                 <input
-                    name="street1"
-                    id="street1"
-                    required
-                    data-parsley-required="true"
-                    data-parsley-required-message="Please Enter Your Address"
-                    data-parsley-group="block-4"
-                    type="text"
-                    class="street1 form-control"
-                    placeholder="Address">
-                 <i class="validate success fa fa-check-circle"></i>
-                 <i class="validate error fa fa-times-circle"></i>
-              </div>
-            </div>
-          </div>
-          <div  class="tab display-none" id="slide6">
-            <div class="row justify-content-center">
-              <h4 class="text-center">Would you be interested in finance for a phone from one of our partners?</h4>
-              <div class="form-group col-lg-7  col-sm-7 col-12">
-                 <div class="row w-100 m-0 justify-content-around">
-                    <div class="col-6 text-center">
-                      <input
-                          id="finance"
-                          name="finance"
-                          class="finance opacity-0 yes-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                          data-parsley-required="true"
-                          data-parsley-required-message="Must Select One Value"
-                          data-parsley-group="block-5"
-                          type="radio"
-                          value="yes"
-                          required=""
-                          >
-                      <label for="finance" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                          <div class="iconic-and-text">
-                            <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                            <div class="mt-2">
-                              <h4 class="mx-md-4 px-md-3 text-center">Yes</h4>
-                            </div>
-                            <i></i>
-                          </div>
-                      </label>
-                    </div>
-                    <div class="col-6 text-center">
-                      <input
-                          id="financeno"
-                          name="finance"
-                          class="finance opacity-0 no-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                          data-parsley-required="true"
-                          data-parsley-required-message="Must Select One Value"
-                          data-parsley-group="block-5"
-                          type="radio"
-                          value="no"
-                          required=""
-                          >
-                      <label for="financeno" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                          <div class="iconic-and-text">
-                            <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                            <div class="mt-2">
-                              <h4 class="mx-md-4 px-md-3 text-center">No</h4>
-                            </div>
-                            <i></i>
-                          </div>
-                      </label>
-                    </div>
-                 </div>
-              </div>
-            </div>
-          </div>
-          <div  class="tab display-none" id="slide7">
-            <div class="row justify-content-center">
-              <h4 class="text-center mb-3 text-orange">
-                Great, your mobile offer is on the next page. Just let us know if the following offers would be of interest to you. If not just select "no" and continue to your mobile deal
-              </h4>
-              <div class="col px-0">
-                 <h4 class="text-center mb-4">50 Free Spins From 123 Casino?</h4>
-                 <div class="form-group col-lg-7  col-sm-7 col-12 mx-auto">
-                    <div class="row w-100 m-0 justify-content-around">
-                       <div class="col-6 text-center">
-                          <input
-                             id="casino"
-                             name="casino"
-                             class="casino opacity-0 yes-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                             data-parsley-required="true"
-                             data-parsley-group="block-6"
-                             type="radio"
-                             value="yes"
-                             required=""
-                             >
-                        <label for="casino" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                          <div class="iconic-and-text">
-                            <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                            <div class="mt-2">
-                              <h4 class="mx-md-4 px-md-3 text-center">Yes</h4>
-                            </div>
-                            <i></i>
-                          </div>
-                        </label>
-                       </div>
-                       <div class="col-6 text-center">
-                          <input
-                             id="casinono"
-                             name="casino"
-                             class="casino opacity-0 no-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                             data-parsley-required="true"
-                             data-parsley-group="block-6"
-                             type="radio"
-                             value="no"
-                             required=""
-                            >
-                          <label for="casinono" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                            <div class="iconic-and-text">
-                              <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                              <div class="mt-2">
-                                <h4 class="mx-md-4 px-md-3 text-center">No</h4>
-                              </div>
-                              <i></i>
-                            </div>
-                          </label>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-            </div>
-            <div class="row justify-content-center mt-3">
-              <div class="col px-0">
-                 <h4 class="text-center mb-4">A Free Credit Report?</h4>
-                 <div class="form-group col-lg-7  col-sm-7 col-12 mx-auto">
-                    <div class="row w-100 m-0 justify-content-around">
-                       <div class="col-6 text-center">
-                          <input
-                             id="free-credit"
-                             name="free-credit"
-                             class="free-credit opacity-0 yes-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                             data-parsley-required="true"
-                             data-parsley-group="block-6"
-                             type="radio"
-                             value="yes"
-                             required=""
-                            >
-                          <label for="free-credit" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                            <div class="iconic-and-text">
-                              <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                              <div class="mt-2">
-                                <h4 class="mx-md-4 px-md-3 text-center">Yes</h4>
-                              </div>
-                              <i></i>
-                            </div>
-                          </label>
-                       </div>
-                       <div class="col-6 text-center">
-                          <input
-                             id="free-creditno"
-                             name="free-credit"
-                             class="free-credit opacity-0 no-hover px-2 h-46 m-w mx-auto border border-secondary bg-white rounded text-secondary form-control text-center position-absolute"
-                             data-parsley-required="true"
-                             data-parsley-group="block-6"
-                             type="radio"
-                             value="no"
-                             required=""
-                             >
-                          <label for="free-creditno" class="input-radio with-icn yes-hover border rounded pt-4 pb-2 cursor-p">
-                            <div class="iconic-and-text">
-                              <i class="fa fa-check-circle fs-45 icon-save-energy "></i>
-                              <div class="mt-2">
-                                <h4 class="mx-md-4 px-md-3 text-center">No</h4>
-                              </div>
-                              <i></i>
-                            </div>
-                          </label>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-            </div>
-          </div>
           <div class="col-lg-7 col-sm-7  col-12 btn-div justify-content-center">
             <div class="row justify-content-center">
               <div class="col-lg-6 col-md-6 col-sm-6 col-6">
@@ -393,3 +191,4 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/common/waiting_loader' %>
