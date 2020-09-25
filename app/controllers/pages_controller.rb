@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 	end
 
 	def show
+    response.headers.except! 'X-Frame-Options'
     get_deals_data( params[:page_name] )
     respond_to do |format|
       format.html {@partial = render_to_string partial: params[:page_name].to_s}
@@ -19,6 +20,8 @@ class PagesController < ApplicationController
       redirect_to url
     end
 	end
+
+
 
  def exclusive_o2_deals
     exclusive_o2_deal
