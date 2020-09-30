@@ -89,6 +89,8 @@ class LeadController < ApplicationController
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=EXIT+chasback+deals&ued=https%3A%2F%2Fwww.e2save.com%2Fcontract%2Fcashback-deals"
       when "Exit e2save - pay monthly contract deals"
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=422&awinaffid=652417&clickref=EXIT+pay+monthly+contract+deals&ued=https%3A%2F%2Fwww.e2save.com%2Fcontract"
+      when "Exit VOXI Google"
+        @redirect_url = "https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&clickref=google-exit&ued=https%3A%2F%2Fwww.voxi.co.uk%2Fplans"
       else
         @redirect_url = "https://mtrk11.co.uk/?a=14118&c=33110"
       end
