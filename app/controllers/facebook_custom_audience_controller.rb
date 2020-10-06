@@ -7,12 +7,19 @@ class FacebookCustomAudienceController < ApplicationController
 
   def create
     # Test app credientails "Custom Audience - Test1"
-    access_token = 'EAAMQHbZBRdBsBAJ2gECk16KMiTipR0xzZCFT36IApBBJEsxaxLGvNkArWVnt0uxeuZBAHgqrPZAnNZAziJuOH2BCtYZB1sXvZAUMPLxdKkCPD3jJmzuDZBmgx6j1rTVYqbZA8mZArTpZA8JT1P1qit1pJk7iyH9v7JXOFuam8IbGwsMfY29L69dMV2q'
+    access_token = 'EAAMQHbZBRdBsBAOwgakFlII8huGPu686ZAXd9mZAOnr6Yqm8FrewQxKXyHlfmF0fwwr7PIfCBDv2Nd6URaetiPk1rzrEZCZBVB3dIesP4x3iRZA4ahUqjFaElvfYWqUMhpWpZC8U1pY8vC910fxO4pZCmKGJiMMqyBmr2xq4JiCs4wZDZD'
     app_secret = 'd1308ffbfcf0b3f21425fa5ed1c22e5c'
     app_id = '862144884208667'
-    id = 'act_611454116359143'
-    audience_id = '23844386746780658'
+    id = 'act_3476914642359714'
+    audience_id = '23845590727340575'
 
+    # curl -X POST \
+    # -F 'name="60 Days Audience"' \
+    # -F 'subtype="CUSTOM"' \
+    # -F 'description="People who submit lead"' \
+    # -F 'customer_file_source="USER_PROVIDED_ONLY"' \
+    # -F 'access_token=EAAMQHbZBRdBsBAOwgakFlII8huGPu686ZAXd9mZAOnr6Yqm8FrewQxKXyHlfmF0fwwr7PIfCBDv2Nd6URaetiPk1rzrEZCZBVB3dIesP4x3iRZA4ahUqjFaElvfYWqUMhpWpZC8U1pY8vC910fxO4pZCmKGJiMMqyBmr2xq4JiCs4wZDZD' \
+    # https://graph.facebook.com/v8.0/act_3476914642359714/customaudiences
     phone_num = "+44" + params[:phone1].split('').last(10).join
 
     payload = {
@@ -35,7 +42,7 @@ class FacebookCustomAudienceController < ApplicationController
       ]
     }
 
-    uri = URI("https://graph.facebook.com/v7.0/#{audience_id}/users")
+    uri = URI("https://graph.facebook.com/v8.0/#{audience_id}/users")
     http = Net::HTTP.new(uri.host, uri.port)
 
     http.use_ssl = true
