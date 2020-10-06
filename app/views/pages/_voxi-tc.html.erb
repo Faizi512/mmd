@@ -1,0 +1,86 @@
+<%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div id="voxi-deals" class="py-md-4 bg-white">
+  <div class="container px-0 bg-white">
+    <div class="pt-3 text-center">
+      <h1 class="text-uppercase main-head text-center">introducing huge deals from voxi</h1>
+      <h5 class="choose-head pb-3">Choose from some of the BEST deals out there.<span class="disp-none">Unlimited use of social apps and no contracts!</span></h5>
+    </div>
+    <% @voxideals.each do |sim| %>
+      <div class="col-lg-9 col-md-12 mx-3 mt-4 ml-md-auto voxi-deals-head rounded shadow">
+        <div class="upper-tag row">
+          <a class="voxi-tag mr-auto" href="#">
+            <h3 class="txt">
+              <span>Voxi SIM - <%= sim[:name] %></span>
+            </h3>
+            <svg class="tri fs">
+              <use xlink:href="#triangle">
+                <svg viewBox="0 0 35 35" id="triangle">
+                  <polygon points="-1,-1 -1,36 36,-1"></polygon>
+                </svg>
+              </use>
+            </svg>
+          </a>
+          <p class="txt d-none">Voxi SIM</p>
+          <p class="tag promo px-sm-5 txt mx-0">£<%= sim[:monthly] %><small>/month</small></p>
+        </div>
+        <div class="row m-0 align-items-center pt-2 pb-md-2">
+          <div class="px-md-4 logo-div">
+             <%= image_tag("vixo-logo.png", class: "logo-width" ) %>
+          </div>
+          <div class="col-lg-2 col-md-3 unlimited px-1 my-auto">
+            <h5 class="fs-16 font-weight-bold">Unlimited <small>mins</small></h5>
+            <div class="hr-div"><hr class="my-0"></div>
+            <h5 class="fs-16 font-weight-bold mt-2">Unlimted <small>texts</small></h5>
+          </div>
+          <div class="w-20 data-div mx-2 px-0 text-center py-3 bg-color text-secondary">
+            <h3 class="font-weight-bold pt-2"><%= sim[:data] %></h3>
+            <p class="mb-0">5G Ready</p>
+          </div>
+          <div class="w-20 data-div mx-2 px-0 text-center py-3 bg-color">
+            <h3 class="font-weight-bold pt-2">£<%= sim[:monthly] %></h3>
+            <p class="mb-0">month</p>
+          </div>
+          <div class="w-20 btn-div mx-2 my-auto mr-perc pt-0 pt-md-2 ">
+            <button class="btn btn-primary">
+              <span class="pr-3">See Deal</span>
+              <i class="fas fa-chevron-right m-0"></i>
+            </button>
+          </div>
+        </div>
+        <hr class="my-0">
+        <div class="row endless justify-content-around pt-1">
+          <div class="pb-1">
+            <div class="d-flex px-3">
+                <i class="far fa-paper-plane mt-1 mr-1"></i>
+                <h6 class="mb-0 font-weight-6 pt-1">Endless Social Media</h6>
+            </div>
+          </div>
+          <div class="pb-1">
+            <div class="d-flex px-3">
+                <i class="fas fa-sync-alt mr-1 mt-1"></i>
+                <h6 class="mb-0 font-weight-6 pt-1">Endless Flexibility</h6>
+            </div>
+          </div>
+          <div class="pb-1">
+            <div class="d-flex px-3">
+                <i class="fas fa-globe mr-1 mt-1"></i>
+                <h6 class="mb-0 font-weight-6 pt-1">Endless Roaming</h6>
+            </div>
+          </div>
+          <div class="pb-1">
+            <div class="d-flex px-3">
+                <%= image_tag("5g.png", class: "img-width" ) %>
+                <h6 class="mb-0 font-weight-6 pt-1">5G Ready</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= render 'layouts/voxi/step_form'%>
+</div>
+<%= render 'layouts/common/footer' %>
+
+
+

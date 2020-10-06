@@ -1,0 +1,358 @@
+#voxi-deals{
+  font-family: 'Comfortaa', cursive;
+  .deal-form-box .modal-body .form .progress {
+    height: 1rem !important;
+    border-radius: 15px;
+  }
+  .upper-deals-head{
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    transition: .2s all ease-in-out;
+    z-index: 2;
+  }
+  .shadow{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+  }
+  .bg-white{
+    background-color: #fff;
+  }
+  .upper-tag{
+    height: 35px;
+    line-height: 35px;
+    justify-content: right;
+    position: static;
+  }
+  .text-lite{
+    color: #1ca5fc !important;
+  }
+  .text-dark-blue{
+    color: #0069b4;
+  }
+  .form{
+    padding: 0 !important;
+  }
+  .onoffswitch-inner:before {
+    background-color: #f366ab !important;
+  }
+  input:checked ~ label {
+    border-color: #f366ab !important;
+  }
+  .tri {
+    fill: #0069b4;
+    transition: .2s all ease-in-out;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 35px;
+    height: 35px;
+  }
+  .voxi-tag{
+    padding-right: 35px;
+    margin-right: auto;
+    overflow-x: hidden;
+    z-index: 3;
+    font-size: 0;
+    height: 100%;
+    text-decoration: none;
+    border: 0;
+    white-space: nowrap;
+  }
+  .txt{
+    background-color: #0069b4;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    padding: 0 10px;
+    font-size: 16px;
+    vertical-align: top;
+    margin: 0;
+    transition: .2s all ease-in-out;
+
+  }
+  .promo{
+    background-color: #1ca5fc;
+  }
+  .icons-div i, .fab, .fas{
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .img-width{
+    width: 24px;
+  }
+  .fas, .far{
+    font-size: 16px;
+    color: #000 !important;
+
+  }
+  .logo-width{
+    width: 80px;
+  }
+  .font-weight-6{
+    font-weight: 600;
+  }
+  .fab{
+    margin-top: 0 !important;
+    width: 22px !important;
+  }
+  .mr-37{
+    margin-right: 37%;
+  }
+  .bg-color{
+    background-color: #f2f5fa;
+  }
+  .btn.btn-primary{
+    background-color: #f366ab !important;
+    border: 1px solid #f366ab !important;
+  }
+  .progress-bar{
+    background-color: #0069b4 !important;
+  }
+  .fas{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: 0 !important;
+  }
+  .fa-chevron-right{
+    color: #fff !important;
+    font-size: 15px;
+  }
+  .fs-16{
+    font-size: 16px;
+  }
+  .w-20{
+    width: 20%;
+    padding: 5px;
+    text-align: center !important;
+  }
+  .unlimited{
+    align-items: normal;
+  }
+  .common{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .img {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    border: 0;
+    padding: 0;
+    margin: auto;
+    z-index: 1;
+    height: auto;
+  }
+  .btn {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    width: 100%;
+    max-width: 175px;
+  }
+  .btn-back1{
+    color: #fff !important;
+    background-color: #f366ab !important;
+    border: 1px solid #f366ab !important;
+  }
+  @media(max-width: 1200px){
+    .btn-div{
+      margin-left: auto !important;
+      width: 25%;
+    }
+    .hr-div{
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .col-lg-2, .col-md-3{
+      flex: 0 0 26%;
+      max-width: 26% !important;
+      text-align: center;
+    }
+    .data-div{
+      width: 25%;
+    }
+  }
+  @media(max-width: 768px){
+    .logo-width{
+      width: 60px;
+    }
+    .btn-div{
+      margin-left: auto !important;
+      width: 31%;
+      padding-top: 0.5rem !important;
+    }
+    .btn{
+      font-size: 15px !important;
+    }
+    .fa-chevron-right{
+      font-size: 13px !important;
+    }
+    .hr-div{
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .logo-div{
+      padding-right: 1.5rem;
+    }
+    .fs-md-16{
+      font-size: 1rem;
+    }
+
+
+    .txt{
+      margin-top: -1px;
+      padding: 0 11px;
+    }
+
+  }
+
+  @media(max-width: 530px){
+    .logo-div{
+      padding-right: 0.85rem;
+    }
+  }
+
+  @media(max-width: 430px){
+    .voxi-tag{
+      display: none !important;
+    }
+    .d-none{
+      display: block !important;
+      color: #0069b4;
+      background-color: unset;
+      font-size: 15px;
+      padding-top: 5px;
+    }
+    .disp-none{
+      display: none;
+    }
+    .main-head{
+      font-size: 1.8rem;
+    }
+    .data-div h3{
+      font-size: 16px !important;
+    }
+    .unlimited h5, .data-div p{
+      font-size: 12px !important;
+    }
+    .endless h6{
+      font-size: 13px;
+    }
+    .logo-width{
+      width: 45px;
+    }
+    .promo{
+      margin-left: auto !important;
+    }
+    .far{
+      width: 12px !important;
+    }
+    .svg-inline--fa{
+      font-size: 13px !important;
+    }
+    .img-width{
+      width: 16px;
+    }
+    .btn-div{
+      width: 40%;
+    }
+    .promo{
+      font-size: 13px;
+    }
+    .txt{
+      height: 30px;
+      line-height: 30px;
+    }
+    .col-lg-9, .col-md-12{
+      width: unset !important;
+    }
+    .data-div{
+      width: 23%;
+    }
+    .btn{
+      padding: 3px 10px;
+    }
+  }
+
+  @media(max-width: 385px){
+    .col-lg-2, .col-md-3{
+      flex: 0 0 19%;
+      max-width: 19% !important;
+      text-align: center;
+    }
+    .data-div{
+      width: 25%;
+    }
+    .endless h6{
+      font-size: 12px;
+    }
+    .btn-div{
+      width: 45%;
+    }
+  }
+  @media(max-width: 365px){
+    .data-div{
+      margin-left: 0.25rem !important;
+      margin-right: 0.25rem !important;
+    }
+    .unlimited{
+      margin-right: 0.5rem !important;
+    }
+    .endless h6{
+      font-size: 11px;
+    }
+    .svg-inline--fa{
+      font-size: 11px !important;
+    }
+
+    .main-head{
+      font-size: 1.5rem;
+    }
+    .choose-head{
+      font-size: 14px !important;
+    }
+
+  }
+  @media(max-width: 330px){
+    .unlimited h5{
+      font-size: 9px !important;
+    }
+    .data-div{
+      width: 23%;
+    }
+    .btn-div{
+      width: 45%;
+    }
+    .data-div p{
+      font-size: 10px !important;
+    }
+    .endless h6{
+      font-size: 9px;
+    }
+    .svg-inline--fa{
+      font-size: 9px !important;
+    }
+    .btn{
+      font-size: 12px !important;
+    }
+    .fa-chevron-right{
+      font-size: 10px !important;
+    }
+  }
+
+}
