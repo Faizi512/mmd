@@ -432,7 +432,6 @@ class Common {
       }
     })
   }
-
   submitLead(formData, campid){
     var CI = this
     $.ajax({
