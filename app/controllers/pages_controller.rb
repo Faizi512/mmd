@@ -21,8 +21,6 @@ class PagesController < ApplicationController
     end
 	end
 
-
-
  def exclusive_o2_deals
     exclusive_o2_deal
     fetch_products('o2')
