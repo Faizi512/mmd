@@ -20,6 +20,7 @@
   .bg-white{
     background-color: #fff;
   }
+
   .upper-tag{
     height: 35px;
     line-height: 35px;
@@ -172,6 +173,13 @@
     background-color: #f366ab !important;
     border: 1px solid #f366ab !important;
   }
+  .bg-img-success1{
+    background-image: image-url('bg-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
   @media(max-width: 1200px){
     .btn-div{
       margin-left: auto !important;
@@ -194,6 +202,17 @@
   @media(max-width: 768px){
     .logo-width{
       width: 60px;
+    }
+    .findAddress-btn {
+    position: absolute;
+    bottom: 0px;
+    right: -2px;
+    height: 37px;
+    z-index: 99999;
+    margin-bottom: 0;
+    }
+    .btn-back1{
+      display: initial;
     }
     .btn-div{
       margin-left: auto !important;
@@ -293,6 +312,9 @@
     .btn{
       padding: 3px 10px;
     }
+    .findAddress-btn{
+      max-width: 40%;
+    }
   }
 
   @media(max-width: 385px){
@@ -361,4 +383,16 @@
     }
   }
 
+}
+.bg-img-success1{
+  background-image: image-url('bg-thanks.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  }
+@media(max-width: 768px){
+  .bg-img-success1{
+    height: 65vh;
+  }
 }

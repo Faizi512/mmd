@@ -15,10 +15,6 @@ class VoxiDeals extends Common {
       interval: 2000
     })
     $( ".property" ).change(function() {
-      var tabs = $(".tab");
-      tabs[CI.currentTab].style.display = "none";
-      CI.currentTab = CI.currentTab + 1;
-      CI.showTab(CI.currentTab);
       $('.towncity').val($(this).find("option:selected").data("city"))
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
@@ -48,12 +44,37 @@ class VoxiDeals extends Common {
   fixStepIndicator(num) {
     var progress = document.getElementById('progressBar');
     if(num >= 0) {
-      progress.style.width = (num*50)+"%";
-      progress.innerText = "Progress " + (num*50) + "%";
+      progress.style.width = (num*55)+"%";
+      progress.innerText = "Progress " + (num*55) + "%";
       if( num ==  0){
         progress.innerText = '';
       }
     }
+  }
+
+  nextStep(n) {
+    var CI = this;
+    $('#dealform').parsley().whenValidate({
+      group: 'block-' + this.currentTab
+    }).done(() =>{
+      var tabs = $(".tab");
+      tabs[CI.currentTab].style.display = "none";
+      CI.currentTab = CI.currentTab + n;
+      if (CI.currentTab >= tabs.length) {
+        if (CI.isEmail == true){
+          $('.but_loader').show()
+          $('.nextStep').prop('disabled', true);
+          CI.postData()
+        }else{
+          $('#dealform').parsley().validate()
+        }
+        return true
+      }
+      CI.showTab(CI.currentTab);
+    })
+  }
+  urlSelection(){
+    window.location = this.details.success_url
   }
 }
 export default new VoxiDeals();

@@ -625,6 +625,38 @@ module PagesHelper
     }.to_json
   end
 
+  def voxi
+    @details = {
+      camp_id: '',
+      success_url: '/voxi-success',
+      bad_success_url: '/voxi-success',
+      form_name: 'voxi',
+      optin_url: '/voxi',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
+  def voxi_tc
+    @details = {
+      camp_id: '',
+      success_url: '/voxi-success',
+      bad_success_url: '/voxi-success',
+      form_name: 'voxi-tc',
+      optin_url: '/voxi-tc',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def home
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',

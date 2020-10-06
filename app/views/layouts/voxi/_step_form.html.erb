@@ -2,8 +2,8 @@
 <div class="modal fade" id="deal-form-modal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content deal-form-box">
-      <div class="modal-header">
-         <h1 id="ModalCenterTitle" class="mx-auto"><span class="text-lite">Order</span><span class="text-dark-blue"> your free SIM  </span><span class="text-lite"> to get started</span></h1>
+      <div class="modal-header pt-md-0 pb-md-2 pb-1 pt-2 align-items-center">
+         <h1 id="ModalCenterTitle" class="ml-auto"><span class="text-lite">Order</span><span class="text-dark-blue"> your free SIM  </span><span class="text-lite"> to get started</span></h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -49,28 +49,6 @@
           </div>
           <div  class="tab display-none" id="slide2">
             <div class="row justify-content-center">
-              <div class="input-group mb-3  col-lg-7 email-div">
-                <label class="w-100 text-lite">Email Address*</label>
-                <div class="clearfix"></div>
-                <input
-                type="email"
-                name="email"
-                required
-                data-parsley-required="true"
-                data-parsley-required-message="Please Enter Valid Email Address"
-                data-parsley-type="email"
-                data-parsley-type-message="Please Enter Valid Email Address"
-                data-parsley-group="block-1"
-                data-parsley-validemail
-                value=""
-                class="form-control nme_inpu email"
-                placeholder="Email Address">
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <%= image_tag("privacy.png", class: "privcy pull-right", alt: "Privacy image") %>
-                  </span>
-                </div>
-              </div>
               <!-- postcode -->
               <div class="form-group col-lg-7  col-12">
                 <label class="text-lite">Postcode*</label>
@@ -105,7 +83,6 @@
                   required>
                 </select>
               </div>
-
               <div class="form-group col-lg-7 col-12 address-div display-none">
                 <label class="d-flex justify-content-start  text-black f-25 mb-2">
                   First Line Of Address
@@ -120,6 +97,28 @@
                   data-parsley-group="block-1"
                   type="text"
                   >
+              </div>
+              <div class="input-group mb-3  col-lg-7 email-div">
+                <label class="w-100 text-lite">Email Address*</label>
+                <div class="clearfix"></div>
+                <input
+                type="email"
+                name="email"
+                required
+                data-parsley-required="true"
+                data-parsley-required-message="Please Enter Valid Email Address"
+                data-parsley-type="email"
+                data-parsley-type-message="Please Enter Valid Email Address"
+                data-parsley-group="block-1"
+                data-parsley-validemail
+                value=""
+                class="form-control nme_inpu email"
+                placeholder="Email Address">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <%= image_tag("privacy.png", class: "privcy pull-right", alt: "Privacy image") %>
+                  </span>
+                </div>
               </div>
               <div class="custom-checkbox col-lg-7">
                 <label class="text-lite">Accept</label>
@@ -144,7 +143,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-7 col-12 btn-div justify-content-center">
+          <div class="col-lg-7 mx-auto col-12 btn-div1 justify-content-center">
             <div class="row justify-content-center">
               <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                 <button id="btn-back" type="button" class="btn-back1 py-2 btn btn-primary btn-lg">Back</button>
@@ -153,7 +152,7 @@
                 <i class="lodr but_loader display-none position-absolute">
                   <%= image_tag("button-ajax-loader.gif", alt: "loader image") %>
                 </i>
-                <button id="btn-continue" type="button" class="btn-back1 py-2 btn btn-success btn-lg nextStep" >Continue</button>
+                <button id="btn-continue" type="button" class="btn-back1 py-2 btn btn-success btn-lg nextStep" >Send Me A Sim</button>
               </div>
             </div>
           </div>
