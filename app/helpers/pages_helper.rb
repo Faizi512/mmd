@@ -1239,6 +1239,7 @@ module PagesHelper
         bigdic: "Big Discount!"
       }
     ]
+
     @sims = [
      {
         name: "Tesco Sim Card",
@@ -1300,6 +1301,29 @@ module PagesHelper
         contlength: "12 Month"
 
       }
+    ]
+
+    @voxideals = [
+      {
+        name: "12GB Plan",
+        data: "12GB",
+        monthly: "10",
+      },
+      {
+        name: "15GB Plan",
+        data: "15GB",
+        monthly:"15",
+      },
+      {
+        name: "45GB Plan",
+        data: "45GB",
+        monthly: "20",
+      },
+      {
+        name: "Endless Data",
+        data: "Unlimited",
+        monthly: "35",
+      },
     ]
   end
 end

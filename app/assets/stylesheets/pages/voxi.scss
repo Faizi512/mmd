@@ -1,0 +1,23 @@
+.voxi-deals{
+  background-color: #000;
+  color: #fff;
+  .voxi-deals-head{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    transition: .2s all ease-in-out;
+    z-index: 2;
+  }
+  .upper-tag{
+    height: 35px;
+    line-height: 35px;
+    justify-content: right;
+  }
+  .voxi-tag{
+    color: pink !important;
+  }
+}
