@@ -11,66 +11,11 @@
       <div class="modal-body">
         <form class="form" id="dealform" data-details="<%= @details %>" method="post" action="javascript:;">
           <p class="text-lite text-center">Your SIM will arrive in the post within 2 working days, and comes in 3 sizes to fit any phone. Once you’ve got it, you just need to activate it.</p>
-          <div class="progress mb-5">
+          <div class="progress d-none mb-5">
             <div class="progress-bar w-0" id="progressBar"></div>
-          </div>
-          <div  class="tab display-none" id="slide1">
-            <div class="row justify-content-center">
-              <div class="form-group col-lg-7 col-12">
-                <label class="text-lite">First Name*</label>
-                <input
-                name="first_name"
-                required
-                data-parsley-required="true"
-                data-parsley-required-message="Please Enter First Name" data-parsley-pattern-message="First Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
-                data-parsley-group="block-0"
-                type="text"
-                class="first_name form-control hero-input ignoreStep3"
-                placeholder="First Name" >
-                 <i class="validate success fa fa-check-circle"></i>
-                <i class="validate error fa fa-times-circle"></i>
-              </div>
-              <div class="form-group col-lg-7 col-12">
-                <label class="text-lite">Last Name*</label>
-                <input
-                name="last_name"
-                required
-                data-parsley-required="true"
-                data-parsley-required-message="Please Enter Last Name"
-                data-parsley-group="block-0"
-                data-parsley-pattern-message="Last Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
-                type="text"
-                class="form-control ignoreStep3 last_name"
-                placeholder="Surname" >
-                 <i class="validate success fa fa-check-circle"></i>
-                <i class="validate error fa fa-times-circle"></i>
-              </div>
-            </div>
           </div>
           <div  class="tab display-none" id="slide2">
             <div class="row justify-content-center">
-              <div class="input-group mb-3  col-lg-7 email-div">
-                <label class="w-100 text-lite">Email Address*</label>
-                <div class="clearfix"></div>
-                <input
-                type="email"
-                name="email"
-                required
-                data-parsley-required="true"
-                data-parsley-required-message="Please Enter Valid Email Address"
-                data-parsley-type="email"
-                data-parsley-type-message="Please Enter Valid Email Address"
-                data-parsley-group="block-1"
-                data-parsley-validemail
-                value=""
-                class="form-control nme_inpu email"
-                placeholder="Email Address">
-                <div class="input-group-append">
-                  <span class="input-group-text">
-                    <%= image_tag("privacy.png", class: "privcy pull-right", alt: "Privacy image") %>
-                  </span>
-                </div>
-              </div>
               <!-- postcode -->
               <div class="form-group col-lg-7  col-12">
                 <label class="text-lite">Postcode*</label>
@@ -80,14 +25,16 @@
                   required
                   data-parsley-required="true"
                   data-parsley-required-message="Please Enter Postcode"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-0"
                   data-parsley-validapipostcode
                   type="text"
                   class="postcode form-control ignoreStep4 error-on-button"
                   placeholder="Postcode">
-                    <button type="button" class="form-control btn btn-success rounded-right left-0r findAddress-btn">Find Address</button>
+                    <button type="button" class="btn btn-success rounded-right left-0r findAddress-btn">Find Address</button>
                 </div>
-                <div class="error-box"></div>
+                <div class="error-box">
+
+                </div>
               </div>
               <div class="form-group col-lg-7 col-12 property-div display-none">
                 <label class="text-lite">Your Property*</label>
@@ -101,7 +48,7 @@
                   class="property w-100 form-control ignoreStep4 text-dark"
                   data-parsley-required="true"
                   data-parsley-required-message="Please Select Your property"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-0"
                   required>
                 </select>
               </div>
@@ -117,7 +64,7 @@
                   class="address form-control ignoreStep4"
                   data-parsley-required="true"
                   data-parsley-required-message="Please Enter Your Address"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-0"
                   type="text"
                   >
               </div>
@@ -131,7 +78,7 @@
                     class="onoffswitch-checkbox approve"
                     id="myonoffswitch"
                     data-parsley-required="true"
-                    data-parsley-group="block-1"
+                    data-parsley-group="block-0"
                     data-parsley-required-message="Please accept our terms and conditions"
                     >
                   <label class="onoffswitch-label" for="myonoffswitch">
@@ -146,14 +93,11 @@
           </div>
           <div class="col-lg-7 col-12 btn-div justify-content-center">
             <div class="row justify-content-center">
-              <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                <button id="btn-back" type="button" class="btn-back1 py-2 btn btn-primary btn-lg">Back</button>
-              </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center">
                 <i class="lodr but_loader display-none position-absolute">
                   <%= image_tag("button-ajax-loader.gif", alt: "loader image") %>
                 </i>
-                <button id="btn-continue" type="button" class="btn-back1 py-2 btn btn-success btn-lg nextStep" >Continue</button>
+                <button id="btn-continue" type="submit" class="btn-back1 py-2 btn btn-success btn-lg nextStep" >Send me a Sim</button>
               </div>
             </div>
           </div>
