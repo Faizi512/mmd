@@ -35,6 +35,52 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: bold;
   box-sizing: border-box;
 }
+
+///////////////////// for credit check scss
+.text-col{
+  border: 1px solid #ff9b00 !important;
+  color: #ff9b00 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+label.input-radio:hover {
+  background: linear-gradient(to bottom, #ff9b00, #f57200) !important;
+  color: white !important;
+}
+input:checked~.input-radio{
+  background: linear-gradient(to bottom, #ff9b00, #f57200) !important;
+  color: white!important;
+}
+.credit-check {
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+.btn-green:hover {
+  color: #fff;
+  background: linear-gradient(270deg,#f57200,#ff9b00) !important;
+}
+.btn-green {
+  border-radius: 50px!important;
+  background: #3ebbe9 !important;
+  border: none!important;
+  color: #fff!important;
+  font-weight: 700!important;
+  font-size: 22px!important;
+  height: 60px;
+  margin-top: 30px;
+  width: 30%;
+}
+.border-col{
+  border: 2px solid  #3ebbe9 !important;
+}
+///////////////////////
+
+
 .deal-form-box {
   background: #fff;
   border-radius: 5px;
