@@ -28,9 +28,9 @@
                   aria-labelledby="deals"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> What deal do you want?</label>
-                    <div class="d-flex">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> What deal do you want?</label>
+                    <div class="d-flex justify-content-center flex-wrap">
+                      <div class="w-xs-100 w-sm-50 w-md-25 p-1" >
                         <input
                         name="deal"
                         required
@@ -44,11 +44,11 @@
                         >
                         <label
                           for="sim"
-                          class="input-radio rounded py-1 px-2 cursor-p text-center text-col h-75">
+                          class="input-radio cursor-p text-center text-col p-2">
                           Sim
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-sm-50 w-md-25 p-1" >
                         <input
                         name="deal"
                         required
@@ -62,7 +62,7 @@
                         >
                         <label
                           for="handset"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Handset
                         </label>
                       </div>
@@ -92,20 +92,27 @@
                   aria-labelledby="age"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Select your birth year</label>
-                    <select
+                    <label class="text-center"> Select your birth year
+                    </label>
+                    <div class="w-xs-100 w-md-50 mx-auto">
+                      <select
                       required
                       data-parsley-required="true"
                       data-parsley-required-message="Please select one of the option"
                       data-parsley-group="block-1"
-                      class="select-field cursor-p w-100 form-control text-col"
-                    >
-                      <option selected="selected" value="" disabled="">Select</option>
-                      <option value="full time"> more than 1998 </option>
-                      <% for i in 1950..1998 do%>
-                        <option value="full time"><%= i %> </option>
-                      <%end%>
-                    </select>
+                      class="select-field cursor-p form-control text-col"
+
+                      >
+                        <option selected="selected" value="" disabled="">Select</option>
+                        <option value="full time"> more than 1998 </option>
+                        <% for i in 1950..1998 do%>
+                          <option value="full time"><%= i %> </option>
+                        <%end%>
+                      </select>
+                    </div>
+                    <div class="row justify-content-center">
+                      <input data-target="#dob" type="button" name="next-btn" class="btn back-color mt-4 px-5 rounded-pill step" value="NEXT">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -131,74 +138,74 @@
                   aria-labelledby="network"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Select your current network</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
-                        <input
-                          name="network"
-                          required
-                          data-parsley-required="true"
-                          data-parsley-required-message="Please select one of the network"
-                          data-parsley-group="block-2"
-                          id="o2"
-                          type="radio"
-                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="o2"
-                        >
-                        <label for="o2"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                          O2
-                        </label>
-                      </div>
-                      <div class="w-50 p-1">
-                        <input
-                          name="network"
-                          required
-                          data-parsley-required="true"
-                          data-parsley-required-message="Please select one of the network"
-                          data-parsley-group="block-2"
-                          type="radio"
-                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          id="vodafone"
-                          value="vodafone">
-                        <label for="vodafone"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                          Vodafone
-                        </label>
-                      </div>
-                      <div class="w-50 p-1">
-                        <input
-                          name="network"
-                          required
-                          data-parsley-required="true"
-                          data-parsley-required-message="Please select one of the network"
-                          data-parsley-group="block-2"
-                          type="radio"
-                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          id="three"
-                          value="three">
-                        <label for="three"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                          three
-                        </label>
-                      </div>
-                      <div class="w-50 p-1">
-                        <input
-                          name="network"
-                          required
-                          data-parsley-required="true"
-                          data-parsley-required-message="Please select one of the network"
-                          data-parsley-group="block-2"
-                          type="radio"
-                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          id="EE"
-                          value="EE"
-                        >
-                        <label for="EE"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                           EE
-                        </label>
-                      </div>
+                    <label class="text-center"> Select your current network</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                        <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
+                          <input
+                            name="network"
+                            required
+                            data-parsley-required="true"
+                            data-parsley-required-message="Please select one of the network"
+                            data-parsley-group="block-2"
+                            id="o2"
+                            type="radio"
+                            class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                            value="o2"
+                          >
+                          <label for="o2"
+                            class="input-radio  cursor-p text-center text-col p-2">
+                            O2
+                          </label>
+                        </div>
+                        <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
+                          <input
+                            name="network"
+                            required
+                            data-parsley-required="true"
+                            data-parsley-required-message="Please select one of the network"
+                            data-parsley-group="block-2"
+                            type="radio"
+                            class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                            id="vodafone"
+                            value="vodafone">
+                          <label for="vodafone"
+                            class="input-radio  cursor-p text-center text-col p-2">
+                            Vodafone
+                          </label>
+                        </div>
+                        <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
+                          <input
+                            name="network"
+                            required
+                            data-parsley-required="true"
+                            data-parsley-required-message="Please select one of the network"
+                            data-parsley-group="block-2"
+                            type="radio"
+                            class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                            id="three"
+                            value="three">
+                          <label for="three"
+                            class="input-radio  cursor-p text-center text-col p-2">
+                            three
+                          </label>
+                        </div>
+                        <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
+                          <input
+                            name="network"
+                            required
+                            data-parsley-required="true"
+                            data-parsley-required-message="Please select one of the network"
+                            data-parsley-group="block-2"
+                            type="radio"
+                            class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                            id="EE"
+                            value="EE"
+                          >
+                          <label for="EE"
+                            class="input-radio  cursor-p text-center text-col p-2">
+                             EE
+                          </label>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -224,21 +231,26 @@
                   aria-labelledby="employment-status"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Your employment status</label>
-                    <select
-                      name="employment"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      data-parsley-group="block-3"
-                      class="select-field cursor-p w-100 form-control text-col">
-                      <option selected="selected" value="" disabled="">Select</option>
-                      <option value="full time"> full time </option>
-                      <option value="self employed"> self employed</option>
-                      <option value="part time"> part time  </option>
-                      <option value="student"> student </option>
-                      <option value="unemployed"> unemployed </option>
-                    </select>
+                    <label class="text-center"> Your employment status</label>
+                    <div class="w-xs-100 w-md-50 mx-auto">
+                      <select
+                        name="employment"
+                        required
+                        data-parsley-required="true"
+                        data-parsley-required-message="Please select one of the option"
+                        data-parsley-group="block-3"
+                        class="select-field cursor-p form-control text-col">
+                        <option selected="selected" value="" disabled="">Select</option>
+                        <option value="full time"> full time </option>
+                        <option value="self employed"> self employed</option>
+                        <option value="part time"> part time  </option>
+                        <option value="student"> student </option>
+                        <option value="unemployed"> unemployed </option>
+                      </select>
+                    </div>
+                    <div class="row justify-content-center">
+                      <input data-target="#dob" type="button" name="next-btn" class="btn back-color mt-4 px-5 rounded-pill step" value="NEXT">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -263,9 +275,9 @@
                   aria-labelledby="monthly-income"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Net monthly income</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> Net monthly income</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="income"
                           required
@@ -278,11 +290,11 @@
                           value="Upto £1000"
                         >
                         <label for="income-1000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £1000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="income"
                           required
@@ -295,11 +307,11 @@
                           value="Upto £2000"
                         >
                         <label for="income-2000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £2000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="income"
                           required
@@ -312,11 +324,11 @@
                           value="Upto £4000"
                         >
                         <label for="income-4000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £4000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="income"
                           required
@@ -329,7 +341,7 @@
                           value="£4000+"
                         >
                         <label for="income-4000+"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           £4000+
                         </label>
                       </div>
@@ -358,9 +370,9 @@
                   aria-labelledby="food"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Your food expenditures</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> Your food expenditures</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="food"
                           required
@@ -373,11 +385,11 @@
                           value="Upto £500"
                         >
                         <label for="food-500"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £500
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="food"
                           required
@@ -390,11 +402,11 @@
                           value="Upto £1000"
                         >
                         <label for="food-1000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £1000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="food"
                           required
@@ -407,11 +419,11 @@
                           value="Upto £2000"
                         >
                         <label for="food-2000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £2000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="food"
                           required
@@ -424,7 +436,7 @@
                           value="£2000+"
                         >
                         <label for="food-2000+"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           £2000+
                         </label>
                       </div>
@@ -453,9 +465,9 @@
                   aria-labelledby="transport"
                   data-parent="#accordion" >
                   <div class="card-body">
-                    <label> Your transport expenditures</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> Your transport expenditures</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="transport"
                           required
@@ -468,11 +480,11 @@
                           value="Upto £500"
                         >
                         <label for="tr-500"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £500
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="transport"
                           required
@@ -485,11 +497,11 @@
                           value="Upto £1000"
                         >
                         <label for="tr-1000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £1000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="transport"
                           required
@@ -502,11 +514,11 @@
                           value="Upto £2000"
                         >
                         <label for="tr-2000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £2000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="transport"
                           required
@@ -519,7 +531,7 @@
                           value="£2000+"
                         >
                         <label for="tr-2000+"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           £2000+
                         </label>
                       </div>
@@ -549,9 +561,9 @@
                   aria-labelledby="bills"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Your utility bills expenditures</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> Your utility bills expenditures</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="bills"
                           required
@@ -563,12 +575,12 @@
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
                           value="Upto £500"
                         >
-                        <label for="bill-5"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                        <label for="bill-500"
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £500
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="bills"
                           required
@@ -581,11 +593,11 @@
                           value="Upto £1000"
                         >
                         <label for="bill-1000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £1000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="bills"
                           required
@@ -598,11 +610,11 @@
                           value="Upto £2000"
                         >
                         <label for="bill-2000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £2000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="bills"
                           required
@@ -615,7 +627,7 @@
                           value="£2000+"
                         >
                         <label for="bill-2000+"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           £2000+
                         </label>
                       </div>
@@ -644,9 +656,9 @@
                   aria-labelledby="others"
                   data-parent="#accordion">
                   <div class="card-body">
-                    <label> Your other expenditures</label>
-                    <div class="d-flex flex-wrap">
-                      <div class="w-50 p-1">
+                    <label class="text-center"> Your other expenditures</label>
+                    <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="expenditures"
                           required
@@ -659,11 +671,11 @@
                           value="Upto £500"
                         >
                         <label for="exp-500"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £500
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="expenditures"
                           required
@@ -676,11 +688,11 @@
                           value="Upto £1000"
                         >
                         <label for="exp-1000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £1000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="expenditures"
                           required
@@ -693,11 +705,11 @@
                           value="Upto £2000"
                         >
                         <label for="exp-2000"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           Upto £2000
                         </label>
                       </div>
-                      <div class="w-50 p-1">
+                      <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
                         <input
                           name="expenditures"
                           required
@@ -710,7 +722,7 @@
                           value="£2000+"
                         >
                         <label for="exp-2000+"
-                          class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                          class="input-radio  cursor-p text-center text-col p-2">
                           £2000+
                         </label>
                       </div>

@@ -7,6 +7,13 @@ class CreditCheck extends Common {
     $(document).on("click", '.form-control', function() {
       CI.step(1)
     });
+    $(document).on("click", '.back-color', function() {
+      CI.step(1)
+    });
+    $(document).on("click", '.accordion-title', function(event) {
+      var tab1=event.target.closest('.tab')
+      CI.changeTab(tab1)
+    });
     $(document).on("show.bs.collapse", '.collapse', function(event) {
        $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-plus-circle").addClass("fa-minus-circle");
     })
@@ -25,6 +32,11 @@ class CreditCheck extends Common {
       $(tabs[CI.currentTab + 1]).find('.d-none').removeClass('d-none');
       CI.currentTab = CI.currentTab + n;
     })
+  }
+  changeTab(tab){
+    var CI = this;
+    var index=parseInt(tab.id);
+    this.currentTab=index;
   }
 }
 export default new CreditCheck();
