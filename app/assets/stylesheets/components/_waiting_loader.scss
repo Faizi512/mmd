@@ -31,5 +31,28 @@
     right: 0;
     background: #7bc9bd !important
   }
+  .form-logos-img{
+    .network-log{
+      width: 40px;
+      @media only screen and (max-width: 520px) {
+        width: 23px;
+        margin: 0 10px;
+      }
+    }
+    .network-log1{
+      width: 60px;
+      @media only screen and (max-width: 520px) {
+        width: 39px;
+        margin: 0 10px;
+      }
+    }
+    .network-log2{
+      width: 32px;
+      @media only screen and (max-width: 520px) {
+        width: 20px;
+        margin: 0 10px;
+      }
+    }
+  }
 
 }
