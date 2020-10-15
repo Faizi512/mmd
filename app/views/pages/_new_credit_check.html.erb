@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'credit_check' %>
+
 <div class="credit-check bg-light form-page">
   <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
     <div class="modal-content deal-form-box border-0 shadow-none bg-light">
@@ -100,13 +101,14 @@
                       data-parsley-required="true"
                       data-parsley-required-message="Please select one of the option"
                       data-parsley-group="block-1"
+                      id="dob"
                       class="select-field cursor-p form-control text-col"
 
                       >
-                        <option selected="selected" value="" disabled="">Select</option>
+                        <option selected="selected" disabled="">Select</option>
                         <option value="full time"> more than 1998 </option>
-                        <% for i in 1950..1998 do%>
-                          <option value="full time"><%= i %> </option>
+                        <% for i in 1950..1997 do%>
+                          <option><%= i %> </option>
                         <%end%>
                       </select>
                     </div>
@@ -287,7 +289,7 @@
                           id="income-1000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £1000"
+                          value="income Upto £1000"
                         >
                         <label for="income-1000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -304,7 +306,7 @@
                           id="income-2000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £2000"
+                          value="income Upto £2000"
                         >
                         <label for="income-2000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -321,7 +323,7 @@
                           id="income-4000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £4000"
+                          value="income Upto £4000"
                         >
                         <label for="income-4000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -338,7 +340,7 @@
                           id="income-4000+"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="£4000+"
+                          value="income above £4000"
                         >
                         <label for="income-4000+"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -382,7 +384,7 @@
                           id="food-500"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £500"
+                          value="food Upto £500"
                         >
                         <label for="food-500"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -399,7 +401,7 @@
                           id="food-1000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £1000"
+                          value="food Upto £1000"
                         >
                         <label for="food-1000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -416,7 +418,7 @@
                           id="food-2000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £2000"
+                          value="food Upto £2000"
                         >
                         <label for="food-2000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -433,7 +435,7 @@
                           id="food-2000+"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="£2000+"
+                          value=" food above £2000"
                         >
                         <label for="food-2000+"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -477,7 +479,7 @@
                           id="tr-500"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £500"
+                          value="transport Upto £500"
                         >
                         <label for="tr-500"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -494,7 +496,7 @@
                           id="tr-1000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £1000"
+                          value="transport Upto £1000"
                         >
                         <label for="tr-1000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -511,7 +513,7 @@
                           id="tr-2000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £2000"
+                          value="transport Upto £2000"
                         >
                         <label for="tr-2000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -528,7 +530,7 @@
                           id="tr-2000+"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="£2000+"
+                          value="transport above £2000"
                         >
                         <label for="tr-2000+"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -573,7 +575,7 @@
                           id="bill-500"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £500"
+                          value="bills Upto £500"
                         >
                         <label for="bill-500"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -590,7 +592,7 @@
                           id="bill-1000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £1000"
+                          value=" bills Upto £1000"
                         >
                         <label for="bill-1000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -607,7 +609,7 @@
                           id="bill-2000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £2000"
+                          value="bills Upto £2000"
                         >
                         <label for="bill-2000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -624,7 +626,7 @@
                           id="bill-2000+"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="£2000+"
+                          value="bills above £2000"
                         >
                         <label for="bill-2000+"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -668,7 +670,7 @@
                           id="exp-500"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £500"
+                          value="others Upto £500"
                         >
                         <label for="exp-500"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -685,7 +687,7 @@
                           id="exp-1000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £1000"
+                          value="others Upto £1000"
                         >
                         <label for="exp-1000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -702,7 +704,7 @@
                           id="exp-2000"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="Upto £2000"
+                          value="others Upto £2000"
                         >
                         <label for="exp-2000"
                           class="input-radio  cursor-p text-center text-col p-2">
@@ -719,7 +721,7 @@
                           id="exp-2000+"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="£2000+"
+                          value="others above £2000"
                         >
                         <label for="exp-2000+"
                           class="input-radio  cursor-p text-center text-col p-2">
