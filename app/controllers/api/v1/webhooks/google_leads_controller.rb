@@ -1,4 +1,5 @@
 class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
+  protect_from_forgery except: :create
   def index
     render json: {status:  :ok}
   end
