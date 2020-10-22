@@ -5,16 +5,13 @@ class CreditCheck extends Common {
     var CI = this;
     this.validate("#cc-form")
     $(document).on("click", '.input-tag-radio', function(event) {
-      var card=event.target.closest('.tab')
-      CI.step(1,card)
+      CI.step(1,event)
     });
     $(document).on("change", '.select-field', function(event) {
-      var card=event.target.closest('.tab')
-      CI.step(1,card)
+      CI.step(1,event)
     });
     $(document).on("click", '.back-color', function(event) {
-      var card=event.target.closest('.tab')
-      CI.step(1,card)
+      CI.step(1,event)
     });
     $(document).on("click", '.accordion-title', function(event) {
       var card=event.target.closest('.tab')
@@ -27,9 +24,10 @@ class CreditCheck extends Common {
       $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-minus-circle").addClass("fa-plus-circle");
     });
   }
-  step(n,tab) {
+  step(n,event) {
+    var tab = event.target.closest('.tab')
     var CI = this;
-    var income=0,food=0,transport=0,others=0,bills=0;
+    var income=0,food=0,transport=0,others=0,bills=0, savings=0;
     $('#cc-form').parsley().whenValidate({
       group: 'block-' + this.currentTab
     }).done(() =>{
@@ -51,6 +49,11 @@ class CreditCheck extends Common {
     }
     else{
       var inputs=$(tab).find(".input-tag-radio");
+      var incomeValues=["income Upto £1000","income Upto £2000","income Upto £4000","income above £4000"]
+      var foodValues=["food Upto £500","food Upto £1000","food Upto £1500","food above £2000"]
+      var transportValues=["transport Upto £500","transport Upto £1000","transport Upto £1500","transport above £2000"]
+      var billsValues=["bills Upto £500","bills Upto £1000","bills Upto £1500","bills above £2000"]
+      var othersValues=["others Upto £500","others Upto £1000","others Upto £1500","others above £2000"]
       for (var i=0; i<inputs.length;i++){
         var id=inputs[i];
         if (id.checked) {
@@ -58,66 +61,51 @@ class CreditCheck extends Common {
              id.value=="income Upto £2000" ){
              window.location.href=
               "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
-          }else if(id.value == "income Upto £1000" ||
-                  id.value == "income Upto £4000" ||
-                  id.value == "income above £4000"){
-            var income= id.value;
-            income=income.split("£");
-            income=income[1];
-            income=parseInt(income);
-          }else if(id.value == "food Upto £500" ||
-                  id.value == "food Upto £1000" ||
-                  id.value == "food Upto £1500" ||
-                  id.value == "food above £2000"){
-            food= id.value;
-            food=food.split("£");
-            food=food[1];
-            food=parseInt(food);
-          }else if(id.value == "transport Upto £500" ||
-                  id.value == "transport Upto £1000" ||
-                  id.value == "transport Upto £1500" ||
-                  id.value == "transport above £2000"){
-            transport= id.value;
-            transport=transport.split("£");
-            transport=transport[1];
-            transport=parseInt(transport);
-          }else if(id.value == "bills Upto £500" ||
-                  id.value == "bills Upto £1000" ||
-                  id.value == "bills Upto £1500" ||
-                  id.value == "bills above £2000"){
-            bills= id.value;
-            bills=bills.split("£");
-            bills=bills[1];
-            bills=parseInt(bills);
-          }else if(id.value == "others Upto £500" ||
-                  id.value == "others Upto £1000" ||
-                  id.value == "others Upto £1500" ||
-                  id.value == "others above £2000"){
-            others= id.value;
-            others=others.split("£");
-            others=others[1];
-            others=parseInt(others);
+          }
+          else if(incomeValues.includes(id.value)){
+            this.income= this.getAmount(id.value)
+          }
+          else if(foodValues.includes(id.value)){
+            this.food= this.getAmount(id.value)
+          }
+          else if(transportValues.includes(id.value)){
+            this.transport= this.getAmount(id.value)
+          }
+          else if(billsValues.includes(id.value)){
+            this.bills= this.getAmount(id.value)
+          }
+          else if(othersValues.includes(id.value)){
+            this.others= this.getAmount(id.value)
           }
         }
       }
     }
-    var savings=income-(transport+food+bills+others)
-    if(savings <= 500 && others != 0)
-    {
-      window.location.href=
-        "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=10";
-    }else if(savings > 500 && savings <=1000 && others != 0){
-      window.location.href=
-        "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=20";
-    }else if(savings > 1000 && others != 0){
-      window.location.href=
-        "https://switchuk.uk/mobiles/contract_phone_deals";
+    debugger
+    if(this.income != null && this.transport != null && this.food != null && this.bills != null && this.others !=null){
+      this.savings=this.income-(this.transport+this.food+this.bills+this.others)
+    }
+    debugger
+    if(this.savings != null){
+      if(this.savings <= 500 && this.others != 0)
+      {
+        window.location.href=
+          "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=10";
+      }else if(this.savings > 500 && this.savings <=1000 && this.others != 0){
+        window.location.href=
+          "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=20";
+      }else if(this.savings > 1000 && this.others != 0){
+        window.location.href=
+          "https://switchuk.uk/mobiles/contract_phone_deals";
+      }
     }
   }
   changeTab(tab){
     var CI = this;
     var index=parseInt(tab.id);
     this.currentTab=index;
+  }
+  getAmount(id){
+    return parseInt(id.split("£")[1]);
   }
 }
 export default new CreditCheck();
