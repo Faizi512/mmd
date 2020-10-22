@@ -46,18 +46,18 @@ class CreditCheck extends Common {
       if (data == "more than 1998" || data== "unemployed" || data== "student")
       {
         window.location.href=
-          "https://switchuk.uk/no_credit_check_sim_only_deals";
+          "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
       }
     }
     else{
       var inputs=$(tab).find(".input-tag-radio");
-      for (var i=0; i<b.length;i++){
+      for (var i=0; i<inputs.length;i++){
         var id=inputs[i];
         if (id.checked) {
           if(id.value=="EE" || id.value=="income Upto £1000" ||
              id.value=="income Upto £2000" ){
              window.location.href=
-              "https://switchuk.uk/no_credit_check_sim_only_deals";
+              "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
           }else if(id.value == "income Upto £1000" ||
                   id.value == "income Upto £4000" ||
                   id.value == "income above £4000"){
@@ -101,10 +101,17 @@ class CreditCheck extends Common {
         }
       }
     }
-    if((income-(transport+food+bills+others)) <= 500 && others != 0)
+    var savings=income-(transport+food+bills+others)
+    if(savings <= 500 && others != 0)
     {
       window.location.href=
-        "https://switchuk.uk/no_credit_check_sim_only_deals";
+        "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=10";
+    }else if(savings > 500 && savings <=1000 && others != 0){
+      window.location.href=
+        "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=20";
+    }else if(savings > 1000 && others != 0){
+      window.location.href=
+        "https://switchuk.uk/mobiles/contract_phone_deals";
     }
   }
   changeTab(tab){
