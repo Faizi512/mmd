@@ -768,6 +768,17 @@ module PagesHelper
 
     @phoneshome = [
       {
+        name: "iPhone 12",
+        data: "Unlimited",
+        image: "iphone_12_black.png",
+        calls: "Unlimited",
+        texts: "Unlimited",
+        url:"/success",
+        bluetext: "Personal Hotspot, Go Binge, Data Roaming",
+        deposit: "£0",
+        handset: ""
+      },
+      {
         name: "Samsung Galaxy S10",
         data: "Unlimited",
         image: "phone/samsungs10.png",
