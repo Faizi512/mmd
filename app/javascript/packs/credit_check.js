@@ -80,11 +80,9 @@ class CreditCheck extends Common {
         }
       }
     }
-    debugger
     if(this.income != null && this.transport != null && this.food != null && this.bills != null && this.others !=null){
       this.savings=this.income-(this.transport+this.food+this.bills+this.others)
     }
-    debugger
     if(this.savings != null){
       if(this.savings <= 500 && this.others != 0)
       {

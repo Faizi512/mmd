@@ -48,7 +48,6 @@ class Home extends Common {
   }
 
   urlSelection(){
-
     if(this.deliveryName == "Exit 1 (Energy)"){
       window.location = this.details.success_url+this.paramsforSuccess2()
     }else if(this.deliveryName == "Exit 2 (Credit)"){
@@ -71,11 +70,12 @@ class Home extends Common {
       window.location = this.details.success_url
     }else if(this.deliveryName == "Exit Sweet-Mobile"){
       window.location = this.details.success_url+this.paramsforSuccess()
+    }else if(this.networkName == "Orange"){
+      this.redirectTOSwitchuk();
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
   }
-
   successUrl(){
     var CI = this;
     $("#loaderPopup").css('height', '100%')
