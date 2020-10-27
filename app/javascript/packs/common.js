@@ -179,7 +179,7 @@ class Common {
       window.location='https://switchuk.uk/'
     }
     else{
-     window.location='https://switchuk.uk/new_credit_check'
+     window.location='https://megamobiledeals.com/credit_check'
     }
   }
   deviceDetection(){
