@@ -354,7 +354,7 @@ input.error ~ .validate.success {
   color: red !important;
   position: relative;
   float: right;
-  font-size: 25px;
+  font-size: 25px !important;
   margin-top: -31px;
   right: 6px;
 }
@@ -397,6 +397,9 @@ input.error ~ .validate.success {
   }
 }
 @media only screen and (max-width: 520px) {
+  .deal-form-box .modal-body .form {
+    padding: 5px;
+  }
   .btn-div{
     .row{
       flex-direction: column-reverse;

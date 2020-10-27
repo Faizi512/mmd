@@ -134,6 +134,9 @@ class Common {
           if(field.$element.hasClass('approve')){
             return $('.error-checkbox')
           }
+          if(field.$element.hasClass('postcode')){
+            return $('.postcode-error')
+          }
           if(field.$element.hasClass('error-on-button')){
             return $(field.element.closest(".tab").querySelector(".error-box"))
           }
@@ -216,7 +219,7 @@ class Common {
   validateApiPostcode(){
     window.Parsley.addValidator('validapipostcode', {
       validateString: function(value){
-        var xhr = $.ajax({
+       return $.ajax({
           url:`https://api.getAddress.io/find/${$(".postcode").val()}?api-key=NjGHtzEyk0eZ1VfXCKpWIw25787&expand=true`,
           success: function(json){
             if (json.addresses.length > 0) {
@@ -250,10 +253,10 @@ class Common {
               return $.Deferred().reject("Please Enter Valid Postcode");
             }
           },
-          error: function(error){
-            console.log(error.statusText)
-            xhr.abort();
-            if (error.statusText == "timeout") {
+          error: function(request){
+            console.log(request.statusText)
+            request.abort();
+            if (request.statusText == "timeout") {
               $(".property-div").remove();
               $(".address-div").show();
             }
