@@ -91,7 +91,11 @@ input[type=number]::-webkit-outer-spin-button {
         line-height: 24px;
         font-weight: 700;
         width: 100%;
-
+      }
+      .custom-control-label{
+        color: #343232;
+        font-size: smaller;
+        font-weight: 400;
       }
       .securityInfo {
         text-align: center;
