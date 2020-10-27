@@ -219,7 +219,6 @@ class Common {
         var xhr = $.ajax({
           url:`https://api.getAddress.io/find/${$(".postcode").val()}?api-key=NjGHtzEyk0eZ1VfXCKpWIw25787&expand=true`,
           success: function(json){
-            debugger
             if (json.addresses.length > 0) {
               var result = json.addresses
               var adresses = []
