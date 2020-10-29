@@ -8,6 +8,11 @@ $light-orange: #f57200;
   font-weight: 400 !important;
   border-radius: 2rem !important;
 }
+input::-webkit-calendar-picker-indicator {
+  color: $orange !important;
+  opacity: 1;
+  cursor: pointer;
+}
 label.input-radio:hover {
   background: linear-gradient(to bottom, $orange, $light-orange) !important;
   color: white !important;
@@ -49,5 +54,11 @@ input:checked~.input-radio{
   }
   .w-md-50{
    width: 50%;
+  }
+  .w-md-60{
+    width: 60%;
+  }
+  .w-md-100{
+    width: 100%;
   }
 }
