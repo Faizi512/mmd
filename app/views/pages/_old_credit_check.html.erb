@@ -18,6 +18,7 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the deal"
+                    data-parsley-group="block-0"
                     id="sim"
                     type="radio"
                     class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
@@ -35,6 +36,7 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the deal"
+                    data-parsley-group="block-0"
                     id="handset"
                     type="radio"
                     class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
@@ -51,442 +53,151 @@
                 <div>
                   <div class="field form-group">
                     <label>Select your birth year</label>
-                    <select
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      class="select-field w-100 form-control text-col"
-                    >
-                     <option selected="selected" value="" disabled="">Select</option>
-                    <option value="full time"> less than 1998 </option>
-                    <% for i in 1998..2020 do%>
-                      <option value="full time"><%= i %> </option>
-                    <%end%>
-
-                    </select>
+                    <div>
+                      <input required
+                       data-parsley-required="true"
+                       data-parsley-required-message="Please select your age"
+                       data-parsley-group="block-1"
+                       type="date"
+                       id="dob"
+                       name="birthday"
+                       class="form-control text-col select-field"
+                       >
+                    </div>
                   </div>
                 </div>
                 <br>
-                <label>
-                  Select your Current Network
-                </label>
-                <div class="d-flex flex-wrap">
-                  <div class="w-50 p-1">
-                    <input
-                      name="network"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the network"
-                      id="o2"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="o2"
-                    >
-                    <label for="o2"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      O2
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="network"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the network"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      id="vodafone"
-                      value="vodafone">
-                    <label for="vodafone"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Vodafone
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="network"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the network"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      id="three"
-                      value="three">
-                    <label for="three"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      three
-                    </label>
-                  </div>
-                   <div class="w-50 p-1">
-                    <input
-                      name="network"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the network"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      id="EE"
-                      value="EE">
-                    <label for="EE"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      EE
-                    </label>
-                  </div>
-                </div>
-                <br>
-                <div>
-                  <label class="h5 form-group f-25 text-left w-100 mb-1">Your employment status</label>
+                  <label class="h5 form-group f-25 text-left w-100 mb-2">Your employment status</label>
                   <select
                     name="employment"
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the option"
-                    class="select-field w-100 form-control text-col">
+                    data-parsley-group="block-2"
+                    class="select-field w-100 form-control text-col mb-3">
                     <option selected="selected" value="" disabled="">Select</option>
-                    <option value="full time"> full time </option>
+                    <option value="full time"> full time employed </option>
+                    <option value="part time"> part time employed  </option>
                     <option value="self employed"> self employed</option>
-                    <option value="part time"> part time  </option>
-                    <option value="student"> student </option>
                     <option value="unemployed"> unemployed </option>
+                    <option value="persion"> persion </option>
+                    <option value="benefits"> benefits </option>
+                    <option value="student"> student </option>
                   </select>
+                <br>
+                <div class="d-flex flex-wrap">
+                  <label>Residential Status</label>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="tenent"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="tenent"
+                    >
+                    <label for="tenent"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Tenent
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="council-tenent"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="council-tenent"
+                    >
+                    <label for="council-tenent"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Council Tenent
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="home-owner"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="home-owner"
+                    >
+                    <label for="home-owner"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Home Owner
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="living-with-parents"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="living-with-parents"
+                    >
+                    <label for="living-with-parents"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Living With Parents
+                    </label>
+                  </div>
                 </div>
                 <br>
                 <label>Net monthly income</label>
-                <div class="d-flex flex-wrap">
-                  <div class="w-50 p-1">
-                    <input
-                      name="income"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="income-1000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £1000"
-                    >
-                    <label for="income-1000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £1000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="income"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="income-2000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £2000"
-                    >
-                    <label for="income-2000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £2000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="income"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="income-4000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £4000"
-                    >
-                    <label for="income-4000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £4000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="income"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="income-4000+"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="£4000+"
-                    >
-                    <label for="income-4000+"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      £4000+
-                    </label>
-                  </div>
-                </div>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'monthly-income',
+                  parsley_group: 'block-4'
+                %>
                 <br>
-                <div class="d-flex flex-wrap">
-                  <label>Food</label>
-                  <div class="w-50 p-1">
-                    <input
-                      name="food"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="food-500"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £500"
-                    >
-                    <label for="food-500"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £500
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="food"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="food-1000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £1000"
-                    >
-                    <label for="food-1000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £1000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="food"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="food-2000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £2000"
-                    >
-                    <label for="food-2000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £2000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="food"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="food-2000+"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="£2000+"
-                    >
-                    <label for="food-2000+"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      £2000+
-                    </label>
-                  </div>
-                </div>
+                <label>Rent/Mortgage Payments</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'rent',
+                  parsley_group: 'block-5'
+                %>
                 <br>
-                <div class="d-flex flex-wrap">
-                  <label>Transport</label>
-                  <div class="w-50 p-1">
-                    <input
-                      name="transport"
-                      id="tr-500"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £500"
-                    >
-                    <label for="tr-500"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £500
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="transport"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="tr-1000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £1000"
-                    >
-                    <label for="tr-1000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £1000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="transport"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="tr-2000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £2000"
-                    >
-                    <label for="tr-2000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £2000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="transport"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="tr-2000+"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="£2000+"
-                    >
-                    <label for="tr-2000+"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      £2000+
-                    </label>
-                  </div>
-                </div>
+                <label>Credit Card & Loan Repayments</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'credit-card',
+                  parsley_group: 'block-6'
+                %>
                 <br>
-                <div class="d-flex flex-wrap">
-                  <label>Utility bills</label>
-                  <div class="w-50 p-1">
-                    <input
-                      name="bills"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="bill-500"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £500"
-                    >
-                    <label for="bill-5"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £500
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="bills"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="bill-1000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £1000"
-                    >
-                    <label for="bill-1000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £1000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="bills"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="bill-2000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £2000"
-                    >
-                    <label for="bill-2000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £2000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="bills"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="bill-2000+"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="£2000+"
-                    >
-                    <label for="bill-2000+"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      £2000+
-                    </label>
-                  </div>
-                </div>
+                <label>Utility Bills</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'utility-bills',
+                  parsley_group: 'block-7'
+                %>
                 <br>
-                <div class="d-flex flex-wrap">
-                  <label>Other Expenditures</label>
-                  <div class="w-50 p-1">
-                    <input
-                      name="expenditures"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="exp-500"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £500"
-                    >
-                    <label for="exp-500"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £500
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="expenditures"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="exp-1000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £1000"
-                    >
-                    <label for="exp-1000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £1000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="expenditures"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="exp-2000"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="Upto £2000"
-                    >
-                    <label for="exp-2000"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      Upto £2000
-                    </label>
-                  </div>
-                  <div class="w-50 p-1">
-                    <input
-                      name="expenditures"
-                      required
-                      data-parsley-required="true"
-                      data-parsley-required-message="Please select one of the option"
-                      id="exp-2000+"
-                      type="radio"
-                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="£2000+"
-                    >
-                    <label for="exp-2000+"
-                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
-                      £2000+
-                    </label>
-                  </div>
-                </div>
+                <label>Transport Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'transport-costs',
+                  parsley_group: 'block-8'
+                %>
+                <br>
+                <label>Food Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'food-costs',
+                  parsley_group: 'block-9'
+                %>
+                <br>
+                <label>Any other Monthly Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'other-costs',
+                  parsley_group: 'block-10'
+                %>
               </div>
             </div>
           </div>
