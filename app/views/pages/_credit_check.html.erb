@@ -146,7 +146,7 @@
                         <option value="part time"> part time employed  </option>
                         <option value="self employed"> self employed</option>
                         <option value="unemployed"> unemployed </option>
-                        <option value="persion"> persion </option>
+                        <option value="pension"> pension </option>
                         <option value="benefits"> benefits </option>
                         <option value="student"> student </option>
                       </select>
@@ -158,12 +158,13 @@
                 </div>
               </div>
             </div>
+
             <div class="tab shadow" id="3">
               <div class="card my-3 border-col d-none">
                 <div class="card-header cursor-p bg-white" id="residential-status">
                   <h5 class="mb-0">
-                    <div type="button" class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#income" aria-expanded="true"
-                    aria-controls="#income">
+                    <div type="button" class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#residence-status" aria-expanded="true"
+                    aria-controls="#residence-status">
                       <div>
                         <span>Residentail Status</span>
                       </div>
@@ -173,7 +174,7 @@
                     </div>
                   </h5>
                 </div>
-                <div id="residential-status" class="pb-0 collapse show"
+                <div id="residence-status" class="pb-0 collapse show"
                   aria-labelledby="residential-status"
                   data-parent="#accordion">
                   <div class="card-body">
@@ -206,11 +207,11 @@
                           id="council-tenent"
                           type="radio"
                           class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                          value="council tenent"
+                          value="temporary employed"
                         >
                         <label for="council-tenent"
                           class="input-radio  cursor-p text-center text-col p-2">
-                          Council Tenent
+                          Temporary Employed
                         </label>
                       </div>
                       <div class="w-xs-100 w-md-50 w-sm-50 p-1" >
@@ -252,76 +253,11 @@
                 </div>
               </div>
             </div>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '4',
-              name: 'income',
-              subtitle: 'Monthly Income',
-              title: 'Monthly Income after Tax',
-              income_id: 'monthly-income',
-              parsley_message: 'Please Enter your Monthly Income',
-              parsley_group: 'block-4',
-              placeholder: 'Enter Income Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '5',
-              name: 'rent',
-              subtitle: 'Rent Payments',
-              title: 'Rent/Mortgage Payments',
-              income_id: 'rent-payment',
-              parsley_message: 'Please Enter your Rent Payment',
-              parsley_group: 'block-5',
-              placeholder: 'Enter Payment Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '6',
-              name: 'credit-card',
-              subtitle: 'Credit Card & Loan Repayments',
-              title: 'Credit Card & Loan Repayments',
-              income_id: 'creditCard',
-              parsley_message: 'Please Enter requested information',
-              parsley_group: 'block-6',
-              placeholder: 'Enter Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '7',
-              name: 'utility-bills',
-              subtitle: 'Enter Utility Bills Amount',
-              title: 'Utility Bills',
-              income_id: 'utilityBills',
-              parsley_message: 'Please Enter requested information',
-              parsley_group: 'block-7',
-              placeholder: 'Enter Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '8',
-              name: 'transport-costs',
-              subtitle: 'Enter Transport Costs',
-              title: 'Transport Costs',
-              income_id: 'transportCosts',
-              parsley_message: 'Please Enter requested information',
-              parsley_group: 'block-8',
-              placeholder: 'Enter Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '9',
-              name: 'food-costs',
-              subtitle: 'Enter Transport Costs',
-              title: 'Food Costs',
-              income_id: 'foodCosts',
-              parsley_message: 'Please Enter requested information',
-              parsley_group: 'block-9',
-              placeholder: 'Enter Here'
-            %>
-            <%= render 'pages/credit_check/common_number_field',
-              id: '10',
-              name: 'other-costs',
-              subtitle: 'Enter Any other Monthly Costs',
-              title: 'Any other Monthly Costs',
-              income_id: 'otherCosts',
-              parsley_message: 'Please Enter requested information',
-              parsley_group: 'block-10',
-              placeholder: 'Enter Here'
-            %>
+            <% number_field_params.each do |number_field_param| %>
+              <%= render 'pages/credit_check/common_number_field',
+                number_field_param
+              %>
+            <% end %>
           </div>
         </form>
       </div>

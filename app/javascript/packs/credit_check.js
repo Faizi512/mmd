@@ -23,11 +23,23 @@ class CreditCheck extends Common {
     $(document).on("hide.bs.collapse", '.collapse', function(event) {
       $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-minus-circle").addClass("fa-plus-circle");
     });
+
+    this.transactions = []
+    this.savings = 0
+    this.totalexpense=0
+    this.percent=0
+    this.income=0
+    this.age=0
+    this.remaining=0
+    this.residentialStatus=null
+    this.employmentStatus=null
   }
   step(n,event) {
+    this.employmentValues=["full time employed","part time employed","self employed"]
+    this.goodCreditResidentialValues=["tenent","home owner"]
+    this.okCreditResidentialValues=["tenent","home owner","temporary employed","living with parents"]
     var tab = event.target.closest('.tab')
     var CI = this;
-    var income=0,food=0,transport=0,others=0,bills=0, savings=0;
     $('#cc-form').parsley().whenValidate({
       group: 'block-' + this.currentTab
     }).done(() =>{
@@ -38,63 +50,54 @@ class CreditCheck extends Common {
       CI.currentTab = CI.currentTab + n;
     })
     if(($(tab).find(".select-field")).length > 0){
+      this.ageCalculate()
       var inputs=$(tab).find(".select-field");
-      var id=inputs[0]
-      var data= id.options[id.selectedIndex].text;
-      if (data == "more than 1998" || data== "unemployed" || data== "student")
-      {
-        window.location.href=
-          "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
-      }
-    }
-    else{
-      var inputs=$(tab).find(".input-tag-radio");
-      var incomeValues=["income Upto £1000","income Upto £2000","income Upto £4000","income above £4000"]
-      var foodValues=["food Upto £500","food Upto £1000","food Upto £1500","food above £2000"]
-      var transportValues=["transport Upto £500","transport Upto £1000","transport Upto £1500","transport above £2000"]
-      var billsValues=["bills Upto £500","bills Upto £1000","bills Upto £1500","bills above £2000"]
-      var othersValues=["others Upto £500","others Upto £1000","others Upto £1500","others above £2000"]
-      for (var i=0; i<inputs.length;i++){
-        var id=inputs[i];
-        if (id.checked) {
-          if(id.value=="EE" || id.value=="income Upto £1000" ||
-             id.value=="income Upto £2000" ){
-             window.location.href=
-              "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
-          }
-          else if(incomeValues.includes(id.value)){
-            this.income= this.getAmount(id.value)
-          }
-          else if(foodValues.includes(id.value)){
-            this.food= this.getAmount(id.value)
-          }
-          else if(transportValues.includes(id.value)){
-            this.transport= this.getAmount(id.value)
-          }
-          else if(billsValues.includes(id.value)){
-            this.bills= this.getAmount(id.value)
-          }
-          else if(othersValues.includes(id.value)){
-            this.others= this.getAmount(id.value)
-          }
+      var id = inputs[0]
+      if(id.options){
+        this.employmentStatus = id.options[id.selectedIndex].text;
+        if (this.employmentStatus == "unemployed" || this.employmentStatus == "student")
+        {
+          window.location.href=
+            "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true";
         }
       }
     }
-    if(this.income != null && this.transport != null && this.food != null && this.bills != null && this.others !=null){
-      this.savings=this.income-(this.transport+this.food+this.bills+this.others)
-    }
-    if(this.savings != null){
-      if(this.savings <= 500 && this.others != 0)
-      {
-        window.location.href=
-          "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=10";
-      }else if(this.savings > 500 && this.savings <=1000 && this.others != 0){
-        window.location.href=
-          "https://switchuk.uk/mobiles/contract_phone_deals?mmd=true&monthly_cost=20";
-      }else if(this.savings > 1000 && this.others != 0){
-        window.location.href=
-          "https://switchuk.uk/mobiles/contract_phone_deals";
+    else if(($(tab).find(".input-tag-radio")).length > 0){
+      var inputs=$(tab).find(".input-tag-radio");
+      for (var i = 0; i<inputs.length;i++){
+        var id = inputs[i];
+        if (id.checked) {
+          this.residentialStatus=id.value
+        }
       }
+    }else if($(tab).find(".expenses")){
+      var input = $(tab).find(".expenses");
+      this.transactions.push(input.val())
+    }
+    this.income = parseInt(this.transactions[0])
+    if(this.transactions.length == 7){
+      for(var i = 1; i<this.transactions.length; i++){
+        this.totalexpense = parseInt(this.transactions[i]) + this.totalexpense
+      }
+      // income = 5000
+      this.percent = (70/100) * this.income // 3500
+      this.remaining=this.income-this.percent //1500
+      this.savings = this.income - this.totalexpense // 5000-1200 = 3800
+      debugger
+      if(this.income >= 1500 && this.credit_check(this.goodCreditResidentialValues)){
+        this.redirect_to_switchuk()
+      }else if(this.income >= 1000 && this.income < 1500 && this.credit_check(
+        this.goodCreditResidentialValues)){
+        this.redirect_to_switchuk('?mmd=true&monthly_cost=35')
+      }else if(this.income >= 800 && this.income < 1000 && this.credit_check(
+        this.okCreditResidentialValues)){
+        this.redirect_to_switchuk('?mmd=true&monthly_cost=26')
+      }else{
+        this.redirect_to_bad_credit()
+      }
+    }
+    if(this.income < 800){
+        this.redirect_to_bad_credit()
     }
   }
   changeTab(tab){
@@ -102,8 +105,35 @@ class CreditCheck extends Common {
     var index=parseInt(tab.id);
     this.currentTab=index;
   }
-  getAmount(id){
-    return parseInt(id.split("£")[1]);
+  ageCalculate(){
+    var dateControl = document.querySelector('input[type="date"]');
+    var dob = dateControl.value
+    var year = parseInt(dob.split('-')[0])
+    var today = new Date()
+    var currentYear = today.getFullYear()
+    this.age = currentYear - year
   }
+
+  redirect_to_switchuk(query = '') {
+    if (this.savings >= this.remaining) {
+      window.location.href=
+        `https://switchuk.uk/mobiles/contract_phone_deals${query}`;
+    }
+    else{
+      this.redirect_to_bad_credit()
+    }
+  }
+
+  redirect_to_bad_credit() {
+    window.location.href=
+      "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true"
+  }
+
+  credit_check(residentialValues) {
+    return this.age > 21
+      && this.employmentValues.includes(this.employmentStatus)
+      && residentialValues.includes(this.residentialStatus)
+  }
+
 }
 export default new CreditCheck();
