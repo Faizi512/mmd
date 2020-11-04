@@ -82,6 +82,7 @@ class CreditCheck extends Common {
       this.percent = (70/100) * this.income
       this.remaining=this.income-this.percent
       this.savings = this.income - this.totalexpense
+
       if(this.income >= 1500 && this.credit_check(this.goodCreditResidentialValues)){
         this.redirect_to_switchuk()
       }else if(this.income >= 1000 && this.income < 1500 && this.credit_check(
@@ -110,6 +111,10 @@ class CreditCheck extends Common {
     var today = new Date()
     var currentYear = today.getFullYear()
     this.age = currentYear - year
+    if (this.age < 21 ){
+      window.location.href=
+        "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true"
+    }
   }
 
   redirect_to_switchuk(query = '') {

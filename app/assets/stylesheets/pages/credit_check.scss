@@ -37,15 +37,9 @@ input:checked~.input-radio{
   border-color: $blue !important;
 }
 
-@media only screen and (max-width: 320px) {
-  .w-xs-100 {
-    width: 100% !important;
-  }
-}
-
-@media only screen and (max-width: 470px) {
-  .w-sm-50 {
-    width: 50%;
+@media only screen and (max-width: 768px) {
+  .w-sm-100 {
+    width: 100%;
   }
 }
 @media only screen and (min-width: 471px) {
@@ -54,11 +48,5 @@ input:checked~.input-radio{
   }
   .w-md-50{
    width: 50%;
-  }
-  .w-md-60{
-    width: 60%;
-  }
-  .w-md-100{
-    width: 100%;
   }
 }

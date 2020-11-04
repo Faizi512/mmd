@@ -80,7 +80,7 @@ class OldCreditCheck extends Common {
     var currentYear = today.getFullYear()
     this.age = currentYear - year
     if (this.age < 21 ){
-        window.location.href=
+      window.location.href=
         "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true"
     }
   }
