@@ -1,4 +1,4 @@
-<%= javascript_pack_tag 'step_form', 'data-turbolinks-track': 'reload', defer: true %>
+<%= javascript_pack_tag 'old_credit_check'%>
 <div class="credit-check bg-white form-page">
   <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
     <div class="modal-content deal-form-box">
@@ -50,7 +50,7 @@
                   </div>
                 </div>
                 <br>
-                <div>
+                <div class="dropdown">
                   <div class="field form-group">
                     <label>Select your birth year</label>
                     <div>
@@ -67,7 +67,8 @@
                   </div>
                 </div>
                 <br>
-                  <label class="h5 form-group f-25 text-left w-100 mb-2">Your employment status</label>
+                <div class="dropdown">
+                  <label class=" h5 form-group f-25 text-left w-100 mb-2">Your employment status</label>
                   <select
                     name="employment"
                     required
@@ -80,12 +81,13 @@
                     <option value="part time"> part time employed  </option>
                     <option value="self employed"> self employed</option>
                     <option value="unemployed"> unemployed </option>
-                    <option value="persion"> persion </option>
+                    <option value="pension"> pension </option>
                     <option value="benefits"> benefits </option>
                     <option value="student"> student </option>
                   </select>
+                </div>
                 <br>
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap residential">
                   <label>Residential Status</label>
                   <div class="w-50 p-1">
                     <input
@@ -114,7 +116,7 @@
                       id="council-tenent"
                       type="radio"
                       class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="council-tenent"
+                      value="council tenent"
                     >
                     <label for="council-tenent"
                       class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
@@ -131,7 +133,7 @@
                       id="home-owner"
                       type="radio"
                       class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="home-owner"
+                      value="home owner"
                     >
                     <label for="home-owner"
                       class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
@@ -148,7 +150,7 @@
                       id="living-with-parents"
                       type="radio"
                       class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                      value="living-with-parents"
+                      value="living with parents"
                     >
                     <label for="living-with-parents"
                       class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">

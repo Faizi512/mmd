@@ -1,6 +1,6 @@
 import Common from "./common.js"
 class CreditCheck extends Common {
-   constructor(){
+  constructor(){
     super();
     var CI = this;
     this.validate("#cc-form")
@@ -37,7 +37,7 @@ class CreditCheck extends Common {
   step(n,event) {
     this.employmentValues=["full time employed","part time employed","self employed"]
     this.goodCreditResidentialValues=["tenent","home owner"]
-    this.okCreditResidentialValues=["tenent","home owner","temporary employed","living with parents"]
+    this.okCreditResidentialValues=["tenent","home owner","council tenent","living with parents"]
     var tab = event.target.closest('.tab')
     var CI = this;
     $('#cc-form').parsley().whenValidate({
@@ -79,11 +79,9 @@ class CreditCheck extends Common {
       for(var i = 1; i<this.transactions.length; i++){
         this.totalexpense = parseInt(this.transactions[i]) + this.totalexpense
       }
-      // income = 5000
-      this.percent = (70/100) * this.income // 3500
-      this.remaining=this.income-this.percent //1500
-      this.savings = this.income - this.totalexpense // 5000-1200 = 3800
-      debugger
+      this.percent = (70/100) * this.income
+      this.remaining=this.income-this.percent
+      this.savings = this.income - this.totalexpense
       if(this.income >= 1500 && this.credit_check(this.goodCreditResidentialValues)){
         this.redirect_to_switchuk()
       }else if(this.income >= 1000 && this.income < 1500 && this.credit_check(
