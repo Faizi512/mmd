@@ -1,13 +1,19 @@
 <div class="tab shadow" id="<%= id  %>">
-  <div class="card my-3 border-col d-none">
+  <div class="card my-3 d-none border-color">
     <div class="card-header cursor-p bg-white" id="<%= income_id %>">
-      <h5 class="mb-0">
-        <div type="button" class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#<%= name %>" aria-expanded="true" aria-controls="#<%= name %>">
-          <div>
-            <span><%= title %></span>
+      <div class="step-no initial-step"><%= step_no %></div>
+      <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+      <h5 class="mb-0 px-2">
+        <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#<%= name %>" aria-expanded="true" aria-controls="#<%= name %>">
+          <div class="col">
+            <span class="collapse-text-col font-weight-bold"><%= title %></span>
+            <p class="mb-0">
+              <i class="fas fa-info-circle muted-color collapse-text-col"></i>
+              <small class="mb-0 muted-color collapse-text-col">dusocouscjdiodjowidcjowd</small>
+            </p>
           </div>
           <div>
-            <i class="accordian-toggle-icon fa fa-info cursor-p mr-2 text-muted fa-minus-circle"></i>
+            <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
           </div>
         </div>
       </h5>

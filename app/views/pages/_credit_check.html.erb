@@ -2,7 +2,7 @@
 
 <div class="credit-check w-100 bg-light form-page">
   <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
-    <div class="modal-content deal-form-box border-0 shadow-none bg-light">
+    <div class="modal-content credit-check-box border-0 shadow-none bg-light">
       <div class="modal-header">
         <h1><span class="text-blue">You are just</span> 30 seconds <span class="text-blue"> away from your dream phone</span></h1>
       </div>
@@ -11,15 +11,21 @@
           <div id="accordion">
 
             <div class="tab shadow" id="0">
-              <div class="card my-3 border-col">
+              <div class="card my-3 border-color">
                 <div class="card-header cursor-p bg-white" id="deals">
-                  <h5 class="mb-0">
-                    <div class="accordion-title  btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#deal_options" aria-expanded="false" aria-controls="#deal_options">
-                      <div>
-                        <span>Deal</span>
+                  <div class="step-no initial-step">1</div>
+                  <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+                  <h5 class="mb-0 px-2">
+                    <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#deal_options" aria-expanded="false" aria-controls="#deal_options">
+                      <div class="col">
+                        <span class="collapse-text-col font-weight-bold">Deal</span>
+                        <p class="mb-0">
+                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
+                          <small class="mb-0 muted-color collapse-text-col">dusocouscjdiodjowidcjowd</small>
+                        </p>
                       </div>
                       <div>
-                        <i class="accordian-toggle-icon fa cursor-p mr-2 text-muted fa-minus-circle"></i>
+                        <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
                       </div>
                     </div>
                   </h5>
@@ -31,7 +37,7 @@
                   <div class="card-body">
                     <label class="text-center"> What deal do you want?</label>
                     <div class="d-flex justify-content-center flex-wrap">
-                      <div class="w-sm-100 w-md-25 p-1" >
+                      <div class="w-sm-100 w-md-25 p-1 position-relative" >
                         <input
                         name="deal"
                         required
@@ -49,7 +55,7 @@
                           Sim
                         </label>
                       </div>
-                      <div class="w-sm-100 w-md-25 p-1" >
+                      <div class="w-sm-100 w-md-25 p-1 position-relative" >
                         <input
                         name="deal"
                         required
@@ -74,56 +80,124 @@
             </div>
 
             <div class="tab shadow" id="1">
-              <div class="card my-3 border-col d-none">
-                <div class="card-header cursor-p bg-white" id="age">
-                  <h5 class="mb-0">
-                    <div class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#dob" aria-expanded="true"
-                     aria-controls="#dob">
-                      <div>
-                        <span>Age</span>
+              <div class="card my-3 border-color d-none">
+                <div class="card-header cursor-p bg-white" id="dateofbirth">
+                  <div class="step-no initial-step">2</div>
+                  <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+                  <h5 class="mb-0 px-2">
+                    <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#age" aria-expanded="false" aria-controls="#age">
+                      <div class="col">
+                        <span class="collapse-text-col font-weight-bold">Age</span>
+                        <p class="mb-0">
+                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
+                          <small class="mb-0 muted-color collapse-text-col">dusocouscjdiodjowidcjowd</small>
+                        </p>
                       </div>
                       <div>
-                        <i class="accordian-toggle-icon fa fa-info cursor-p mr-2 text-muted fa-minus-circle"></i>
+                        <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
                       </div>
                     </div>
                   </h5>
                 </div>
-                <div
-                  id="dob" class="pb-0 collapse show"
-                  aria-labelledby="age"
-                  data-parent="#accordion">
+
+                <div id="age" class="collapse show" aria-labelledby="dateofbirth" data-parent="#accordion">
                   <div class="card-body">
-                    <label class="text-center"> Select your birth year
-                    </label>
-                    <div class="w-sm-100 w-md-50 mx-auto">
-                      <input required
-                       data-parsley-required="true"
-                       data-parsley-required-message="Please select your age"
-                       data-parsley-group="block-1"
-                       type="date"
-                       id="dob"
-                       name="birthday"
-                       class="form-control text-col select-field collapse show"
-                       >
-                    </div>
-                    <div class="row justify-content-center">
-                      <input data-target="#dob" type="button" name="next-btn" class="btn back-color mt-4 px-5 rounded-pill step text-white font-weight-bold" value="NEXT">
+                    <label class="text-center">Select your Age</label>
+                    <div class="d-flex mx-auto flex-wrap justify-content-center">
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
+                        <input
+                        name="birthday"
+                        required
+                        data-parsley-required="true"
+                        data-parsley-required-message="Please select one of the deal"
+                        data-parsley-group="block-1"
+                        id="dob"
+                        type="radio"
+                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio "
+                        value="15 to 21"
+                        >
+                        <label
+                          for="dob"
+                          class="input-radio cursor-p text-center text-col p-2">
+                         15 to 21
+                        </label>
+                      </div>
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
+                        <input
+                        name="birthday"
+                        required
+                        data-parsley-required="true"
+                        data-parsley-required-message="Please select one of the deal"
+                        data-parsley-group="block-1"
+                        id="dob1"
+                        type="radio"
+                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio "
+                        value="22 to 26"
+                        >
+                        <label
+                          for="dob1"
+                          class="input-radio cursor-p text-center text-col p-2">
+                          22 to 26
+                        </label>
+                      </div>
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
+                        <input
+                        name="birthday"
+                        required
+                        data-parsley-required="true"
+                        data-parsley-required-message="Please select one of the deal"
+                        data-parsley-group="block-1"
+                        id="dob2"
+                        type="radio"
+                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio "
+                        value="27 to 34"
+                        >
+                        <label
+                          for="dob2"
+                          class="input-radio cursor-p text-center text-col p-2">
+                          27 to 34
+                        </label>
+                      </div>
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
+                        <input
+                        name="birthday"
+                        required
+                        data-parsley-required="true"
+                        data-parsley-required-message="Please select one of the deal"
+                        data-parsley-group="block-1"
+                        id="dob3"
+                        type="radio"
+                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio "
+                        value="35 and above"
+                        >
+                        <label
+                          for="dob3"
+                          class="input-radio cursor-p text-center text-col p-2">
+                          35 and above
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab shadow" id="2">
-              <div class="card my-3 border-col d-none">
+              <div class="card my-3 border-color d-none">
                 <div class="card-header cursor-p bg-white" id="employment-status">
-                  <h5 class="mb-0">
-                    <div class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#employed" aria-expanded="true"
+                  <div class="step-no initial-step">3</div>
+                  <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+                  <h5 class="mb-0 px-2">
+                    <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#employed" aria-expanded="true"
                     aria-controls="#employed">
-                      <div>
-                        <span>Employment status</span>
+                      <div class="col">
+                        <span class="collapse-text-col font-weight-bold">Employment Status</span>
+                        <p class="mb-0">
+                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
+                          <small class="mb-0 muted-color collapse-text-col">dusocouscjdiodjowidcjowd</small>
+                        </p>
                       </div>
                       <div>
-                        <i class="accordian-toggle-icon fa fa-info cursor-p mr-2 text-muted fa-minus-circle"></i>
+                        <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
                       </div>
                     </div>
                   </h5>
@@ -140,7 +214,7 @@
                         data-parsley-required="true"
                         data-parsley-required-message="Please select one of the option"
                         data-parsley-group="block-2"
-                        class="select-field cursor-p form-control text-col">
+                        class="select-field cursor-p form-control text-col shadow-none">
                         <option selected="selected" value="" disabled="">Select</option>
                         <option value="full time"> full time employed </option>
                         <option value="part time"> part time employed  </option>
@@ -160,16 +234,22 @@
             </div>
 
             <div class="tab shadow" id="3">
-              <div class="card my-3 border-col d-none">
+              <div class="card my-3 border-color d-none">
                 <div class="card-header cursor-p bg-white" id="residential-status">
-                  <h5 class="mb-0">
-                    <div type="button" class="accordion-title btn w-100 d-flex justify-content-between" data-toggle="collapse" data-target="#residence-status" aria-expanded="true"
+                  <div class="step-no initial-step">4</div>
+                  <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+                  <h5 class="mb-0 px-2">
+                    <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#residence-status" aria-expanded="true"
                     aria-controls="#residence-status">
-                      <div>
-                        <span>Residentail Status</span>
+                       <div class="col">
+                        <span class="collapse-text-col font-weight-bold">Residential Status</span>
+                        <p class="mb-0">
+                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
+                          <small class="mb-0 muted-color collapse-text-col">dusocouscjdiodjowidcjowd</small>
+                        </p>
                       </div>
                       <div>
-                        <i class="accordian-toggle-icon fa fa-info cursor-p mr-2 text-muted fa-minus-circle"></i>
+                        <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
                       </div>
                     </div>
                   </h5>
@@ -180,7 +260,7 @@
                   <div class="card-body">
                     <label class="text-center"> Residential Status</label>
                     <div class="d-flex mx-auto flex-wrap justify-content-center">
-                      <div class="w-sm-100 w-md-50 p-1" >
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
                         <input
                           name="residential-status"
                           required
@@ -189,15 +269,15 @@
                           data-parsley-group="block-3"
                           id="tenent"
                           type="radio"
-                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                          class="opacity-0 cursor-p form-control position-absolute input-tag-radio "
                           value="tenent"
                         >
                         <label for="tenent"
-                          class="input-radio  cursor-p text-center text-col p-2">
+                          class="input-radio cursor-p text-center text-col p-2">
                           Tenent
                         </label>
                       </div>
-                      <div class="w-sm-100 w-md-50 p-1" >
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
                         <input
                           name="residential-status"
                           required
@@ -214,7 +294,7 @@
                           Council Tenent
                         </label>
                       </div>
-                      <div class="w-sm-100 w-md-50 p-1" >
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
                         <input
                           name="residential-status"
                           required
@@ -227,11 +307,11 @@
                           value="home owner"
                         >
                         <label for="home-owner"
-                          class="input-radio  cursor-p text-center text-col p-2">
+                          class="input-radio cursor-p text-center text-col p-2">
                           Home Owner
                         </label>
                       </div>
-                      <div class="w-sm-100 w-md-50 p-1" >
+                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
                         <input
                           name="residential-status"
                           required

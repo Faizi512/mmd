@@ -9,7 +9,8 @@ module CreditCheckStepFormHelper
         income_id: 'monthly-income',
         parsley_message: 'Please Enter your Monthly Income',
         parsley_group: 'block-4',
-        placeholder: 'Enter Income Here'
+        placeholder: 'Enter Income Here',
+        step_no: '5'
       },
       {
         id: '5',
@@ -19,7 +20,8 @@ module CreditCheckStepFormHelper
         income_id: 'rent-payment',
         parsley_message: 'Please Enter your Rent Payment',
         parsley_group: 'block-5',
-        placeholder: 'Enter Payment Here'
+        placeholder: 'Enter Payment Here',
+        step_no: '6'
       },
       {
         id: '6',
@@ -29,7 +31,8 @@ module CreditCheckStepFormHelper
         income_id: 'creditCard',
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-6',
-        placeholder: 'Enter Here'
+        placeholder: 'Enter Here',
+        step_no: '7'
       },
       {
         id: '7',
@@ -39,7 +42,8 @@ module CreditCheckStepFormHelper
         income_id: 'utilityBills',
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-7',
-        placeholder: 'Enter Here'
+        placeholder: 'Enter Here',
+        step_no: '8'
       },
       {
         id: '8',
@@ -49,7 +53,8 @@ module CreditCheckStepFormHelper
         income_id: 'transportCosts',
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-8',
-        placeholder: 'Enter Here'
+        placeholder: 'Enter Here',
+        step_no: '9'
       },
       {
         id: '9',
@@ -59,7 +64,8 @@ module CreditCheckStepFormHelper
         income_id: 'foodCosts',
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-9',
-        placeholder: 'Enter Here'
+        placeholder: 'Enter Here',
+        step_no: '10'
       },
       {
         id: '10',
@@ -69,7 +75,8 @@ module CreditCheckStepFormHelper
         income_id: 'otherCosts',
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-10',
-        placeholder: 'Enter Here'
+        placeholder: 'Enter Here',
+        step_no: '11'
       },
     ]
   end

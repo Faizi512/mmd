@@ -18,12 +18,11 @@ class CreditCheck extends Common {
       CI.changeTab(card)
     });
     $(document).on("show.bs.collapse", '.collapse', function(event) {
-       $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-plus-circle").addClass("fa-minus-circle");
+       $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-angle-down").addClass("fa-angle-up");
     })
     $(document).on("hide.bs.collapse", '.collapse', function(event) {
-      $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-minus-circle").addClass("fa-plus-circle");
+      $(this).prev(".card-header").find(".accordian-toggle-icon").removeClass("fa-angle-up").addClass("fa-angle-down");
     });
-
     this.transactions = []
     this.savings = 0
     this.totalexpense=0
@@ -44,13 +43,17 @@ class CreditCheck extends Common {
       group: 'block-' + this.currentTab
     }).done(() =>{
       var tabs = $(".tab");
+      $(tabs[CI.currentTab]).find('.initial-step').addClass("disp-none");
+      $(tabs[CI.currentTab]).find('.step-green').show();
       $(tabs[CI.currentTab + 1]).find('.collapse').collapse('show');
       $(tabs[CI.currentTab]).find('.collapse').collapse('hide');
+      $(tabs[CI.currentTab]).find('.collapse-text-col').addClass("text-on-collapse");
+      $(tabs[CI.currentTab]).find('.accordian-toggle-icon').addClass("text-on-collapse");
+      $(tabs[CI.currentTab]).find('.border-color').removeClass("border-color").addClass("border-color-on-collapse");
       $(tabs[CI.currentTab + 1]).find('.d-none').removeClass('d-none');
       CI.currentTab = CI.currentTab + n;
     })
     if(($(tab).find(".select-field")).length > 0){
-      this.ageCalculate()
       var inputs=$(tab).find(".select-field");
       var id = inputs[0]
       if(id.options){
@@ -104,19 +107,6 @@ class CreditCheck extends Common {
     var index=parseInt(tab.id);
     this.currentTab=index;
   }
-  ageCalculate(){
-    var dateControl = document.querySelector('input[type="date"]');
-    var dob = dateControl.value
-    var year = parseInt(dob.split('-')[0])
-    var today = new Date()
-    var currentYear = today.getFullYear()
-    this.age = currentYear - year
-    if (this.age < 21 ){
-      window.location.href=
-        "https://switchuk.uk/no_credit_check_sim_only_deals?bc=true"
-    }
-  }
-
   redirect_to_switchuk(query = '') {
     if (this.savings >= this.remaining) {
       window.location.href=
