@@ -597,7 +597,7 @@ module PagesHelper
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://bill-switchers.com/sp-exit?exit=1',
-      bad_success_url: 'https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&ued=https%3A%2F%2Fwww.voxi.co.uk%2Facquisition%2Fplans',
+      bad_success_url: 'https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&clickref=social-exit-voxi&ued=https%3A%2F%2Fwww.voxi.co.uk%2Fplans',
       form_name: 'e-deals-voxi',
       optin_url: '/e-deals-voxi',
       sid: 1,
