@@ -10,7 +10,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter your Monthly Income',
         parsley_group: 'block-4',
         placeholder: 'Enter Income Here',
-        step_no: '5'
+        step_no: '5',
+        info:'How much do you earn'
       },
       {
         id: '5',
@@ -21,7 +22,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter your Rent Payment',
         parsley_group: 'block-5',
         placeholder: 'Enter Payment Here',
-        step_no: '6'
+        step_no: '6',
+        info:'Do you pay any rent or mortgage'
       },
       {
         id: '6',
@@ -32,7 +34,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-6',
         placeholder: 'Enter Here',
-        step_no: '7'
+        step_no: '7',
+        info:'Any credits you have received'
       },
       {
         id: '7',
@@ -43,7 +46,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-7',
         placeholder: 'Enter Here',
-        step_no: '8'
+        step_no: '8',
+        info:'Your utility bills'
       },
       {
         id: '8',
@@ -54,7 +58,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-8',
         placeholder: 'Enter Here',
-        step_no: '9'
+        step_no: '9',
+        info:'How much you expend on transport'
       },
       {
         id: '9',
@@ -65,7 +70,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-9',
         placeholder: 'Enter Here',
-        step_no: '10'
+        step_no: '10',
+        info:'How much you expend on food'
       },
       {
         id: '10',
@@ -76,7 +82,8 @@ module CreditCheckStepFormHelper
         parsley_message: 'Please Enter requested information',
         parsley_group: 'block-10',
         placeholder: 'Enter Here',
-        step_no: '11'
+        step_no: '11',
+        info:'Your other interests expenses'
       },
     ]
   end
