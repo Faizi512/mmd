@@ -31,6 +31,11 @@ class PagesController < ApplicationController
     fetch_products('ee')
   end
 
+  def exclusive_ee_deals_affordability_checker
+    exclusive_ee_deals_affordability_check
+    fetch_products('ee')
+  end
+
   def exclusive_tribe_deals
     exclusive_tribe_deal
     fetch_products('tribe')
