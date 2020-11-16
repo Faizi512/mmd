@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
   # Do not eager load code on boot.
   config.eager_load = false
-  config.hosts << "b30fb1630959.ngrok.io"
+  config.hosts << "927e482b89cc.ngrok.io"
   # Show full error reports.
   config.consider_all_requests_local = true
   config.action_controller.allow_forgery_protection = false

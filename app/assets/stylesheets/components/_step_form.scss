@@ -91,27 +91,13 @@ input[type=number]::-webkit-outer-spin-button {
         line-height: 24px;
         font-weight: 700;
         width: 100%;
+      }
+      .custom-control-label{
+        color: #343232;
+        font-size: smaller;
+        font-weight: 400;
+      }
 
-      }
-      .securityInfo {
-        text-align: center;
-        margin-bottom: 15px;
-        ul {
-          margin: 0;
-          padding: 0;
-          img {
-            border: medium none;
-            max-width: 100%;
-          }
-          li {
-            display: inline;
-            font-size: 12px;
-            color: #2f2f2f;
-            padding: 1px 10px;
-            border-right: solid 1px #2f2f2f;
-          }
-        }
-      }
       .btn-div{
         margin: 20px auto;
         .but_loader{
@@ -212,6 +198,59 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
 }
 
+.btn-div{
+  margin: 20px auto;
+  .but_loader{
+    left: 42%;
+    margin-top: 11px;
+  }
+  .btn-lg{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 0px;
+    width: 100%;
+    border-radius: 8px;
+    font: 700 20px arial;
+    color: #fff;
+    text-decoration: none;
+    -webkit-box-shadow: 0 0 8px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 0 8px rgba(0,0,0,.4);
+    box-shadow: 0 0 8px rgba(0,0,0,.4);
+    cursor: pointer;
+    border-width: 2px;
+  }
+}
+
+.securityInfo {
+  text-align: center;
+  margin-bottom: 15px;
+  ul {
+    margin: 0;
+    padding: 0;
+    img {
+      border: medium none;
+      max-width: 100%;
+    }
+    li {
+      display: inline;
+      font-size: 12px;
+      color: #2f2f2f;
+      padding: 1px 10px;
+      border-right: solid 1px #2f2f2f;
+    }
+  }
+}
+.close-bu {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-bu:hover {
+  color: #000000;
+}
 /*checkbox*/
 .onoffswitch {
     position: relative; width: 90px;
@@ -315,7 +354,7 @@ input.error ~ .validate.success {
   color: red !important;
   position: relative;
   float: right;
-  font-size: 25px;
+  font-size: 25px !important;
   margin-top: -31px;
   right: 6px;
 }
@@ -358,6 +397,9 @@ input.error ~ .validate.success {
   }
 }
 @media only screen and (max-width: 520px) {
+  .deal-form-box .modal-body .form {
+    padding: 5px;
+  }
   .btn-div{
     .row{
       flex-direction: column-reverse;
@@ -380,5 +422,3 @@ input.error ~ .validate.success {
       line-height: normal !important;
     }
   }
-}
-

@@ -10,6 +10,7 @@ class Home extends Common {
     this.showClock()
     this.fillform()
     this.popupTerms()
+    this.popupPrivacy()
     this.showTab(this.currentTab);
 
     $('.carousel').carousel({
