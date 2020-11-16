@@ -6,7 +6,7 @@ $light-orange: #f57200;
   color: $blue;
   position: absolute;
   left: -27px;
-  top: 35px;
+  top: 50%;
   border: 2px solid $blue;
   border-radius: 50%;
   display: flex;
@@ -80,15 +80,30 @@ input:checked~.input-radio{
   -webkit-box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.37);
   box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.37);
   .modal-header{
+    .text-blue{
+      color: $blue;
+    }
     h1 {
       font-size: 28px;
       padding: 0;
       color: #1b0e65;
       font-weight: 600;
-      .text-blue{
-        color: #3ebbe9;
-      }
 
+    }
+    .networks-box{
+      border: none;
+      height: auto;
+      padding: 0.5rem;
+      background-color: transparent;
+    }
+    .width-50{
+      width: 50px;
+    }
+    .width-25{
+      width: 25px;
+    }
+    .w-17{
+      width: 15%;
     }
   }
   .modal-body{
@@ -125,6 +140,20 @@ input:checked~.input-radio{
     width: 100%;
   }
 }
+@media(max-width: 500px){
+  .fs-sm-18{
+    font-size: 18px;
+  }
+  .width-25{
+    width: 20px !important;
+  }
+}
+@media(max-width: 320px){
+  .fs-sm-18{
+    font-size: 16px;
+  }
+
+}
 @media only screen and (min-width: 471px) {
   .w-md-25 {
     width: 25%;
@@ -132,4 +161,5 @@ input:checked~.input-radio{
   .w-md-50{
    width: 50%;
   }
+
 }

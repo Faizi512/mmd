@@ -3,29 +3,93 @@
 <div class="credit-check w-100 bg-light form-page">
   <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
     <div class="modal-content credit-check-box border-0 shadow-none bg-light">
-      <div class="text-center mt-2">
+      <div class="text-center mt-3">
         <%= image_tag("credit_check/Deals.png", class: "", width: "100", height: "100" ) %>
       </div>
-      <div class="modal-header text-center">
-        <h1><span class="text-blue">You are just</span> 30 seconds <span class="text-blue"> away from your dream phone</span></h1>
+      <div class="modal-header d-block text-center">
+        <p class="text-blue">Just a few more questions. This is an affordability checker and DOES NOT impact your credit score. This tool will help you get accepted for the phone deals you want. We compare deals from all the top UK networks. </p>
+        <div class="row align-items-center">
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/vodafone.png", class: "network-log width-50", alt: "Vodafone-network logo" ) %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/02.png", class: "network-log width-25", alt: "O2-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/vixo-logo.png", class: "network-log width-25", alt: "Voxi-network logo" ) %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/smarty-provider.png", class: "network-log", alt: "smarty-provider logo" ) %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/id.png", class: "network-log width-25", alt: "ID-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/three.png", class: "network-log width-25", alt: "Three-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/virgin_logo.png", class: "network-log width-50", alt: "Virgin-Mobile logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/tessco.png", class: "network-log width-50", alt: "Tesco-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/sky.png", class: "network-log width-50", alt: "Sky-mobile logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/giffgaff.svg", class: "network-log width-50", alt: "giffgaff-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/plusnet-logo.png", class: "network-log width-50", alt: "plusnet-network logo") %>
+            </a>
+          </div>
+          <div class="w-17 mx-auto mb-2">
+            <a href="" class="networks-box">
+              <%= image_tag("company-logos/bt-logo.png", class: "network-log width-50", alt: "bt-mobile logo") %>
+            </a>
+          </div>
+        </div>
+        <h4 class="text-blue fs-sm-18">It takes just 20 seconds to complete</h4>
       </div>
       <div class="container modal-body">
         <form class="form" id="cc-form" data-details="<%= @details %>" method="post" action="javascript:;">
           <div id="accordion">
-
             <div class="tab shadow" id="0">
               <div class="card my-3 border-color">
-                <div class="card-header cursor-p bg-white" id="deals">
+                <div class="card-header position-relative cursor-p bg-white " id="deals">
                   <div class="step-no initial-step">1</div>
                   <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
                   <h5 class="mb-0 px-2">
                     <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#deal_options" aria-expanded="false" aria-controls="#deal_options">
                       <div class="col">
                         <span class="collapse-text-col font-weight-bold">SIM and Handset Deals</span>
-                        <p class="mb-0">
-                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
-                          <small class="mb-0 muted-color collapse-text-col">We have thousands of handset and sim only deals from all the top networks.</small>
-                        </p>
+                        <ul class="pl-0 pt-1 mb-0">
+                          <li class="d-flex">
+                            <i class="fas muted-color mr-2 fa-info-circle collapse-text-col"></i>
+                            <small class="mb-0 muted-color collapse-text-col">We have thousands of handset and sim only deals from all the top networks.</small>
+                          </li>
+                        </ul>
                       </div>
                       <div>
                         <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
@@ -83,17 +147,19 @@
             </div>
             <div class="tab shadow" id="1">
               <div class="card my-3 border-color d-none">
-                <div class="card-header cursor-p bg-white" id="dateofbirth">
+                <div class="card-header cursor-p bg-white position-relative" id="dateofbirth">
                   <div class="step-no initial-step">2</div>
                   <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
                   <h5 class="mb-0 px-2">
                     <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#age" aria-expanded="false" aria-controls="#age">
                       <div class="col">
                         <span class="collapse-text-col font-weight-bold">Your Age</span>
-                        <p class="mb-0">
-                          <i class="fas muted-color fa-info-circle collapse-text-col"></i>
-                          <small class="mb-0 muted-color collapse-text-col">Some Networks have age criteria for certain deals, others have specific packages for age groups.</small>
-                        </p>
+                        <ul class="pl-0 pt-1 mb-0">
+                          <li class="d-flex">
+                            <i class="fas muted-color mr-2 fa-info-circle collapse-text-col"></i>
+                            <small class="mb-0 muted-color collapse-text-col">Some Networks have age criteria for certain deals, others have specific packages for age groups.</small>
+                          </li>
+                        </ul>
                       </div>
                       <div>
                         <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
@@ -105,79 +171,23 @@
                 <div id="age" class="collapse show" aria-labelledby="dateofbirth" data-parent="#accordion">
                   <div class="card-body">
                     <label class="text-center">Your date of birth?</label>
-                    <div class="d-flex mx-auto flex-wrap justify-content-center redirect">
-                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
-                        <input
-                        name="birthday"
-                        required
-                        data-parsley-required="true"
-                        data-parsley-required-message="Please select one of the deal"
-                        data-parsley-group="block-1"
-                        id="dob"
-                        type="radio"
-                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio age-limit"
-                        value="15 to 21"
+                    <div class="d-flex mx-auto flex-wrap justify-content-center">
+                      <div class="form-group w-md-50 mx-auto">
+                        <input class="form-control age-limit text-col"
+                          type="date"
+                          value="2000-01-19"
+                          name="birthday"
+                          id="dob"
+                          required
+
+                          data-parsley-required="true"
+                          data-parsley-group="block-1"
+                          data-parsley-required-message="please enter date of birth"
                         >
-                        <label
-                          for="dob"
-                          class="input-radio cursor-p text-center text-col p-2 ">
-                         15 to 21
-                        </label>
                       </div>
-                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
-                        <input
-                        name="birthday"
-                        required
-                        data-parsley-required="true"
-                        data-parsley-required-message="Please select one of the deal"
-                        data-parsley-group="block-1"
-                        id="dob1"
-                        type="radio"
-                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio age-limit"
-                        value="22 to 26"
-                        >
-                        <label
-                          for="dob1"
-                          class="input-radio cursor-p text-center text-col p-2">
-                          22 to 26
-                        </label>
-                      </div>
-                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
-                        <input
-                        name="birthday"
-                        required
-                        data-parsley-required="true"
-                        data-parsley-required-message="Please select one of the deal"
-                        data-parsley-group="block-1"
-                        id="dob2"
-                        type="radio"
-                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio age-limit"
-                        value="27 to 34"
-                        >
-                        <label
-                          for="dob2"
-                          class="input-radio cursor-p text-center text-col p-2">
-                          27 to 34
-                        </label>
-                      </div>
-                      <div class="w-sm-100 w-md-50 p-1 position-relative" >
-                        <input
-                        name="birthday"
-                        required
-                        data-parsley-required="true"
-                        data-parsley-required-message="Please select one of the deal"
-                        data-parsley-group="block-1"
-                        id="dob3"
-                        type="radio"
-                        class="opacity-0 cursor-p form-control position-absolute input-tag-radio age-limit"
-                        value="35 and above"
-                        >
-                        <label
-                          for="dob3"
-                          class="input-radio cursor-p text-center text-col p-2">
-                          35 and above
-                        </label>
-                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <input data-target="#dob" type="button" name="next-btn" class="btn back-color mt-4 px-5 text-white font-weight-bold rounded-pill step" value="NEXT">
                     </div>
                   </div>
                 </div>
@@ -185,7 +195,7 @@
             </div>
             <div class="tab shadow" id="2">
               <div class="card my-3 border-color d-none">
-                <div class="card-header cursor-p bg-white" id="employment-status">
+                <div class="card-header position-relative cursor-p bg-white" id="employment-status">
                   <div class="step-no initial-step">3</div>
                   <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
                   <h5 class="mb-0 px-2">
@@ -193,10 +203,6 @@
                     aria-controls="#employed">
                       <div class="col">
                         <span class="collapse-text-col font-weight-bold">Employment status</span>
-                        <p class="mb-0">
-                           <i class="fas muted-color fa-info-circle collapse-text-col"></i>
-                          <small class="mb-0 muted-color collapse-text-col">What do you do</small>
-                        </p>
                       </div>
                       <div>
                         <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
@@ -236,7 +242,7 @@
             </div>
             <div class="tab shadow" id="3">
               <div class="card my-3 border-color d-none">
-                <div class="card-header cursor-p bg-white" id="residential-status">
+                <div class="card-header position-relative cursor-p bg-white" id="residential-status">
                   <div class="step-no initial-step">4</div>
                   <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
                   <h5 class="mb-0 px-2">

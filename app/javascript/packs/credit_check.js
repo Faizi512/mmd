@@ -36,7 +36,7 @@ class CreditCheck extends Common {
     this.totalexpense=0
     this.percent=0
     this.income=0
-    this.age=0
+    this.age=25
     this.remaining=0
     this.residentialStatus=null
     this.employmentStatus=null
@@ -104,7 +104,6 @@ class CreditCheck extends Common {
       }
     }
     this.income = parseInt(this.transactions["income"])
-    console.log(this.transaction_check())
     if(this.transaction_check()){
       Object.keys(this.transactions).forEach(function (tran){
         CI.totalexpense = parseInt(CI.transactions[tran]) + CI.totalexpense
