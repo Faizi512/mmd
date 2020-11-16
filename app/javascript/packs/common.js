@@ -185,14 +185,14 @@ class Common {
       }
     });
   }
-  redirectTOSwitchuk(){
+  redirectTOSwitchuk(redirected_user){
     if (this.allowedNetworks.includes(this.networkName)) {
-      window.location='https://switchuk.uk/'
+      window.location='https://switchuk.uk'
     }else if (this.allowedDevices.includes(this.device)) {
       window.location='https://switchuk.uk/'
     }
     else{
-     window.location='https://megamobiledeals.com/credit_check'
+     window.location=`https://megamobiledeals.com/credit_check?name=${redirected_user}`
     }
   }
   deviceDetection(){

@@ -125,6 +125,13 @@ input:checked~.input-radio{
       }
     }
   }
+  .parsley-errors-list{
+    list-style: none;
+    color: red;
+    padding: 0;
+    text-align: center;
+    font-size: 15px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .credit-check-box {

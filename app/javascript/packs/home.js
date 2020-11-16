@@ -72,7 +72,7 @@ class Home extends Common {
     }else if(this.deliveryName == "Exit Sweet-Mobile"){
       window.location = this.details.success_url+this.paramsforSuccess()
     }else if(this.networkName == "Orange"){
-      this.redirectTOSwitchuk();
+      this.redirectTOSwitchuk(this.redirected_user);
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
@@ -140,6 +140,7 @@ class Home extends Common {
       track = AnyTrack('formSubmit') || "";
     }
     catch (e) {}
+    this.redirected_user = this.getUrlParameter('firstname') || $(".first_name").val()
 
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {

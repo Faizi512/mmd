@@ -7,7 +7,9 @@
         <%= image_tag("credit_check/Deals.png", class: "", width: "100", height: "100" ) %>
       </div>
       <div class="modal-header d-block text-center">
-        <p class="text-blue">Just a few more questions. This is an affordability checker and DOES NOT impact your credit score. This tool will help you get accepted for the phone deals you want. We compare deals from all the top UK networks. </p>
+        <p class="text-blue">
+          <%= params[:name] %>, Just a few more questions. This is an affordability checker and DOES NOT impact your credit score. This tool will help you get accepted for the phone deals you want. We compare deals from all the top UK networks.
+        </p>
         <div class="row align-items-center">
           <div class="w-17 mx-auto mb-2">
             <a href="" class="networks-box">
@@ -87,7 +89,7 @@
                         <ul class="pl-0 pt-1 mb-0">
                           <li class="d-flex">
                             <i class="fas muted-color mr-2 fa-info-circle collapse-text-col"></i>
-                            <small class="mb-0 muted-color collapse-text-col">We have thousands of handset and sim only deals from all the top networks.</small>
+                            <small class="mb-0 muted-color collapse-text-col">We have thousands of handset and sim only deals from all the top networks</small>
                           </li>
                         </ul>
                       </div>
@@ -175,11 +177,9 @@
                       <div class="form-group w-md-50 mx-auto">
                         <input class="form-control age-limit text-col"
                           type="date"
-                          value="2000-01-19"
                           name="birthday"
                           id="dob"
                           required
-
                           data-parsley-required="true"
                           data-parsley-group="block-1"
                           data-parsley-required-message="please enter date of birth"
@@ -218,6 +218,7 @@
                     <div class="w-sm-100 w-md-50 mx-auto redirect">
                       <select
                         name="employment"
+                        id="Employment-Status"
                         required
                         data-parsley-required="true"
                         data-parsley-required-message="Please select one of the option"
@@ -234,7 +235,7 @@
                       </select>
                     </div>
                     <div class="row justify-content-center">
-                      <input data-target="#dob" type="button" name="next-btn" class="btn back-color mt-4 px-5 text-white font-weight-bold rounded-pill step" value="NEXT">
+                      <input data-target="#Employment-Status" type="button" name="next-btn" class="btn back-color mt-4 px-5 text-white font-weight-bold rounded-pill step" value="NEXT">
                     </div>
                   </div>
                 </div>

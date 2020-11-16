@@ -7,6 +7,9 @@ class CreditCheck extends Common {
     $(document).on("click", '.input-tag-radio', function(event) {
       CI.step(1,event)
     });
+    $(document).on("change", '.age-limit', function(event) {
+      CI.step(1,event)
+    });
     $(document).on("change", '.select-field', function(event) {
       CI.step(1,event)
     });
@@ -36,7 +39,7 @@ class CreditCheck extends Common {
     this.totalexpense=0
     this.percent=0
     this.income=0
-    this.age=25
+    this.age=0
     this.remaining=0
     this.residentialStatus=null
     this.employmentStatus=null
@@ -49,13 +52,12 @@ class CreditCheck extends Common {
     var CI = this;
     if(($(tab).find(".age-limit")).length > 0){
       var inputs=$(tab).find(".age-limit");
-      for (var i = 0; i<inputs.length;i++){
-        var id = inputs[i];
-        if (id.checked) {
-          var selected=id.value
-          this.age=parseInt(selected.split(" ")[2])
-        }
-      }
+      var id = inputs[0];
+      var selected=id.value
+      this.year=parseInt(selected.split("-")[0])
+      var date = new Date();
+      var currentYear = date.getFullYear();
+      this.age=currentYear-this.year
       if(this.age < 22) {
         setTimeout(function(){
           window.location.href=
@@ -63,7 +65,6 @@ class CreditCheck extends Common {
         }, 3000);
       }
     }else if(($(tab).find(".select-field")).length > 0){
-
       var inputs=$(tab).find(".select-field");
       var id = inputs[0]
       if(id.options){
@@ -149,13 +150,13 @@ class CreditCheck extends Common {
             CI.currentTab = CI.currentTab + n;
           }, 6000);
         }else{
-          $(tabs[CI.currentTab + 1]).find('.collapse').collapse('show');
+          $(tabs[CI.currentTab + 1]).find('.collapse').addClass('show');
           $(tabs[CI.currentTab + 1]).find('.d-none').removeClass('d-none');
           CI.currentTab = CI.currentTab + n;
         }
       }else{
-        $(tabs[CI.currentTab + 1]).find('.collapse').collapse('show');
         $(tabs[CI.currentTab + 1]).find('.d-none').removeClass('d-none');
+        $(tabs[CI.currentTab + 1]).find('.collapse').addClass('show');
         CI.currentTab = CI.currentTab + n;
       }
     })
