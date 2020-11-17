@@ -512,13 +512,13 @@ module PagesHelper
     }.to_json
   end
 
-  def exclusive_ee_deals_affordability_check
+  def ee_deal
     @details = {
-      camp_id: 'BREEZE-MOBILE',
+      camp_id: 'EE-MOBILE-NEW',
       success_url: '/ee-success',
-      bad_success_url: '/ee-success',
-      form_name: 'exclusive_ee_deals_affordability_checker',
-      optin_url: '/exclusive_ee_deals_affordability_checker',
+      bad_success_url: '/ee-decline',
+      form_name: 'ee_deals',
+      optin_url: '/ee_deals',
       sid: nil,
       ssid: nil,
       source:'',

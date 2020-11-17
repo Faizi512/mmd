@@ -31,8 +31,8 @@ class PagesController < ApplicationController
     fetch_products('ee')
   end
 
-  def exclusive_ee_deals_affordability_checker
-    exclusive_ee_deals_affordability_check
+  def ee_deals
+    ee_deal
     fetch_products('ee')
   end
 
