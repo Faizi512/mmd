@@ -71,8 +71,6 @@ class Home extends Common {
       window.location = this.details.success_url
     }else if(this.deliveryName == "Exit Sweet-Mobile"){
       window.location = this.details.success_url+this.paramsforSuccess()
-    }else if(this.networkName == "Orange"){
-      this.redirectTOSwitchuk(this.redirected_user);
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
