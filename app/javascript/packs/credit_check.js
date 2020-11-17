@@ -140,10 +140,14 @@ class CreditCheck extends Common {
       $(tabs[CI.currentTab]).find('.accordian-toggle-icon').addClass("text-on-collapse");
       $(tabs[CI.currentTab]).find('.border-color').removeClass("border-color").addClass("border-color-on-collapse");
       if($(tabs[CI.currentTab]).find('.redirect').length > 0){
-        if (this.age == 21 || this.employmentStatus == "unemployed" ||
-            this.employmentStatus == "student" || this.income < 800 ||
-            this.totalexpense != 0) {
-          $(".modal-popup").addClass('show')
+        if (CI.age <= 21 || CI.employmentStatus == "unemployed" ||
+            CI.employmentStatus == "student" || CI.income < 800 ||
+            CI.totalexpense != 0) {
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
+
           setTimeout(function(){
             $(tabs[CI.currentTab + 1]).find('.collapse').collapse('show');
             $(tabs[CI.currentTab + 1]).find('.d-none').removeClass('d-none');
