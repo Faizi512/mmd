@@ -170,9 +170,9 @@
           </div>
           <div  class="tab display-none" id="slide4">
             <div class="col-lg-7 form-group mx-auto">
-              <label class="text-center"> Are you looking for a Handset or SIM only</label>
-              <div class="row justify-content-center flex-wrap">
-                <div class="p-1 position-relative" >
+              <label class="text-center w-100 label mb-3"> Are you looking for a Handset or SIM only</label>
+              <div class="row">
+                <div class="col-md-6 position-relative" >
                   <input
                   name="deal"
                   required
@@ -186,11 +186,11 @@
                   >
                   <label
                     for="sim"
-                    class="input-radio cursor-p text-center text-col p-2">
+                    class="input-radio cursor-p text-center p-2">
                     Sim
                   </label>
                 </div>
-                <div class="w-sm-100 w-md-25 p-1 position-relative" >
+                <div class="col-md-6 position-relative" >
                   <input
                   name="deal"
                   required
@@ -204,7 +204,7 @@
                   >
                   <label
                     for="handset"
-                    class="input-radio  cursor-p text-center text-col p-2">
+                    class="input-radio  cursor-p text-center p-2">
                     Handset
                   </label>
                 </div>
@@ -212,46 +212,128 @@
             </div>
           </div>
           <div  class="tab display-none" id="slide5">
-            <div class="col-lg-7 form-group mx-auto">
-              <label class="text-center"> Are you looking for a Handset or SIM only</label>
-              <div class="row justify-content-center flex-wrap">
-                <div class="p-1 position-relative" >
-                  <input
-                  name="deal"
+            <div class="row w-100 mx-0">
+              <div class="col-lg-7 mx-auto">
+                <label class="label">Your date of birth?</label>
+                <div class="form-group">
+                  <input class="form-control age-limit text-col"
+                    type="date"
+                    name="birthday"
+                    id="dob"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-group="block-4"
+                    data-parsley-required-message="please enter date of birth"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="tab display-none" id="slide6">
+            <div class="col-lg-7 mx-auto">
+              <label class="label w-100"> Your employment status?</label>
+              <div class="mx-auto redirect">
+                <select
+                  name="employment"
+                  id="Employment-Status"
                   required
                   data-parsley-required="true"
-                  data-parsley-required-message="Please select one of the deal"
-                  data-parsley-group="block-4"
-                  id="sim"
-                  type="radio"
-                  class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                  value="sim"
+                  data-parsley-required-message="Please select one of the option"
+                  data-parsley-group="block-5"
+                  class="select-field cursor-p form-control text-col shadow-none">
+                  <option selected="selected" value="" disabled="">Select</option>
+                  <option value="full time"> full time employed </option>
+                  <option value="part time"> part time employed  </option>
+                  <option value="self employed"> self employed</option>
+                  <option value="unemployed"> unemployed </option>
+                  <option value="pension"> pension </option>
+                  <option value="benefits"> benefits </option>
+                  <option value="student"> student </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="tab display-none" id="slide7">
+            <div class="col-lg-7 mx-auto">
+              <label class="text-center label mb-3"> Residential Status?</label>
+              <div class="d-flex mx-auto flex-wrap justify-content-center">
+                <div class="col-md-6 position-relative" >
+                  <input
+                    name="residential-status"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the option"
+                    data-parsley-group="block-3"
+                    id="tenent"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    value="tenent"
                   >
-                  <label
-                    for="sim"
+                  <label for="tenent"
                     class="input-radio cursor-p text-center text-col p-2">
-                    Sim
+                    Tenent
                   </label>
                 </div>
-                <div class="w-sm-100 w-md-25 p-1 position-relative" >
+                <div class="col-md-6 position-relative" >
                   <input
-                  name="deal"
-                  required
-                  data-parsley-required="true"
-                  data-parsley-required-message="Please select one of the deal"
-                  data-parsley-group="block-4"
-                  id="handset"
-                  type="radio"
-                  class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
-                  value="handset"
+                    name="residential-status"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the option"
+                    data-parsley-group="block-3"
+                    id="council-tenent"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    value="council tenent"
                   >
-                  <label
-                    for="handset"
+                  <label for="council-tenent"
                     class="input-radio  cursor-p text-center text-col p-2">
-                    Handset
+                    Council Tenent
+                  </label>
+                </div>
+                <div class="col-md-6 position-relative" >
+                  <input
+                    name="residential-status"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the option"
+                    data-parsley-group="block-3"
+                    id="home-owner"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    value="home owner"
+                  >
+                  <label for="home-owner"
+                    class="input-radio cursor-p text-center text-col p-2">
+                    Home Owner
+                  </label>
+                </div>
+                <div class="col-md-6 position-relative" >
+                  <input
+                    name="residential-status"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the option"
+                    data-parsley-group="block-3"
+                    id="living-with-parents"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    value="living with parents"
+                  >
+                  <label for="living-with-parents"
+                    class="input-radio  cursor-p text-center text-col p-2">
+                    Living with Parents
                   </label>
                 </div>
               </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="tab display-no ne" id="slide7">
+            <div class="col-lg-7 mx-auto">
+              
             </div>
           </div>
           <div class="col-lg-7 col-12 btn-div justify-content-center">

@@ -1,10 +1,8 @@
-$base-color: #28a745;
-.input-radio{
+$base-color: #3ebbe9;
+.input-radio{ 
     background-color: white;
     width: 100%;
     border: 1px solid $base-color;
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
     border-radius: 50px !important;
     text-decoration: none;
@@ -16,9 +14,10 @@ $base-color: #28a745;
     border: 1px solid $base-color;
     text-decoration: none;
   }
-  .input-radio:checked ~ .input-radio{
+  .input-tag-radio:checked ~ .input-radio{
     color: white;
     background-color: $base-color;
+    border-color: $base-color !important;
   }
   .input-tag-radio{
     opacity: 0;
@@ -38,4 +37,11 @@ $base-color: #28a745;
   }
   .cursor-p{
     cursor: pointer;
+  }
+  .label{
+    color: #3ebbe9;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    width: 100%;
   }
