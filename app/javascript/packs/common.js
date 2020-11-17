@@ -18,7 +18,15 @@ class Common {
     this.redirectUrl = null
     this.fetchRequest = 0
     this.deliveryName = null
-    this.phoneName = null;
+    this.phoneName = null
+    this.networkName= null
+    this.device=null
+    this.deviceBrowser=null
+    this.deviveSearchEngine=null
+    this.debiceBrand=null
+    this.deviceName=null
+    this.allowedNetworks=["vodafone","3"]
+    this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
 
     $.getJSON('https://ipapi.co/json/', function(data) {
       if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
@@ -145,6 +153,7 @@ class Common {
     })
 
     this.validatePhone()
+    this.deviceDetection()
     this.validateEmail()
     this.validatePostcode()
     this.validateApiPostcode()
@@ -159,6 +168,8 @@ class Common {
           CI.validateTsp()
           if (json.status == "Valid") {
             CI.isPhone = true
+            CI.networkName=json.hlr_data.orn.split(" ")[0]
+            console.log(CI.networkName)
             return true
           }else if(json.status == "Error"){
              CI.isPhone = true
@@ -174,7 +185,23 @@ class Common {
       }
     });
   }
-
+  redirectTOSwitchuk(redirected_user){
+    if (this.allowedNetworks.includes(this.networkName)) {
+      window.location='https://switchuk.uk'
+    }else if (this.allowedDevices.includes(this.device)) {
+      window.location='https://switchuk.uk/'
+    }
+    else{
+     window.location=`https://megamobiledeals.com/credit_check?name=${redirected_user}`
+    }
+  }
+  deviceDetection(){
+    this.device=FRUBIL.device.class_code   //Desktop
+    this.deviceBrowser=FRUBIL.client.class_code // Browser
+    this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
+    this.debiceBrand=FRUBIL.device.brand_code // Samsung
+    this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
+  }
   validateTsp(){
     var CI = this
     if (this.tps_result == null) {
@@ -514,6 +541,7 @@ class Common {
       url: `/fetch-redirect-url/${lead_id}`,
       success: function(response) {
         console.log(response)
+
         if(response.status == 200){
           CI.redirectUrl = response.lead.redirect_url
           CI.deliveryName = response.lead.delivery_name
