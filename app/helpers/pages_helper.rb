@@ -528,6 +528,22 @@ module PagesHelper
     }.to_json
   end
 
+  def iphone_deals
+    @details = {
+      camp_id: 'BREEZE-MOBILE',
+      success_url: '/ee-success?',
+      bad_success_url: '/ee-success?',
+      form_name: 'iphone-deals',
+      optin_url: '/iphone-deals',
+      sid: nil,
+      ssid: nil,
+      source:'',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def exclusive_o2_deal
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',

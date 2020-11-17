@@ -6,10 +6,11 @@
         <div class="form-group col-lg-8 col-12">
           <label>First Name*</label>
           <input
-          name="first_name"
+          name="first_name" 
           required
           data-parsley-required="true"
           data-parsley-required-message="Please Enter First Name" data-parsley-pattern-message="First Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
+          data-parsley-group="block-0"
           type="text"
           class="first_name form-control hero-input ignoreStep3"
           placeholder="First Name" >
@@ -24,6 +25,7 @@
           data-parsley-required="true"
           data-parsley-required-message="Please Enter Last Name"
           data-parsley-pattern-message="Last Name Must Be Alphabetic" data-parsley-pattern="/^[a-zA-Z ]*$/"
+          data-parsley-group="block-0"
           type="text"
           class="form-control ignoreStep3 last_name"
           placeholder="Surname" >
@@ -44,6 +46,7 @@
             data-parsley-required="true"
             data-parsley-required-message="Please Enter Postcode"
             data-parsley-validapipostcode
+            data-parsley-group="block-0"
             type="text"
             class="postcode form-control ignoreStep4"
             placeholder="Postcode">
@@ -63,6 +66,7 @@
             name="property"
             class="property w-100 form-control ignoreStep4 text-dark"
             data-parsley-required="true"
+            data-parsley-group="block-0"
             data-parsley-required-message="Please Select Your property"
             required>
           </select>
@@ -78,6 +82,7 @@
             name="address"
             class="address form-control ignoreStep4"
             data-parsley-required="true"
+            data-parsley-group="block-0"
             data-parsley-required-message="Please Enter Your Address"
             type="text"
             >
@@ -96,6 +101,7 @@
           data-parsley-required-message="Please Enter Valid Uk Phone Number"
           data-parsley-type="number"
           data-parsley-validphone
+          data-parsley-group="block-0"
           class="form-control phone telephone"
           placeholder="Mobile Number">
           <i class="validate success fa fa-check-circle"></i>
@@ -113,6 +119,7 @@
           data-parsley-type="email"
           data-parsley-type-message="Please Enter Valid Email Address"
           data-parsley-validemail
+          data-parsley-group="block-0"
           value=""
           class="form-control nme_inpu email"
           placeholder="Email Address">
@@ -129,7 +136,8 @@
               class="onoffswitch-checkbox approve"
               id="myonoffswitch"
               data-parsley-required="true"
-                  data-parsley-required-message="Please accept our terms and conditions"
+              data-parsley-group="block-0"
+              data-parsley-required-message="Please accept our terms and conditions"
               >
             <label class="onoffswitch-label" for="myonoffswitch">
                 <span class="onoffswitch-inner"></span>

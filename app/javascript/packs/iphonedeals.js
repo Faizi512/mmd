@@ -4,6 +4,7 @@ class IphoneDeals extends Common {
   constructor() {
     super();
     var CI = this;
+    this.validate("#dealform")
     this.getFormDetails('#dealform')
     this.showToolTip()
     this.fillform()
@@ -12,8 +13,11 @@ class IphoneDeals extends Common {
 
 
     $( ".btn-deal-iphone" ).click(() => {
-      debugger
-      $('#dealform').parsley().validate()
+      $('#dealform').parsley().whenValidate({
+          group: 'block-0'
+      }).done(function() {
+          CI.postData()
+      })
     });
   }
 }
