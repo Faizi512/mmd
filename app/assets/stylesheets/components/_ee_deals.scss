@@ -79,11 +79,11 @@
   }
   @media only screen and (max-width: 520px) {
     .background-header{
-      background: asset-url('compare/mobile-banner.png');
+      background: asset-url('compare/mobile-banner2.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      height: 337px;
+      height: 392px;
     }
     .input-div{
       width: 100%;
@@ -93,6 +93,16 @@
     }
     .input-radio{
       justify-content: center;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    .background-header{
+      height: 355px;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .background-header{
+      height: 270px;
     }
   }
 }

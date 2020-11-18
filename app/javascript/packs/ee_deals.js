@@ -50,6 +50,7 @@ class EEDeals extends Common {
       $('.houseNumber').val($(this).find("option:selected").data("housenum"))
     });
 
+
     $( "#btn-continue" ).click(() => {
       CI.nextStep(1)
     });
@@ -61,10 +62,10 @@ class EEDeals extends Common {
     $(document).on("click", '.input-tag-radio', function(event) {
       CI.nextStep(1)
     });
-    $(document).on("change", '.age-limit', function(event) {
+    $(document).on("change", '.age', function(event) {
       CI.nextStep(1)
     });
-    $(document).on("change", '.select-field', function(event) {
+    $(document).on("change", '.employment-status', function(event) {
       CI.nextStep(1)
     });
 
@@ -103,15 +104,9 @@ class EEDeals extends Common {
             "/ee-decline";
         }, 3000);
       }
-    }else if(($(tab).find(".age-limit")).length > 0){
-      var inputs=$(tab).find(".age-limit");
-      var id = inputs[0];
-      var selected=id.value
-      this.year=parseInt(selected.split("-")[0])
-      var date = new Date();
-      var currentYear = date.getFullYear();
-      this.age=currentYear-this.year
-      if(this.age < 22) {
+    }else if(($(tab).find(".age")).length > 0){
+      CI.age = $( "#dob option:selected" ).val()
+      if(CI.age < 22) {
         $('#redirect-model').modal({
           backdrop: 'static',
           keyboard: false,
@@ -123,8 +118,8 @@ class EEDeals extends Common {
             "/ee-decline"
         }, 3000);
       }
-    }else if(($(tab).find(".select-field")).length > 0){
-      var inputs=$(tab).find(".select-field");
+    }else if(($(tab).find(".employment-status")).length > 0){
+      var inputs=$(tab).find(".employment-status");
       var id = inputs[0]
       if(id.options){
         this.employmentStatus = id.options[id.selectedIndex].text;
