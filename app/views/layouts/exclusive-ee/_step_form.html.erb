@@ -171,7 +171,7 @@
           <div  class="tab display-none" id="slide4">
             <div class="col-lg-7 form-group mx-auto">
               <label class="text-center w-100 label mb-3"> Are you looking for a Handset or SIM only</label>
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-md-6 position-relative" >
                   <input
                   name="deal"
@@ -180,13 +180,14 @@
                   data-parsley-required-message="Please select one of the deal"
                   data-parsley-group="block-3"
                   id="sim"
+                  data-parsley-multiple="deal"
                   type="radio"
-                  class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                  class="opacity-0 deal cursor-p form-control position-absolute input-tag-radio error-on-button"
                   value="sim"
                   >
                   <label
                     for="sim"
-                    class="input-radio cursor-p text-center p-2">
+                    class="input-radio cursor-p text-col text-center p-2">
                     Sim
                   </label>
                 </div>
@@ -197,17 +198,19 @@
                   data-parsley-required="true"
                   data-parsley-required-message="Please select one of the deal"
                   data-parsley-group="block-3"
+                  data-parsley-multiple="deal"
                   id="handset"
                   type="radio"
-                  class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                  class="opacity-0 deal cursor-p form-control position-absolute input-tag-radio error-on-button"
                   value="handset"
                   >
                   <label
                     for="handset"
-                    class="input-radio  cursor-p text-center p-2">
+                    class="input-radio  cursor-p text-col text-center p-2">
                     Handset
                   </label>
                 </div>
+                <div class="error-box w-100 text-center"></div>
               </div>
             </div>
           </div>
@@ -215,8 +218,8 @@
             <div class="row w-100 mx-0">
               <div class="col-lg-7 mx-auto">
                 <label class="label">Your date of birth?</label>
-                <div class="form-group">
-                  <input class="form-control age-limit text-col"
+                <div class="form-group text-center">
+                  <input class="form-control age-limit birthday text-col mb-2"
                     type="date"
                     name="birthday"
                     id="dob"
@@ -233,7 +236,7 @@
           <div class="tab display-none" id="slide6">
             <div class="col-lg-7 mx-auto">
               <label class="label w-100"> Your employment status?</label>
-              <div class="mx-auto redirect">
+              <div class="mx-auto redirect text-center">
                 <select
                   name="employment"
                   id="Employment-Status"
@@ -265,10 +268,10 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the option"
-                    data-parsley-group="block-3"
+                    data-parsley-group="block-6"
                     id="tenent"
                     type="radio"
-                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    class="opacity-0 error-on-button cursor-p form-control position-absolute input-tag-radio residence"
                     value="tenent"
                   >
                   <label for="tenent"
@@ -282,10 +285,10 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the option"
-                    data-parsley-group="block-3"
+                    data-parsley-group="block-6"
                     id="council-tenent"
                     type="radio"
-                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    class="opacity-0 error-on-button cursor-p form-control position-absolute input-tag-radio residence"
                     value="council tenent"
                   >
                   <label for="council-tenent"
@@ -299,10 +302,10 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the option"
-                    data-parsley-group="block-3"
+                    data-parsley-group="block-6"
                     id="home-owner"
                     type="radio"
-                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    class="opacity-0 error-on-button cursor-p form-control position-absolute input-tag-radio residence"
                     value="home owner"
                   >
                   <label for="home-owner"
@@ -316,10 +319,10 @@
                     required
                     data-parsley-required="true"
                     data-parsley-required-message="Please select one of the option"
-                    data-parsley-group="block-3"
+                    data-parsley-group="block-6"
                     id="living-with-parents"
                     type="radio"
-                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio residence"
+                    class="opacity-0 error-on-button cursor-p form-control position-absolute input-tag-radio residence"
                     value="living with parents"
                   >
                   <label for="living-with-parents"
@@ -327,15 +330,16 @@
                     Living with Parents
                   </label>
                 </div>
+                <div class="error-box w-100 text-center"></div>
               </div>
             </div>
           </div>
           <!--  -->
-          <div class="tab display-no ne" id="slide7">
-            <div class="col-lg-7 mx-auto">
-              
-            </div>
-          </div>
+          <% number_field_params2.each do |field| %>
+            <%= render 'layouts/exclusive-ee/common_number_fields',
+            field
+            %>
+          <% end %>
           <div class="col-lg-7 col-12 btn-div justify-content-center">
             <div class="row justify-content-center">
               <div class="col-6 mx-auto">
