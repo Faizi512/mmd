@@ -12,7 +12,6 @@ class EEDeals extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.showTab(this.currentTab);
-    debugger
     this.affordabilityCondition = null;
     this.transactions = {
       'income': '',
@@ -76,9 +75,11 @@ class EEDeals extends Common {
   successUrl(){}
 
   nextStep(n) {
-    this.showCircle()
-    var tab = event.target.closest('.tab')
+    
     var CI = this;
+    this.showCircle()
+    var tabs = $(".tab");
+    var tab = tabs[CI.currentTab];
     this.employmentValues=["full time employed","part time employed","self employed"]
     this.residentialValues=["tenent","home owner"]
     if(($(tab).find(".deal")).length > 0){
@@ -91,6 +92,10 @@ class EEDeals extends Common {
       }
       if(this.dealType != 'handset'){
         setTimeout(function(){
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -107,6 +112,10 @@ class EEDeals extends Common {
       this.age=currentYear-this.year
       if(this.age < 22) {
         setTimeout(function(){
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -121,6 +130,10 @@ class EEDeals extends Common {
         if (!this.employmentValues.includes(this.employmentStatus))
         {
           setTimeout(function(){
+            $('#redirect-model').modal({
+              backdrop: 'static',
+              keyboard: false,
+            })
             CI.affordabilityCondition = 'fail'
             CI.postData()
             window.location.href=
@@ -138,6 +151,10 @@ class EEDeals extends Common {
       }
       if (!this.residentialValues.includes(this.residentialStatus)){
         setTimeout(function(){
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -162,44 +179,55 @@ class EEDeals extends Common {
       }else if(input == "other-costs"){
         this.transactions["other_costs"] = inputValue.val()
       }
-    }else if(this.transaction_check()){
+    }if(this.transaction_check()){
       Object.keys(this.transactions).forEach(function (tran){
         CI.totalexpense = parseInt(CI.transactions[tran]) + CI.totalexpense
       })
-      CI.totalexpense = CI.totalexpense - CI.income;
-      this.percent = (70/100) * this.income
-      this.remaining=this.income-this.percent
-      this.savings = this.income - this.totalexpense
+      CI.totalexpense = CI.totalexpense - this.transactions['income'];
+      this.percent = (70/100) * this.transactions['income']
+      this.remaining=this.transactions['income'] - this.percent
+      this.savings = this.transactions['income'] - this.totalexpense
 
-      if(this.income >= 1000 && this.savings >= this.remaining ){
+      if(this.transactions['income'] >= 1000 && this.savings >= this.remaining ){
         setTimeout(function(){
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           CI.affordabilityCondition = 'pass'
           CI.postData()
-          window.location.href=
-          "/ee-success";
+          window.location.href= CI.details.success_url+"?device="+ $(this).prev('input').val()
         }, 3000);
       }else if(this.transactions['income'] < 1000){
         setTimeout(function(){
           CI.affordabilityCondition = 'fail'
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           CI.postData()
           window.location.href=
           "/ee-decline";
         }, 3000);
       }
     }
-
     $('#dealform').parsley().whenValidate({
       group: 'block-' + CI.currentTab
     }).done(() =>{
-      var tabs = $(".tab");
       tabs[CI.currentTab].style.display = "none";
       CI.currentTab = CI.currentTab + n;
       CI.showTab(CI.currentTab);
     })
   }
+  fixStepIndicator(num) {
+    var progress = document.getElementById('progressBar');
+    if(num >= 0) {
+      progress.style.width = (num*33)+"%";
+    }
+  }
 
   getData() {
-    debugger
+    
     var track = "";
     try {
       track = AnyTrack('formSubmit') || "";
