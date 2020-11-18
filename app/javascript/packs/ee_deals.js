@@ -270,7 +270,8 @@ class EEDeals extends Common {
       tps_result: this.tps_result,
       apidown: this.apiDown,
       user_agent: window.navigator.userAgent,
-      affordability: this.affordabilityCondition,
+      affordability: this.affordabilityCondition || "",
+      device: this.clickdevice || "",
     };
   }
   transaction_check(){
