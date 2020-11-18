@@ -1,0 +1,17 @@
+<%= javascript_pack_tag 'common', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div class="bg-img-success">
+  <div class="container">
+    <div class="row w-100 mx-0 pt-5">
+      <div class="col-md-8 mx-auto text-center">
+        <div class="bg-white shadow rounded py-5 px-md-4 px-2">
+          <i class="fs-185 text-success fa fa-check-circle"></i>
+          <h1 class="fs-md-36 fs-60 text-success pt-3">Thank You</h1>
+          <h5 class="fs-md-17 text-success text-decoration-none">Breeze Mobile will call you from <span class="text-warning">0203 318 8925</span> to discuss your deal.</h5>
+          <h5 class="fs-md-17">The device you are interested in is <span class="text-warning font-weight-bold"><%= params[:device] %></span></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/common/footer' %>

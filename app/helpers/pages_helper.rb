@@ -515,7 +515,7 @@ module PagesHelper
   def ee_deal
     @details = {
       camp_id: 'EE-MOBILE-NEW',
-      success_url: '/ee-success',
+      success_url: '/ee-success-breeze',
       bad_success_url: '/ee-decline',
       form_name: 'ee_deals',
       optin_url: '/ee_deals',

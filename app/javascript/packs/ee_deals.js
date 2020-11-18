@@ -31,7 +31,9 @@ class EEDeals extends Common {
     this.residentialStatus=null
     this.employmentStatus=null
     this.dealType=null
+    this.clickdevice = null
     $(document).on("click", '.btn-deal', function() {
+      CI.clickdevice = $(this).prev('input').val();
       $('#deal-form-modal').modal('show')
       $('.clock').hide()
       event.preventDefault();
@@ -75,7 +77,6 @@ class EEDeals extends Common {
   successUrl(){}
 
   nextStep(n) {
-    
     var CI = this;
     this.showCircle()
     var tabs = $(".tab");
@@ -91,11 +92,11 @@ class EEDeals extends Common {
         }
       }
       if(this.dealType != 'handset'){
+        $('#redirect-model').modal({
+          backdrop: 'static',
+          keyboard: false,
+        })
         setTimeout(function(){
-          $('#redirect-model').modal({
-            backdrop: 'static',
-            keyboard: false,
-          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -111,11 +112,11 @@ class EEDeals extends Common {
       var currentYear = date.getFullYear();
       this.age=currentYear-this.year
       if(this.age < 22) {
+        $('#redirect-model').modal({
+          backdrop: 'static',
+          keyboard: false,
+        })
         setTimeout(function(){
-          $('#redirect-model').modal({
-            backdrop: 'static',
-            keyboard: false,
-          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -129,11 +130,11 @@ class EEDeals extends Common {
         this.employmentStatus = id.options[id.selectedIndex].text;
         if (!this.employmentValues.includes(this.employmentStatus))
         {
+          $('#redirect-model').modal({
+            backdrop: 'static',
+            keyboard: false,
+          })
           setTimeout(function(){
-            $('#redirect-model').modal({
-              backdrop: 'static',
-              keyboard: false,
-            })
             CI.affordabilityCondition = 'fail'
             CI.postData()
             window.location.href=
@@ -150,11 +151,11 @@ class EEDeals extends Common {
         }
       }
       if (!this.residentialValues.includes(this.residentialStatus)){
+        $('#redirect-model').modal({
+          backdrop: 'static',
+          keyboard: false,
+        })
         setTimeout(function(){
-          $('#redirect-model').modal({
-            backdrop: 'static',
-            keyboard: false,
-          })
           CI.affordabilityCondition = 'fail'
           CI.postData()
           window.location.href=
@@ -189,22 +190,22 @@ class EEDeals extends Common {
       this.savings = this.transactions['income'] - this.totalexpense
 
       if(this.transactions['income'] >= 1000 && this.savings >= this.remaining ){
+        $('#redirect-model').modal({
+          backdrop: 'static',
+          keyboard: false,
+        })
         setTimeout(function(){
-          $('#redirect-model').modal({
-            backdrop: 'static',
-            keyboard: false,
-          })
           CI.affordabilityCondition = 'pass'
           CI.postData()
-          window.location.href= CI.details.success_url+"?device="+ $(this).prev('input').val()
+          window.location.href= CI.details.success_url+"?device="+ CI.clickdevice
         }, 3000);
       }else if(this.transactions['income'] < 1000){
+        CI.affordabilityCondition = 'fail'
+        $('#redirect-model').modal({
+          backdrop: 'static',
+          keyboard: false,
+        })
         setTimeout(function(){
-          CI.affordabilityCondition = 'fail'
-          $('#redirect-model').modal({
-            backdrop: 'static',
-            keyboard: false,
-          })
           CI.postData()
           window.location.href=
           "/ee-decline";
@@ -222,7 +223,7 @@ class EEDeals extends Common {
   fixStepIndicator(num) {
     var progress = document.getElementById('progressBar');
     if(num >= 0) {
-      progress.style.width = (num*33)+"%";
+      progress.style.width = (num*7)+"%";
     }
   }
 
