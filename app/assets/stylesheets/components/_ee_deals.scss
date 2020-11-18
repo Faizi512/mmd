@@ -9,11 +9,11 @@
     width: 180px;
   }
   .background-header{
-    background: asset-url('compare/banner.jpg');
+    background: asset-url('banner12.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 340px;
+    height: 425px;
   }
   .text-jam{
     color: $base-color;
@@ -79,7 +79,7 @@
     .background-header{
       background-size: contain;
       background-position: center top;
-      height: 192px;
+      height: 266px;
     }
   }
   @media only screen and (max-width: 520px) {
