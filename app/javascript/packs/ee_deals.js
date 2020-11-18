@@ -97,9 +97,9 @@ class EEDeals extends Common {
           backdrop: 'static',
           keyboard: false,
         })
+        CI.affordabilityCondition = 'fail'
+        CI.postData()
         setTimeout(function(){
-          CI.affordabilityCondition = 'fail'
-          CI.postData()
           window.location.href=
             "/ee-decline";
         }, 3000);
@@ -111,9 +111,9 @@ class EEDeals extends Common {
           backdrop: 'static',
           keyboard: false,
         })
+        CI.affordabilityCondition = 'fail'
+        CI.postData()
         setTimeout(function(){
-          CI.affordabilityCondition = 'fail'
-          CI.postData()
           window.location.href=
             "/ee-decline"
         }, 3000);
@@ -129,9 +129,9 @@ class EEDeals extends Common {
             backdrop: 'static',
             keyboard: false,
           })
+          CI.affordabilityCondition = 'fail'
+          CI.postData()
           setTimeout(function(){
-            CI.affordabilityCondition = 'fail'
-            CI.postData()
             window.location.href=
               "/ee-decline";
           }, 3000);
@@ -150,9 +150,9 @@ class EEDeals extends Common {
           backdrop: 'static',
           keyboard: false,
         })
+        CI.affordabilityCondition = 'fail'
+        CI.postData()
         setTimeout(function(){
-          CI.affordabilityCondition = 'fail'
-          CI.postData()
           window.location.href=
             "/ee-decline";
         }, 3000);
@@ -189,9 +189,9 @@ class EEDeals extends Common {
           backdrop: 'static',
           keyboard: false,
         })
+        CI.affordabilityCondition = 'pass'
+        CI.postData()
         setTimeout(function(){
-          CI.affordabilityCondition = 'pass'
-          CI.postData()
           window.location.href= CI.details.success_url+"?device="+ CI.clickdevice
         }, 3000);
       }else if(this.transactions['income'] < 1000){
@@ -200,8 +200,8 @@ class EEDeals extends Common {
           backdrop: 'static',
           keyboard: false,
         })
+        CI.postData()
         setTimeout(function(){
-          CI.postData()
           window.location.href=
           "/ee-decline";
         }, 3000);
