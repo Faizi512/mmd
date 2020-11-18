@@ -153,7 +153,6 @@ class Common {
     })
 
     this.validatePhone()
-    this.deviceDetection()
     this.validateEmail()
     this.validatePostcode()
     this.validateApiPostcode()

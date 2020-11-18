@@ -87,4 +87,65 @@ module CreditCheckStepFormHelper
       },
     ]
   end
+
+  def number_field_params2
+    [
+      {
+        name: 'income',
+        subtitle: 'Monthly income?',
+        income_id: 'monthly-income',
+        parsley_message: 'Please Enter your Monthly Income',
+        parsley_group: 'block-7',
+        placeholder: 'Enter Your Income',
+      },
+      {
+        name: 'rent',
+        subtitle: 'Rent Payments',
+        income_id: 'rent-payment',
+        parsley_message: 'Please Enter your Rent Payment',
+        parsley_group: 'block-8',
+        placeholder: 'Enter Your Rent',
+      },
+      {
+        name: 'credit-card',
+        subtitle: 'Monthly Credit card & loan repayment cost?',
+        income_id: 'creditCard',
+        parsley_message: 'Please Enter requested information',
+        parsley_group: 'block-9',
+        placeholder: 'Enter loan repayment cost',
+      },
+      {
+        name: 'utility-bills',
+        subtitle: 'Monthly Utility Bills Cost?',
+        income_id: 'utilityBills',
+        parsley_message: 'Please Enter requested information',
+        parsley_group: 'block-10',
+        placeholder: 'Enter utility bills cost',
+      },
+      {
+        name: 'transport-costs',
+        subtitle: 'Monthly Transport Cost?',
+        income_id: 'transportCosts',
+        parsley_message: 'Please Enter requested information',
+        parsley_group: 'block-11',
+        placeholder: 'Enter transport expense',
+      },
+      {
+        name: 'food-costs',
+        subtitle: 'Monthly Food Cost?',
+        income_id: 'foodCosts',
+        parsley_message: 'Please Enter requested information',
+        parsley_group: 'block-12',
+        placeholder: 'Enter your food cost',
+      },
+      {
+        name: 'other-costs',
+        subtitle: 'Other monthly costs?',
+        income_id: 'otherCosts',
+        parsley_message: 'Please Enter requested information',
+        parsley_group: 'block-13',
+        placeholder: 'Enter other expense',
+      },
+    ]
+  end
 end

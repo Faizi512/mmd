@@ -1,0 +1,101 @@
+<%= javascript_pack_tag 'ee_deals', 'data-turbolinks-track': 'reload', defer: true %>
+<div id="eedeals">
+  <form id="dealsforms" data-details="<%= @details %>">
+    <div class="bg-white">
+      <header class="container row w-100 m-auto align-items-center justify-content-center py-3">
+        <%= image_tag("logo.png", class: "head-logo" ) %>
+      </header>
+    </div>
+    <div class="background-header">
+    </div>
+    <div class="bg-white">
+      <div class="mx-md-5 mx-2">
+        <div class="row align-items-start m-0 w-100 py-4">
+          <div class="col-xl-3 mb-4 mb-xl-0">
+            <div class="bg-light-jam p-3 rounded">
+              <div class="row m-0 justify-content-center w-100">
+                <div class="position-relative input-div"> 
+                  <a data-turbolinks="false" for="phone-deals" href="/exclusive_ee_deals?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p">
+                    <i class="fas fa-mobile-alt mr-2"></i>Phone deals
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-xl-9">
+            <% if @products.length == 0 %>
+              <h5 class="text-center">No Product Found!</h5>
+            <% else %>
+              <% @products.each do |product| %>
+                <div class="row w-100 m-0 bg-light-jam rounded p-3 mb-3 shadow-sm">
+                  <div class="row w-100 align-items-center justify-content-md-start justify-content-center pl-md-5" id="title-div">
+                    <h5 class="mb-2 text-jam font-weight-bold pl-md-5"><%= product[:title] %></h5>
+                  </div>
+                  <div class="col-md-3 text-center mb-3 mb-md-0">
+                    <%= image_tag(product[:img], class: "", width: "60" ) %>
+                    <%= image_tag("company/ee.png", class: "", width: "20" ) %>
+                  </div>
+                  <div class="col-md-5 px-1">
+                    <div class="row w-100 m-0">
+                      <div class="col-6 px-0">
+                        <p class="m-0"><strong class="text-green">£<%= product[:upfront] %></strong> Upfront</p>
+                        <p class="m-0"><strong class="text-green">£<%= product[:monthly_cost] %></strong> Monthly</p>
+                        <ul class="list-unstyled">
+                          <li class="d-flex align-items-center">
+                            <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                            <p class="m-0 fs-md-13">Free Delivery</p>
+                          </li>
+                          <li class="d-flex align-items-center">
+                            <i class="fas fa-check text-jam mr-1 fs-md-13"></i>
+                            <p class="m-0 fs-md-13"><%= product[:contract] %> Months Contract</p>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-6 px-2 text-md-left text-right">
+                        <% if product[:data] == 0 %>
+                          <p class="m-0"> <strong class="data text-green">Unlimited</strong> Data</p>
+                        <% else %>
+                          <p class="m-0"> <strong class="data text-green"><%= product[:data] %> GB</strong> Data</p>
+                        <% end %>
+
+                        <% if product[:calls] == 0 %>
+                          <p class="m-0"> <strong class="calls text-green">Unlimited</strong> Call</p>
+                        <% else %>
+                          <p class="m-0"> <strong class="calls text-green"><%= product[:calls] %></strong> Call</p>
+                        <% end %>
+
+                        <% if product[:text] == 0 %>
+                          <p class="m-0"> <strong class="texts text-green">Unlimited</strong> Text</p>
+                        <% else %>
+                          <p class="m-0"> <strong class="texts text-green"><%= product[:text] %></strong> Text</p>
+                        <% end %>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 text-center align-self-center">
+                    <div class="text-center">
+                      <h6 class="text-jam font-weight-bold m-0">Available Colours</h6>
+                    </div>
+                    <div class="d-flex justify-content-center my-2">
+                      <% product[:color].split(",").each do |color| %>
+                        <div class="color border border-secondary" style="background-color: <%= color %>; width: 25px; height: 25px; border-radius: 50px; margin: 5px;">
+                        </div>
+                      <% end %>
+                    </div>
+                    <input type="hidden" name="device" id="device" value="<%= product[:title] %>">
+                    <button type="button" class="btn btn-deal text-white font-weight-bold w-100">Get Deal</button>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<%= render 'layouts/exclusive-ee/step_form' %>
+<%= render 'layouts/common/footer' %>
+<%= render 'pages/credit_check_popup/popup' %>
