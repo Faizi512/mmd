@@ -192,7 +192,7 @@ class EEDeals extends Common {
         CI.affordabilityCondition = 'pass'
         CI.postData()
         setTimeout(function(){
-          window.location.href= CI.details.success_url+"?device="+ CI.clickdevice
+          window.location.href= "/ee-success-breeze?device="+ CI.clickdevice
         }, 3000);
       }else if(this.transactions['income'] < 1000){
         CI.affordabilityCondition = 'fail'
