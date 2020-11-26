@@ -2,9 +2,22 @@ import 'flipclock/dist/flipclock.min.js'
 import 'bootstrap/dist/js/bootstrap.js'
 import "@fortawesome/fontawesome-free/js/all"
 import "parsleyjs";
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
+
 
 class Common {
   constructor() {
+    Sentry.init({
+      dsn: "https://335f4f951f3b40f4889ac4fc120bfdb7:b27eab222bfd4d8a9ff474ed658451ed@o423834.ingest.sentry.io/5354739",
+      release: "Mega Mobile Deals@" + process.env.npm_package_version,
+      integrations: [new Integrations.BrowserTracing()],
+      // Set tracesSampleRate to 1.0 to capture 100%
+      // of transactions for performance monitoring.
+      // We recommend adjusting this value in production
+      tracesSampleRate: 1.0,
+
+    });
     var CI = this;
     this.formValidation = {}
     this.isEmail =false
