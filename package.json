@@ -7,6 +7,8 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "@sentry/browser": "^5.27.6",
+    "@sentry/tracing": "^5.27.6",
     "@types/google.fonts": "^1.0.2",
     "bootstrap": "^4.4.1",
     "flipclock": "^0.10.8",
