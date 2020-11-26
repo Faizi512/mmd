@@ -183,12 +183,12 @@ class Common {
             CI.networkName=json.hlr_data.orn.split(" ")[0]
             console.log(CI.networkName)
             return true
-          }else if(json.status == "Error"){
-             CI.isPhone = true
-             CI.apiDown =  true
-            return true
-          }else{
+          }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
+          }else{
+            Sentry.captureException(json);
+            CI.isPhone = true
+            return true
           }
         })
       },
@@ -233,8 +233,12 @@ class Common {
           if (json.status == "Valid") {
             CI.isEmail = true
             return true
-          }else{
+          }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
+          }else{
+            Sentry.captureException(json);
+            CI.isEmail = true
+            return true
           }
         })
       },
@@ -293,6 +297,7 @@ class Common {
             }
           },
           error: function(request){
+            Sentry.captureException(request);
             console.log(request.statusText)
             request.abort();
             if (request.statusText == "timeout") {
@@ -499,6 +504,10 @@ class Common {
           CI.submitCustomerIo(formData, data.records[0].response.leadId)
         }
       },
+      error: function(request){
+        Sentry.captureException(request);
+        console.log(request.statusText)
+      },
       dataType: "json"
     })
     this.firePixel()
@@ -537,6 +546,7 @@ class Common {
           }
         },
         error: function(s){
+          Sentry.captureException(s);
           setTimeout(function(){
             CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
           }, 2000);
@@ -564,7 +574,8 @@ class Common {
         }
       },
       error: function(res) {
-          console.error(res)
+        Sentry.captureException(res);
+        console.error(res)
       },
     })
   }
@@ -577,6 +588,7 @@ class Common {
         CI.fetchRedirectUrl(lead_id)
       }, 2000);
     }else{
+      Sentry.captureException(lead_id);
       this.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
     }
   }
