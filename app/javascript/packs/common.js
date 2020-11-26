@@ -588,7 +588,6 @@ class Common {
         CI.fetchRedirectUrl(lead_id)
       }, 2000);
     }else{
-      Sentry.captureException(lead_id);
       this.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
     }
   }
