@@ -297,7 +297,9 @@ class Common {
             }
           },
           error: function(request){
-            Sentry.captureException(request);
+            if (!request.status == 400) {
+              Sentry.captureException(request);
+            }            
             console.log(request.statusText)
             request.abort();
             if (request.statusText == "timeout") {
