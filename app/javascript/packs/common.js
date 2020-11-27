@@ -185,12 +185,37 @@ class Common {
             return true
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
+          }else if(json.status == "Error"){
+            CI.isPhone = true
+            Sentry.withScope(function(scope) {
+              scope.setLevel("critical");  // on error "critical", on timout api "info",
+              scope.setContext('Error Details', {json})
+              Sentry.captureException(new Error("PHONE: Error Some network api is down"), scope);
+            });
+            return true
           }else{
-            Sentry.captureException(json);
+            Sentry.withScope(function(scope) {
+              scope.setLevel("info");  // on error "critical", on timout api "info",
+              scope.setContext('Error Details', {json})
+              Sentry.captureException(new Error("PHONE: Error other than the ApiDown"), scope);
+            });
             CI.isPhone = true
             return true
           }
-        })
+        }).catch(function(e) {
+          console.log(e)
+          CI.isPhone = true
+          Sentry.withScope(function(scope) {
+            scope.setLevel("critical");  // on error "critical", on timout api "info",
+            scope.setContext('Error Details', {json})
+            Sentry.captureException(new Error("PHONE: Error API Down"), scope);
+          });
+          return true
+        });
+
+        // xhr.fail(function( value ) {
+        //   alert( "ioouodsbcos" );
+        // });
       },
       messages: {
          en: 'Please Enter Valid UK Phone Number',
@@ -236,11 +261,24 @@ class Common {
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
           }else{
-            Sentry.captureException(json);
+            Sentry.withScope(function(scope) {
+              scope.setLevel("info");  // on error "critical", on timout api "info",
+              scope.setContext('Error Details', {json})
+              Sentry.captureException(new Error("EMAIL: Error other than the ApiDown"), scope);
+            });
             CI.isEmail = true
             return true
           }
-        })
+        }).catch(function(e) {
+          CI.isEmail = true
+          console.log(e)
+          Sentry.withScope(function(scope) {
+            scope.setLevel("critical");  // on error "critical", on timout api "info",
+            scope.setContext('Error Details', {json})
+            Sentry.captureException(new Error("EMAIL: Error API Down"), scope);
+          });
+          return true
+        });
       },
       messages: {
          en: 'Please Enter Valid Email Address',
@@ -298,7 +336,11 @@ class Common {
           },
           error: function(request){
             if (!request.status == 400) {
-              Sentry.captureException(request);
+              Sentry.withScope(function(scope) {
+              scope.setLevel("info");  // on error "critical", on timout api "info",
+              scope.setContext('Error Details', {request})
+              Sentry.captureException(new Error("POSTCODE: Error ApiDown"), scope);
+            });
             }            
             console.log(request.statusText)
             request.abort();
@@ -507,7 +549,11 @@ class Common {
         }
       },
       error: function(request){
-        Sentry.captureException(request);
+        Sentry.withScope(function(scope) {
+          scope.setLevel("critical");  // on error "critical", on timout api "info",
+          scope.setContext('Error Details', {request})
+          Sentry.captureException(new Error("SubmitLead: Error on leadbyte API"), scope);
+        });
         console.log(request.statusText)
       },
       dataType: "json"
@@ -548,7 +594,11 @@ class Common {
           }
         },
         error: function(s){
-          Sentry.captureException(s);
+          Sentry.withScope(function(scope) {
+            scope.setLevel("critical");  // on error "critical", on timout api "info",
+            scope.setContext('Error Details', {s})
+            Sentry.captureException(new Error("ExitLead: Error on mmd-exit-lead"), scope);
+          });
           setTimeout(function(){
             CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
           }, 2000);
@@ -576,7 +626,11 @@ class Common {
         }
       },
       error: function(res) {
-        Sentry.captureException(res);
+        Sentry.withScope(function(scope) {
+          scope.setLevel("critical");  // on error "critical", on timout api "info",
+          scope.setContext('Error Details', {res})
+          Sentry.captureException(new Error("RedirectUrl: Error on fetch-redirect-url"), scope);
+        });
         console.error(res)
       },
     })
