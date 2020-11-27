@@ -185,12 +185,21 @@ class Common {
             return true
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
+          }else if(json.status == "Error"){
+            CI.isPhone = true
+            CI.sentryNotification("critical", json , "PHONE: Error Some network api is down")
+            return true
           }else{
-            Sentry.captureException(json);
+            CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
             CI.isPhone = true
             return true
           }
-        })
+        }).catch(function(e) {
+          console.log(e)
+          CI.isPhone = true
+          CI.sentryNotification("critical", e , "PHONE: Error API Down")
+          return true
+        });
       },
       messages: {
          en: 'Please Enter Valid UK Phone Number',
@@ -223,6 +232,13 @@ class Common {
       })
     }
   }
+  sentryNotification(error, response , message){
+    Sentry.withScope(function(scope) {
+      scope.setLevel(error);  // on error "critical", on timout api "info",
+      scope.setContext('Error Details', {response})
+      Sentry.captureException(new Error(message), scope);
+    });
+  }
 
   validateEmail(){
     var CI = this
@@ -236,11 +252,16 @@ class Common {
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
           }else{
-            Sentry.captureException(json);
+            CI.sentryNotification("info", json , "EMAIL: Error other than the ApiDown")
             CI.isEmail = true
             return true
           }
-        })
+        }).catch(function(e) {
+          CI.isEmail = true
+          console.log(e)
+          CI.sentryNotification("critical", e , "EMAIL: Error API Down")
+          return true
+        });
       },
       messages: {
          en: 'Please Enter Valid Email Address',
@@ -260,6 +281,7 @@ class Common {
   }
 
   validateApiPostcode(){
+    var CI = this;
     window.Parsley.addValidator('validapipostcode', {
       validateString: function(value){
        return $.ajax({
@@ -298,7 +320,7 @@ class Common {
           },
           error: function(request){
             if (!request.status == 400) {
-              Sentry.captureException(request);
+              CI.sentryNotification("info", request , "POSTCODE: Error ApiDown")
             }            
             console.log(request.statusText)
             request.abort();
@@ -487,7 +509,10 @@ class Common {
       dataType: "json",
       success: function(e) {
         console.log(e.response);
-      }
+      },
+      error: function(res){
+        CI.sentryNotification("critical", res , "FacebookAudience: Error on facebook_custom_audience")
+      },
     })
   }
   submitLead(formData, campid){
@@ -507,7 +532,7 @@ class Common {
         }
       },
       error: function(request){
-        Sentry.captureException(request);
+        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
         console.log(request.statusText)
       },
       dataType: "json"
@@ -548,7 +573,7 @@ class Common {
           }
         },
         error: function(s){
-          Sentry.captureException(s);
+          CI.sentryNotification("critical", s , "ExitLead: Error on mmd-exit-lead")
           setTimeout(function(){
             CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
           }, 2000);
@@ -576,7 +601,7 @@ class Common {
         }
       },
       error: function(res) {
-        Sentry.captureException(res);
+        CI.sentryNotification("critical", res , "RedirectUrl: Error on fetch-redirect-url")
         console.error(res)
       },
     })
