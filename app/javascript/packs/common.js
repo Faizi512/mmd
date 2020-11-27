@@ -200,10 +200,6 @@ class Common {
           CI.sentryNotification("critical", e , "PHONE: Error API Down")
           return true
         });
-
-        // xhr.fail(function( value ) {
-        //   alert( "ioouodsbcos" );
-        // });
       },
       messages: {
          en: 'Please Enter Valid UK Phone Number',
