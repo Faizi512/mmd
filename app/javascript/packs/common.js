@@ -180,8 +180,8 @@ class Common {
           CI.validateTsp()
           if (json.status == "Valid") {
             CI.isPhone = true
-            CI.networkName=json.hlr_data.orn.split(" ")[0]
-            console.log(CI.networkName)
+            // CI.networkName=json.hlr_data.orn.split(" ")[0]
+            // console.log(CI.networkName)
             return true
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
