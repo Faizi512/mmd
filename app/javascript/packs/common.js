@@ -1,6 +1,5 @@
 import 'flipclock/dist/flipclock.min.js'
 import 'bootstrap/dist/js/bootstrap.js'
-import "@fortawesome/fontawesome-free/js/all"
 import "parsleyjs";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
