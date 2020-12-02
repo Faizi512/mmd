@@ -177,7 +177,12 @@ class Common {
         var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val())
         return xhr.then(function(json) {
           CI.validateTsp()
-          if (json.status == "Valid") {
+          var skipresponse = ["EC_ABSENT_SUBSCRIBER", "EC_ABSENT_SUBSCRIBER_SM", "EC_CALL_BARRED", "EC_SYSTEM_FAILURE","EC_SM_DF_memoryCapacityExceeded", "EC_NO_RESPONSE", "EC_NNR_noTranslationForThisSpecificAddress", "EC_NNR_MTPfailure", "EC_NNR_networkCongestion"]
+          if (skipresponse.includes(json.response) ) {
+            CI.isPhone = true
+            return true
+          }
+          else if (json.status == "Valid") {
             CI.isPhone = true
             // CI.networkName=json.hlr_data.orn.split(" ")[0]
             // console.log(CI.networkName)
