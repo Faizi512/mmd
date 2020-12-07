@@ -513,6 +513,7 @@ class Common {
   }
 
   updateFacebookAudience(data){
+    var CI = this;
     $.ajax({
       type: "POST",
       url: '/facebook_custom_audience',
