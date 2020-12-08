@@ -21,7 +21,8 @@ class IphoneDeals extends Common {
       $('#dealform').parsley().whenValidate({
           group: 'block-0'
       }).done(function() {
-        CI.mmdLead()
+        CI.mmdLead();
+        CI.successUrl();
       })
     });
   }
