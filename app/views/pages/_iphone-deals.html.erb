@@ -1,0 +1,38 @@
+<%= javascript_pack_tag 'iphonedeals', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div class="bg-ee">
+  <div class="container">
+    <div class="row w-100 mx-0 align-items-start font-nunito">
+      <div class="col-md-6 my-md-5 my-3">
+        <div class="bg-transparent p-3 row">
+          <h2 class="text-white text-center mb-0 font-weight-bold w-100">Exclusive Deal By <%= image_tag("ee-logo-yello", class: " ", width: "70" ) %>
+          </h2>
+          <div class="d-flex align-items-center justify-content-center w-100">
+            <%= image_tag("apple_logo_white.png", class: " ", width: "25" ) %>
+            <h3 class="font-weight-bold mb-0 text-white text-center pt-1 pl-1">iPhone 12</h3>
+          </div>
+          <div class="col-5 text-center px-md-2 px-0">
+            <%= image_tag("phone/iphone12blue.png", class: "iph-img ", width: "150" ) %>
+          </div>
+          <div class="col-7 pt-4 text-center px-md-2 px-0">
+            <h4 class="font-weight-bold fs-sm-21">Unlimited <i class="fas fa-globe text-white pl-1 "></i></h4>
+            <h4 class="font-weight-bold fs-sm-21">Unlimited <i class="fas fa-sms text-white pl-1 "></i></h4>
+            <h4 class="font-weight-bold fs-sm-21">Unlimited <i class="fas fa-phone-alt text-white pl-1 "></i></h4>
+            <h4 class="font-weight-bold fs-sm-21"> Per Month <span class="text-white"> £56 </span> </h4>
+            <h4 class="font-weight-bold fs-sm-21">Upfront <span class="text-white"> £0 </span></h4>
+          </div>
+          <div class="row w-100 mx-0 justify-content-center pt-3">
+            <a href="#dealform" class="btn btn-outline-light btn-round font-weight-bold w-75" type="button">Get Deal Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 my-md-5 px-0 px-md-3">
+        <%= render 'layouts/iphone-deals/full-form' %>
+      </div>
+    </div>
+  </div> 
+</div>
+<%= render 'layouts/common/top_logos'%>
+<%= render 'layouts/common/footer' %>
+<%= render 'layouts/common/waiting_loader' %>
+

@@ -1,0 +1,68 @@
+.bg-ee{
+  background: asset-url('ee-step-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.font-nunito{
+  font-family: 'Nunito', sans-serif;
+}
+.text-colr-green{
+  color: #38adac;
+}
+.green-btn{
+  border-radius: 50px !important;
+  background-color: #35A19C !important;
+  font-size: 21px !important;
+}
+.green-btn:hover{
+  background-color: #38adac !important;
+}
+.bg-tranp{
+  background-color: #f8f9fab8 !important;
+}
+.btn-round{
+  border-radius: 50px !important;
+  font-size: 21px !important;
+}
+.parsley-error-list{
+  clear: both;
+  display: block;
+  width: 100%;
+}
+input.valid ~ .validate.success {
+  display: inline-block;
+}
+input.valid ~ .validate.error {
+  display: none;
+}
+input.error ~ .validate.error {
+  display: inline-block;
+}
+input.error ~ .validate.success {
+  display: none;
+}
+.validate.success{
+  display: none;
+  color: #4CAF50 !important;
+  position: relative;
+  float: right;
+  font-size: 25px;
+  margin-top: -31px;
+  right: 6px;
+}
+.validate.error{
+  display: none;
+  color: red !important;
+  position: relative;
+  float: right;
+  font-size: 25px !important;
+  margin-top: -31px;
+  right: 6px;
+}
+@media only screen and (max-width: 520px) {
+  .iph-img{
+    width: 100px !important;
+  }
+}
