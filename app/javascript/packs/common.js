@@ -1,10 +1,22 @@
 import 'flipclock/dist/flipclock.min.js'
 import 'bootstrap/dist/js/bootstrap.js'
-import "@fortawesome/fontawesome-free/js/all"
 import "parsleyjs";
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
+
 
 class Common {
   constructor() {
+    Sentry.init({
+      dsn: "https://335f4f951f3b40f4889ac4fc120bfdb7:b27eab222bfd4d8a9ff474ed658451ed@o423834.ingest.sentry.io/5354739",
+      release: "Mega Mobile Deals@" + process.env.npm_package_version,
+      integrations: [new Integrations.BrowserTracing()],
+      // Set tracesSampleRate to 1.0 to capture 100%
+      // of transactions for performance monitoring.
+      // We recommend adjusting this value in production
+      tracesSampleRate: 1.0,
+
+    });
     var CI = this;
     this.formValidation = {}
     this.isEmail =false
@@ -18,7 +30,15 @@ class Common {
     this.redirectUrl = null
     this.fetchRequest = 0
     this.deliveryName = null
-    this.phoneName = null;
+    this.phoneName = null
+    this.networkName= null
+    this.device=null
+    this.deviceBrowser=null
+    this.deviveSearchEngine=null
+    this.debiceBrand=null
+    this.deviceName=null
+    this.allowedNetworks=["vodafone","3"]
+    this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
 
     $.getJSON('https://ipapi.co/json/', function(data) {
       if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
@@ -157,24 +177,59 @@ class Common {
         var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/mobile?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val())
         return xhr.then(function(json) {
           CI.validateTsp()
-          if (json.status == "Valid") {
+          var skipresponse = ["EC_ABSENT_SUBSCRIBER", "EC_ABSENT_SUBSCRIBER_SM", "EC_CALL_BARRED", "EC_SYSTEM_FAILURE","EC_SM_DF_memoryCapacityExceeded", "EC_NO_RESPONSE", "EC_NNR_noTranslationForThisSpecificAddress", "EC_NNR_MTPfailure", "EC_NNR_networkCongestion"]
+          if (skipresponse.includes(json.response) ) {
             CI.isPhone = true
             return true
+          }
+          else if (json.status == "Valid") {
+            CI.isPhone = true
+            // CI.networkName=json.hlr_data.orn.split(" ")[0]
+            // console.log(CI.networkName)
+            return true
+          }else if(json.status == "Invalid"){
+            return $.Deferred().reject("Please Enter Valid UK Phone Number");
           }else if(json.status == "Error"){
-             CI.isPhone = true
-             CI.apiDown =  true
+            CI.isPhone = true
+            CI.sentryNotification("critical", json , "PHONE: Error Some network api is down")
             return true
           }else{
-            return $.Deferred().reject("Please Enter Valid UK Phone Number");
+             CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
+            CI.isPhone = true
+            return true
           }
-        })
+        }).catch(function(e) {
+          if (e == "Please Enter Valid UK Phone Number") {
+            return $.Deferred().reject("Please Enter Valid UK Phone Number")
+          }else{
+            CI.isPhone = true
+            CI.sentryNotification("critical", e , "PHONE: Error API Down")
+            return true
+          }
+        });
       },
       messages: {
          en: 'Please Enter Valid UK Phone Number',
       }
     });
   }
-
+  redirectTOSwitchuk(redirected_user){
+    if (this.allowedNetworks.includes(this.networkName)) {
+      window.location='https://switchuk.uk'
+    }else if (this.allowedDevices.includes(this.device)) {
+      window.location='https://switchuk.uk/'
+    }
+    else{
+     window.location=`https://megamobiledeals.com/credit_check?name=${redirected_user}`
+    }
+  }
+  deviceDetection(){
+    this.device=FRUBIL.device.class_code   //Desktop
+    this.deviceBrowser=FRUBIL.client.class_code // Browser
+    this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
+    this.debiceBrand=FRUBIL.device.brand_code // Samsung
+    this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
+  }
   validateTsp(){
     var CI = this
     if (this.tps_result == null) {
@@ -183,6 +238,14 @@ class Common {
         CI.tps_result =  json.status
       })
     }
+  }
+
+  sentryNotification(error, response , message){
+    Sentry.withScope(function(scope) {
+      scope.setLevel(error);  // on error "critical", on timout api "info",
+      scope.setContext('Error Details', {response})
+      Sentry.captureException(new Error(message), scope);
+    });
   }
 
   validateEmail(){
@@ -194,10 +257,22 @@ class Common {
           if (json.status == "Valid") {
             CI.isEmail = true
             return true
-          }else{
+          }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
+          }else{
+            CI.sentryNotification("info", json , "EMAIL: Error other than the ApiDown")
+            CI.isEmail = true
+            return true
           }
-        })
+        }).catch(function(e) {
+          if (e == "Please Enter Valid Email Address") {
+            return $.Deferred().reject("Please Enter Valid Email Address")
+          }else{
+            CI.isEmail = true
+            CI.sentryNotification("critical", e , "EMAIL: Error API Down")
+            return true
+          }
+        });
       },
       messages: {
          en: 'Please Enter Valid Email Address',
@@ -217,6 +292,7 @@ class Common {
   }
 
   validateApiPostcode(){
+    var CI = this;
     window.Parsley.addValidator('validapipostcode', {
       validateString: function(value){
        return $.ajax({
@@ -254,6 +330,9 @@ class Common {
             }
           },
           error: function(request){
+            if (!request.status == 400) {
+              CI.sentryNotification("info", request , "POSTCODE: Error ApiDown")
+            }            
             console.log(request.statusText)
             request.abort();
             if (request.statusText == "timeout") {
@@ -434,6 +513,7 @@ class Common {
   }
 
   updateFacebookAudience(data){
+    var CI = this;
     $.ajax({
       type: "POST",
       url: '/facebook_custom_audience',
@@ -441,7 +521,10 @@ class Common {
       dataType: "json",
       success: function(e) {
         console.log(e.response);
-      }
+      },
+      error: function(res){
+        CI.sentryNotification("critical", res , "FacebookAudience: Error on facebook_custom_audience")
+      },
     })
   }
   submitLead(formData, campid){
@@ -459,6 +542,10 @@ class Common {
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
           CI.submitCustomerIo(formData, data.records[0].response.leadId)
         }
+      },
+      error: function(request){
+        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log(request.statusText)
       },
       dataType: "json"
     })
@@ -498,6 +585,7 @@ class Common {
           }
         },
         error: function(s){
+          CI.sentryNotification("critical", s , "ExitLead: Error on mmd-exit-lead")
           setTimeout(function(){
             CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
           }, 2000);
@@ -514,6 +602,7 @@ class Common {
       url: `/fetch-redirect-url/${lead_id}`,
       success: function(response) {
         console.log(response)
+
         if(response.status == 200){
           CI.redirectUrl = response.lead.redirect_url
           CI.deliveryName = response.lead.delivery_name
@@ -524,7 +613,8 @@ class Common {
         }
       },
       error: function(res) {
-          console.error(res)
+        CI.sentryNotification("critical", res , "RedirectUrl: Error on fetch-redirect-url")
+        console.error(res)
       },
     })
   }

@@ -1,0 +1,49 @@
+<div class="tab shadow" id="<%= id  %>">
+  <div class="card my-3 d-none border-color">
+    <div class="card-header position-relative cursor-p bg-white" id="<%= income_id %>">
+      <div class="step-no initial-step"><%= step_no %></div>
+      <div class="step-no step-green col-on-collapse-icon disp-none"><i class="fas fa-check text-white"></i></div>
+      <h5 class="mb-0 px-2">
+        <div class="accordion-title w-100 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#<%= name %>" aria-expanded="true" aria-controls="#<%= name %>">
+          <div class="col">
+            <span class="collapse-text-col font-weight-bold"><%= title %></span>
+            <ul class="pl-0 mb-0 pt-1">
+              <li class="d-flex">
+                <i class="fas fa-info-circle mr-2 muted-color collapse-text-col"></i>
+                <small class="mb-0 muted-color collapse-text-col"><%= info %></small>
+              </li> 
+            </ul>
+          </div>
+          <div>
+            <i class="accordian-toggle-icon fas cursor-p mr-2 fa-angle-up"></i>
+          </div>
+        </div>
+      </h5>
+    </div>
+    <div id="<%= name %>" class="pb-0 collapse show"
+      aria-labelledby="<%= income_id %>"
+      data-parent="#accordion">
+      <div class="card-body">
+        <label class="text-center"><%= subtitle %></label>
+        <div class="d-flex w-md-50 mx-auto flex-wrap justify-content-center redirect">
+          <div class="w-xs-100 w-md-100 w-sm-50 p-1 form-group" >
+            <input
+              name="<%= name %>"
+              required
+              data-parsley-required="true"
+              data-parsley-required-message="<%= parsley_message %>"
+              data-parsley-group="<%= parsley_group %>"
+              id="<%= income_id %>"
+              type="number"
+              class="form-control text-col expenses"
+              placeholder="<%= placeholder %>"
+            >
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <input data-target="#dob" type="button" name="next-btn" class="btn back-color px-5 text-white font-weight-bold rounded-pill step" value="NEXT">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

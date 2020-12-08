@@ -49,7 +49,6 @@ class Home extends Common {
   }
 
   urlSelection(){
-
     if(this.deliveryName == "Exit 1 (Energy)"){
       window.location = this.details.success_url+this.paramsforSuccess2()
     }else if(this.deliveryName == "Exit 2 (Credit)"){
@@ -76,7 +75,6 @@ class Home extends Common {
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
   }
-
   successUrl(){
     var CI = this;
     $("#loaderPopup").css('height', '100%')
@@ -140,6 +138,7 @@ class Home extends Common {
       track = AnyTrack('formSubmit') || "";
     }
     catch (e) {}
+    this.redirected_user = this.getUrlParameter('firstname') || $(".first_name").val()
 
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
