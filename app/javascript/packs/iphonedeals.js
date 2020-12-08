@@ -102,41 +102,10 @@ class IphoneDeals extends Common {
       error: function(error){
         console.log(error)
         window.location = "https://mtrk11.co.uk/?a=14118&c=33110"
-      }
+      },
       dataType: "json"
     })
     this.firePixel()
-  }
-   sendMmdExitLead(){
-      var CI = this
-    if (CI.details.form_name == 'iphone-deals'){
-      // Get data for lead
-      var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes")
-      var phone1 = this.getUrlParameter('phone1') || $(".phone").val() || ''
-      var bc = (customer_type) ? "yes" : "no"
-      var c3 = this.getUrlParameter('sid') || this.details.sid || 1
-      var handset = this.getUrlParameter('handset') || this.phoneName || ''
-      var postcode = this.getUrlParameter('postcode') || $(".postcode").val() || ''
-      var source = this.getUrlParameter('source') || this.details.source || 'google3'
-
-      $.ajax({
-        type: "POST",
-        url: "/mmd-exit-lead?campid=MMDEXIT",
-        data: {phone1: phone1, bc: bc, c3: c3, source: source, handset: handset, postcode: postcode },
-        success: function(json) {
-          console.log(json)
-          if(json.response.code == 1){
-            CI.fetchRedirectUrl(json.response.leadId)
-          }
-        },
-        error: function(s){
-          setTimeout(function(){
-            CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
-          }, 2000);
-        },
-        dataType: "json"
-      })
-    }
   }
 
   getData() {

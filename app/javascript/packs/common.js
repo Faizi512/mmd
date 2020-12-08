@@ -476,7 +476,7 @@ class Common {
   }
 
   sendMmdExitLead(){
-    if (this.details.camp_id == 'MEGA-MOBILE-DEALS'){
+    if (this.details.camp_id == 'MEGA-MOBILE-DEALS' || this.details.form_name == 'iphone-deals'){
       // Get data for lead
       var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes")
       var phone1 = this.getUrlParameter('phone1') || $(".phone").val() || ''
