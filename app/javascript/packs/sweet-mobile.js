@@ -9,6 +9,8 @@ class SweetMobile extends Common {
     this.validate("#dealslistform")
     this.showToolTip()
     this.fillform()
+    this.popupTerms()
+    this.popupPrivacy()
     this.showTab(this.currentTab)
     $( ".property" ).change(function() {
       var tabs = $(".tab");

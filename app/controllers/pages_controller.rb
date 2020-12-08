@@ -21,13 +21,18 @@ class PagesController < ApplicationController
     end
 	end
 
- def exclusive_o2_deals
+  def exclusive_o2_deals
     exclusive_o2_deal
     fetch_products('o2')
   end
 
   def exclusive_ee_deals
     exclusive_ee_deal
+    fetch_products('ee')
+  end
+
+  def ee_deals
+    ee_deal
     fetch_products('ee')
   end
 

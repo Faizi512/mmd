@@ -1,0 +1,226 @@
+<%= javascript_pack_tag 'old_credit_check'%>
+<div class="credit-check bg-white form-page">
+  <div class="modal-dialog modal-dialog-centered modal-lg my-0" role="document">
+    <div class="modal-content deal-form-box">
+      <div class="modal-header">
+        <h1><span class="text-blue">You are just</span> 30 seconds <span class="text-blue"> away from your dream phone</span></h1>
+      </div>
+      <div class="modal-body" style="z-index: 1 !important">
+        <form class="form" id="dealform" data-details="<%= @details %>" method="post" action="javascript:;">
+          <div class="tab">
+            <div class="row justify-content-center">
+              <div class="form-group col-lg-7 col-sm-7 col-12">
+                <label>What deal do you want?</label>
+                <div class="d-flex">
+                  <div class="w-50 p-1">
+                    <input
+                    name="deal"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the deal"
+                    data-parsley-group="block-0"
+                    id="sim"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                    value="sim"
+                    >
+                    <label
+                      for="sim"
+                      class="input-radio rounded py-1 px-2 cursor-p text-center text-col h-75">
+                      Sim
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                    name="deal"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the deal"
+                    data-parsley-group="block-0"
+                    id="handset"
+                    type="radio"
+                    class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                    value="handset"
+                    >
+                    <label
+                      for="handset"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Handset
+                    </label>
+                  </div>
+                </div>
+                <br>
+                <div class="dropdown">
+                  <div class="field form-group">
+                    <label>Select your birth year</label>
+                    <div>
+                      <input required
+                       data-parsley-required="true"
+                       data-parsley-required-message="Please select your age"
+                       data-parsley-group="block-1"
+                       type="date"
+                       id="dob"
+                       name="birthday"
+                       class="form-control text-col select-field"
+                       >
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="dropdown">
+                  <label class=" h5 form-group f-25 text-left w-100 mb-2">Your employment status</label>
+                  <select
+                    name="employment"
+                    required
+                    data-parsley-required="true"
+                    data-parsley-required-message="Please select one of the option"
+                    data-parsley-group="block-2"
+                    class="select-field w-100 form-control text-col mb-3">
+                    <option selected="selected" value="" disabled="">Select</option>
+                    <option value="full time"> full time employed </option>
+                    <option value="part time"> part time employed  </option>
+                    <option value="self employed"> self employed</option>
+                    <option value="unemployed"> unemployed </option>
+                    <option value="pension"> pension </option>
+                    <option value="benefits"> benefits </option>
+                    <option value="student"> student </option>
+                  </select>
+                </div>
+                <br>
+                <div class="d-flex flex-wrap residential">
+                  <label>Residential Status</label>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="tenent"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="tenent"
+                    >
+                    <label for="tenent"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Tenent
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="council-tenent"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="council tenent"
+                    >
+                    <label for="council-tenent"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Council Tenent
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="home-owner"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="home owner"
+                    >
+                    <label for="home-owner"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Home Owner
+                    </label>
+                  </div>
+                  <div class="w-50 p-1">
+                    <input
+                      name="residential-status"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-required-message="Please select one of the option"
+                      data-parsley-group="block-3"
+                      id="living-with-parents"
+                      type="radio"
+                      class="opacity-0 cursor-p form-control position-absolute input-tag-radio"
+                      value="living with parents"
+                    >
+                    <label for="living-with-parents"
+                      class="input-radio rounded px-2 py-1 cursor-p text-center text-col h-75">
+                      Living With Parents
+                    </label>
+                  </div>
+                </div>
+                <br>
+                <label>Net monthly income</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'monthly-income',
+                  parsley_group: 'block-4'
+                %>
+                <br>
+                <label>Rent/Mortgage Payments</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'rent',
+                  parsley_group: 'block-5'
+                %>
+                <br>
+                <label>Credit Card & Loan Repayments</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'credit-card',
+                  parsley_group: 'block-6'
+                %>
+                <br>
+                <label>Utility Bills</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'utility-bills',
+                  parsley_group: 'block-7'
+                %>
+                <br>
+                <label>Transport Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'transport-costs',
+                  parsley_group: 'block-8'
+                %>
+                <br>
+                <label>Food Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'food-costs',
+                  parsley_group: 'block-9'
+                %>
+                <br>
+                <label>Any other Monthly Costs</label>
+                <%= render 'pages/old_credit_check/common_fields',
+                  name: 'other-costs',
+                  parsley_group: 'block-10'
+                %>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-sm-7 col-12 btn-div justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col text-center">
+                <button id="btn-continue" type="button" class="btn btn-success btn-lg o-btn" >Continue</button>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 text-center securityInfo">
+            <ul>
+              <img src="/assets/lock-46d22d5fc8e1d3dd250a250f817cf2a92527961daab35e55bcd130bc72dda382.png">
+              <li>Safe</li>
+              <li>Secure</li>
+              <li>Privacy Protected</li>
+            </ul>
+          </div>
+          <%= render 'layouts/common/form_network_logo'%>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
