@@ -1,0 +1,86 @@
+<!-- Form -->
+<div class="modal fade" id="deal-form-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content deal-form-box">
+      <div class="modal-header">
+         <h1><span class="text-blue">You are just</span> 10 seconds <span class="text-blue"> away from your dream phone</span></h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form" id="dealform" data-details="<%= @details %>" method="post" action="javascript:;" data-parsley-validate="">
+          <div  class="phoneEmailTab" id="">
+            <div class="row justify-content-center">
+              <div class="input-group  mb-3  col-lg-7">
+                <label class="w-100">Verify Your Phone Number*</label>
+                <input
+                type="text"
+                name="telephone"
+                required
+                value="<%= params[:phone1] || params[:mobile] %>"
+                data-parsley-required="true"
+                data-parsley-required-message="Please Enter Valid Uk Phone Number"
+                data-parsley-type="number"
+                data-parsley-group="block-0"
+                data-parsley-validphone
+                class="form-control phone"
+                placeholder="Phone Number">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                     <%= image_tag("privacy.png", class: "privcy pull-right" ) %>
+                  </span>
+                </div>
+              </div>
+
+              <div class="custom-checkbox col-lg-7 text-center">
+
+                <div class="onoffswitch mx-auto">
+                  <input type="hidden" name="c1">
+                  <input
+                    type="checkbox"
+                    name="agree"
+                    class="onoffswitch-checkbox approve"
+                    id="myonoffswitch"
+                    data-parsley-required="true"
+                    data-parsley-group="block-0"
+                    data-parsley-required-message="Please accept our terms and conditions"
+                    >
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                      <span class="onoffswitch-inner"></span>
+                      <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+                <div class="error-checkbox"></div>
+                 <%= render 'layouts/common/accept_term_popup'%>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-12 btn-div justify-content-center">
+            <div class="row justify-content-center">
+              <div class="">
+                <button id="btn-back" type="button"class="btn btn-primary btn-lg o-btn d-none">Back</button>
+              </div>
+              <div class="col-lg-6 col-md-6 text-center">
+                <i class="lodr but_loader display-none position-absolute">
+                  <%= image_tag("button-ajax-loader.gif") %>
+                </i>
+                <button id="quicksubmit" type="button" class="btn btn-success btn-lg o-btn submitQuik">Continue</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-2 text-center securityInfo">
+            <ul>
+              <%= image_tag("lock.png") %>
+              <li>Safe</li>
+              <li>Secure</li>
+              <li>Privacy Protected</li>
+            </ul>
+          </div>
+          <%= render 'layouts/common/form_network_logo'%>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
