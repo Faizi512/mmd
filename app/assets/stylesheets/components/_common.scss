@@ -442,6 +442,13 @@ input:hover ~ .input-deals:after{
   background-color: rgba(240,240,240,0.8) !important;
   background-image: url('new_mmd/iphone-banner1.jpg');
 }
+.banner-div-12{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-color: rgba(0,0,0,1) !important;
+  background-image: url('banner-iphone12.jpg');
+}
 .banner-img{
   display: none;
 }
@@ -549,6 +556,12 @@ input:hover ~ .input-deals:after{
 .brnds-logo{
   width: 120px;
 }
+
+@media only screen  and (max-width: 1025px) {
+  .banner-div-12{
+    background-image: url('iphone12.jpg');
+  }
+}
 @media only screen  and (min-width: 750px) and (max-width: 768px) {
   .o-btn{
   font-size: 15px !important;
@@ -583,6 +596,9 @@ input:hover ~ .input-deals:after{
   }
 }
 @media only screen  and (max-width: 768px) {
+  .banner-div-12{
+    background-image: url('banner-iphone12.jpg');
+  }
   .bg-img-success{
     height: 65vh;
   }
