@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload', defer: true %>
 <div class="bg-white">
   <div class="bg-white">
     <header class="container row w-100 m-auto align-items-center justify-content-md-around justify-content-between py-3">
@@ -6,6 +7,7 @@
       </a>
     </header>
   </div>
+  <%= render 'layouts/homev2/clock_head' %>
   <div class=" w-100 p-md-5 container">
     <div class="section-1">
       <h1 class="text-md-left fs-md-25 text-center">Contract Phones for Bad Credit - Complete Guide</h1>
@@ -78,7 +80,10 @@
       <p>Browse our portfolio of contract <a href="https://megamobiledeals.com/">mobile phones for bad credit</a>  and find the perfect deal today!</p>
     </div>
   </div>
+  <%= render 'layouts/homev2/deals_list_phones'  %>
 </div>
 <div class="border-top">
   <%= render 'layouts/common/footer' %>
 </div>
+<%= render 'layouts/homev2/step_form'%>
+<%= render 'layouts/common/waiting_loader' %>
