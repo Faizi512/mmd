@@ -536,7 +536,7 @@ class Common {
       success: function(data) {
         console.log(data)
         if(data.code == 1 && data.records[0].status != "Rejected"){
-           window.location = "/success2"
+           window.location = "/uk-credit-ratings"
         }
         if(data.code == 1 && data.records[0].response.code == 1){
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
