@@ -45,6 +45,7 @@ class StepFormSimDealOnly extends Common {
       campaignkey: 'E9F2N6A3R5',
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
+      traffictype: this.getUrlParameter('traffictype') || "",
       ipaddress: this.ip_Address,
       apidown: this.apiDown,
       matchtype: this.getUrlParameter('matchtype') || "",

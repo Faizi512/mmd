@@ -124,6 +124,7 @@ class MMDLoansSMS extends Common {
       uu_id: this.details.uu_id,
       matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
+      traffictype: this.getUrlParameter('traffictype') || "",
       prize: this.getUrlParameter('prize') || 35,
       timestamp: new Date,
       anytrack: track,

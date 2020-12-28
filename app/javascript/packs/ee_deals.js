@@ -256,6 +256,7 @@ class EEDeals extends Common {
       url_with_params: window.location.href,
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
+      traffictype: this.getUrlParameter('traffictype') || "",
       matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       prize: this.getUrlParameter('prize') || 35,
