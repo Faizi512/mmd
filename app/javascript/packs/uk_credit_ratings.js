@@ -139,6 +139,7 @@ class UkCreditRatings extends Common {
       optinurl: 'http://deals.megamobiledeals.com/uk-credit-ratings',
       ipaddress: this.ip_Address,
       timestamp: new Date,
+      traffictype: this.getUrlParameter('traffictype') || "",
       user_agent: window.navigator.userAgent,
     }
   }

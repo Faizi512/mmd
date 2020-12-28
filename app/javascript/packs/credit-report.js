@@ -105,6 +105,7 @@ class CreditReport extends Common {
       c1: this.getUrlParameter('transid')|| this.getUrlParameter('c1') || 'unknown',
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'http://deals.megamobiledeals.com/credit-report',
+      traffictype: this.getUrlParameter('traffictype') || "",
       ipaddress: this.ip_Address,
       timestamp: new Date,
       matchtype: this.getUrlParameter('matchtype') || "",

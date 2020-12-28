@@ -49,6 +49,7 @@ class Breeze extends Common {
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
+      traffictype: this.getUrlParameter('traffictype') || "",
       prize: this.getUrlParameter('prize') || 35,
       apidown: this.apiDown,
       tps_result: this.tps_result,
