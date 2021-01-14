@@ -670,7 +670,7 @@ class Common {
   }
 
   getSid(){
-    return this.getUrlParameter('sid') || '';
+    return this.getUrlParameter('sid') || 1;
   }
 
   getSsid(){
