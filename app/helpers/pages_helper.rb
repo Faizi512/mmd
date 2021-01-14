@@ -737,7 +737,23 @@ module PagesHelper
     }.to_json
   end
 
-  def home
+  def homev1
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'Mega-Mobile-Deals-homev1',
+      optin_url: '/homev1',
+      sid: nil,
+      ssid: nil,
+      source:'home-pagev1',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
+    def home
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',

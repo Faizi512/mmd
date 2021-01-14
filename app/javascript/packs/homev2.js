@@ -1,6 +1,6 @@
 import Common from "./common.js"
 
-class Home extends Common {
+class HomeV2 extends Common {
   constructor() {
     super();
     var CI = this;
@@ -127,14 +127,8 @@ class Home extends Common {
   handleBadCustomerForm(){
     var CI = this;
     if (this.currentTab == 2) {
-      if ( $('#credit-check').is(':checked') == true) {
-        window.open('https://secure.uk.rspcdn.com/xprr/red/PID/2626/SID/'+this.getSid()+'?check=1'+ this.parmsforCreditReport(), "_blank");
-        this.mmdLead()
-        CI.successUrl();
-      }else{
-        this.mmdLead()
-        CI.successUrl();
-      }
+      this.mmdLead()
+      CI.successUrl();
     }
   }
 
@@ -185,4 +179,4 @@ class Home extends Common {
   }
 
 }
-export default new Home();
+export default new HomeV2();
