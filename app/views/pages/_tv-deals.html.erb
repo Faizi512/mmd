@@ -1,0 +1,105 @@
+<%= javascript_pack_tag 'tv-deals', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+
+<div class="bg-light pt-5">
+  <div class="container">
+    <div class="position-relative">
+      <h3 class="text-dark text-center fs-md-21 fw"> <span class="font-weight-bold gradient-text">Great!</span> we have found you an amazing mobile deal. O2 will call you shortly.</h3>
+      <h4 class="gradient-text text-center fs-md-21 fw"> Sky TV packages at the best prices, Find the best Sky TV option for you </h4>
+      <h6 class=" text-center gradient-text">*Sky Installation fee £30</h6>
+      
+    </div>
+    <form class="form" id="dealform" data-details="<%= @details %>">
+      <div class="tab1 form-group col-lg-10 mx-auto mt-5">
+        <div class=" w-100 mx-auto">
+          <div class="position-relative mt-2 mt-md-0 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="sky-deals"
+            class="opacity-0 error-on-button sky-deals cursor-p form-control position-absolute input-dealstv-radio"
+            id="sky-deals"
+            type="radio"
+            value="yes">
+            <label for="sky-deals" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              Yes, Please tell me more
+            </label>
+          </div>
+          <div class="position-relative mt-4 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="sky-deals"
+            class="opacity-0 error-on-button sky-deals cursor-p form-control position-absolute input-dealstv-radio"
+            id="sky-deals-n"
+            type="radio"
+            value="no">
+            <label for="sky-deals-n" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              No, Take me to the mobile deals
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="tab2 disp-none form-group col-lg-7 mx-auto mt-5">
+        <h4 class="text-dark text-center fs-md-21 fw"> Have you previously been a SKY customer?</h4>
+        <div class=" w-100 mx-auto">
+          <div class="position-relative mt-2 mt-md-0 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="previous-sky-user"
+            class="opacity-0 error-on-button previous-sky-user cursor-p form-control position-absolute input-dealstv-radio"
+            id="previous-sky-user"
+            type="radio"
+            value="yes">
+            <label for="previous-sky-user" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              Yes
+            </label>
+          </div>
+          <div class="position-relative mt-4 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="previous-sky-user"
+            class="opacity-0 error-on-button previous-sky-user cursor-p form-control position-absolute input-dealstv-radio"
+            id="previous-sky-user-n"
+            type="radio"
+            value="no">
+            <label for="previous-sky-user-n" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="tab3 disp-none form-group col-lg-7 mx-auto mt-5">
+        <h4 class="text-dark text-center fs-md-21 fw">Were you a SKY customer within the last 12 months?</h4>
+        <div class=" w-100 mx-auto">
+          <div class="position-relative mt-2 mt-md-0 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="last12-sky-user"
+            class="opacity-0 error-on-button last12-sky-user cursor-p form-control position-absolute input-dealstv-radio"
+            id="last12-sky-user"
+            type="radio"
+            value="yes">
+            <label for="last12-sky-user" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              Yes
+            </label>
+          </div>
+          <div class="position-relative mt-4 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="last12-sky-user"
+            class="opacity-0 error-on-button last12-sky-user cursor-p form-control position-absolute input-dealstv-radio"
+            id="last12-sky-user-n"
+            type="radio"
+            value="no">
+            <label for="last12-sky-user-n" class="input-dealstv font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+
+  </div>
+  <div class="bg-white mt-5 border-top border-bottom">
+    <div class="container">
+      <div class="row w-100 m-0 align-items-center justify-content-around py-3">
+        <%= image_tag("company-logos/sky.png", class: "brnds-logo", alt: "SKY logo") %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/common/footer' %>

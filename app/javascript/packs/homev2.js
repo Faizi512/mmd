@@ -71,6 +71,8 @@ class HomeV2 extends Common {
       window.location = this.details.success_url
     }else if(this.deliveryName == "Exit Sweet-Mobile"){
       window.location = this.details.success_url+this.paramsforSuccess()
+    }else if(this.deliveryName == "SKY Exit"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
