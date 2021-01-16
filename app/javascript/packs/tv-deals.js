@@ -22,7 +22,7 @@ class TVDeals extends Common {
         $('.tab3').show();
       }else {
         $(".form").addClass("in-progress")
-        window.location = CI.details.success_url + CI.paramsforSuccess2()
+        window.location = CI.details.success_url + CI.paramsforSuccesstv()
       }
     });
 
@@ -32,7 +32,7 @@ class TVDeals extends Common {
         window.location = CI.details.bad_success_url + CI.additionalParamsFoBC()
       }else {
         $(".form").addClass("in-progress")
-        window.location = CI.details.success_url + CI.paramsforSuccess2()
+        window.location = CI.details.success_url + CI.paramsforSuccesstv()
       }
     });
   }

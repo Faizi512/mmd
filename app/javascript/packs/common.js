@@ -645,6 +645,9 @@ class Common {
   paramsforSuccess2(){
     return "&houseNumber=" + this.getHouseNumb() + "&county=" + this.getCounty() + "&towncity=" + this.getCity() + "&street1=" + this.getStreet() + "&firstname=" + this.getFirstName() + "&lastname=" + this.getLastName() + "&postcode=" + this.getPostcode() + "&phone1=" + this.getPhone1() + "&email=" + this.getEmail() + "&c1=" + this.getC1() + "&sid=" + this.getSid() + "&ssid=" + this.getSsid();
   }
+  paramsforSuccesstv(){
+    return "&houseNumber=" + this.getHouseNumb() + "&county=" + this.getCounty() + "&towncity=" + this.getCity() + "&street1=" + this.getStreet() + "&firstname=" + this.getFirstName() + "&lastname=" + this.getLastName() + "&postcode=" + this.getPostcode() + "&phone1=" + this.getPhone1() + "&email=" + this.getEmail() + "&c1=" + this.getC1() + "&sid=" + this.getSid() + "&ssid=" + this.getSsid() + "&source=exit";
+  }
   parmsforCreditReport(){
     return this.getSid() + "&city=" + this.getCity() + "&straddr=" + this.getStreet()  + "&fname=" + this.getFirstName() + "&lname=" + this.getLastName() + "&zip=" + this.getPostcode() + "&phone=" + this.getPhone1() + "&email=" + this.getEmail();
   }
