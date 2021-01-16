@@ -72,7 +72,7 @@ class Home extends Common {
     }else if(this.deliveryName == "Exit Sweet-Mobile"){
       window.location = this.details.success_url+this.paramsforSuccess()
     }else if(this.deliveryName == "SKY Exit"){
-      window.location = this.details.success_url+this.paramsforSuccess2()
+      window.location = this.details.success_url+this.paramsforSuccesstv()
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
