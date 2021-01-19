@@ -385,6 +385,22 @@ module PagesHelper
     }.to_json
   end
 
+  def loan_deals
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://loans4mobiles.com?exit=1',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'loan-deals',
+      optin_url: '/loan-deals',
+      sid: 1,
+      ssid: 1,
+      source:'exit',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def e_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',

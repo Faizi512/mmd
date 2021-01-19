@@ -79,6 +79,8 @@ class LeadController < ApplicationController
         @redirect_url = "/e-deals-voxi?check=1"
       when "SKY Exit"
         @redirect_url = "/tv-deals?check=1"
+      when "Loan Exit"
+        @redirect_url = "/loan-deals?check=1"
       when "Voxi Exit"
         @redirect_url = "https://www.awin1.com/cread.php?awinmid=10951&awinaffid=652417&ued=https%3A%2F%2Fwww.voxi.co.uk%2Facquisition%2Fplans"
       when "(Energy / E2Save)"
