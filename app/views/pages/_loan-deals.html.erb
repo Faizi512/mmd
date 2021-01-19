@@ -1,0 +1,49 @@
+<%= javascript_pack_tag 'loan-deals', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+
+<div class="bg-light pt-5">
+  <div class="container">
+    <div class="position-relative">
+      <h3 class="text-dark text-center fs-md-21 fw"> <span class="font-weight-bold text-warning">Great!</span> we have found you an amazing mobile deal. O2 will call you shortly.</h3>
+    </div>
+    <form class="form" id="dealform" data-details="<%= @details %>">
+      <div class="form-group col-lg-10 mx-auto mt-5">
+        <h4 class="text-dark text-center fs-md-21 fw"> Would you like to get a loan to buy your phone?</h4>
+        <div class=" w-100 mx-auto">
+          <div class="position-relative mt-2 mt-md-0 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="phone-loan"
+            class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
+            id="phone-loan"
+            type="radio"
+            value="yes">
+            <label for="phone-loan" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              Yes
+            </label>
+          </div>
+          <div class="position-relative mt-4 col-md-6 mx-auto px-0 px-md-2">
+            <input
+            name="phone-loan"
+            class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
+            id="phone-loan-n"
+            type="radio"
+            value="no">
+            <label for="phone-loan-n" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+
+  </div>
+  <div class="bg-white mt-5 border-top border-bottom">
+    <div class="container">
+      <div class="row w-100 m-0 align-items-center justify-content-around py-3">
+        <%= image_tag("utilita.png", class: "brnds-logo", alt: "Utilita image") %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/common/footer' %>
