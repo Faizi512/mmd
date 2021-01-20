@@ -388,7 +388,7 @@ module PagesHelper
   def loan_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://loans4mobiles.com?exit=1',
+      success_url: 'https://loans4mobiles.com?source=exit',
       bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
       form_name: 'loan-deals',
       optin_url: '/loan-deals',

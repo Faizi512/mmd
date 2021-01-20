@@ -73,6 +73,8 @@ class HomeV2 extends Common {
       window.location = this.details.success_url+this.paramsforSuccess()
     }else if(this.deliveryName == "SKY Exit"){
       window.location = this.details.success_url+this.paramsforSuccesstv()
+    }else if(this.deliveryName == "Loan Exit"){
+      window.location = this.details.success_url+this.paramsforSuccess2()
     }else{
       window.location = this.details.success_url+this.additionalParamsFoBC()
     }
