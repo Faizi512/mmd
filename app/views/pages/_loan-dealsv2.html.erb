@@ -1,51 +1,51 @@
 <%= javascript_pack_tag 'loan-deals', 'data-turbolinks-track': 'reload', defer: true %>
 <%= render 'layouts/sp-exit/header' %>
 
-<div class="bg-light pt-5">
+<div class="bg-light pt-4">
   <div class="container">
     <div class="position-relative">
-      <h3 class="text-dark text-center fs-md-21 fw"> <span class="font-weight-bold text-warning">Great!</span> we have found you an amazing mobile deal. O2 will call you shortly.</h3>
+      <h3 class="text-dark text-center fs-md-21 fw d-none d-md-block"> <span class="font-weight-bold text-warning">Great!</span> we have an amazing mobile deal. O2 will call you shortly.</h3>
+      <h3 class="text-dark text-center fs-md-21 fw d-md-none d-block"> <span class="font-weight-bold text-warning">Great!</span> we have an amazing mobile deal. <br> O2 will call you shortly.</h3>
       <div class="row w-100 m-0 align-items-center justify-content-center">
         <%= image_tag("company/02-logo.png", class: "brnds-logo", alt: "O2 logo") %>
       </div>
-      <h3 class="text-success text-center fs-md-21 fw">You're eligible to apply for a fast track loan to buy a new handset, register your interest below</h3>
+      <h3 class="text-success text-center fs-md-21 fw">You're eligible to apply for a fast track loan to buy a new handset.</h3>
     </div>
-    <div class="row w-100 mx-0 align-items-center justify-content-center">
-      <div class="col-md-6 text-center">
-        <form class="form" id="dealform" data-details="<%= @details %>">
-          <div class="form-group col-lg-12 mx-auto">
-            <h4 class="text-dark text-center fs-md-21 fw"> Would you like to get a loan to buy your phone?</h4>
-            <div class=" w-100 mx-auto">
-              <div class="position-relative mt-2 mt-md-0 col-12 mx-auto px-0 px-md-2">
-                <input
-                name="phone-loan"
-                class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
-                id="phone-loan"
-                type="radio"
-                value="yes">
-                <label for="phone-loan" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
-                  Yes,  I want a loan
-                </label>
-              </div>
-              <div class="position-relative mt-4 col-12 mx-auto px-0 px-md-2">
-                <input
-                name="phone-loan"
-                class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
-                id="phone-loan-n"
-                type="radio"
-                value="no">
-                <label for="phone-loan-n" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
-                  No, Show me more mobile deals
-                </label>
-              </div>
-            </div>
+    <form class="form" id="dealform" data-details="<%= @details %>">
+      <div class="form-group col-lg-12 mx-auto">
+        <h4 class="text-dark text-center fs-md-21 fw mb-4"> Would you like to get a loan to buy your phone?</h4>
+        <div class=" w-100 mx-auto">
+          <div class="position-relative mt-2 mt-md-0 col-md-5 mx-auto px-0 px-md-2">
+            <input
+            name="phone-loan"
+            class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
+            id="phone-loan"
+            type="radio"
+            value="yes">
+            <label for="phone-loan" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              Yes,  I want a loan
+            </label>
           </div>
-        </form>
+          <div class="position-relative mt-2 col-md-5 mx-auto px-0 px-md-2">
+            <input
+            name="phone-loan"
+            class="opacity-0 error-on-button phone-loan cursor-p form-control position-absolute input-deals-radio"
+            id="phone-loan-n"
+            type="radio"
+            value="no">
+            <label for="phone-loan-n" class="input-deals font-weight-bold shadow rounded py-2 py-md-3 pl-5 cursor-p">
+              No, Show me more mobile deals
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 text-center align-self-center">
+    </form>
+    <div class="row w-100 mx-0 align-items-center justify-content-center">
+      <div class="col-md-6 text-center align-self-center mx-auto">
         <%= image_tag("iphone.gif", class: "b", width: "100%", alt: "iphone 12 gif") %>
       </div>
     </div>
+    <p class="small mb-1 text-center">*eligibility based on being over 18 and a UK resident</p>
     
 
   </div>
