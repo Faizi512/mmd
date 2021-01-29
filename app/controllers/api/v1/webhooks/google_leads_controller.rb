@@ -38,7 +38,7 @@ class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
         sid: 1,
         ssid: 1,
         ad_set: 1,
-        source: 'google-native-LF',
+        source: 'google-LF',
         adgroupid: params[:adgroupid] || '',
         campaign: params[:campaign_id] || '',
         bad_credit_customer: "no",
