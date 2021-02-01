@@ -141,6 +141,7 @@ class IphoneDeals extends Common {
       url_with_params: window.location.href,
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
+      gclid: this.getUrlParameter('gclid'),
       matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       traffictype: this.getUrlParameter('traffictype') || "",

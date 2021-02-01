@@ -127,6 +127,7 @@ class MMDLoansSMS extends Common {
       traffictype: this.getUrlParameter('traffictype') || "",
       prize: this.getUrlParameter('prize') || 35,
       timestamp: new Date,
+      gclid: this.getUrlParameter('gclid'),
       anytrack: track,
       utm_source: this.getUrlParameter('utm_source'),
       tps_result: this.tps_result,
