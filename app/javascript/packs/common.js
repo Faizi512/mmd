@@ -469,6 +469,7 @@ class Common {
       traffictype: this.getUrlParameter('traffictype') || "",
       prize: this.getUrlParameter('prize') || 35,
       apidown: this.apiDown,
+      gclid: this.getUrlParameter('gclid'),
       tps_result: this.tps_result,
       timestamp: new Date,
       user_agent: window.navigator.userAgent,
