@@ -254,7 +254,7 @@ class EEDeals extends Common {
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       url_with_params: window.location.href,
-      gclid: this.getUrlParameter('gclid'),
+      gclid: this.getUrlParameter('gclid') || "",
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
       traffictype: this.getUrlParameter('traffictype') || "",

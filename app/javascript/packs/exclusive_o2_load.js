@@ -39,7 +39,7 @@ class ExclusiveO2Load extends Common {
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       ipaddress: this.ip_Address,
       uu_id: this.details.uu_id,
-      gclid: this.getUrlParameter('gclid'),
+      gclid: this.getUrlParameter('gclid') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       traffictype: this.getUrlParameter('traffictype') || "",
       prize: this.getUrlParameter('prize') || 35,
