@@ -50,22 +50,6 @@ module PagesHelper
     }.to_json
   end
 
-  def mmd_loans_2
-    @details = {
-      camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      form_name: 'mmd_loans_2',
-      optin_url: '/mmd_loans_2',
-      sid: nil,
-      ssid: nil,
-      source:nil,
-      quick_submit: true,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
   def returning_loans
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
@@ -76,70 +60,6 @@ module PagesHelper
       sid: nil,
       ssid: nil,
       source:nil,
-      quick_submit: false,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
-
-  def terms_and_conditions
-    @details = {
-      camp_id: '',
-      success_url: '',
-      form_name: '',
-      optin_url: '',
-      sid: nil,
-      ssid: nil,
-      source:nil,
-      quick_submit: false,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
-  def sim_deals
-    @details = {
-      camp_id: 'SIM',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      form_name: 'Sim-Deals',
-      optin_url: '/sim-deals',
-      sid: 1,
-      ssid: 1,
-      source:nil,
-      quick_submit: false,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
-  def loan_deals
-    @details = {
-      camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://loans4mobiles.com?source=exit',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      form_name: 'loan-deals',
-      optin_url: '/loan-deals',
-      sid: 1,
-      ssid: 1,
-      source:'exit',
-      quick_submit: false,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
-  def uk_credit_ratings
-    @details = {
-      camp_id: 'GUY-CREDIT-REPORT',
-      success_url: 'https://secure.uk.rspcdn.com/xprr/red/PID/2607/SID/',
-      bad_success_url: 'https://secure.uk.rspcdn.com/xprr/red/PID/2607/SID/',
-      form_name: 'uk-credit-ratings',
-      optin_url: '/uk-credit-ratings',
-      sid: 1,
-      ssid: nil,
-      source:'',
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
@@ -250,22 +170,6 @@ module PagesHelper
       bad_success_url: '/tribe-success',
       form_name: 'exclusive_tribe_deals',
       optin_url: '/exclusive_tribe_deals',
-      sid: nil,
-      ssid: nil,
-      source:'',
-      quick_submit: false,
-      submit_on_load: false,
-      uu_id: @cookie_uuid,
-    }.to_json
-  end
-
-  def sweet_mobiles
-    @details = {
-      camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://sweetmobile.co.uk/pay.php',
-      bad_success_url: '',
-      form_name: 'sweet-mobile',
-      optin_url: '/sweet-mobile',
       sid: nil,
       ssid: nil,
       source:'',
