@@ -15,10 +15,16 @@ class ExclusiveO2Deals extends Common {
         CI.source = CI.getSource();
       }
       CI.postData()
-      window.location = CI.details.success_url+"?device="+ $(this).prev('input#device').val()
+      CI.device = $(this).prev('input#device').val()
     });
   }
-  successUrl(){}
+
+  successUrl(){
+    var CI = this;
+     setTimeout(function(){
+        window.location = CI.details.success_url + "?device=" + CI.device
+    }, 1000)
+  }
 
   getData() {
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");

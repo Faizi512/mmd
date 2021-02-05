@@ -1,6 +1,6 @@
 import Common from "./common.js"
 
-class MMDLoans extends Common {
+class UpgradeChecker extends Common {
   constructor() {
     super();
     var CI = this;
@@ -12,33 +12,23 @@ class MMDLoans extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.subscribeChannel()
-    this.showTab(this.currentTab);
 
     $('.carousel').carousel({
       interval: 2000
     })
-    $( ".property" ).change(function() {
-      var tabs = $(".tab");
-      tabs[CI.currentTab].style.display = "none";
-      CI.currentTab = CI.currentTab + 1;
-      CI.showTab(CI.currentTab);
-      $('.towncity').val($(this).find("option:selected").data("city"))
-      $('.street1').val($(this).find("option:selected").data("street"))
-      $('.county').val($(this).find("option:selected").data("province"))
-      $('.houseNumber').val($(this).find("option:selected").data("housenum"))
-    });
 
     window.Parsley.on('field:error', function() {
       $(".btn-success").removeClass("in-progress")
       $(".tab").removeClass("in-progress")
     });
 
-    $( "#btn-continue" ).click(() => {
-      CI.nextStep(1)
-    });
-
-    $( "#btn-back" ).click(function() {
-      CI.backStep(-1)
+    $( "#quicksubmit" ).click(() => {
+      $(".btn-success").addClass("in-progress")
+      $('#dealform').parsley().whenValidate({
+        group: 'block-0'
+      }).done(() =>{
+        CI.postData()
+      })
     });
 
     $(document).on("click", '.open-form', function() {
@@ -51,4 +41,4 @@ class MMDLoans extends Common {
   successUrl(){ }
 
 }
-export default new MMDLoans();
+export default new UpgradeChecker();

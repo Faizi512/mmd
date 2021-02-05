@@ -19,9 +19,7 @@ Rails.application.routes.draw do
   # lead quaue resolve
   get '/redirect-webhook' => 'lead#redirect_webhook'
   post '/redirect-webhook' => 'lead#redirect_webhook'
-  post '/mmd-exit-lead' => 'lead#mmd_exit_lead'
-  post '/mmd-lead' => 'lead#mmd_lead'
-  get '/fetch-redirect-url/:id' => 'lead#fetch_redirect_url'
+  post '/submit-lead' => 'lead#submitLead'
 
   root 'pages#index'
   get '/ee_deals' => 'pages#ee_deals'

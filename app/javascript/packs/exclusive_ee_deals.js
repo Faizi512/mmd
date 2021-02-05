@@ -8,9 +8,14 @@ class ExclusiveEEDeals extends Common {
 
     $('.btn-deal').click(function() {
       CI.postData()
-      window.location = CI.details.success_url+"?device="+ $(this).prev('input').val()
+      CI.device = $(this).prev('input').val()
     });
   }
-  successUrl(){}
+  successUrl(){
+    var CI = this;
+     setTimeout(function(){
+        window.location = CI.details.success_url + "?device=" + CI.device
+    }, 1000)
+  }
 }
 export default new ExclusiveEEDeals();

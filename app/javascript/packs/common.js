@@ -3,6 +3,10 @@ import 'bootstrap/dist/js/bootstrap.js'
 import "parsleyjs";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
+// import ActionCable from './redirect_url_connection.js'
+import CableReady from 'cable_ready'
+import App from '../channels/consumer.js'
+import _ from 'lodash'
 
 
 class Common {
@@ -37,6 +41,7 @@ class Common {
     this.deviveSearchEngine=null
     this.debiceBrand=null
     this.deviceName=null
+    this.formResponse=null
     this.allowedNetworks=["vodafone","3"]
     this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
 
@@ -55,6 +60,41 @@ class Common {
     }
   }
 
+  // Start Action Cable
+  subscribeToRedirectUrl(channel) {
+    console.log(channel)
+    console.log("channel anme")
+    const split = channel.split('_')
+    var CI = this
+    CI.channelName = split[0]
+    this.room = split[1]
+
+    if (!_.isNull(this.channelName) && !_.isUndefined(this.channelName)) {
+      this.channelName = App.subscriptions.create(
+        { channel: this.channelName  , room: this.room },
+        {
+          received: (data) => {
+            console.log(data)
+            CI.exitUrl(data)
+          },
+        }
+      )
+    }
+  }
+
+  unsubscribeToRedirectUrl() {
+    if (_.isUndefined(this.channelName)) {
+      this.channelName.unsubscribe()
+    }
+  }
+
+  subscribeChannel(){
+    this.channel_token = this.details.uu_id
+    this.subscribeToRedirectUrl(`RedirectUrlChannel_${this.channel_token}`)
+  }
+
+  // End Action Cable
+
   popupTerms(){
     $( ".close-b" ).click(function() {
       $('.modal2').hide();
@@ -64,7 +104,6 @@ class Common {
       $('.modal2').show();
     });
   }
-
   popupPrivacy(){
     $( ".close-bu" ).click(function() {
       $('.modal3').hide();
@@ -92,54 +131,47 @@ class Common {
     })
   }
 
-  getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-      if (sParameterName[0] === sParam) {
-          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      }
+  //Start Sentry error handling logic
+  sentryNotification(error, response , message){
+    Sentry.withScope(function(scope) {
+      scope.setLevel(error);  // on error "critical", on timout api "info",
+      scope.setContext('Error Details', {response})
+      Sentry.captureException(new Error(message), scope);
+    });
+  }
+  //Start Sentry error handling logic
+
+
+  // Start SwitchUk Logic
+  redirectTOSwitchuk(first_name){
+    if (this.allowedNetworks.includes(this.networkName)) {
+      window.location='https://switchuk.uk'
+    }else if (this.allowedDevices.includes(this.device)) {
+      window.location='https://switchuk.uk/'
+    }
+    else{
+     window.location=`https://megamobiledeals.com/credit_check?name=${first_name}`
     }
   }
-
-  getFormattedCurrentDate() {
-    var date = new Date();
-    var day = this.addZero(date.getDate());
-    var monthIndex = this.addZero(date.getMonth() + 1);
-    var year = date.getFullYear();
-    var min = this.addZero(date.getMinutes());
-    var hr = this.addZero(date.getHours());
-    var ss = this.addZero(date.getSeconds());
-
-    return day + '/' + monthIndex + '/' + year + ' ' + hr + ':' + min + ':' + ss;
+  deviceDetection(){
+    this.device=FRUBIL.device.class_code   //Desktop
+    this.deviceBrowser=FRUBIL.client.class_code // Browser
+    this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
+    this.debiceBrand=FRUBIL.device.brand_code // Samsung
+    this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
   }
+  // End SwitchUk Logic
 
-  addZero(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
 
-  isBadCustomer(query) {
-    if(query){
-      var keywords = ["credit", "accepted", "bad", "score", "sunshine",
-                       "no credit", "free", "guaranteed", "gift", "win", "wining", "very",
-                       "phone check", "check" , "no upfront", "cheap", "catalogues", "later",
-                       "sun", "no deposit", "accepted", "No deposit", "0 deposit"]
-      query = query.toLowerCase();
-      for(var index in keywords) {
-        var word = keywords[index];
-        var matchedIndex = query.indexOf(word);
-        if (matchedIndex != -1) {
-          return true;
-          break;
-        }
-      }
-      return false;
+
+// Start Validations Logic
+  validateTsp(){
+    var CI = this
+    if (this.tps_result == null) {
+      var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/tps?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val())
+      return xhr.then(function(json) {
+        CI.tps_result =  json.status
+      })
     }
   }
 
@@ -211,40 +243,6 @@ class Common {
       messages: {
          en: 'Please Enter Valid UK Phone Number',
       }
-    });
-  }
-  redirectTOSwitchuk(redirected_user){
-    if (this.allowedNetworks.includes(this.networkName)) {
-      window.location='https://switchuk.uk'
-    }else if (this.allowedDevices.includes(this.device)) {
-      window.location='https://switchuk.uk/'
-    }
-    else{
-     window.location=`https://megamobiledeals.com/credit_check?name=${redirected_user}`
-    }
-  }
-  deviceDetection(){
-    this.device=FRUBIL.device.class_code   //Desktop
-    this.deviceBrowser=FRUBIL.client.class_code // Browser
-    this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
-    this.debiceBrand=FRUBIL.device.brand_code // Samsung
-    this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
-  }
-  validateTsp(){
-    var CI = this
-    if (this.tps_result == null) {
-      var xhr = $.ajax('https://go.webformsubmit.com/dukeleads/restapi/v1.2/validate/tps?key=50f64816a3eda24ab9ecf6c265cae858&value='+$('.phone').val())
-      return xhr.then(function(json) {
-        CI.tps_result =  json.status
-      })
-    }
-  }
-
-  sentryNotification(error, response , message){
-    Sentry.withScope(function(scope) {
-      scope.setLevel(error);  // on error "critical", on timout api "info",
-      scope.setContext('Error Details', {response})
-      Sentry.captureException(new Error(message), scope);
     });
   }
 
@@ -332,7 +330,7 @@ class Common {
           error: function(request){
             if (!request.status == 400) {
               CI.sentryNotification("info", request , "POSTCODE: Error ApiDown")
-            }            
+            }
             console.log(request.statusText)
             request.abort();
             if (request.statusText == "timeout") {
@@ -347,24 +345,6 @@ class Common {
          en: 'Please Enter Valid Postcode',
       }
     });
-  }
-
-
-  showTab(n=0) {
-    var tabs = $(".tab");
-    if (!tabs[n]) return;
-    tabs[n].style.display = "block";
-    this.fixStepIndicator(n)
-    $(".btn-success").removeClass("in-progress")
-    $(".postcode").focus();
-  }
-
-  fillform(){
-    $(".first_name").val(this.getUrlParameter("firstname") || "");
-    $(".last_name").val(this.getUrlParameter("lastname")  || "");
-    $(".postcode").val(this.getUrlParameter("postcode")  || "");
-    $(".email").val(this.getUrlParameter("email")  || "");
-    $(".telephone").val(this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || "");
   }
 
   customValidator(form){
@@ -396,6 +376,26 @@ class Common {
     }
     return true
   }
+// End Validations Logic
+
+
+// Start Step Form Logic
+  showTab(n=0) {
+    var tabs = $(".tab");
+    if (!tabs[n]) return;
+    tabs[n].style.display = "block";
+    this.fixStepIndicator(n)
+    $(".btn-success").removeClass("in-progress")
+    $(".postcode").focus();
+  }
+
+  fillform(){
+    $(".first_name").val(this.getUrlParameter("firstname") || "");
+    $(".last_name").val(this.getUrlParameter("lastname")  || "");
+    $(".postcode").val(this.getUrlParameter("postcode")  || "");
+    $(".email").val(this.getUrlParameter("email")  || "");
+    $(".telephone").val(this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || "");
+  }
 
   fixStepIndicator(num) {
     var progress = document.getElementById('progressBar');
@@ -407,6 +407,7 @@ class Common {
       }
     }
   }
+
   backStep(n){
     if (this.currentTab > 0) {
       $('.nextStep').prop('disabled', false);
@@ -419,6 +420,7 @@ class Common {
 
   nextStep(n) {
     var CI = this;
+    this.showCircle()
     $('#dealform').parsley().whenValidate({
       group: 'block-' + this.currentTab
     }).done(() =>{
@@ -438,63 +440,10 @@ class Common {
       CI.showTab(CI.currentTab);
     })
   }
+// End Step Form Logic
 
-  getData() {
-    var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
-    return {
-      postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
-      firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
-      lastname: this.getUrlParameter('lastname') || $(".last_name").val() || '',
-      email: this.getUrlParameter('email') || $(".email").val() || '',
-      phone1: this.getUrlParameter('phone1') || $(".phone").val() || '',
-      street1: this.getUrlParameter('street1') || $(".street1").val() || $(".address").val() || 'unknown',
-      towncity: this.getUrlParameter('towncity') || $(".towncity").val() || 'unknown',
-      handset:this.getUrlParameter('handset') || this.phoneName || '',
-      sid: this.getUrlParameter('sid') || this.details.sid ||1,
-      ssid: this.getUrlParameter('ssid') || this.details.ssid ||1,
-      ad_set:this.getUrlParameter('ad_set') || 1,
-      source: this.getUrlParameter('source') || this.details.source || 'google3',
-      c1: this.getUrlParameter('c1') || this.getUrlParameter('bstransid') || this.getUrlParameter('transid') || '',
-      adgroupid: this.getUrlParameter('adgroupid') || '',
-      campaign: this.getUrlParameter('campaign') || '',
-      keyword: this.getUrlParameter('keyword') || '',
-      bad_credit_customer: (customer_type) ? "yes" : "no",
-      campaignkey: 'E9F2N6A3R5',
-      optindate: this.getFormattedCurrentDate(),
-      optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
-      ipaddress: this.ip_Address,
-      uu_id: this.details.uu_id,
-      matchtype: this.getUrlParameter('matchtype') || "",
-      trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
-      traffictype: this.getUrlParameter('traffictype') || "",
-      prize: this.getUrlParameter('prize') || 35,
-      apidown: this.apiDown,
-      gclid: this.getUrlParameter('gclid') || "",
-      tps_result: this.tps_result,
-      timestamp: new Date,
-      user_agent: window.navigator.userAgent,
-    };
-  }
 
-  firePixel(){
-    if (this.details.camp_id == 'MEGA-MOBILE-DEALS'){
-      dataLayer.push({'event': 'transaction'})
-    }
-  }
-
-  postData() {
-    // doubel verify tsp
-    this.validateTsp()
-    // Getting Data
-    var CI = this;
-    var data = this.getData();
-    // Form Submisson
-    this.updateFacebookAudience(data)
-    this.submitLead(data, this.details.camp_id)
-    // Redirection after submisson
-    this.successUrl()
-  }
-
+// Start Redirect Url Logic
   successUrl(){
     var CI = this;
     setTimeout(function(){
@@ -510,25 +459,108 @@ class Common {
     }
   }
 
-  getBcFromParams(){
-    return this.isBadCustomer(this.getUrlParameter('keyword')) ||  (this.getUrlParameter('bc') == "yes")
+  redirectIfNoResponse(){
+    setTimeout(function(){
+      window.location =  "https://mtrk11.co.uk/?a=14118&c=33110"
+    }, 20000);
   }
 
-  updateFacebookAudience(data){
-    var CI = this;
-    $.ajax({
-      type: "POST",
-      url: '/facebook_custom_audience',
-      data: data,
-      dataType: "json",
-      success: function(e) {
-        console.log(e.response);
-      },
-      error: function(res){
-        CI.sentryNotification("critical", res , "FacebookAudience: Error on facebook_custom_audience")
-      },
-    })
+  exitUrl(data){
+    var CI = this
+    // if lead is accepted
+    if(this.formResponse != "success"){
+      window.location = this.urlCreator(data.lead.success_params, data.lead.success_url)
+    }else if(this.formResponse == "reject"){
+      window.location = this.urlCreator(data.lead.reject_params, data.lead.reject_url)
+    }else{
+      setTimeout(function(){
+        CI.exitUrl(data)
+      }, 500)
+    }
   }
+
+  urlCreator(params, base_url){
+    // params = "&email=email&source=source&sid=sid"
+    // base_url = "https://megamobiledeals.com"
+    var url = []
+    var data = this.getData();
+    var params_array = _.split(params, '&');  //["", "email=email", "source=source", "sid=sid"]
+    _.forEach(params_array, function(param) {
+       var key_value = _.split(param, '='); // ["email", "email"]
+       if(key_value.length > 1){
+         url.push(`${key_value[0]}=${data[key_value[1]]}&`)
+       }
+    });
+    if (base_url.indexOf('?') != -1){ // if base_url contain ?
+      return `${base_url}&${_.join(url, "")}`
+    }else{
+      return `${base_url}?${_.join(url, "")}`
+    }
+  }
+// End Redirect Url Logic
+
+
+
+// Start Lead Submit function
+  firePixel(){
+    if (this.details.camp_id == 'MEGA-MOBILE-DEALS'){
+      dataLayer.push({'event': 'transaction'})
+    }
+  }
+
+  getData() {
+    var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
+    return {
+      postcode:  $(".postcode").val() || this.getUrlParameter('postcode') || '',
+      firstname:  $(".first_name").val() || this.getUrlParameter('firstname') || '',
+      lastname: $(".last_name").val() || this.getUrlParameter('lastname') ||  '',
+      email: $(".email").val() || this.getUrlParameter('email') || '',
+      phone1: $(".phone").val() || this.getUrlParameter('phone1') ||  '',
+      street1: $(".street1").val() || $(".address").val() || this.getUrlParameter('street1') ||  'unknown',
+      towncity: $(".towncity").val() || this.getUrlParameter('towncity') ||  'unknown',
+      sid: this.getUrlParameter('sid') || this.details.sid ||1,
+      ssid: this.getUrlParameter('ssid') || this.details.ssid ||1,
+      handset:this.getUrlParameter('handset') || this.phoneName || '',
+      ad_set:this.getUrlParameter('ad_set') || 1,
+      source: this.getUrlParameter('source') || this.details.source || 'google3',
+      c1: this.getUrlParameter('c1') || this.getUrlParameter('bstransid') || this.getUrlParameter('transid') || '',
+      adgroupid: this.getUrlParameter('adgroupid') || '',
+      campaign: this.getUrlParameter('campaign') || '',
+      keyword: this.getUrlParameter('keyword') || '',
+      bad_credit_customer: (customer_type) ? "yes" : "no",
+      campaignkey: 'E9F2N6A3R5',
+      optindate: this.getFormattedCurrentDate(),
+      optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
+      url_with_params: window.location.href,
+      ipaddress: this.ip_Address,
+      uu_id: this.details.uu_id,
+      gclid: this.getUrlParameter('gclid') || "",
+      matchtype: this.getUrlParameter('matchtype') || "",
+      trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
+      traffictype: this.getUrlParameter('traffictype') || "",
+      prize: this.getUrlParameter('prize') || 35,
+      timestamp: new Date,
+      utm_source: this.getUrlParameter('utm_source'),
+      tps_result: this.tps_result,
+      apidown: this.apiDown,
+      user_agent: window.navigator.userAgent,
+    };
+  }
+
+  postData() {
+    $("#loaderPopup").css('height', '100%')
+    // doubel verify tsp
+    this.validateTsp()
+    // Getting Data
+    var CI = this;
+    var data = this.getData();
+    // Form Submisson
+    this.redirectIfNoResponse()
+    this.submitLead(data, this.details.camp_id)
+    // Redirection after submisson
+    this.successUrl()
+  }
+
   submitLead(formData, campid){
     var CI = this
     $.ajax({
@@ -538,11 +570,10 @@ class Common {
       success: function(data) {
         console.log(data)
         if(data.code == 1 && data.records[0].status != "Rejected"){
-           window.location = "/success2"
-        }
-        if(data.code == 1 && data.records[0].response.code == 1){
+          this.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
-          CI.submitCustomerIo(formData, data.records[0].response.leadId)
+        }else{
+          this.formResponse =  'reject'
         }
       },
       error: function(request){
@@ -553,85 +584,51 @@ class Common {
     })
     this.firePixel()
   }
+// End Lead Submit function
 
-  submitCustomerIo(formData, leadId){
-     try {
-      const timestamp = Math.round(new Date() / 1000)
-      var phone = `+44${parseInt(formData.phone1.toString().split("").splice(-10).join(""))}`
-      _cio.identify($.extend(formData, {id: leadId, lead_date: timestamp, created_at: timestamp, phone: phone}))
-      _cio.track("leadSold");
-    }
-    catch (e) {}
+
+
+// Start Date helper
+  getFormattedCurrentDate() {
+    var date = new Date();
+    var day = this.addZero(date.getDate());
+    var monthIndex = this.addZero(date.getMonth() + 1);
+    var year = date.getFullYear();
+    var min = this.addZero(date.getMinutes());
+    var hr = this.addZero(date.getHours());
+    var ss = this.addZero(date.getSeconds());
+
+    return day + '/' + monthIndex + '/' + year + ' ' + hr + ':' + min + ':' + ss;
   }
 
-  sendMmdExitLead(){
-    if (this.details.camp_id == 'MEGA-MOBILE-DEALS' || this.details.form_name == 'iphone-deals'){
-      // Get data for lead
-      var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes")
-      var phone1 = this.getUrlParameter('phone1') || $(".phone").val() || ''
-      var bc = (customer_type) ? "yes" : "no"
-      var c3 = this.getUrlParameter('sid') || this.details.sid || 1
-      var handset = this.getUrlParameter('handset') || this.phoneName || ''
-      var postcode = this.getUrlParameter('postcode') || $(".postcode").val() || ''
-      var source = this.getUrlParameter('source') || this.details.source || 'google3'
-      var CI = this
+  addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+// End Date helper
 
-      $.ajax({
-        type: "POST",
-        url: "/mmd-exit-lead?campid=MMDEXIT",
-        data: {phone1: phone1, bc: bc, c3: c3, source: source, handset: handset, postcode: postcode },
-        success: function(json) {
-          console.log(json)
-          if(json.response.code == 1){
-            CI.fetchRedirectUrl(json.response.leadId)
-          }
-        },
-        error: function(s){
-          CI.sentryNotification("critical", s , "ExitLead: Error on mmd-exit-lead")
-          setTimeout(function(){
-            CI.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
-          }, 2000);
-        },
-        dataType: "json"
-      })
+
+
+// Start Paramataer
+  getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
     }
   }
 
-  fetchRedirectUrl(lead_id){
-    var CI = this
-    $.ajax({
-      type: "get",
-      url: `/fetch-redirect-url/${lead_id}`,
-      success: function(response) {
-        console.log(response)
-
-        if(response.status == 200){
-          CI.redirectUrl = response.lead.redirect_url
-          CI.deliveryName = response.lead.delivery_name
-          CI.details.bad_success_url = CI.redirectUrl
-          CI.details.success_url = CI.redirectUrl
-        }else{
-          CI.setTimerToApiCall(lead_id)
-        }
-      },
-      error: function(res) {
-        CI.sentryNotification("critical", res , "RedirectUrl: Error on fetch-redirect-url")
-        console.error(res)
-      },
-    })
+  getBcFromParams(){
+    return this.isBadCustomer(this.getUrlParameter('keyword')) ||  (this.getUrlParameter('bc') == "yes")
   }
 
-  setTimerToApiCall(lead_id){
-    var CI = this
-    this.fetchRequest = this.fetchRequest + 1
-    if(this.fetchRequest < 10 && this.redirectUrl ==  null){
-      setTimeout(function(){
-        CI.fetchRedirectUrl(lead_id)
-      }, 2000);
-    }else{
-      this.redirectUrl =  "https://mtrk11.co.uk/?a=14118&c=33110"
-    }
-  }
   additionalParams(){
     return "&s1=exit-" + this.getSource() + "&s2=" + this.getC1() + "&s3=" + this.getEmail() + "&s4=" + this.getPhone1() ;
   }
@@ -703,6 +700,26 @@ class Common {
 
   getPostcode(){
     return this.getUrlParameter('postcode') || $(".postcode").val() || '';
+  }
+// End Paramataer
+
+  isBadCustomer(query) {
+    if(query){
+      var keywords = ["credit", "accepted", "bad", "score", "sunshine",
+                       "no credit", "free", "guaranteed", "gift", "win", "wining", "very",
+                       "phone check", "check" , "no upfront", "cheap", "catalogues", "later",
+                       "sun", "no deposit", "accepted", "No deposit", "0 deposit"]
+      query = query.toLowerCase();
+      for(var index in keywords) {
+        var word = keywords[index];
+        var matchedIndex = query.indexOf(word);
+        if (matchedIndex != -1) {
+          return true;
+          break;
+        }
+      }
+      return false;
+    }
   }
 
 }

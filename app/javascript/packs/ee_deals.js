@@ -223,14 +223,6 @@ class EEDeals extends Common {
   }
 
   getData() {
-    
-    var track = "";
-    try {
-      track = AnyTrack('formSubmit') || "";
-    }
-    catch (e) {}
-    this.redirected_user = this.getUrlParameter('firstname') || $(".first_name").val()
-
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
@@ -262,7 +254,6 @@ class EEDeals extends Common {
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       prize: this.getUrlParameter('prize') || 35,
       timestamp: new Date,
-      anytrack: track,
       utm_source: this.getUrlParameter('utm_source'),
       tps_result: this.tps_result,
       apidown: this.apiDown,
