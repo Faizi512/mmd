@@ -1,9 +1,5 @@
-<body class="bg-white bg-img-non">
-  <div class="bg-white header-youtube shadow-sm" data-details="<%= @details %>">
-    <header class="container row w-100 m-auto align-items-center justify-content-md-around justify-content-between py-3">
-      <%= image_tag("logo.png", class: "img-logo-mmd" ) %>
-    </header>
-  </div>
+<div class="bg-white bg-img-non">
+  <%= render 'layouts/sp-exit/header' %>
   <div class=" w-100 p-md-5 container">
 
     <div class="text-center">
@@ -314,4 +310,4 @@
   <div class="border-top">
     <%= render 'layouts/common/footer' %>
   </div>
-</body>
+</div>
