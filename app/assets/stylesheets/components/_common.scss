@@ -78,7 +78,9 @@
 .lh-n{line-height:normal}
 .lh-0{line-height:0px}
 
-
+.img-logo-mmd{
+  width: 178px;
+}
 .gradient-text {
   background-image: linear-gradient(to right, #f56400 0%, red 25%, #b5007d 50%, #21429c 75%, #0071ff 100%) !important;
   -webkit-background-clip: text;
@@ -682,6 +684,9 @@ input:hover ~ .input-dealstv:after{
 
 }
 @media only screen and (max-width: 520px) {
+  .img-logo-mmd{
+    width: 125px;
+  }
   .disney-gif{
     width: 300px !important;
     max-width: 100% !important;
