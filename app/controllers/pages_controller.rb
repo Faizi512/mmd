@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   include PagesHelper
   include SweetMobileHelper
   before_action :set_cookies
-	def index
+
+  def index
     @amp = true
     get_deals_data('home')
     @bc = isbadCustomer(params[:keyword]) || params[:bc] == "yes"

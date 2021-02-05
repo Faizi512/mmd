@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_155919) do
+ActiveRecord::Schema.define(version: 2021_02_03_132145) do
 
   create_table "leads", force: :cascade do |t|
     t.integer "lead_id"
-    t.string "redirect_url"
+    t.string "reject_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "delivery_name"
+    t.string "success_url"
+    t.string "token"
+    t.string "reject_params"
+    t.string "success_params"
   end
 
   create_table "products", force: :cascade do |t|

@@ -4,16 +4,18 @@ class ExclusiveTribeDeals extends Common {
   constructor() {
     super();
     var CI = this;
-    var i = 0;
     this.getFormDetails('#tribedealform');
-
     $('.btn-deal').click(function() {
       CI.postData()
-      window.location = CI.details.success_url+"?device="+ $(this).prev('input').val()
+      CI.device = $(this).prev('input').val()
     });
   }
-
-  successUrl(){}
+  successUrl(){
+    var CI = this;
+     setTimeout(function(){
+        window.location = CI.details.success_url + "?device=" + CI.device
+    }, 1000)
+  }
 }
 
 export default new ExclusiveTribeDeals();
