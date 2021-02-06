@@ -9,7 +9,7 @@ class LeadController < ApplicationController
       params[:records].each do |record|
         decide_url(record)
         @token = record[:lead][:c3]
-        @lead = Lead.find_or_create_by(token: @token)
+        @lead = Lead.find_or_create_by(token: @token.downcase)
         @lead.update(
                     success_url: @lead.success_url || @success_url,
                     success_params: @lead.success_params || @success_params,
