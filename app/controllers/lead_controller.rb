@@ -21,6 +21,7 @@ class LeadController < ApplicationController
 
       if @lead.success_url && @lead.reject_url
         ActionCable.server.broadcast "RedirectUrlChannel_#{@token}", {lead: @lead}
+        @lead.delete
       end
       render json: {status: @lead}
     else
