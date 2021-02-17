@@ -10,6 +10,8 @@ class ReturningLoans extends Common {
     this.showClock()
     this.showTab(this.currentTab);
     this.openPopup()
+    this.popupTerms()
+    this.popupPrivacy()
     this.continueButton()
   }
 
