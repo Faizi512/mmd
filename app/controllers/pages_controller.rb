@@ -2,16 +2,16 @@ class PagesController < ApplicationController
   include PagesHelper
   include SweetMobileHelper
   before_action :set_cookies
+  before_action :deals_list
 
   def index
-    @amp = true
     get_deals_data('home')
     @bc = isbadCustomer(params[:keyword]) || params[:bc] == "yes"
 	end
 
 	def show
     response.headers.except! 'X-Frame-Options'
-    get_deals_data( params[:page_name] )
+    get_deals_data(params[:page_name])
     respond_to do |format|
       format.html {@partial = render_to_string partial: params[:page_name].to_s}
       format.js {}
@@ -21,6 +21,18 @@ class PagesController < ApplicationController
       redirect_to url
     end
 	end
+
+  def deals_list
+    url = "https://mobilematcher.co.uk/deals/fetch"
+    uri = URI(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    req = Net::HTTP::Get.new(url)
+    res = http.request(req)
+    puts "response #{res.body}"
+    json = JSON.parse(res.body)
+    @phoneshome = json['data']
+  end
 
   def exclusive_o2_deals
     exclusive_o2_deal
