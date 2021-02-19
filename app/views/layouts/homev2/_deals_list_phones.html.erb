@@ -8,28 +8,28 @@
             <div class="card-body py-md-0">
               <div class="row align-items-center">
                 <div class="img">
-                  <%= image_tag(phone[:image], class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
+                  <%= image_tag(phone['image'], class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
                   <input type="hidden" id="phone_name" name="phone_name" value="<%= phone[:handset] %>">
                 </div>
                 <div class="col-6 col-md-7 mobile price-details">
                   <div class="detail-box p-3 rounded">
                     <span class="text-muted fs-14 font-weight-normal">
-                      <%= phone[:bluetext] %>
+                      <%= phone['bluetext'] %>
                     </span>
                     <hr>
                     <small class="text-muted">Deposit from</small>
-                      <span class="bolder d-block mt-2"><%= phone[:deposit] %>
+                      <span class="bolder d-block mt-2"><%= phone['deposit'] %>
                     </span>
                   </div>
                 </div>
                 <div class="col">
                   <h5 class="font-weight-bold mb-2">
-                    <%= phone[:name] %>
+                    <%= phone['name'] %>
                   </h5>
                   <div class="row features">
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %> </h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['data'] %> </h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Data
                         </span>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:calls] %></h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['calls'] %></h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Calls
                         </span>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:texts] %></h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['texts'] %></h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Texts
                         </span>
@@ -66,7 +66,7 @@
                 <div class="col-md-3 desktop">
                   <div class="detail-box p-3">
                     <span class="text-muted fs-14 font-weight-normal">
-                      <%= phone[:bluetext] %>
+                      <%= phone['bluetext'] %>
                     </span>
                     <hr>
                     <small class="text-muted">Deposit from</small>
