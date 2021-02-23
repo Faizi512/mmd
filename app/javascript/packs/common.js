@@ -468,7 +468,7 @@ class Common {
   exitUrl(data){
     var CI = this
     // if lead is accepted
-    if(this.formResponse != "success"){
+    if(this.formResponse == "success"){
       window.location = this.urlCreator(data.lead.success_params, data.lead.success_url)
     }else if(this.formResponse == "reject"){
       window.location = this.urlCreator(data.lead.reject_params, data.lead.reject_url)
