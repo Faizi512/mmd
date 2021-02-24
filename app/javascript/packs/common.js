@@ -570,10 +570,10 @@ class Common {
       success: function(data) {
         console.log(data)
         if(data.code == 1 && data.records[0].status != "Rejected"){
-          this.formResponse =  'success'
+          CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
-          this.formResponse =  'reject'
+          CI.formResponse =  'reject'
         }
       },
       error: function(request){
