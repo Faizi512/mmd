@@ -275,6 +275,43 @@ module PagesHelper
     }.to_json
   end
 
+  def sim_deal
+    @details = {
+      camp_id: 'SIMO2',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'sim-deals',
+      optin_url: '/sim-deals',
+      sid: nil,
+      ssid: nil,
+      source:'sim-deals',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+
+    @simdeals = [
+      {
+        data: '150GB'
+      },
+      {
+        data: '30GB'
+      },
+      {
+        data: 'Unlimited'
+      },
+      {
+        data: '5GB'
+      },
+      {
+        data: '50GB'
+      },
+      {
+        data: '10GB'
+      }
+    ]
+  end
+
   def get_deals_data url_name
     send(url_name.gsub('-', '_')) rescue home
   end

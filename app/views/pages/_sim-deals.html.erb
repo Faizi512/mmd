@@ -1,120 +1,56 @@
 <%= javascript_pack_tag 'sim_deals', 'data-turbolinks-track': 'reload', defer: true %>
 <%= render 'layouts/sp-exit/header' %>
 <div class="sim-deals-page open-form">
-  <div class="banner-img-div text-center">
+  <div class="banner-img-div text-center position-relative">
     <%= image_tag('sim-deals-bg.jpg', alt: "sim-deals-banner", class: 'w-100') %>
+    <button type="button" class="position-absolute sim-btn open-form btn bg-white rounded-lg py-md-2 px-xl-5 text-blue px-lg-4 px-md-3 py-1 px-1">Get Sim Now</button>
+  </div>
+  <div class="row w-100 m-0 bg-light align-items-center justify-content-center p-4">
+    <div class="col-lg-2 col-md-3 col-4 text-center">
+      <%= image_tag('company-logos/02.png', class: "company-logos") %>
+    </div>
+    <div class="col-lg-2 col-md-3 col-4 text-center">
+      <%= image_tag('company-logos/smarty-provider.png', class: "company-logos") %>
+    </div>
+    <div class="col-lg-2 col-md-3 col-4 text-center">
+      <%= image_tag('company-logos/voxi-logo.png', class: "company-logos") %>
+    </div>
+    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
+      <%= image_tag('company-logos/sky.png', class: "company-logos") %>
+    </div>
+    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
+      <%= image_tag('company-logos/three.png', class: "company-logos") %>
+    </div>
+    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
+      <%= image_tag('company-logos/id.png', class: "company-logos") %>
+    </div>
   </div>
   <div class="px-md-5 px-2 bg-white">
-    <div class="row w-100 m-0 py-5 justify-content-center">
-      <div class="col-lg-4 col-md-6 open-form cursor-p mb-lg-5 mb-4">
-        <div class="rounded shadow-custom bg-light">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
+    <h1 class="text-blue text-capitalize fs-sm-24 text-center pt-lg-5 pt-3">select your sim plan</h1>
+    <div class="row w-100 m-0 py-md-5 py-3 justify-content-center">
+      <% @simdeals.each do |simdeal| %>
+        <div class="col-lg-4 col-md-6 open-form cursor-p mb-lg-5 mb-4">
+          <div class="rounded shadow-custom bg-light">
+            <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+              <div class="tag-sudo position-relative">
+                <span class="text-white p-1">Upto £20 off</span>
+              </div>
             </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/ee-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">EE Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 open-form cursor-p mb-lg-5 mb-4">
-        <div class="rounded shadow-custom bg-light">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/id-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">ID Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
+            <div class="d-flex align-items-center py-4 px-2">
+              <%= image_tag('sim/o2-sim.png', class: 'col-3 pl-4') %>
+              <div class="ml-2 pl-1">
+                <h5 class="mb-3 font-weight-bold text-blue"><%= simdeal[:data] %> Sim Plan</h5>
+                <p class="font-weight-normal gradient-text">5g Ready</p>
+                <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= simdeal[:data] %></span></p>
+                <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                <p class="mb-0 font-weight-light">Unlimited Texts</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-6 open-form cursor-p mb-lg-5 mb-4">
-        <div class="rounded shadow-custom bg-light">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/O2-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">O2 Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 open-form cursor-p mb-md-0 mb-4">
-        <div class="rounded shadow-custom bg-light">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/ee-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">EE Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 open-form cursor-p">
-        <div class="rounded shadow-custom bg-light mb-lg-0 mb-4">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/id-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">ID Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 open-form cursor-p">
-        <div class="rounded shadow-custom bg-light">
-          <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
-            <div class="tag-sudo position-relative">
-              <span class="text-white p-1">Upto £20 off</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center py-4 px-2">
-            <%= image_tag('sim/O2-sim-card.png', class: 'col-3') %>
-            <div class="ml-4">
-              <h5 class="mb-3 font-weight-bold text-blue">O2 Sim Card</h5>
-              <p class="font-weight-normal gradient-text">5g Ready</p>
-              <p class="mb-2 font-weight-light">from</p>
-              <p class="mb-0 font-weight-bold text-blue">£28 <span class="font-weight-light text-dark">monthly</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
 <%= render 'layouts/sim-deals/step_form' %>
+<%= render 'layouts/common/footer' %>
