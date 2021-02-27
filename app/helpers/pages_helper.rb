@@ -292,23 +292,76 @@ module PagesHelper
 
     @simdeals = [
       {
-        data: '150GB'
+        data: '150GB',
+        img:'sim/o2-sim.png',
+        text: 'Upto £10 off'
       },
       {
-        data: '30GB'
+        data: '30GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
       },
       {
-        data: 'Unlimited'
+        data: 'Unlimited',
+        img:'sim/o2-sim.png',
+        text: 'Upto £10 off'
       },
       {
-        data: '5GB'
+        data: '5GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
       },
       {
-        data: '50GB'
+        data: '50GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
       },
       {
-        data: '10GB'
-      }
+        data: '10GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/voda-sim-card.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '120 GB',
+        img:'sim/voda-sim-card.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '8 GB',
+        img:'sim/three.png',
+        text: 'Online exclusive'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/three.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '12 GB',
+        img:'sim/voxi.png',
+        text: 'Endless social media'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/voxi.png',
+        text: '5G Plan'
+      },
+      {
+        data: '3 GB',
+        img:'sim/Smarty.png',
+        text: 'Up to £3 back every month'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/Smarty.png',
+        text: 'Commitment-free SIM plan'
+      },
+
     ]
   end
 

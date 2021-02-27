@@ -2,42 +2,30 @@
 <%= render 'layouts/sp-exit/header' %>
 <div class="sim-deals-page open-form">
   <div class="banner-img-div text-center position-relative">
-    <%= image_tag('sim-deals-bg.jpg', alt: "sim-deals-banner", class: 'w-100') %>
-    <button type="button" class="position-absolute sim-btn open-form btn bg-white rounded-lg py-md-2 px-xl-5 text-blue px-lg-4 px-md-3 py-1 px-1">Get Sim Now</button>
+    <%= image_tag('sim-deals-bg4.jpg', alt: "sim-deals-banner", class: 'w-100') %>
+    <button type="button" class="position-absolute sim-btn font-weight-bold open-form btn bg-white rounded-lg py-md-2 px-xl-5 text-blue px-lg-4 px-md-3 py-1 px-1">Get Sim Now</button>
   </div>
-  <div class="row w-100 m-0 bg-light align-items-center justify-content-center p-4">
-    <div class="col-lg-2 col-md-3 col-4 text-center">
-      <%= image_tag('company-logos/02.png', class: "company-logos") %>
-    </div>
-    <div class="col-lg-2 col-md-3 col-4 text-center">
-      <%= image_tag('company-logos/smarty-provider.png', class: "company-logos") %>
-    </div>
-    <div class="col-lg-2 col-md-3 col-4 text-center">
-      <%= image_tag('company-logos/voxi-logo.png', class: "company-logos") %>
-    </div>
-    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
-      <%= image_tag('company-logos/sky.png', class: "company-logos") %>
-    </div>
-    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
-      <%= image_tag('company-logos/three.png', class: "company-logos") %>
-    </div>
-    <div class="col-lg-2 col-md-3 col-4 text-center mt-sm-0 mt-4">
-      <%= image_tag('company-logos/id.png', class: "company-logos") %>
-    </div>
+  <div class="row w-100 m-0 bg-light align-items-center justify-content-around py-3">
+    <%= image_tag('company-logos/02.png', class: "company-logos") %>
+    <%= image_tag('company-logos/smarty-provider.png', class: "company-logos1") %>
+    <%= image_tag('company-logos/voxi-logo.png', class: "company-logos") %>
+    <%= image_tag('company/ee.png', class: "company-logos2") %>
+    <%= image_tag('company-logos/three.png', class: "company-logos") %>
+    <%= image_tag('company-logos/vodafone.png', class: "company-logos3") %>
   </div>
   <div class="px-md-5 px-2 bg-white">
-    <h1 class="text-blue text-capitalize fs-sm-24 text-center pt-lg-5 pt-3">select your sim plan</h1>
+    <h1 class="text-blue text-capitalize fs-sm-24 text-center pt-lg-5 pt-3">Select your Exclusive SIM plan</h1>
     <div class="row w-100 m-0 py-md-5 py-3 justify-content-center">
       <% @simdeals.each do |simdeal| %>
         <div class="col-lg-4 col-md-6 open-form cursor-p mb-lg-5 mb-4">
           <div class="rounded shadow-custom bg-light">
             <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
               <div class="tag-sudo position-relative">
-                <span class="text-white p-1">Upto £20 off</span>
+                <span class="text-white p-1"><%= simdeal[:text] %></span>
               </div>
             </div>
             <div class="d-flex align-items-center py-4 px-2">
-              <%= image_tag('sim/o2-sim.png', class: 'col-3 pl-4') %>
+              <%= image_tag(simdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
               <div class="ml-2 pl-1">
                 <h5 class="mb-3 font-weight-bold text-blue"><%= simdeal[:data] %> Sim Plan</h5>
                 <p class="font-weight-normal gradient-text">5g Ready</p>
@@ -54,3 +42,4 @@
 </div>
 <%= render 'layouts/sim-deals/step_form' %>
 <%= render 'layouts/common/footer' %>
+<%= render 'layouts/common/waiting_loader' %>

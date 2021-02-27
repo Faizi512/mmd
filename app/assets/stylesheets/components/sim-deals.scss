@@ -12,7 +12,16 @@
     transform: translateX(-50%);
   }
   .company-logos{
-    width: 60px;
+    width: 45px;
+  }
+  .company-logos3{
+    width: 70px;
+  }
+  .company-logos2{
+    width: 35px;
+  }
+  .company-logos1{
+    width: 120px;
   }
   .gradient-text{
     background-image: linear-gradient(to left, #3c7eb8, #39a7b8) !important;
@@ -53,14 +62,30 @@
     background-image: linear-gradient(to right, #3c7eb8, #39a7b8) !important;
   }
   @media(max-width: 520px){
+
+    .company-logos{
+      width: 25px;
+    }
+    .company-logos3{
+      width: 50px;
+    }
+    .company-logos2{
+      width: 17px;
+    }
+    .company-logos1{
+      width: 70px;
+    }
     .fs-sm-24{
       font-size: 24px;
     }
     .sim-btn {
-      right: -12%;
+      bottom: 3%;
+      right: -13%;
     }
-    .company-logos{
-      width: 40px;
+  }
+  @media(max-width: 320px){
+    .sim-btn {
+      right: -16%;
     }
   }
 }
