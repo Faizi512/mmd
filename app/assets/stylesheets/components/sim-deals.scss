@@ -1,0 +1,91 @@
+.sim-deals-page{
+  .shadow-custom{
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15) !important;
+    transition: box-shadow .5s ease;
+    &:hover{
+      box-shadow: 0 1px 10px rgba(60, 64, 67, 0.3), 0 1px 3px 3px rgba(60, 64, 67, 0.15) !important;
+    }
+  }
+  .sim-btn{
+    bottom: 10%;
+    right: 0%;
+    transform: translateX(-50%);
+  }
+  .company-logos{
+    width: 45px;
+  }
+  .company-logos3{
+    width: 70px;
+  }
+  .company-logos2{
+    width: 35px;
+  }
+  .company-logos1{
+    width: 120px;
+  }
+  .gradient-text{
+    background-image: linear-gradient(to left, #3c7eb8, #39a7b8) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-blue{
+    color: #3c7eb8 !important;
+  }
+  .custom-tag{
+    top: -8px;
+    right: 10px;
+  }
+  .tag-sudo{
+    display: inline-flex;
+  }
+  .cursor-p{
+    cursor: pointer;
+  }
+  .tag-sudo:before{
+    background: linear-gradient(to left, #3c7eb8, #39a7b8);
+    bottom: -4px;
+    position: absolute;
+    right: 0;
+    height: 10px;
+    border-radius: 0 4px 4px 0;
+    content: "";
+    width: 4px;
+  }
+  .tag-sudo:after{
+    background: linear-gradient(to left, #3c7eb8, #39a7b8);
+    height: auto;
+    border-radius: 0 4px 4px 0;
+    content: "";
+    width: 4px;
+  }
+  .bg-gradient{
+    background-image: linear-gradient(to right, #3c7eb8, #39a7b8) !important;
+  }
+  @media(max-width: 520px){
+
+    .company-logos{
+      width: 25px;
+    }
+    .company-logos3{
+      width: 50px;
+    }
+    .company-logos2{
+      width: 17px;
+    }
+    .company-logos1{
+      width: 70px;
+    }
+    .fs-sm-24{
+      font-size: 24px;
+    }
+    .sim-btn {
+      bottom: 3%;
+      right: -13%;
+    }
+  }
+  @media(max-width: 320px){
+    .sim-btn {
+      right: -16%;
+    }
+  }
+}
