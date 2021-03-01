@@ -542,6 +542,7 @@ class Common {
       tps_result: this.tps_result,
       apidown: this.apiDown,
       user_agent: window.navigator.userAgent,
+      tier: this.getUrlParameter('tier'),
     };
   }
 

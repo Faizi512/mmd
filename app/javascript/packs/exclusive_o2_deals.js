@@ -60,6 +60,7 @@ class ExclusiveO2Deals extends Common {
       tps_result: this.tps_result,
       timestamp: new Date,
       user_agent: window.navigator.userAgent,
+      tier: this.getUrlParameter('tier'),
     };
   }
 }
