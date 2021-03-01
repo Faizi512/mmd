@@ -60,11 +60,11 @@ class PagesController < ApplicationController
   end
 
   def sim_deals
-    sim_deal
+    get_deals_data('sim_deal')
   end
 
   def sim_deals_v2
-    sim_deal
+    sim_deal_v2
   end
 
   def fetch_products(company)

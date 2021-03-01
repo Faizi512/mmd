@@ -289,80 +289,23 @@ module PagesHelper
       submit_on_load: false,
       uu_id: @cookie_uuid,
     }.to_json
+  end
 
-    @simdeals = [
-      {
-        data: '150GB',
-        img:'sim/o2-sim.png',
-        text: 'Upto £10 off'
-      },
-      {
-        data: '30GB',
-        img:'sim/o2-sim.png',
-        text: 'Special Offer'
-      },
-      {
-        data: 'Unlimited',
-        img:'sim/o2-sim.png',
-        text: 'Upto £10 off'
-      },
-      {
-        data: '5GB',
-        img:'sim/o2-sim.png',
-        text: 'Special Offer'
-      },
-      {
-        data: '50GB',
-        img:'sim/o2-sim.png',
-        text: 'Special Offer'
-      },
-      {
-        data: '10GB',
-        img:'sim/o2-sim.png',
-        text: 'Special Offer'
-      },
-      {
-        data: 'Unlimited',
-        img:'sim/voda-sim-card.png',
-        text: '6 Months half price'
-      },
-      {
-        data: '120 GB',
-        img:'sim/voda-sim-card.png',
-        text: '6 Months half price'
-      },
-      {
-        data: '8 GB',
-        img:'sim/three.png',
-        text: 'Online exclusive'
-      },
-      {
-        data: 'Unlimited',
-        img:'sim/three.png',
-        text: '6 Months half price'
-      },
-      {
-        data: '12 GB',
-        img:'sim/voxi.png',
-        text: 'Endless social media'
-      },
-      {
-        data: 'Unlimited',
-        img:'sim/voxi.png',
-        text: '5G Plan'
-      },
-      {
-        data: '3 GB',
-        img:'sim/Smarty.png',
-        text: 'Up to £3 back every month'
-      },
-      {
-        data: 'Unlimited',
-        img:'sim/Smarty.png',
-        text: 'Commitment-free SIM plan'
-      },
+  def sim_deal_v2
+    @details = {
+      camp_id: 'SIMO2',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'sim-deals-v2',
+      optin_url: '/sim-deals-v2',
+      sid: nil,
+      ssid: nil,
+      source:'sim-deals-v2',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
 
-    ]
     @o2simdeals = [
       {
         data: '150GB',
@@ -447,5 +390,79 @@ module PagesHelper
 
   def get_deals_data url_name
     send(url_name.gsub('-', '_')) rescue home
+
+    @simdeals = [
+      {
+        data: '150GB',
+        img:'sim/o2-sim.png',
+        text: 'Upto £10 off'
+      },
+      {
+        data: '30GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/o2-sim.png',
+        text: 'Upto £10 off'
+      },
+      {
+        data: '5GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
+      },
+      {
+        data: '50GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
+      },
+      {
+        data: '10GB',
+        img:'sim/o2-sim.png',
+        text: 'Special Offer'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/voda-sim-card.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '120 GB',
+        img:'sim/voda-sim-card.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '8 GB',
+        img:'sim/three.png',
+        text: 'Online exclusive'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/three.png',
+        text: '6 Months half price'
+      },
+      {
+        data: '12 GB',
+        img:'sim/voxi.png',
+        text: 'Endless social media'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/voxi.png',
+        text: '5G Plan'
+      },
+      {
+        data: '3 GB',
+        img:'sim/Smarty.png',
+        text: 'Up to £3 back every month'
+      },
+      {
+        data: 'Unlimited',
+        img:'sim/Smarty.png',
+        text: 'Commitment-free SIM plan'
+      },
+
+    ]
   end
 end
