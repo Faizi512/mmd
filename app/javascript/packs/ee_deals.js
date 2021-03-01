@@ -260,6 +260,7 @@ class EEDeals extends Common {
       user_agent: window.navigator.userAgent,
       affordability: this.affordabilityCondition || "",
       device: this.clickdevice || "",
+      tier: this.getUrlParameter('tier'),
     };
   }
   transaction_check(){
