@@ -1,0 +1,201 @@
+<%= javascript_pack_tag 'sim-deals-v2', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/sp-exit/header' %>
+<div class="sim-deals-page">
+  <div class="row w-100 m-0 bg-light align-items-center justify-content-around py-3">
+    <%= image_tag('company-logos/02.png', class: "company-logos") %>
+    <%= image_tag('company-logos/smarty-provider.png', class: "company-logos1") %>
+    <%= image_tag('company-logos/voxi-logo.png', class: "company-logos") %>
+    <%= image_tag('company/ee.png', class: "company-logos2") %>
+    <%= image_tag('company-logos/three.png', class: "company-logos") %>
+    <%= image_tag('company-logos/vodafone.png', class: "company-logos3") %>
+  </div>
+  <div class="px-lg-5 px-2 bg-white">
+    <h1 class="text-blue text-capitalize fs-sm-24 text-center pt-lg-5 pt-3">Exclusive SIM Plans From The UK's Top Networks</h1>
+    <h3 class="text-blue text-center fs-sm-18">Compare Plans and Save Money</h3>
+    <div class="row w-100 py-md-5 py-3 m-0 justify-content-center">
+      <div class="col-lg-3 col-md-4 d-md-block d-none">
+        <div class="nav sticky-position flex-column rounded shadow-custom p-3 nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link btn btn-custom-primary rounded-pill text-blue py-2 active" id="all-deals" data-toggle="pill" href="#v-pills-all-sim" role="tab" aria-controls="v-pills-all-sim" aria-selected="true">All Sim Deals</a>
+          <a class="nav-link text-blue btn btn-custom-primary rounded-pill mt-3 py-2" id="o2-sim-deal" data-toggle="pill" href="#all-o2-deals" role="tab" aria-controls="all-o2-deals" aria-selected="false">O2 Sim Deals</a>
+          <a class="nav-link text-blue btn btn-custom-primary rounded-pill mt-3 py-2" id="voda-sims" data-toggle="pill" href="#all-voda-sims" role="tab" aria-controls="all-voda-sims" aria-selected="false">Vodafone Sim Deals</a>
+          <a class="nav-link text-blue btn btn-custom-primary rounded-pill mt-3 py-2" id="three-sims" data-toggle="pill" href="#all-three-sims" role="tab" aria-controls="all-three-sims" aria-selected="false">Three Sim Deals</a>
+          <a class="nav-link text-blue btn btn-custom-primary rounded-pill mt-3 py-2" id="voxi-sims" data-toggle="pill" href="#all-voxi-sims" role="tab" aria-controls="all-voxi-sims" aria-selected="false">Voxi Sim Deals</a>
+          <a class="nav-link text-blue btn btn-custom-primary rounded-pill mt-3 py-2" id="smarty-sims" data-toggle="pill" href="#all-smarty-sims" role="tab" aria-controls="all-smarty-sims" aria-selected="false">Smarty Sim Deals</a>
+        </div>
+      </div>
+      <div class="d-md-none d-block col-12 mb-4">
+        <select id="select-deal" class="form-control text-blue">
+          <option value="v-pills-all-sim">All Sim Deals</option>
+          <option value="all-o2-deals">O2 Sim Deals</option>
+          <option value="all-three-sims">Three Sim Deals</option>
+          <option value="all-voxi-sims">Voxi Sim Deals</option>
+          <option value="all-smarty-sims">Smarty Sim Deals</option>
+          <option value="all-voda-sims">Vodafone Sim Deals</option>
+        </select>
+      </div>
+      <div class="col-lg-9 col-md-8 px-sm-3 px-0">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade sim-deals show active" id="v-pills-all-sim" role="tabpanel" aria-labelledby="all-deals">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @simdeals.each do |simdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= simdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(simdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= simdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= simdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade sim-deals" id="all-o2-deals" role="tabpanel" aria-labelledby="o2-sim-deal">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @o2simdeals.each do |o2simdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= o2simdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(o2simdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= o2simdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= o2simdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade sim-deals" id="all-voda-sims" role="tabpanel" aria-labelledby="voda-sims">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @vodasimdeals.each do |vodasimdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= vodasimdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(vodasimdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= vodasimdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= vodasimdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade sim-deals" id="all-three-sims" role="tabpanel" aria-labelledby="three-sims">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @threesimdeals.each do |threesimdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= threesimdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(threesimdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= threesimdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= threesimdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade sim-deals" id="all-voxi-sims" role="tabpanel" aria-labelledby="voxi-sims">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @voxisimdeals.each do |voxisimdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= voxisimdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(voxisimdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= voxisimdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= voxisimdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade sim-deals" id="all-smarty-sims" role="tabpanel" aria-labelledby="smarty-sims">
+            <div class="row w-100 m-0 justify-content-center">
+              <% @smartysimdeals.each do |smartysimdeal| %>
+                <div class="col-lg-6 open-form cursor-p mb-lg-5 mb-4">
+                  <div class="rounded shadow-custom bg-light">
+                    <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                      <div class="tag-sudo position-relative">
+                        <span class="text-white p-1"><%= smartysimdeal[:text] %></span>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center py-4 px-2">
+                      <%= image_tag(smartysimdeal[:img], class: 'col-3 pl-md-4 pl-0') %>
+                      <div class="ml-2 pl-1">
+                        <h5 class="mb-3 font-weight-bold text-blue"><%= smartysimdeal[:data] %> Sim Plan</h5>
+                        <p class="font-weight-normal gradient-text">5g Ready</p>
+                        <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= smartysimdeal[:data] %></span></p>
+                        <p class="mb-2 font-weight-light">Unlimited Calls</p>
+                        <p class="mb-0 font-weight-light">Unlimited Texts</p>
+                        <button type="button" class="btn btn-success mt-3 o-btn open-form">Get Deal Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/sim-deals/step_form' %>
+<%= render 'layouts/common/footer' %>
+<%= render 'layouts/common/waiting_loader' %>
