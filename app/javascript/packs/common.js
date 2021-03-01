@@ -503,9 +503,7 @@ class Common {
 
 // Start Lead Submit function
   firePixel(){
-    if (this.details.camp_id == 'MEGA-MOBILE-DEALS'){
-      dataLayer.push({'event': 'transaction'})
-    }
+    dataLayer.push({'event': 'transaction'})
   }
 
   getData() {
