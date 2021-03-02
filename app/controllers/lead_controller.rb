@@ -65,10 +65,9 @@ class LeadController < ApplicationController
        puts response =  Hash.from_xml(res.body)
       if response["result"]["accepted"]  == "1"
         LeadCount.create(url: response["result"]["url"], redirect_date:  DateTime.now)
-        return redirect_to response["result"]["url"]
       end
     end
-    render json: {status: 200, response: response || ""}
+    render json: {status: 200, response: response || nil}
   end
   private
 
