@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/redirect-webhook' => 'lead#redirect_webhook'
   post '/redirect-webhook' => 'lead#redirect_webhook'
   post '/submit-lead' => 'lead#submitLead'
+  get '/accept-leads' => 'lead#accept_leads'
+  get '/accepeted_lead_data' => 'lead#accepeted_lead_data'
 
   root 'pages#index'
   get '/ee_deals' => 'pages#ee_deals'

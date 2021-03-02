@@ -572,7 +572,7 @@ class Common {
           CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
-          CI.formResponse =  'reject'
+          CI.submitAccpedLead(formData)
         }
       },
       error: function(request){
@@ -585,8 +585,22 @@ class Common {
   }
 // End Lead Submit function
 
-
-
+  submitAccpedLead(formData){
+    var CI = this
+    $.ajax({
+      type: "GET",
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=142&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=199%201&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=13&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=unknown&postcode=${formData.postcode}&ip_address=81.139.188.11&agent_string=${formData.userAgent}`,
+      success: function(data) {
+        CI.formResponse =  'reject'
+        console.log(data)
+      },
+      error: function(request){
+        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log(request.statusText)
+      },
+      dataType: "json"
+    })
+  }
 // Start Date helper
   getFormattedCurrentDate() {
     var date = new Date();
