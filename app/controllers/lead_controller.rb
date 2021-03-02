@@ -2,7 +2,7 @@ class LeadController < ApplicationController
   skip_before_action :verify_authenticity_token
   SOLD_LEAD_CAMPAIGN = 117.freeze
   UN_SOLD_LEAD_CAMPAIGN = 59.freeze
-
+  require 'active_support/core_ext/hash/conversions'
   def redirect_webhook
     puts "---------------" * 30
     if params[:records]
@@ -45,6 +45,31 @@ class LeadController < ApplicationController
     render json: {status: 200, response: JSON.parse(res.body)}
   end
 
+  def accepeted_lead_data
+    render json: {response: LeadCount.all.group_by(&:redirect_date).map{|t, k| [t, k.count]}}
+  end
+
+  def accept_leads
+    if LeadCount.where(redirect_date: DateTime.now).count < 500
+      url = "https://acceptedmobile.co.uk/apps/"
+      uri = URI(url)
+      data = params.as_json
+      uri.query = URI.encode_www_form(data)
+
+      res = Net::HTTP.get_response(uri)
+      puts res.body if res.is_a?(Net::HTTPSuccess)
+
+      puts "****" * 30
+      puts res.body
+      puts "****" * 30
+       puts response =  Hash.from_xml(res.body)
+      if response["result"]["accepted"]  == "1"
+        LeadCount.create(url: response["result"]["url"], redirect_date:  DateTime.now)
+        return redirect_to response["result"]["url"]
+      end
+    end
+    render json: {status: 200, response: response || ""}
+  end
   private
 
 

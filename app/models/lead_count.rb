@@ -1,0 +1,2 @@
+class LeadCount < ApplicationRecord
+end
