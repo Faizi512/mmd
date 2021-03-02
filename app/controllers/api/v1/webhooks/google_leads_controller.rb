@@ -38,7 +38,7 @@ class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
         sid: 1,
         ssid: 1,
         ad_set: 1,
-        source: 'google-LF',
+        source: 'GOOGLE-LF',
         gclid: params[:gcl_id] || '',
         adgroupid: params[:adgroup_id] || '',
         campaign: params[:campaign_id] || '',
