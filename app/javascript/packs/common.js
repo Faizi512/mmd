@@ -591,8 +591,11 @@ class Common {
       type: "GET",
       url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=142&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=199%201&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=13&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=unknown&postcode=${formData.postcode}&ip_address=81.139.188.11&agent_string=${formData.userAgent}`,
       success: function(data) {
-        CI.formResponse =  'reject'
         console.log(data)
+        if(data.response && data.response.result.accepted == "1"){
+          window.location = data.response.result.url
+        }
+        CI.formResponse =  'reject'
       },
       error: function(request){
         CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
