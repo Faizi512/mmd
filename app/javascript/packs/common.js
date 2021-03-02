@@ -33,6 +33,7 @@ class Common {
     this.tps_result = null
     this.redirectUrl = null
     this.fetchRequest = 0
+    this.productId = 118
     this.deliveryName = null
     this.phoneName = null
     this.networkName= null
@@ -589,7 +590,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=142&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=199%201&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=13&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=unknown&postcode=${formData.postcode}&ip_address=81.139.188.11&agent_string=${formData.userAgent}`,
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=199%201&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=13&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=unknown&postcode=${formData.postcode}&ip_address=81.139.188.11&agent_string=${formData.userAgent}`,
       success: function(data) {
         console.log(data)
         if(data.response && data.response.result.accepted == "1"){
