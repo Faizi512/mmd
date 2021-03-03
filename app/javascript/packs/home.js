@@ -24,7 +24,7 @@ class Home extends Common {
       $('.towncity').val($(this).find("option:selected").data("city"))
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
-      $('.houseNumber').val($(this).find("option:selected").data("housenum"))
+      $('.houseNumber').val($(this).find("option:selected").data("house-number"))
     });
 
     window.Parsley.on('field:error', function() {
