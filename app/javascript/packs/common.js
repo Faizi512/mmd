@@ -311,9 +311,10 @@ class Common {
               for (var i = 0; i < result.length; i++) {
                 adresses.push( `
                     <option
-                    data-street="${result[i].line_1}"
+                    data-street="${result[i].thoroughfare || result[i].line_1}"
                     data-city="${result[i].town_or_city}"
-                    data-province="${result[i].county}"
+                    data-province="${result[i].county || result[i].town_or_city}"
+                    data-house-number="${result[i].building_number || result[i].building_name || result[i].sub_building_name || result[i].sub_building_number || result[i].line_1}"
                     >
                     ${result[i].formatted_address.join(" ").replace(/\s+/g,' ')}
                     </option>
@@ -590,7 +591,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=199%201&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=13&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=unknown&postcode=${formData.postcode}&ip_address=81.139.188.11&agent_string=${formData.userAgent}`,
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}`,
       success: function(data) {
         console.log(data)
         if(data.response && data.response.result.accepted == "1"){
