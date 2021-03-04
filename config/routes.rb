@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 	# AMP
   get '/amp' => 'amp#index'
@@ -13,6 +14,11 @@ Rails.application.routes.draw do
     namespace 'v1' do
        namespace 'webhooks' do
         resources :google_leads, only:[ :create, :index]
+        resources :exit_deliveries do
+          collection do
+            get 'redirect_url'
+          end
+        end
       end
     end
   end
@@ -29,4 +35,5 @@ Rails.application.routes.draw do
   get '/exclusive_o2_deals' => 'pages#exclusive_o2_deals'
   get '/sweet-mobile' => 'pages#sweet_mobile'
   get '/:page_name' => 'pages#show'
+
 end

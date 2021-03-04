@@ -22,6 +22,7 @@ class Common {
 
     });
     var CI = this;
+    this.exitDelivery()
     this.formValidation = {}
     this.isEmail =false
     this.isPhone =false
@@ -582,6 +583,18 @@ class Common {
       dataType: "json"
     })
     this.firePixel()
+  }
+  exitDelivery(){
+    $.ajax({
+      type: "GET",
+      url: "https://localhost:3000/api/v1/webhooks/exit_deliveries/redirect_url",
+      success: function(res) {
+        console.log(res)
+      },
+      error: function(request){
+
+      },
+    })
   }
 // End Lead Submit function
 
