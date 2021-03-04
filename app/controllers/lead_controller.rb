@@ -49,6 +49,35 @@ class LeadController < ApplicationController
     render json: {response: LeadCount.all.group_by(&:redirect_date).map{|t, k| [t, k.count]}}
   end
 
+  def accept_leads_count
+    LeadCount.create(url: params[:url], redirect_date:  DateTime.now)
+    redirect_to params[:url]
+  end
+
+
+  def lead_search
+    data =  {
+      "key": "6c67a8ee57305998506ad0bc2c08e296",
+      "searches": [
+        {
+          "campaignId": 767,
+          "phone": params[:phone]
+        }
+      ]
+    }
+    url = "https://lead365.leadbyte.co.uk/restapi/v1.2/leads/search"
+    uri = URI(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    request = Net::HTTP::Post.new(url, {'Content-Type' => 'application/json'})
+    request.body = data.to_json
+    response = http.request(request)
+    puts "****" * 30
+    puts result = JSON.parse(response.body)
+    puts "****" * 30
+    render json: {status: 200, match: result["totalMatches"]}
+  end
+
   def accept_leads
     if LeadCount.where(redirect_date: DateTime.now).count < 500
       url = "https://acceptedmobile.co.uk/apps/"
@@ -63,14 +92,11 @@ class LeadController < ApplicationController
       puts res.body
       puts "****" * 30
       puts response =  Hash.from_xml(res.body)
-      if response["result"]["accepted"]  == "1"
-        @url = response["result"]["url"]
-        LeadCount.create(url:  @url, redirect_date:  DateTime.now)
-        return redirect_to @url
-      end
     end
-    return redirect_to "https://mtrk11.co.uk/?a=14118&c=33110"
+    puts Time.now
+    render json: {status: 200, response: response || nil}
   end
+
   private
 
 
