@@ -640,7 +640,7 @@ class Common {
       },
       dataType: "json"
     })
-
+}
 // Start Date helper
   getFormattedCurrentDate() {
     var date = new Date();
