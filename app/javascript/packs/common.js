@@ -571,10 +571,13 @@ class Common {
       success: function(data) {
         console.log(data)
         if(data.code == 1 && data.records[0].status != "Rejected"){
+          console.log(data.records[0].status)
           CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
+          console.log(data.records[0].status)
           CI.submitAccpedLead(formData)
+          CI.formResponse =  'reject'
         }
       },
       error: function(request){
@@ -589,23 +592,10 @@ class Common {
 
   submitAccpedLead(formData){
     var CI = this
-    $.ajax({
-      type: "GET",
-      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}`,
-      success: function(data) {
-        console.log(data)
-        if(data.response && data.response.result.accepted == "1"){
-          window.location = data.response.result.url
-        }
-        CI.formResponse =  'reject'
-      },
-      error: function(request){
-        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
-        console.log(request.statusText)
-      },
-      dataType: "json"
-    })
+    window.location = `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}`
   }
+
+
 // Start Date helper
   getFormattedCurrentDate() {
     var date = new Date();
