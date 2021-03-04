@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/redirect-webhook' => 'lead#redirect_webhook'
   post '/submit-lead' => 'lead#submitLead'
   get '/accept-leads' => 'lead#accept_leads'
+  get '/accept_leads_count' => 'lead#accept_leads_count'
   get '/accepeted_lead_data' => 'lead#accepeted_lead_data'
 
   root 'pages#index'
