@@ -49,11 +49,6 @@ class LeadController < ApplicationController
     render json: {response: LeadCount.all.group_by(&:redirect_date).map{|t, k| [t, k.count]}}
   end
 
-  def accept_leads_count
-    LeadCount.create(url: params[:url], redirect_date:  DateTime.now)
-    render json: {status: 200}
-  end
-
   def accept_leads
     if LeadCount.where(redirect_date: DateTime.now).count < 500
       url = "https://acceptedmobile.co.uk/apps/"
@@ -70,6 +65,7 @@ class LeadController < ApplicationController
       puts response =  Hash.from_xml(res.body)
       if response["result"]["accepted"]  == "1"
         @url = response["result"]["url"]
+        LeadCount.create(url:  @url, redirect_date:  DateTime.now)
         return redirect_to @url
       end
     end
