@@ -1,7 +1,7 @@
 <!-- Deals list section -->
 <section  class="bg-light py-5">
   <% @phoneshome.each do |phone| %>
-    <div class="container  deals-list mb-3 open-form " data-url="<%= phone[:url] %>">
+    <div class="container  deals-list mb-3 open-form" data-url="<%= phone[:url] %>" data-product-id="<%= phone['product_id'] %>">
       <div class="row">
         <div class="col offset-xl-2 main-div">
           <div class="card box">
@@ -55,10 +55,10 @@
                    <hr>
                   <div class="row actions">
                     <div class="col-md-6">
-                      <button class="btn btn-primary o-btn open-form w-100 font-weight-bold">Apply now - it's free!</button>
+                      <button class="btn btn-primary o-btn open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">Apply now - it's free!</button>
                     </div>
                     <div class="col-md-6">
-                      <button class="btn btn-primary open-form w-100 font-weight-bold">More Info</button>
+                      <button class="btn btn-primary open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">More Info</button>
                     </div>
                   </div>
                 </div>

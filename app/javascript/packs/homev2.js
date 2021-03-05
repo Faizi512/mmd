@@ -24,7 +24,7 @@ class HomeV2 extends Common {
       $('.towncity').val($(this).find("option:selected").data("city"))
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
-      $('.houseNumber').val($(this).find("option:selected").data("housenum"))
+      $('.houseNumber').val($(this).find("option:selected").data("house-number"))
     });
 
     window.Parsley.on('field:error', function() {
@@ -41,6 +41,11 @@ class HomeV2 extends Common {
     });
 
     $(document).on("click", '.open-form', function() {
+      if (this.dataset.productId) {
+        CI.productId = this.dataset.productId
+        console.log( CI.productId)
+      }
+
       CI.phoneName = $(this).find('input').val()
       $('#deal-form-modal').modal('show')
       $('.clock').hide()

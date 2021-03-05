@@ -34,6 +34,7 @@ class Common {
     this.tps_result = null
     this.redirectUrl = null
     this.fetchRequest = 0
+    this.productId = 118
     this.deliveryName = null
     this.phoneName = null
     this.networkName= null
@@ -311,9 +312,10 @@ class Common {
               for (var i = 0; i < result.length; i++) {
                 adresses.push( `
                     <option
-                    data-street="${result[i].line_1}"
+                    data-street="${result[i].thoroughfare || result[i].line_1}"
                     data-city="${result[i].town_or_city}"
-                    data-province="${result[i].county}"
+                    data-province="${result[i].county || result[i].town_or_city}"
+                    data-house-number="${result[i].building_number || result[i].building_name || result[i].sub_building_name || result[i].sub_building_number || result[i].line_1}"
                     >
                     ${result[i].formatted_address.join(" ").replace(/\s+/g,' ')}
                     </option>
@@ -422,6 +424,8 @@ class Common {
   nextStep(n) {
     var CI = this;
     this.showCircle()
+    console.log(new Date())
+    console.log("NextStep: "+this.currentTab+" "+new Date())
     $('#dealform').parsley().whenValidate({
       group: 'block-' + this.currentTab
     }).done(() =>{
@@ -548,6 +552,7 @@ class Common {
   }
 
   postData() {
+    console.log("Postdata: "+new Date())
     $("#loaderPopup").css('height', '100%')
     // doubel verify tsp
     this.validateTsp()
@@ -561,7 +566,31 @@ class Common {
     this.successUrl()
   }
 
+  checkLeadStatus(formData){
+    var CI = this
+    $.ajax({
+      type: "POST",
+      url: `/lead_search`,
+      data: {phone: formData.phone1},
+      success: function(data) {
+        console.log(data)
+        console.log("checkLeadStatus: "+new Date())
+        if (data.match == 0) {
+          CI.formResponse =  'success'
+        }else{
+          CI.formResponse =  'reject'
+          CI.submitAccpedLead(formData)
+        }
+      },
+      error: function(request){
+        console.log(request.statusText)
+      },
+      dataType: "json"
+    })
+  }
+
   submitLead(formData, campid){
+    this.checkLeadStatus(formData)
     var CI = this
     $.ajax({
       type: "POST",
@@ -570,9 +599,11 @@ class Common {
       success: function(data) {
         console.log(data)
         if(data.code == 1 && data.records[0].status != "Rejected"){
+          console.log(data.records[0].status)
           CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
+          console.log(data.records[0].status)
           CI.formResponse =  'reject'
         }
       },
@@ -598,8 +629,31 @@ class Common {
   }
 // End Lead Submit function
 
+  submitAccpedLead(formData){
+    var CI = this
+    $.ajax({
+      type: "GET",
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}`,
+      success: function(data) {
+        console.log(data.response)
+        if(data.response && data.response.result.accepted == "1"){
+          console.log("Going to redirect accepted mobbile: "+new Date())
+          var link = $("<a>");
+          link.attr("href", `/accept_leads_count?url=${data.response.result.url}`);
+          link[0].click()
 
-
+        }else{
+          window.location =  "https://mtrk11.co.uk/?a=14118&c=33110"
+        }
+        CI.formResponse =  'reject'
+      },
+      error: function(request){
+        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
+        console.log(request.statusText)
+      },
+      dataType: "json"
+    })
+}
 // Start Date helper
   getFormattedCurrentDate() {
     var date = new Date();

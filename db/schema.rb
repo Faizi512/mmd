@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 2021_03_04_103001) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "functional"
     t.float "copy_percentage"
+
+  create_table "lead_counts", force: :cascade do |t|
+    t.string "url"
+    t.date "redirect_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "leads", force: :cascade do |t|
