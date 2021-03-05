@@ -18,8 +18,10 @@ class Api::V1::RedirectController < ApplicationController
   end
 
   def exit_deliveries
-    sold_deliveries = ExitDelivery.active_sold.where(source: params[:source]).any? ? ExitDelivery.active_sold.where(source: params[:source]) : ExitDelivery.active_sold_with_no_source
-    unsold_deliveries = ExitDelivery.active_unsold.where(source: params[:source]).any? ? ExitDelivery.active_unsold.where(source: params[:source]) : ExitDelivery.active_unsold_with_no_source
+    sold_deliveries = ExitDelivery.active_sold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_sold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact : ExitDelivery.active_sold_with_no_source
+
+    unsold_deliveries = ExitDelivery.active_unsold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_unsold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact  : ExitDelivery.active_unsold_with_no_source
+
     @soldUrl = get_url(sold_deliveries, 'sold')
     @unsoldUrl = get_url(unsold_deliveries, 'unsold')
     render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
@@ -27,8 +29,6 @@ class Api::V1::RedirectController < ApplicationController
 
   def get_url deliveries, status
     redirect_count = deliveries.any? ? deliveries.sum(&:count) :  0
-    Rails.logger.ap "========="
-    Rails.logger.ap deliveries
     deliveries.each do |delivery|
       percent = (delivery.count.to_f / (redirect_count+1) ) * 100
       if percent <= delivery.percentage

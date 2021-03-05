@@ -11,7 +11,6 @@ class MMDLoans extends Common {
     this.fillform()
     this.popupTerms()
     this.popupPrivacy()
-    this.subscribeChannel()
     this.showTab(this.currentTab);
 
     $('.carousel').carousel({
