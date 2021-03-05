@@ -24,7 +24,7 @@ class Api::V1::RedirectController < ApplicationController
 
     @soldUrl = get_url(sold_deliveries, 'sold')
     @unsoldUrl = get_url(unsold_deliveries, 'unsold')
-    render json:{sold_url: @soldUrl, unsold_url: @soldUrl}, status: :ok
+    render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
   end
 
   def get_url deliveries, status
