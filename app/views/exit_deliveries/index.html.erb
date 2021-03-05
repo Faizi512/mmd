@@ -8,6 +8,9 @@
     <thead>
       <tr>
         <th>Url</th>
+        <th>Today Count</th>
+        <th>Total Count</th>
+        <th>Default</th>
         <th>Percentage</th>
         <th>Status</th>
         <th>Priority</th>
@@ -24,6 +27,9 @@
       <% @exit_deliveries.each do |exit_delivery| %>
         <tr>
           <td><%= exit_delivery.url %></td>
+          <td><%= exit_delivery.count %></td>
+          <td><%= exit_delivery.total_count %></td>
+          <td><%= exit_delivery.is_default %></td>
           <td><%= exit_delivery.percentage %></td>
           <td><%= exit_delivery.status %></td>
           <td><%= exit_delivery.priority %></td>

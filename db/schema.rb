@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_103001) do
+ActiveRecord::Schema.define(version: 2021_03_05_095146) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2021_03_04_103001) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "functional"
     t.float "copy_percentage"
+    t.integer "total_count"
+    t.boolean "is_default", default: false
+  end
 
   create_table "lead_counts", force: :cascade do |t|
     t.string "url"
@@ -62,14 +65,6 @@ ActiveRecord::Schema.define(version: 2021_03_04_103001) do
     t.string "data_roaming"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "sold_leads", force: :cascade do |t|
-    t.string "gcl"
-    t.string "conversion_name"
-    t.string "conversion_type"
-    t.string "conversion_currency"
-    t.string "conversion_time"
   end
 
   create_table "users", force: :cascade do |t|

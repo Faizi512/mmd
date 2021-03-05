@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace 'api', defaults: { format: :json } do
     namespace 'v1' do
       get '/redirect_url' => 'redirect#redirect_url'
+      get '/exit_deliveries' => 'redirect#exit_deliveries'
       namespace 'webhooks' do
         resources :google_leads, only:[ :create, :index]
       end

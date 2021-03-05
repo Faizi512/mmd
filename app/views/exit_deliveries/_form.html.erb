@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :cap %>
-    <%= form.number_field :cap, :required => true%>
+    <%= form.number_field :cap %>
   </div>
 
   <div class="field">
@@ -54,6 +54,11 @@
   <div class="field">
     <%= form.label :functional %>
     <%= form.select :functional, ['active', 'disable']%>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_default %>
+    <%= form.check_box :is_default %>
   </div>
 
   <div class="actions">
