@@ -12,7 +12,6 @@ class SimDeals extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.showTab(this.currentTab);
-    this.subscribeChannel()
     $('.carousel').carousel({
       interval: 2000
     })

@@ -11,7 +11,6 @@ class UpgradeChecker extends Common {
     this.fillform()
     this.popupTerms()
     this.popupPrivacy()
-    this.subscribeChannel()
 
     $('.carousel').carousel({
       interval: 2000

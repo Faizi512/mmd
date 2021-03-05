@@ -10,7 +10,6 @@ class Handset extends Common {
     this.showClock()
     this.fillform()
     this.popupTerms()
-    this.subscribeChannel()
     this.showTab(this.currentTab);
 
     $( ".property" ).change(function() {
