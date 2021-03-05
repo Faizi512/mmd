@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :exit_deliveries
 	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 	# AMP
   get '/amp' => 'amp#index'
@@ -11,7 +13,9 @@ Rails.application.routes.draw do
   # WebHooks
   namespace 'api', defaults: { format: :json } do
     namespace 'v1' do
-       namespace 'webhooks' do
+      get '/redirect_url' => 'redirect#redirect_url'
+      get '/exit_deliveries' => 'redirect#exit_deliveries'
+      namespace 'webhooks' do
         resources :google_leads, only:[ :create, :index]
       end
     end
@@ -33,4 +37,5 @@ Rails.application.routes.draw do
   get '/exclusive_o2_deals' => 'pages#exclusive_o2_deals'
   get '/sweet-mobile' => 'pages#sweet_mobile'
   get '/:page_name' => 'pages#show'
+
 end

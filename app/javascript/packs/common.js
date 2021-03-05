@@ -61,41 +61,6 @@ class Common {
     }
   }
 
-  // Start Action Cable
-  subscribeToRedirectUrl(channel) {
-    console.log(channel)
-    console.log("channel anme")
-    const split = channel.split('_')
-    var CI = this
-    CI.channelName = split[0]
-    this.room = split[1]
-
-    if (!_.isNull(this.channelName) && !_.isUndefined(this.channelName)) {
-      this.channelName = App.subscriptions.create(
-        { channel: this.channelName  , room: this.room },
-        {
-          received: (data) => {
-            console.log(data)
-            CI.exitUrl(data)
-          },
-        }
-      )
-    }
-  }
-
-  unsubscribeToRedirectUrl() {
-    if (_.isUndefined(this.channelName)) {
-      this.channelName.unsubscribe()
-    }
-  }
-
-  subscribeChannel(){
-    this.channel_token = this.details.uu_id
-    this.subscribeToRedirectUrl(`RedirectUrlChannel_${this.channel_token}`)
-  }
-
-  // End Action Cable
-
   popupTerms(){
     $( ".close-b" ).click(function() {
       $('.modal2').hide();
@@ -473,9 +438,9 @@ class Common {
     var CI = this
     // if lead is accepted
     if(this.formResponse == "success"){
-      window.location = this.urlCreator(data.lead.success_params, data.lead.success_url)
+      window.location = `/api/v1/redirect_url?id=${data.sold_url.id}&url=${this.urlCreator(data.sold_url.url)}`
     }else if(this.formResponse == "reject"){
-      window.location = this.urlCreator(data.lead.reject_params, data.lead.reject_url)
+      window.location = `/api/v1/redirect_url?id=${data.unsold_url.id}&url=${this.urlCreator(data.unsold_url.url)}`
     }else{
       setTimeout(function(){
         CI.exitUrl(data)
@@ -483,22 +448,44 @@ class Common {
     }
   }
 
-  urlCreator(params, base_url){
-    // params = "&email=email&source=source&sid=sid"
+  exitDelivery(){
+    var CI = this
+    $.ajax({
+      type: "GET",
+      url: `/api/v1/exit_deliveries?source=${this.getSource()}`,
+      success: function(response) {
+        console.log(response)
+        CI.exitUrl(response)
+      },
+      error: function(request){
+
+      },
+    })
+  }
+  urlCreator(redirect_url){
+    try {
+      var new_url = (new URL(redirect_url))
+    }
+    catch(err) {
+      var new_url = (new URL(location.origin + redirect_url))
+    }
+    var params = new_url.search.substring("1")
+    var base_url = new_url.origin + new_url.pathname
+    // params = "&email=[emai]l&source=[source]&sid=[sid]"
     // base_url = "https://megamobiledeals.com"
     var url = []
     var data = this.getData();
-    var params_array = _.split(params, '&');  //["", "email=email", "source=source", "sid=sid"]
+    var params_array = _.split(params, '&');  //["", "email=[email]", "source=[source]", "sid=[sid]"]
     _.forEach(params_array, function(param) {
-       var key_value = _.split(param, '='); // ["email", "email"]
-       if(key_value.length > 1){
-         url.push(`${key_value[0]}=${data[key_value[1]]}&`)
+       var key_value = _.split(param, '='); // ["email", "[email]"]
+       if(key_value.length > 1 && key_value[1].match(/\[(.*?)\]/)){
+         url.push(`${key_value[0]}=${data[key_value[1].match(/\[(.*?)\]/)[1]]}&`) // email
        }
     });
     if (base_url.indexOf('?') != -1){ // if base_url contain ?
-      return `${base_url}&${_.join(url, "")}`
+      return encodeURIComponent(`${base_url}&${_.join(url, "")}`)
     }else{
-      return `${base_url}?${_.join(url, "")}`
+      return encodeURIComponent(`${base_url}?${_.join(url, "")}`)
     }
   }
 // End Redirect Url Logic
@@ -577,7 +564,6 @@ class Common {
         if (data.match == 0) {
           CI.formResponse =  'success'
         }else{
-          CI.formResponse =  'reject'
           CI.submitAccpedLead(formData)
         }
       },
@@ -589,6 +575,7 @@ class Common {
   }
 
   submitLead(formData, campid){
+    this.exitDelivery()
     this.checkLeadStatus(formData)
     var CI = this
     $.ajax({
@@ -614,6 +601,7 @@ class Common {
     })
     this.firePixel()
   }
+
 // End Lead Submit function
 
   submitAccpedLead(formData){
@@ -630,11 +618,11 @@ class Common {
           link[0].click()
 
         }else{
-          window.location =  "https://mtrk11.co.uk/?a=14118&c=33110"
+          CI.formResponse =  'reject'
         }
-        CI.formResponse =  'reject'
       },
       error: function(request){
+        CI.formResponse =  'reject'
         CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
         console.log(request.statusText)
       },
