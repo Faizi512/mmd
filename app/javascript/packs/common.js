@@ -21,7 +21,6 @@ class Common {
       tracesSampleRate: 1.0,
 
     });
-    this.urlCreator("https://mtrk11.co.uk/?a=14118&c=33110")
     var CI = this;
     this.formValidation = {}
     this.isEmail =false
@@ -431,7 +430,7 @@ class Common {
 
   redirectIfNoResponse(){
     setTimeout(function(){
-      window.location =  "https://mtrk11.co.uk/?a=14118&c=33110"
+      window.location = `/api/v1/redirect_url?id=1&url=${this.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
     }, 20000);
   }
 
@@ -470,7 +469,6 @@ class Common {
     catch(err) {
       var new_url = (new URL(location.origin + redirect_url))
     }
-    debugger
     var params = new_url.search.substring("1")
     var base_url = new_url.origin + new_url.pathname
     // params = "&email=[emai]l&source=[source]&sid=[sid]"
@@ -482,7 +480,7 @@ class Common {
        var key_value = _.split(param, '='); // ["email", "[email]"]
        if(key_value.length > 1 && key_value[1].match(/\[(.*?)\]/)){
          url.push(`${key_value[0]}=${data[key_value[1].match(/\[(.*?)\]/)[1]]}&`) // email
-       }else{
+       }else if(key_value.length > 1){
          url.push(`${key_value[0]}=${key_value[1]}&`) // email
        }
     });
