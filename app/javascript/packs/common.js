@@ -558,8 +558,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "POST",
-      url: `/lead_search`,
-      data: {phone: formData.phone1},
+      url: `/lead_search?phone=${formData.phone1}`,
       success: function(data) {
         console.log(data)
         console.log("checkLeadStatus: "+new Date())
