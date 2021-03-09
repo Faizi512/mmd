@@ -557,7 +557,7 @@ class Common {
   checkLeadStatus(formData){
     var CI = this
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: `/lead_search?phone=${formData.phone1}`,
       success: function(data) {
         console.log(data)
