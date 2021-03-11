@@ -40,15 +40,24 @@ class HomeV2 extends Common {
     });
 
     $(document).on("click", '.open-form', function() {
+      var user = CI.checkCookie()
+
       if (this.dataset.productId) {
         CI.productId = this.dataset.productId
         console.log( CI.productId)
       }
 
-      CI.phoneName = $(this).find('input').val()
-      $('#deal-form-modal').modal('show')
-      $('.clock').hide()
-      event.preventDefault();
+      if (user != "") {
+        var dd = CI.getData();
+        var cc = JSON.parse(localStorage.getItem("lastname"))
+        console.log(CI.getCookie("userphone"))
+        alert("You Come again in 7 days");
+      } else {
+        CI.phoneName = $(this).find('input').val()
+        $('#deal-form-modal').modal('show')
+        $('.clock').hide()
+        event.preventDefault();
+      }
     });
   }
 

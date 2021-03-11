@@ -67,14 +67,6 @@ ActiveRecord::Schema.define(version: 2021_03_05_095146) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "sold_leads", force: :cascade do |t|
-    t.string "gcl"
-    t.string "conversion_name"
-    t.string "conversion_type"
-    t.string "conversion_currency"
-    t.string "conversion_time"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

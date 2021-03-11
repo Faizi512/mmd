@@ -59,6 +59,56 @@ class Common {
     window.FontAwesomeConfig = {
       searchPseudoElements: true
     }
+    // window.addEventListener('message', function(event) {
+    //   if (event.data) {
+    //     console.log(event.data)
+    //       CI.setCookie("userphone", event.data , 7);
+    //   } else {
+    //       console.log(event.data)
+    //   }
+    // });
+    // this.checkCookie();
+  }
+
+  postCrossDomainMessage(msg , domain) {
+    var win = $('.ifrm').contentWindow;
+    win.postMessage(msg, domain);
+  }
+
+  setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  checkCookie() {
+    var CI = this;
+    CI.user = this.getCookie("userphone");
+    return CI.user
+  }
+
+  sendCookies(){
+    var postMsg = {"name": this.user};
+    var domain = ['https://deals.megamobiledeals.com/','https://go4phones.co.uk/',"https://mobilegogo.co.uk/","https://mobile-deal.com/","http://hitphones.com/","http://00mobile.co.uk/"]
+    for (var i = domain.length; i >= 0; i--) {
+      this.postCrossDomainMessage(postMsg , domain[i-1])
+    }
   }
 
   popupTerms(){
@@ -540,13 +590,18 @@ class Common {
   }
 
   postData() {
+    var CI = this;
+    var data = this.getData();
+    CI.user = data;
+    if (CI.user != "" && CI.user != null) {
+      CI.setCookie("userphone", JSON.stringify(CI.user), 8000);
+    }
+
     console.log("Postdata: "+new Date())
     $("#loaderPopup").css('height', '100%')
     // doubel verify tsp
     this.validateTsp()
     // Getting Data
-    var CI = this;
-    var data = this.getData();
     // Form Submisson
     this.redirectIfNoResponse()
     this.submitLead(data, this.details.camp_id)
