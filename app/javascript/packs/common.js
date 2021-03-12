@@ -61,6 +61,22 @@ class Common {
     }
   }
 
+  updateUserInStorage(){
+    var CI=this
+    var previousData = this.getItemFromStorage("user_data")
+    var currentData = this.getData();
+    var userData = _.mergeWith(currentData,previousData, (current, previous) => current == "" || current == "unknown"  ? previous : current)
+    CI.setItemToStorage("user_data", userData)
+  }
+
+  getItemFromStorage(name){
+    return JSON.parse(localStorage.getItem(name))
+  }
+
+  setItemToStorage(name, data){
+    return localStorage.setItem(name, JSON.stringify(data))
+  }
+
   popupTerms(){
     $( ".close-b" ).click(function() {
       $('.modal2').hide();
@@ -429,8 +445,9 @@ class Common {
   }
 
   redirectIfNoResponse(){
+    var CI = this;
     setTimeout(function(){
-      window.location = `/api/v1/redirect_url?id=1&url=${this.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
+      window.location = `/api/v1/redirect_url?id=1&url=${CI.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
     }, 20000);
   }
 
@@ -540,18 +557,21 @@ class Common {
   }
 
   postData() {
-    console.log("Postdata: "+new Date())
+    var CI = this
     $("#loaderPopup").css('height', '100%')
-    // doubel verify tsp
     this.validateTsp()
-    // Getting Data
-    var CI = this;
-    var data = this.getData();
-    // Form Submisson
     this.redirectIfNoResponse()
-    this.submitLead(data, this.details.camp_id)
-    // Redirection after submisson
     this.successUrl()
+    if( this.getItemFromStorage("user_data") != null){
+      this.updateUserInStorage()
+      this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
+    }
+    else{
+      var data = this.getData();
+      CI.setItemToStorage("user_data", data)
+      console.log("Postdata: "+new Date())
+      this.submitLead(data, this.details.camp_id)
+    }
   }
 
   checkLeadStatus(formData){
@@ -574,6 +594,23 @@ class Common {
       dataType: "json"
     })
   }
+
+  // submitLeadToDb(formData){
+  //   console.log(formData)
+  //   var CI = this
+  //   $.ajax({
+  //     type: "POST",
+  //     url: '/lead_data',
+  //     dataType: 'json',
+  //     data: formData,
+  //     success: function(data) {
+  //       console.log(data)
+  //     },
+  //     error: function(request){
+  //       console.log(request.statusText)
+  //     }
+  //   })
+  // }
 
   submitLead(formData, campid){
     this.exitDelivery()
