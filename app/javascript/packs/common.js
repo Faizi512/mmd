@@ -61,13 +61,21 @@ class Common {
     }
   }
 
-  setStrorage(){
-    var user = localStorage.getItem("user_data")
-    var previousData = JSON.parse(user)
+  updateUserInStorage(){
+    var CI=this
+    var previousData = this.getItemFromStorage("user_data")
     var currentData = this.getData();
     var userData = _.mergeWith(currentData,previousData, (current, previous) => current == "" || current == "unknown"  ? previous : current)
 
-    localStorage.setItem("user_data", JSON.stringify(userData))
+    CI.setItemToStorage("user_data", userData)
+  }
+
+  getItemFromStorage(name){
+    JSON.parse(localStorage.getItem(name))
+  }
+
+  setItemToStorage(name, data){
+    localStorage.setItem(name, JSON.stringify(data))
   }
 
   popupTerms(){
@@ -438,8 +446,9 @@ class Common {
   }
 
   redirectIfNoResponse(){
+    var CI = this;
     setTimeout(function(){
-      window.location = `/api/v1/redirect_url?id=1&url=${this.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
+      window.location = `/api/v1/redirect_url?id=1&url=${CI.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
     }, 20000);
   }
 
@@ -549,27 +558,20 @@ class Common {
   }
 
   postData() {
-    if( localStorage.getItem("user_data") != null){
-      this.setStrorage()
-      $("#loaderPopup").css('height', '100%')
-      this.submitLead(JSON.parse(localStorage.getItem("user_data")), this.details.camp_id)
-      this.successUrl()
+    var CI = this
+    $("#loaderPopup").css('height', '100%')
+    this.validateTsp()
+    this.redirectIfNoResponse()
+    this.successUrl()
+    if( this.getItemFromStorage("user_data") != null){
+      this.updateUserInStorage()
+      this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
     }
     else{
-      var CI = this;
       var data = this.getData();
-      localStorage.setItem("user_data", JSON.stringify(data))
-
+      CI.setItemToStorage("user_data", data)
       console.log("Postdata: "+new Date())
-      $("#loaderPopup").css('height', '100%')
-      // doubel verify tsp
-      this.validateTsp()
-      // Getting Data
-      // Form Submisson
-      this.redirectIfNoResponse()
       this.submitLead(data, this.details.camp_id)
-      // Redirection after submisson
-      this.successUrl()
     }
   }
 
