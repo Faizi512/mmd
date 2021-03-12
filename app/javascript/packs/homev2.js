@@ -39,7 +39,7 @@ class HomeV2 extends Common {
       CI.backStep(-1)
     });
 
-    $(document).on("click", '.open-form', function() {
+    $(document).on("click", '.open-form', function(event) {
       var user = localStorage.getItem("user_data")
       if (this.dataset.productId) {
         CI.productId = this.dataset.productId
@@ -47,11 +47,12 @@ class HomeV2 extends Common {
       }
       if (user != null) {
         CI.postData()
+        event.stopPropagation()
       } else {
         CI.phoneName = $(this).find('input').val()
         $('#deal-form-modal').modal('show')
         $('.clock').hide()
-        event.preventDefault();
+        event.stopPropagation()
       }
     });
   }

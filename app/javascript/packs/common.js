@@ -66,16 +66,15 @@ class Common {
     var previousData = this.getItemFromStorage("user_data")
     var currentData = this.getData();
     var userData = _.mergeWith(currentData,previousData, (current, previous) => current == "" || current == "unknown"  ? previous : current)
-
     CI.setItemToStorage("user_data", userData)
   }
 
   getItemFromStorage(name){
-    JSON.parse(localStorage.getItem(name))
+    return JSON.parse(localStorage.getItem(name))
   }
 
   setItemToStorage(name, data){
-    localStorage.setItem(name, JSON.stringify(data))
+    return localStorage.setItem(name, JSON.stringify(data))
   }
 
   popupTerms(){
@@ -595,6 +594,23 @@ class Common {
       dataType: "json"
     })
   }
+
+  // submitLeadToDb(formData){
+  //   console.log(formData)
+  //   var CI = this
+  //   $.ajax({
+  //     type: "POST",
+  //     url: '/lead_data',
+  //     dataType: 'json',
+  //     data: formData,
+  //     success: function(data) {
+  //       console.log(data)
+  //     },
+  //     error: function(request){
+  //       console.log(request.statusText)
+  //     }
+  //   })
+  // }
 
   submitLead(formData, campid){
     this.exitDelivery()
