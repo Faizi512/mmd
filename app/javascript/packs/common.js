@@ -628,7 +628,6 @@ class Common {
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
           console.log(data.records[0].status)
-          CI.formResponse =  'reject'
         }
       },
       error: function(request){
