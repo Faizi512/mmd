@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_095146) do
+ActiveRecord::Schema.define(version: 2021_03_15_054529) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_03_05_095146) do
     t.float "copy_percentage"
     t.integer "total_count"
     t.boolean "is_default", default: false
+    t.string "name"
   end
 
   create_table "lead_counts", force: :cascade do |t|
@@ -34,6 +35,47 @@ ActiveRecord::Schema.define(version: 2021_03_05_095146) do
     t.date "redirect_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lead_data", force: :cascade do |t|
+    t.string "postcode"
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "phone"
+    t.string "street"
+    t.string "towncity"
+    t.string "sid"
+    t.string "ssid"
+    t.string "handset"
+    t.string "ad_set"
+    t.string "source"
+    t.string "c1"
+    t.string "adgroupid"
+    t.string "campaign"
+    t.string "keyword"
+    t.string "bad_credit_customer"
+    t.string "campaignkey"
+    t.string "optindate"
+    t.string "optinurl"
+    t.string "url_with_params"
+    t.string "uu_id"
+    t.string "gclid"
+    t.string "matchtype"
+    t.string "trafficid"
+    t.string "traffictype"
+    t.string "prize"
+    t.string "timestamp"
+    t.string "utm_source"
+    t.string "tps_result"
+    t.string "apidown"
+    t.string "user_agent"
+    t.string "tier"
+    t.json "compelte_data_in_response"
+    t.json "lead_response"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"ipaddress\"", name: "index_lead_data_on_ipaddress"
   end
 
   create_table "leads", force: :cascade do |t|
@@ -65,6 +107,14 @@ ActiveRecord::Schema.define(version: 2021_03_05_095146) do
     t.string "data_roaming"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sold_leads", force: :cascade do |t|
+    t.string "gcl"
+    t.string "conversion_name"
+    t.string "conversion_type"
+    t.string "conversion_currency"
+    t.string "conversion_time"
   end
 
   create_table "users", force: :cascade do |t|
