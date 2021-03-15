@@ -491,7 +491,14 @@ class Common {
     // params = "&email=[emai]l&source=[source]&sid=[sid]"
     // base_url = "https://megamobiledeals.com"
     var url = []
-    var data = this.getData();
+    if( this.getItemFromStorage("user_data") != null){
+      this.updateUserInStorage()
+      var data = this.getItemFromStorage("user_data")
+    }else{
+      var data = this.getData();
+    }
+
+
     var params_array = _.split(params, '&');  //["", "email=[email]", "source=[source]", "sid=[sid]"]
     _.forEach(params_array, function(param) {
        var key_value = _.split(param, '='); // ["email", "[email]"]
