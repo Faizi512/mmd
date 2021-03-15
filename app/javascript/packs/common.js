@@ -104,6 +104,10 @@ class Common {
   }
   showToolTip(){
     $('[data-toggle="tooltip"]').tooltip();
+
+    $(document).on("click", '.content', function(event) {
+      $('[data-toggle="tooltip"]').tooltip('toggle');
+    });
   }
 
   showClock(){
