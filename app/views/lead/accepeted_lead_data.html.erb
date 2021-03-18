@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h2 class="text-center my-3">Accepted Lead Data</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Accepted Leads</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @acceptedleads.each do |lead| %>
+        <tr>
+          <td><%= lead[0] %></td>
+          <td><%= lead[1] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
