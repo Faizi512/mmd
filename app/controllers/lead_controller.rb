@@ -46,7 +46,7 @@ class LeadController < ApplicationController
   end
 
   def accepeted_lead_data
-    @acceptedleads = LeadCount.all.group_by(&:redirect_date).map{|t, k| [t, k.count]}
+    @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date).map{|t, k| [t, k.count]}
   end
 
   def accept_leads_count
