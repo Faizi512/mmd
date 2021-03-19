@@ -3,7 +3,6 @@ import 'bootstrap/dist/js/bootstrap.js'
 import "parsleyjs";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
-// import ActionCable from './redirect_url_connection.js'
 import CableReady from 'cable_ready'
 import App from '../channels/consumer.js'
 import _ from 'lodash'
@@ -606,24 +605,25 @@ class Common {
     })
   }
 
-  // submitLeadToDb(formData){
-  //   console.log(formData)
-  //   var CI = this
-  //   $.ajax({
-  //     type: "POST",
-  //     url: '/lead_data',
-  //     dataType: 'json',
-  //     data: formData,
-  //     success: function(data) {
-  //       console.log(data)
-  //     },
-  //     error: function(request){
-  //       console.log(request.statusText)
-  //     }
-  //   })
-  // }
+  submitLeadToStore(formData){
+    console.log(formData)
+    var CI = this
+    $.ajax({
+      type: "POST",
+      url: 'https://dukestore.herokuapp.com/api/v1/lead',
+      dataType: 'json',
+      data: {lead: formData},
+      success: function(data) {
+        console.log(data)
+      },
+      error: function(request){
+        console.log(request.statusText)
+      }
+    })
+  }
 
   submitLead(formData, campid){
+    this.submitLeadToStore(formData)
     this.exitDelivery()
     this.checkLeadStatus(formData)
     var CI = this

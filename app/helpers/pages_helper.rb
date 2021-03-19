@@ -388,6 +388,21 @@ module PagesHelper
     ]
   end
 
+  def data_share_domains
+    @domains = [
+      'https://deals.megamobiledeals.com',
+      'https://megamobiledeals.com',
+      'https://bill-switchers.com',
+      'https://mobilegogo.co.uk',
+      'https://go4phones.co.uk',
+      'https://hitphones.com',
+      'https://mobile-deal.com',
+      'https://switch-mobile.co.uk',
+      'https://00mobile.co.uk/',
+      'https://getmyphone.co.uk/',
+    ]
+  end
+
   def get_deals_data url_name
     send(url_name.gsub('-', '_')) rescue home
 
