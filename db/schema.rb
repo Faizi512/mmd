@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_054529) do
+ActiveRecord::Schema.define(version: 2021_03_19_131014) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 2021_03_15_054529) do
     t.string "data_roaming"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "share_domains", force: :cascade do |t|
+    t.string "url"
   end
 
   create_table "users", force: :cascade do |t|
