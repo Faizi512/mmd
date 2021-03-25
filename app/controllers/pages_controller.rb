@@ -5,9 +5,6 @@ class PagesController < ApplicationController
   before_action :deals_list
 
   def index
-    pp "======================================================="
-    pp request.remote_ip
-    pp "-------------------------------------------------------"
     get_deals_data('home')
     @bc = isbadCustomer(params[:keyword]) || params[:bc] == "yes"
 	end

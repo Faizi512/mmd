@@ -1,0 +1,5 @@
+<% data_share_domains.each do |domain| %>
+  <div class="data-share-iframe">
+    <iframe src="<%= domain %>/data_share?user_id=<%= @cookie_uuid %>" title="<%= domain %>" id="<%= domain %>" style="display: none;"></iframe>
+  </div>
+<% end %>

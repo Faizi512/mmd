@@ -388,6 +388,10 @@ module PagesHelper
     ]
   end
 
+  def data_share_domains
+    ShareDomain.pluck(:url)
+  end
+
   def get_deals_data url_name
     send(url_name.gsub('-', '_')) rescue home
 
