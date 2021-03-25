@@ -13,12 +13,12 @@
         <div class="col-xl-3 mb-4 mb-xl-0">
           <div class="bg-light-jam p-3 rounded">
             <div class="row m-0 justify-content-center w-100">
-              <div class="position-relative input-div mx-1 mx-xl-0"> 
+              <div class="position-relative input-div mx-1 mx-xl-0">
                 <a data-turbolinks="false" for="phone-deals" href="/exclusive_o2_deals_load?type=0"class="input-radio py-2 px-md-3 mx-auto cursor-p mb-xl-2 mb-0">
                   <i class="fas fa-mobile-alt mr-2"></i>Phone deals
                 </a>
               </div>
-              <div class="position-relative input-div mx-1 mx-xl-0"> 
+              <div class="position-relative input-div mx-1 mx-xl-0">
                 <a data-turbolinks="false" for="sim-deals" href="/exclusive_o2_deals_load?type=1"class="input-radio py-2 px-md-3 mx-auto cursor-p">
                   <i class="fas fa-sim-card mr-2"></i></i>SIM deals
                 </a>
@@ -43,7 +43,7 @@
                   <% else %>
                     <%= image_tag("compare/disney.png", class: "", width: "40" ) %>
                   <% end %>
-                </div> 
+                </div>
                 <div class="col-md-5 px-1">
                   <div class="row w-100 m-0">
                     <div class="col-6 px-0">
@@ -86,7 +86,7 @@
                       <% else %>
                         <p class="m-0"> <strong class="texts text-green"><%= product[:text] %></strong> Text</p>
                       <% end %>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -121,3 +121,4 @@
   </div>
 </form>
 <%= render 'layouts/common/footer' %>
+<%= render 'layouts/common/data_share_iframes' %>

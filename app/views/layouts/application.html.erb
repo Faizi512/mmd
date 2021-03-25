@@ -80,10 +80,5 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <%= yield %>
-    <% data_share_domains.each do  |domain| %>
-      <div class="google analaytics">
-        <iframe src="<%= domain %>/data_share?user_id=<%= @cookie_uuid %>" title="<%= domain %>" id="<%= domain %>" style="display: none;"></iframe>
-      </div>
-    <% end %>
   </body>
 </html>
