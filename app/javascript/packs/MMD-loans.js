@@ -25,6 +25,8 @@ class MMDLoans extends Common {
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
       $('.houseNumber').val($(this).find("option:selected").data("housenum"))
+      $('.street2').val($(this).find("option:selected").data("street2"))
+      $('.building').val($(this).find("option:selected").data("building"))
     });
 
     window.Parsley.on('field:error', function() {
@@ -41,10 +43,16 @@ class MMDLoans extends Common {
     });
 
     $(document).on("click", '.open-form', function() {
-      CI.phoneName = $(this).find('input').val()
-      $('#deal-form-modal').modal('show')
-      $('.clock').hide()
-      event.preventDefault();
+      var user = localStorage.getItem("user_data")
+      if (user != null) {
+        CI.postData()
+        event.stopPropagation()
+      } else {
+        CI.phoneName = $(this).find('input').val()
+        $('#deal-form-modal').modal('show')
+        $('.clock').hide()
+        event.stopPropagation()
+      }
     });
   }
   successUrl(){ }

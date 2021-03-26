@@ -44,6 +44,7 @@ class Common {
     this.formResponse=null
     this.allowedNetworks=["vodafone","3"]
     this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
+    this.userStorage = false
 
     $.getJSON('https://ipapi.co/json/', function(data) {
       if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
@@ -298,7 +299,9 @@ class Common {
                     data-street="${result[i].thoroughfare || result[i].line_1}"
                     data-city="${result[i].town_or_city}"
                     data-province="${result[i].county || result[i].town_or_city}"
-                    data-house-number="${result[i].building_number || result[i].building_name || result[i].sub_building_name || result[i].sub_building_number || result[i].line_1}"
+                    data-street2="${result[i].line_2}"
+                    data-building="${result[i].building_name || result[i].sub_building_name || result[i].building_number || result[i].sub_building_number}"
+                    data-house-number="${result[i].building_number || result[i].sub_building_number || result[i].building_name || result[i].sub_building_name || result[i].line_1}"
                     >
                     ${result[i].formatted_address.join(" ").replace(/\s+/g,' ')}
                     </option>
@@ -535,6 +538,8 @@ class Common {
       email: $(".email").val() || this.getUrlParameter('email') || '',
       phone1: $(".phone").val() || this.getUrlParameter('phone1') ||  '',
       street1: $(".street1").val() || $(".address").val() || this.getUrlParameter('street1') ||  'unknown',
+      street2: $(".street2").val() || this.getUrlParameter('street2') ||  'unknown',
+      building: $(".building").val() || this.getUrlParameter('building') ||  'unknown',
       towncity: $(".towncity").val() || this.getUrlParameter('towncity') ||  'unknown',
       sid: this.getUrlParameter('sid') || this.details.sid ||1,
       ssid: this.getUrlParameter('ssid') || this.details.ssid ||1,
@@ -563,7 +568,12 @@ class Common {
       apidown: this.apiDown,
       user_agent: window.navigator.userAgent,
       tier: this.getUrlParameter('tier'),
+      lead_from_local_storage: this.userStorage,
     };
+  }
+
+  USTransaction(){
+    dataLayer.push({'event': 'USTransaction'})
   }
 
   postData() {
@@ -573,6 +583,8 @@ class Common {
     this.redirectIfNoResponse()
     this.successUrl()
     if( this.getItemFromStorage("user_data") != null){
+      this.userStorage = true
+      this.USTransaction();
       this.updateUserInStorage()
       this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
     }
