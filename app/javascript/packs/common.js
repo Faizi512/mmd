@@ -569,7 +569,7 @@ class Common {
       apidown: this.apiDown,
       user_agent: window.navigator.userAgent,
       tier: this.getUrlParameter('tier'),
-      user_storage: this.userStorage,
+      lead_from_local_storage: this.userStorage,
     };
   }
 
