@@ -25,6 +25,8 @@ class MMDLoans extends Common {
       $('.street1').val($(this).find("option:selected").data("street"))
       $('.county').val($(this).find("option:selected").data("province"))
       $('.houseNumber').val($(this).find("option:selected").data("housenum"))
+      $('.street2').val($(this).find("option:selected").data("street2"))
+      $('.building').val($(this).find("option:selected").data("building"))
     });
 
     window.Parsley.on('field:error', function() {
