@@ -42,26 +42,39 @@ class Home extends Common {
     });
 
     $(document).on("click", '.open-form', function() {
-      CI.phoneName = $(this).find('input').val()
-      $('#deal-form-modal').modal('show')
-      $('.clock').hide()
-      event.preventDefault();
+      var user = localStorage.getItem("user_data")
+      if (user != null) {
+        CI.postData()
+        event.stopPropagation()
+      } else {
+        CI.phoneName = $(this).find('input').val()
+        $('#deal-form-modal').modal('show')
+        $('.clock').hide()
+        event.stopPropagation()
+      }
     });
   }
 
-
   postData() {
+    var CI = this
     $("#loaderPopup").css('height', '100%')
-    // doubel verify tsp
     this.validateTsp()
-    // Getting Data
-    var CI = this;
-    var data = this.getData();
-    // Form Submisson
     this.redirectIfNoResponse()
+    this.successUrl()
+    if( this.getItemFromStorage("user_data") != null){
+      this.userStorage = true
+      this.USTransaction();
+      this.updateUserInStorage()
+      this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
+    }
+    else{
+      var data = this.getData();
+      CI.setItemToStorage("user_data", data)
+      console.log("Postdata: "+new Date())
+      this.redirectIfNoResponse()
     this.handleCreditCheckConsent()
-    this.submitLead(data, this.details.camp_id)
-
+      this.submitLead(data, this.details.camp_id)
+    }
   }
 
   handleCreditCheckConsent(){

@@ -40,10 +40,16 @@ class Handset extends Common {
 
 
     $(document).on("click", '.open-form', function() {
-      CI.phoneName = $(this).find('input').val()
-      $('#deal-form-modal').modal('show')
-      $('.clock').hide()
-      event.preventDefault();
+      var user = localStorage.getItem("user_data")
+      if (user != null) {
+        CI.postData()
+        event.stopPropagation()
+      } else {
+        CI.phoneName = $(this).find('input').val()
+        $('#deal-form-modal').modal('show')
+        $('.clock').hide()
+        event.stopPropagation()
+      }
     });
   }
 

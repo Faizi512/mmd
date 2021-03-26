@@ -34,9 +34,16 @@ class EEDeals extends Common {
     this.clickdevice = null
     $(document).on("click", '.btn-deal', function() {
       CI.clickdevice = $(this).prev('input').val();
-      $('#deal-form-modal').modal('show')
-      $('.clock').hide()
-      event.preventDefault();
+      var user = localStorage.getItem("user_data")
+      if (user != null) {
+        CI.postData()
+        event.stopPropagation()
+      } else {
+        CI.phoneName = $(this).find('input').val()
+        $('#deal-form-modal').modal('show')
+        $('.clock').hide()
+        event.stopPropagation()
+      }
     });
 
     $( ".property" ).change(function() {
