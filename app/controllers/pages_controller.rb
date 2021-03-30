@@ -34,6 +34,10 @@ class PagesController < ApplicationController
     @phoneshome = json['data']
   end
 
+  def data_share
+    render layout: "data_share"
+  end
+
   def exclusive_o2_deals
     exclusive_o2_deal
     fetch_products('o2')
