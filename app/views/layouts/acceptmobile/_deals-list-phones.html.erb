@@ -1,0 +1,99 @@
+<!-- Deals list section -->
+<section  class="bg-light py-5 accept">
+  <% @phoneshome.each do |phone| %>
+    <div class="container  deals-list mb-3 open-form" data-url="<%= phone[:url] %>" data-product-id="<%= phone['product_id'] %>">
+      <div class="row">
+        <div class="col offset-xl-2 main-div">
+          <div class="card box">
+            <div class="card-body py-md-0">
+              <div class="row align-items-center">
+                <div class="img col-md-3 col-6 ">
+                  <%= image_tag(phone['image'], class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
+                  <input type="hidden" id="phone_name" name="phone_name" value="<%= phone[:handset] %>">
+                </div>
+                <div class="col-md-3 col-6">
+                  <h5 class="font-weight-bold mb-2">
+                    <%= phone['name'] %>
+                  </h5>
+                  <hr>
+                  <span class="text-muted fs-14 font-weight-normal">
+                    <%= phone['bluetext'] %>
+                  </span>
+                  <p>
+                    <span class="text-muted">Deposit from</sapn>
+                    <span class="bolder d-block mt-2">£0</span>  
+                  </p>
+                </div>
+
+                <div class="d-none d-md-block col-6">
+                  <div class="">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="text-center">
+                          <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['calls'] %> </h6>
+                          <span class="text-muted fs-14 font-weight-normal">
+                            Calls
+                          </span>
+                        </div>
+                       
+                        <div class="text-center">
+                          <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['texts'] %> </h6>
+                          <span class="text-muted fs-14 font-weight-normal">
+                            SMS
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="text-center">
+                          <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['data'] %> </h6>
+                          <span class="text-muted fs-14 font-weight-normal">
+                            Data
+                          </span>
+                        </div>
+                        <div class="text-center pt-3">
+                          <button class="btn b-btn open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">Get Deal <i class="fas fa-chevron-right ml-2 text-white"></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="d-block d-md-none w-100">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['calls'] %> </h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          Calls
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['texts'] %> </h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          SMS
+                        </span>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="text-center">
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24 text-muted" ><%= phone['data'] %> </h6>
+                        <span class="text-muted fs-14 font-weight-normal">
+                          Data
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="text-center pt-3">
+                      <button class="btn b-btn open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">Get Deal <i class="fas fa-chevron-right ml-2 text-white"></i></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>

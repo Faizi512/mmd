@@ -275,6 +275,22 @@ module PagesHelper
     }.to_json
   end
 
+  def accept_mobiles
+    @details = {
+      camp_id: 'ACCEPT-MOBILE-LEADS',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'accept-mobiles',
+      optin_url: '/accept-mobiles',
+      sid: nil,
+      ssid: nil,
+      source:'Accept-mobile',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+    }.to_json
+  end
+
   def sim_deal
     @details = {
       camp_id: 'SIMO2',
