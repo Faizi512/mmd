@@ -569,6 +569,7 @@ class Common {
       user_agent: window.navigator.userAgent,
       tier: this.getUrlParameter('tier'),
       lead_from_local_storage: this.userStorage,
+      campaign_name: this.details.camp_id,
     };
   }
 
@@ -618,11 +619,10 @@ class Common {
   }
 
   submitLeadToStore(formData){
-    console.log(formData)
     var CI = this
     $.ajax({
       type: "POST",
-      url: 'https://dukestore.herokuapp.com/api/v1/lead',
+      url: 'https://dukestore.herokuapp.com/api/v1/lead/',
       dataType: 'json',
       data: {lead: formData},
       success: function(data) {
