@@ -270,6 +270,7 @@ class EEDeals extends Common {
       affordability: this.affordabilityCondition || "",
       device: this.clickdevice || "",
       tier: this.getUrlParameter('tier'),
+      campaign_name: this.details.camp_id,
     };
   }
   transaction_check(){
