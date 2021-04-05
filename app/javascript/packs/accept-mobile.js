@@ -51,7 +51,6 @@ class AcceptMobile extends Common {
         CI.postData()
         event.stopPropagation()
       } else {
-        CI.phoneName = $(this).find('input').val()
         $('#deal-form-modal').modal('show')
         $('.clock').hide()
         event.stopPropagation()
@@ -76,7 +75,7 @@ class AcceptMobile extends Common {
       CI.setItemToStorage("user_data", data)
       console.log("Postdata: "+new Date())
       this.submitLead(data, this.details.camp_id)
-      this.submitAccpedLead(formData)
+      this.submitAccpedLead(data)
     }
   }
 
