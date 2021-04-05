@@ -4,14 +4,18 @@
     <thead>
       <tr>
         <th scope="col">Date</th>
-        <th scope="col">Accepted Leads</th>
+        <th scope="col">Total Leads</th>
+        <th scope="col">Other leads</th>
+        <th scope="col">Accpet page leads</th>
       </tr>
     </thead>
     <tbody>
-      <% @acceptedleads.each do |lead| %>
+      <% @acceptedleads.each do |date, lead| %>
         <tr>
-          <td><%= lead[0] %></td>
-          <td><%= lead[1] %></td>
+          <td><%= date %></td>
+          <td><%= lead.count%></td>
+          <td><%= LeadCount.where(accept_page: false, id: lead.map(&:id)).count%></td>
+          <td><%= LeadCount.where(accept_page: true, id: lead.map(&:id)).count%></td>
         </tr>
       <% end %>
     </tbody>

@@ -650,7 +650,7 @@ class Common {
           CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
         }else{
-          console.log(data.records[0].status)
+          // console.log(data.records[0].status)
         }
       },
       error: function(request){
@@ -664,7 +664,7 @@ class Common {
 
 // End Lead Submit function
 
-  submitAccpedLead(formData){
+  submitAccpedLead(formData, acceptPage = false){
     var CI = this
     $.ajax({
       type: "GET",
@@ -674,7 +674,7 @@ class Common {
         if(data.response && data.response.result.accepted == "1"){
           console.log("Going to redirect accepted mobbile: "+new Date())
           var link = $("<a>");
-          link.attr("href", `/accept_leads_count?url=${data.response.result.url}`);
+          link.attr("href", `/accept_leads_count?url=${data.response.result.url}&accept_page=${acceptPage}`);
           link[0].click()
 
         }else{

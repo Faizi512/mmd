@@ -19,11 +19,11 @@ class LeadController < ApplicationController
   end
 
   def accepeted_lead_data
-    @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date).map{|t, k| [t, k.count]}
+    @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date)
   end
 
   def accept_leads_count
-    LeadCount.create(url: params[:url], redirect_date:  DateTime.now)
+    LeadCount.create(url: params[:url], redirect_date:  DateTime.now, accept_page: params[:accept_page])
     redirect_to params[:url]
   end
 

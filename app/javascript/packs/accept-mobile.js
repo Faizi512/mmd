@@ -12,6 +12,7 @@ class AcceptMobile extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.showTab(this.currentTab);
+    this.acceptPage = true
     $('.carousel').carousel({
       interval: 2000
     })
@@ -57,6 +58,7 @@ class AcceptMobile extends Common {
       }
     });
   }
+  checkLeadStatus(){}
 
   postData() {
     var CI = this
@@ -69,13 +71,14 @@ class AcceptMobile extends Common {
       this.USTransaction();
       this.updateUserInStorage()
       this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
+      this.submitAccpedLead(this.getItemFromStorage("user_data"), this.acceptPage)
     }
     else{
       var data = this.getData();
       CI.setItemToStorage("user_data", data)
       console.log("Postdata: "+new Date())
       this.submitLead(data, this.details.camp_id)
-      this.submitAccpedLead(data)
+      this.submitAccpedLead(data , this.acceptPage)
     }
   }
 

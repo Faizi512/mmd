@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_131014) do
+ActiveRecord::Schema.define(version: 2021_04_05_065502) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_131014) do
     t.date "redirect_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accept_page", default: false
   end
 
   create_table "leads", force: :cascade do |t|
