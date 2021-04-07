@@ -1,5 +1,6 @@
 import App from '../channels/data_share.js'
 import _ from 'lodash'
+import CableReady from 'cable_ready'
 
 class DataShare {
   constructor() {
