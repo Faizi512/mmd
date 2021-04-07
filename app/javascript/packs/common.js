@@ -45,6 +45,7 @@ class Common {
     this.allowedNetworks=["vodafone","3"]
     this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
     this.userStorage = false
+    this.adoptedUrl = null
 
     $.getJSON('https://ipapi.co/json/', function(data) {
       if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
@@ -64,6 +65,12 @@ class Common {
   updateUserInStorage(){
     var CI=this
     var previousData = this.getItemFromStorage("user_data")
+    if (previousData.adopted_url == null) {
+      this.adoptedUrl = previousData.optinurl
+    }else{
+      this.adoptedUrl = previousData.adopted_url
+    }
+    
     var currentData = this.getData();
     var userData = _.mergeWith(currentData,previousData, (current, previous) => current == "" || current == "unknown"  ? previous : current)
     CI.setItemToStorage("user_data", userData)
@@ -570,6 +577,7 @@ class Common {
       tier: this.getUrlParameter('tier'),
       lead_from_local_storage: this.userStorage,
       campaign_name: this.details.camp_id,
+      adopted_url: this.adoptedUrl,
     };
   }
 
