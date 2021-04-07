@@ -3,8 +3,6 @@ import 'bootstrap/dist/js/bootstrap.js'
 import "parsleyjs";
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
-import CableReady from 'cable_ready'
-import App from '../channels/consumer.js'
 import _ from 'lodash'
 
 
