@@ -5,6 +5,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+          <th>Name</th>
           <th>Url</th>
           <th>Today Count</th>
           <th>Total Count</th>
@@ -22,6 +23,7 @@
       <tbody>
         <% @exit_deliveries.each do |exit_delivery| %>
           <tr>
+            <td><%= exit_delivery.name %></td>
             <td><%= exit_delivery.url %></td>
             <td><%= exit_delivery.count %></td>
             <td><%= exit_delivery.total_count %></td>

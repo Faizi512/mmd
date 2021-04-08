@@ -13,6 +13,11 @@
     <% end %>
 
     <div class="field form-group col-lg-10">
+      <%= form.label :name, :class=> 'control-label' %>
+      <%= form.text_field :name, :required => true, :class=> 'form-control'%>
+    </div>
+
+    <div class="field form-group col-lg-10">
       <%= form.label :url, :class=> 'control-label' %>
       <%= form.text_field :url, :required => true, :class=> 'form-control'%>
     </div>
