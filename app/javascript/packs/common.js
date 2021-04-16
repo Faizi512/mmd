@@ -149,7 +149,7 @@ class Common {
     this.deviceBrowser=FRUBIL.client.class_code // Browser
     this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
     this.deviceBrand=FRUBIL.device.brand_code // Samsung
-    this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
+    this.deviceName=FRUBIL.device.marketname // Galaxy A5
   }
   // End SwitchUk Logic
 
