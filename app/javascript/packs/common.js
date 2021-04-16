@@ -44,6 +44,7 @@ class Common {
     this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
     this.userStorage = false
     this.adoptedUrl = ""
+    this.deviceDetection()
 
     $.getJSON('https://ipapi.co/json/', function(data) {
       if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
@@ -147,7 +148,7 @@ class Common {
     this.device=FRUBIL.device.class_code   //Desktop
     this.deviceBrowser=FRUBIL.client.class_code // Browser
     this.deviveSearchEngine=FRUBIL.client.name_code // Chrome
-    this.debiceBrand=FRUBIL.device.brand_code // Samsung
+    this.deviceBrand=FRUBIL.device.brand_code // Samsung
     this.deviceName=FRUBIL.device.marketname_code // Galaxy A5
   }
   // End SwitchUk Logic
@@ -575,6 +576,11 @@ class Common {
       lead_from_local_storage: this.userStorage,
       campaign_name: this.details.camp_id,
       adopted_url: this.adoptedUrl,
+      device:this.device || '',
+      device_browser:this.deviceBrowser || '',
+      devive_search_engine:this.deviveSearchEngine || '',
+      device_brand:this.deviceBrand || '',
+      device_name:this.deviceName || '',
     };
   }
 
