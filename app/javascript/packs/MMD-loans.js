@@ -17,6 +17,8 @@ class MMDLoans extends Common {
       interval: 2000
     })
     $( ".property" ).change(function() {
+      CI.TogglePopUp()
+      CI.ToggleCheckBox()
       var tabs = $(".tab");
       tabs[CI.currentTab].style.display = "none";
       CI.currentTab = CI.currentTab + 1;

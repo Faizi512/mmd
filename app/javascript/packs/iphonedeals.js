@@ -10,7 +10,8 @@ class IphoneDeals extends Common {
     this.fillform()
     this.popupTerms()
     this.popupPrivacy()
-
+    this.TogglePopUp()
+    this.ToggleCheckBox()
 
     window.Parsley.on('field:error', function() {
       $(".btn-success").removeClass("in-progress")

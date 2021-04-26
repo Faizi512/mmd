@@ -11,6 +11,8 @@ class UpgradeChecker extends Common {
     this.fillform()
     this.popupTerms()
     this.popupPrivacy()
+    this.TogglePopUp()
+    this.ToggleCheckBox()
 
     $('.carousel').carousel({
       interval: 2000
