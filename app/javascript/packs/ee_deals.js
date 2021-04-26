@@ -12,6 +12,8 @@ class EEDeals extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.showTab(this.currentTab);
+    this.TogglePopUp()
+    this.ToggleCheckBox()
     this.affordabilityCondition = null;
     this.transactions = {
       'income': '',

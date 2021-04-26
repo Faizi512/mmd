@@ -13,6 +13,8 @@ class ReturningLoans extends Common {
     this.popupTerms()
     this.popupPrivacy()
     this.continueButton()
+    this.TogglePopUp()
+    this.ToggleCheckBox()
   }
 
 

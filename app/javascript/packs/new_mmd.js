@@ -8,6 +8,8 @@ class NewMmd extends Common {
     this.postData()
     this.showToolTip()
     this.showClock()
+    this.TogglePopUp()
+    this.ToggleCheckBox()
 
     $('.submit-mmd-form').click(function(event) {
       CI.urlSelection()

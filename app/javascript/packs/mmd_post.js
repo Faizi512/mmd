@@ -7,6 +7,8 @@ class MmdPost extends Common {
     this.getFormDetails('.mt-footer')
     this.showToolTip()
     this.showClock()
+    this.TogglePopUp()
+    this.ToggleCheckBox()
     $('.submit-mmd-form').click(function(event) {
       event.preventDefault();
       if (CI.submtForm == false) {
