@@ -22,7 +22,7 @@ class PagesController < ApplicationController
 	end
 
   def deals_list
-    url = "https://mobilematcher.co.uk/deals/fetch"
+    url = "https://mobilematcher.herokuapp.com/deals/fetch"
     uri = URI(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
