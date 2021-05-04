@@ -2,6 +2,9 @@
   <div class="exit-delivery">
     <p id="notice"><%= notice %></p>
     <h1 class="text-center">Redirect URLS</h1>
+    <div class="container pb-3">
+      <%= render "exit_deliveries/filters" %>
+    </div>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -42,7 +45,6 @@
         <% end %>
       </tbody>
     </table>
-
     <br>
     <div class="text-center">
       <%= link_to 'New Exit Delivery', new_exit_delivery_path, :class => "btn btn-info btn-xs text-white" %>

@@ -5,7 +5,13 @@ class ExitDeliveriesController < ApplicationController
   # GET /exit_deliveries
   # GET /exit_deliveries.json
   def index
-    @exit_deliveries = ExitDelivery.all
+    if params[:status]
+      @exit_deliveries = ExitDelivery.where(status: params[:status])
+    elsif params[:functional]
+      @exit_deliveries = ExitDelivery.where(functional: params[:functional])
+    else
+      @exit_deliveries = ExitDelivery.all
+    end
   end
 
   # GET /exit_deliveries/1
