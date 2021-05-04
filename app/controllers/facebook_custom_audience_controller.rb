@@ -41,7 +41,7 @@ class FacebookCustomAudienceController < ApplicationController
       ]
     }
 
-    uri = URI("https://graph.facebook.com/v9.0/#{audience_id}/users")
+    uri = URI("https://graph.facebook.com/v10.0/#{audience_id}/users")
     http = Net::HTTP.new(uri.host, uri.port)
 
     http.use_ssl = true
