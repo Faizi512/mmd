@@ -5,7 +5,6 @@ class ExclusiveO2Load extends Common {
     super();
     var CI = this;
     this.getFormDetails('#o2dealsform');
-    CI.postData()
 
     $('.btn-deal').click(function() {
       window.location = CI.details.success_url+"?device="+ $(this).prev('input#device').val()
@@ -14,6 +13,7 @@ class ExclusiveO2Load extends Common {
   }
 
   successUrl(){}
+  exitDelivery(){}
 
 }
 
