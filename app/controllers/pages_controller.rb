@@ -61,6 +61,8 @@ class PagesController < ApplicationController
   def exclusive_o2_deals_load
     exclusive_o2_load
     fetch_products('o2')
+    RemarketingLeadJob.perform_later(params.permit!)
+    DukestoreLeadJob.perform_later(params.permit!)
   end
 
   def sim_deals
