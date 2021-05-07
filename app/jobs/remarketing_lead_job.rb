@@ -6,6 +6,7 @@ class RemarketingLeadJob < ApplicationJob
       url = 'https://dukeleads.leadbyte.co.uk/api/submit.php'
       params[:campid] = "MEGA-MOBILE-DEALS"
       params[:returnjson] = "yes"
+      params[:campaignkey] = 'E9F2N6A3R5'
       params[:'opt-in_date'] = DateTime.now
       params[:'opt-in_url'] = "https://deals.megamobiledeals.com/"+ params[:action]
       resp = Faraday::Connection.new.get(url, params.as_json) { |request| request.options.timeout = 25 }
