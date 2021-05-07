@@ -3,7 +3,6 @@ class DukestoreLeadJob < ApplicationJob
 
   def perform(data)
     begin
-      debugger
       url = 'https://dukestore.herokuapp.com/api/v1/lead'
       data[:campid] = "MEGA-MOBILE-DEALS"
       data[:campaign_name] = "MEGA-MOBILE-DEALS"

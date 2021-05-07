@@ -3,7 +3,6 @@ class RemarketingLeadJob < ApplicationJob
 
   def perform(params)
     begin
-      debugger
       url = 'https://dukeleads.leadbyte.co.uk/api/submit.php'
       params[:campid] = "MEGA-MOBILE-DEALS"
       params[:returnjson] = "yes"
