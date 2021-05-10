@@ -58,7 +58,7 @@ class LeadController < ApplicationController
 
   def accept_leads
     leads = LeadCount.where(redirect_date: DateTime.now)
-    rmktg_leads_count  = leads.where(source: 'RMKTG').count
+    rmktg_leads_count  = leads.where(source: 'RMKTG').count + 1
     if leads.count < 500 && rmktg_leads_count/leads.count.to_f * 100 <= 20.to_f
       url = "https://acceptedmobile.co.uk/apps/"
       uri = URI(url)
