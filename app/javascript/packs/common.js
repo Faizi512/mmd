@@ -640,6 +640,7 @@ class Common {
       },
       error: function(request){
         console.log(request.statusText)
+        console.log(request.statusText)
       },
       dataType: "json"
     })
@@ -698,7 +699,7 @@ class Common {
         if(data.response && data.response.result.accepted == "1"){
           console.log("Going to redirect accepted mobbile: "+new Date())
           var link = $("<a>");
-          link.attr("href", `/accept_leads_count?url=${data.response.result.url}&accept_page=${acceptPage}`);
+          link.attr("href", `/accept_leads_count?url=${data.response.result.url}&accept_page=${acceptPage}&source=${formData.source}&complete_data=${JSON.stringify(formData)}`);
           link[0].click()
 
         }else{

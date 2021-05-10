@@ -23,10 +23,15 @@ class LeadController < ApplicationController
   end
 
   def accept_leads_count
-    LeadCount.create(url: params[:url], redirect_date:  DateTime.now, accept_page: params[:accept_page])
+    LeadCount.create(
+        url: params[:url],
+        redirect_date:  DateTime.now,
+        accept_page: params[:accept_page],
+        source: params[:source],
+        complete_data: params[:complete_data].as_json
+      )
     redirect_to params[:url]
   end
-
 
   def lead_search
     data =  {
@@ -52,7 +57,9 @@ class LeadController < ApplicationController
   end
 
   def accept_leads
-    if LeadCount.where(redirect_date: DateTime.now).count < 500
+    leads = LeadCount.where(redirect_date: DateTime.now)
+    rmktg_leads_count  = leads.where(source: 'RMKTG').count
+    if leads.count < 500 && rmktg_leads_count/leads.count.to_f * 100 <= 20.to_f
       url = "https://acceptedmobile.co.uk/apps/"
       uri = URI(url)
       data = params.as_json
