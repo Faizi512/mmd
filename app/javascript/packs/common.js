@@ -640,7 +640,6 @@ class Common {
       },
       error: function(request){
         console.log(request.statusText)
-        console.log(request.statusText)
       },
       dataType: "json"
     })
