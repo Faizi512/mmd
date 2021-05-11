@@ -27,7 +27,7 @@ class LeadController < ApplicationController
         url: params[:url],
         redirect_date:  DateTime.now,
         accept_page: params[:accept_page],
-        source: params[:source].downcase,
+        source: params[:source]&.downcase,
         complete_data: params.as_json
       )
     redirect_to params[:url]
@@ -59,7 +59,7 @@ class LeadController < ApplicationController
   def accept_leads
     leads = LeadCount.where(redirect_date: DateTime.now)
     if leads.count < 500
-      if params[:source].downcase == 'rmktg'
+      if params[:source]&.downcase == 'rmktg'
         rmktg_leads_count  = leads.where(source: 'rmktg').count + 1
         if leads.count == 0 ? true : rmktg_leads_count/leads.count.to_f * 100 <= 20.to_f
           submit_accepted_lead(params)
