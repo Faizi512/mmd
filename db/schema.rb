@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_065502) do
+ActiveRecord::Schema.define(version: 2021_05_10_070455) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_04_05_065502) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "accept_page", default: false
+    t.string "source"
+    t.json "complete_data"
   end
 
   create_table "leads", force: :cascade do |t|
