@@ -693,13 +693,13 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}`,
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}&source=${formData.source}`,
       success: function(data) {
         console.log(data.response)
         if(data.response && data.response.result.accepted == "1"){
           console.log("Going to redirect accepted mobbile: "+new Date())
           var link = $("<a>");
-          link.attr("href", `/accept_leads_count?url=${data.response.result.url}&accept_page=${acceptPage}&source=${formData.source}&complete_data=${JSON.stringify(formData)}`);
+          link.attr("href", `/accept_leads_count?url=${data.response.result.url}&accept_page=${acceptPage}&source=${formData.source}&first_name=${formData.firstname}&last_name=${formData.lastname}&email=${formData.email}&home_tel=${formData.phone1}&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&handset_id=${CI.productId}&postcode=${formData.postcode}&trafficid=${formData.trafficid}`);
           link[0].click()
 
         }else{
