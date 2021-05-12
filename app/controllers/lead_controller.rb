@@ -1,5 +1,6 @@
 class LeadController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!, only: [:accepeted_lead_data]
   require 'active_support/core_ext/hash/conversions'
 
   def submitLead
