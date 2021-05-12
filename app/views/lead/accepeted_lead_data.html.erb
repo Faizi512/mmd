@@ -11,6 +11,7 @@
         <th scope="col">Total Leads</th>
         <th scope="col">Standard leads</th>
         <th scope="col">Accpet page leads</th>
+        <th scope="col">Source</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,16 @@
           <td><%= lead.count%></td>
           <td><%= LeadCount.where(accept_page: false, id: lead.map(&:id)).count%></td>
           <td><%= LeadCount.where(accept_page: true, id: lead.map(&:id)).count%></td>
+          <td>
+            <% LeadCount.where(id: lead.map(&:id)).group_by(&:source).each do  |source, lead| %>
+              <% if source %>
+                <div class="badge badge-primary">
+                  <strong> <%= source %></strong>
+                  <span class="badge badge-warning"> <%= lead.count %></span>
+                </div>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
