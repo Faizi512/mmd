@@ -1,0 +1,26 @@
+.pagination{
+  padding: 1.25rem;
+  text-align: center;
+  .previous_page, .next_page{
+    display: none;
+  }
+  a,em{
+    color: rgba(255, 255, 255, 1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  a{
+    margin: 0 5px;
+    background-color: rgba(243, 244, 246, 1);
+    border-color: rgb(229, 231, 235);
+    color: black;
+    &:hover{
+      text-decoration: none;
+      background-color: rgba(79, 70, 229, 1);
+      color: #fff;
+    }
+  }
+  em, .current{
+    background-color: rgba(79, 70, 229, 1);
+  }
+}

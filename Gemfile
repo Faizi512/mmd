@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # gem for devise installation
 gem 'devise'
+# gem for pagination
+gem 'will_paginate'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

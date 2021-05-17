@@ -20,7 +20,22 @@ class LeadController < ApplicationController
   end
 
   def accepeted_lead_data
-    @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date)
+    if params[:daterange].present?
+      start_date = params[:daterange].split('to').first.strip
+      end_date = params[:daterange].split('to').last.strip
+      @acceptedleads = LeadCount.where(redirect_date: (start_date)..(end_date)).order(redirect_date: :desc).group_by(&:redirect_date)
+      @accepted_leads_count = LeadCount.where(redirect_date: (start_date)..(end_date)).count
+    else
+      @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date)
+      @accepted_leads_count = LeadCount.where(redirect_date: (1.month.ago.beginning_of_month)..(1.month.ago.end_of_month)).count
+    end
+  end
+
+  def accepted_lead_details
+    if params[:date]
+      @accepted_leads =
+        LeadCount.where(redirect_date: params[:date]).order(created_at: :desc).paginate(page: params[:page], per_page: 50)
+    end
   end
 
   def accept_leads_count
