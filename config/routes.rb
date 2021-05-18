@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/lead_search' => 'lead#lead_search'
   get '/accept_leads_count' => 'lead#accept_leads_count'
   get '/accepeted_lead_data' => 'lead#accepeted_lead_data'
+  get '/accepted_lead_details' => 'lead#accepted_lead_details'
 
   root 'pages#index'
   get '/ee_deals' => 'pages#ee_deals'

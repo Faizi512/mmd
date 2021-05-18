@@ -1,0 +1,44 @@
+<%# @acceptedleads.each do |lead| %>
+  <!-- <span><%#= lead.id %></span><br> -->
+<%# end %>
+<div class="container">
+  <div class="leads">
+    <h1 class="text-center">LEADS</h1>
+    <div class="table-responsive">
+      <table id="response_table" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Lead Time</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Postcode</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Source</th>
+            <th>Accept page</th>
+          </tr>
+        </thead>
+
+        <tbody id="entries">
+          <% @accepted_leads.each do |lead| %>
+            <% if lead.complete_data.present? %>
+              <tr>
+                <td><%= lead.created_at.to_s(:long) %></td>
+                <td><%= lead.complete_data['first_name'] %></td>
+                <td><%= lead.complete_data['last_name'] %></td>
+                <td><%= lead.complete_data['postcode'] %></td>
+                <td><%= lead.complete_data['email'] %></td>
+                <td><%= lead.complete_data['home_tel'] %></td>
+                <td><% if lead.source? %><%= lead.source %><% end %></td>
+                <td><%= lead.accept_page %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center w-100">
+      <%= will_paginate @accepted_leads %>
+    </div>
+  </div>
+</div>
