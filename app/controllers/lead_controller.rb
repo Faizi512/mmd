@@ -23,12 +23,15 @@ class LeadController < ApplicationController
     if params[:daterange].present?
       start_date = params[:daterange].split('to').first.strip
       end_date = params[:daterange].split('to').last.strip
-      @acceptedleads = LeadCount.where(redirect_date: (start_date)..(end_date)).order(redirect_date: :desc).group_by(&:redirect_date)
-      @accepted_leads_count = LeadCount.where(redirect_date: (start_date)..(end_date)).count
+      leads = LeadCount.where(redirect_date: (start_date)..(end_date))
+      @acceptedleads = leads.order(redirect_date: :desc).group_by(&:redirect_date)
+      @accepted_leads_count = leads.count
     else
       @acceptedleads = LeadCount.all.order(redirect_date: :desc).group_by(&:redirect_date)
-      @accepted_leads_count = LeadCount.where(redirect_date: (1.month.ago.beginning_of_month)..(1.month.ago.end_of_month)).count
+      @accepted_leads_count =
+        LeadCount.where(redirect_date: (1.month.ago.beginning_of_month)..(1.month.ago.end_of_month)).count
     end
+    @current_month_leads_count = LeadCount.where(redirect_date: (Date.today.at_beginning_of_month)..(Date.today)).count
   end
 
   def accepted_lead_details

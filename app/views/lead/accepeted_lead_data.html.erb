@@ -1,11 +1,22 @@
 <%= javascript_pack_tag 'accepted_lead_data', 'data-turbolinks-track': 'reload', defer: true %>
 <div class="container mt-4">
   <h2 class="text-center ">Accepted Lead Data</h2>
-  <div class="row w-100 justify-content-center align-items-center my-3">
-    <h5 class="text-muted mb-0">
-      <%= params[:daterange].present? ? 'Leads Count = ' : 'Previous Month Leads = ' %>
-    </h5>
-    <h5 class="pMonthLeads ml-3 mb-0 text-success"><%= @accepted_leads_count %></h5>
+  <div class="my-3">
+    <% unless params[:daterange].present? %>
+      <div class="previous-month-count d-flex justify-content-center my-2">
+        <h5 class="text-muted mb-0">Previous Month Leads = </h5>
+        <h5 class="MonthLeads ml-3 mb-0 text-success"><%= @accepted_leads_count %></h5>
+      </div>
+      <div class="current-month-count d-flex justify-content-center my-2">
+        <h5 class="text-muted mb-0">Current Month Leads = </h5>
+        <h5 class="MonthLeads ml-3 mb-0 text-success"><%= @current_month_leads_count %></h5>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-center my-2">
+        <h5 class="text-muted mb-0">Leads Count = </h5>
+        <h5 class="MonthLeads ml-3 mb-0 text-success"><%= @accepted_leads_count %></h5>
+      </div>
+    <% end %>
   </div>
   <div>
     <form method="get" action="/accepeted_lead_data" class="d-flex align-items-center justify-content-end">
