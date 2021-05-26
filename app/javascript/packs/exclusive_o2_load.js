@@ -13,12 +13,10 @@ class ExclusiveO2Load extends Common {
     });
 
   }
-
   submitLead(data,campid){
     this.exitDelivery()
     this.checkLeadStatus(data)
   }
-
   successUrl(){}
 }
 

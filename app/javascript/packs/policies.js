@@ -1,7 +1,15 @@
 class Policies {
   constructor() {
     this.getPolicies();
+    $( document ).ajaxSuccess(function() {
+      var chk1 = $("input[type='checkbox'][name='agree']");
+      if(chk1.length === 0) {
+        var check = $("input[type='checkbox'][name='partners-tp']");
+        check.prop('checked',true)
+      }
+    });
   }
+
   getPolicies(){
     $('.content').each(function(){
       let element = $(this)

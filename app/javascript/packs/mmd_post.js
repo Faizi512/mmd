@@ -9,6 +9,12 @@ class MmdPost extends Common {
     this.showClock()
     this.TogglePopUp()
     this.ToggleCheckBox()
+    this.popupTerms()
+
+    $( document ).ready(function() {
+      var check = $("input[type='checkbox'][name='partners-tp']");
+      check.prop('checked',true)
+    });
     $('.submit-mmd-form').click(function(event) {
       event.preventDefault();
       if (CI.submtForm == false) {
