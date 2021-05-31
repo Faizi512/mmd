@@ -16,6 +16,8 @@ class Api::V1::Webhooks::GoogleLeadsController < ApplicationController
         @data[:lead][:towncity] = user[:string_value]
       when "ZIP_CODE"
         @data[:lead][:postcode] = user[:string_value]
+      when "POSTAL_CODE"
+        @data[:lead][:postcode] = user[:string_value]
       when "PHONE_NUMBER"
         @data[:lead][:phone1] = user[:string_value]
       when "EMAIL"
