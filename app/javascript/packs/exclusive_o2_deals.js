@@ -50,7 +50,7 @@ class ExclusiveO2Deals extends Common {
       matchtype: this.getUrlParameter('matchtype') || "",
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
-      ipaddress: this.ip_Address,
+      ipaddress: this.details.ipaddress,
       uu_id: this.details.uu_id,
       gclid: this.getUrlParameter('gclid') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,

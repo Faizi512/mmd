@@ -31,6 +31,7 @@ module PagesHelper
       quick_submit: true,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -47,6 +48,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -63,6 +65,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -79,6 +82,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -95,6 +99,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -111,6 +116,7 @@ module PagesHelper
       quick_submit: true,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -127,6 +133,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -143,6 +150,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -159,6 +167,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -175,6 +184,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -192,6 +202,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -208,6 +219,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -224,6 +236,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -240,6 +253,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -256,6 +270,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -272,6 +287,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -288,6 +304,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -304,6 +321,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -320,6 +338,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
   end
 
@@ -336,6 +355,7 @@ module PagesHelper
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
     }.to_json
 
     @o2simdeals = [
