@@ -576,7 +576,7 @@ class Common {
       optindate: this.getFormattedCurrentDate(),
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       url_with_params: window.location.href,
-      ipaddress: this.ip_Address,
+      ipaddress: this.details.ipaddress,
       uu_id: this.details.uu_id,
       gclid: this.getUrlParameter('gclid') || "",
       matchtype: this.getUrlParameter('matchtype') || "",

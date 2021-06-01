@@ -258,7 +258,7 @@ class EEDeals extends Common {
       optinurl: 'deals.megamobiledeals.com'+ this.details.optin_url,
       url_with_params: window.location.href,
       gclid: this.getUrlParameter('gclid') || "",
-      ipaddress: this.ip_Address,
+      ipaddress: this.details.ipaddress,
       uu_id: this.details.uu_id,
       traffictype: this.getUrlParameter('traffictype') || "",
       matchtype: this.getUrlParameter('matchtype') || "",
