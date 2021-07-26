@@ -18,7 +18,7 @@ class Policies {
         url: `https://mobilematcher.co.uk/policies/${element.attr('data-page')}?brand=deals.megamobiledeals.com`,
         success: function(res) {
           element.html(res.html)
-        }, 
+        },
         dataType: "json"
       })
     })
