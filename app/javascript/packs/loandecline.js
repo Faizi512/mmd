@@ -10,12 +10,13 @@ class LoanDecline extends Common {
     this.TogglePopUp()
     this.ToggleCheckBox()
     this.popupTerms()
+    this.popupPrivacy();
 
     // $( document ).ready(function() {
     //   var check = $("input[type='checkbox'][name='partners-tp']");
     //   check.prop('checked',true)
     // });
-    
+
     $('.submit-mmd-form').click(function(event) {
       event.preventDefault();
       if (CI.submtForm == false) {
