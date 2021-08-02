@@ -77,17 +77,18 @@ class LeadController < ApplicationController
 
   def accept_leads
     leads = LeadCount.where(redirect_date: DateTime.now)
-    if leads.count < 500
-      if params[:source]&.downcase == 'rmktg'
-        rmktg_leads_count  = leads.where(source: 'rmktg').count + 1
-        if leads.count == 0 ? true : rmktg_leads_count/leads.count.to_f * 100 <= 20.to_f
+    if check_address
+      if leads.count < 500
+        if params[:source]&.downcase == 'rmktg'
+          rmktg_leads_count  = leads.where(source: 'rmktg').count + 1
+          if leads.count == 0 ? true : rmktg_leads_count/leads.count.to_f * 100 <= 20.to_f
+            submit_accepted_lead(params)
+          end
+        else
           submit_accepted_lead(params)
         end
-      else
-        submit_accepted_lead(params)
       end
     end
-
     puts Time.now
     render json: {status: 200, response: @response || nil}
   end
@@ -105,5 +106,9 @@ class LeadController < ApplicationController
     puts res.body
     puts "****" * 30
     puts @response =  Hash.from_xml(res.body)
+  end
+
+  def check_address
+    params[:street].downcase != "unknown" && params[:town].downcase != "unknown" && params[:county].downcase != "unknown" && params[:house_number].downcase != "unknown" && params[:postcode].present?
   end
 end
