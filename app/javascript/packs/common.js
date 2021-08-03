@@ -440,7 +440,7 @@ class Common {
       tabs[CI.currentTab].style.display = "none";
       CI.currentTab = CI.currentTab + n;
       if (CI.currentTab >= tabs.length) {
-        if (CI.customValidator('#dealform') == true && CI.isPhone == true && CI.isEmail == true){
+        if (CI.customValidator('#dealform') == true && CI.isPhone == true && CI.isEmail == true){ 
           $('.but_loader').show()
           $('.nextStep').prop('disabled', true);
           CI.postData()

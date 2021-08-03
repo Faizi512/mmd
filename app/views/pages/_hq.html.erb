@@ -1,0 +1,14 @@
+<%= javascript_pack_tag 'hq', 'data-turbolinks-track': 'reload', defer: true %>
+<div id="new-hq-page">
+  <%= render 'layouts/hq/header' %>
+  <%= render 'layouts/hq/main-banner' %>
+  <div class="mb-3"></div>
+  <%= render 'layouts/common/form_network_logo' %>
+  <div class="mt-3 border-top"></div>
+  <%= render 'layouts/hq/deals' %>
+  <%= render 'layouts/hq/testimonials'  %>
+  <%= render 'layouts/hq/why-choose-us'  %>
+  <%= render 'layouts/hq/faq' %>
+  <%= render 'layouts/common/footer' %>
+  <%= render 'layouts/common/waiting_loader' %>
+</div>

@@ -1,0 +1,44 @@
+<section id="deals">
+  <div class="col-md-12 col-10 mx-auto py-5">
+    <h3 class="mb-0 fw-500 text-center">Most popular phones of the month</h3>
+  </div>
+  <div class="wrapper">
+    <div class="row p-md-5 p-0 mx-0 w-100">
+      <div class="col-3 d-lg-block d-none border-right">
+        <div class="border sticky-top sticky-banner">
+          <div class="phone-deal p-5">
+            <h3 class="text-white">POPULAR CONTRACT DEALS</h3>
+          </div>
+          <div class="phone-img position-absolute">
+            <%= image_tag( 'phone/iphonexsmax.png', width: '180px')%>
+          </div>
+          <div class="py-4 text-center">
+            <button class="btn rounded-pill shadow fw-bold text-white text-uppercase px-3 deal-banner-btn open-form">Check Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="row p-0 mx-0 w-100">
+          <% @phones.each do |phone| %>
+            <div class="col-md-4 col-6 mb-5">
+              <h5 class="deal-phone-name text-center mb-3 fw-bold">
+                <%= phone[:name] %>
+              </h5>
+              <div class="deal-phone-img mb-3">
+                <%= image_tag(phone[:image], class: "w-100 h-100" ) %>
+              </div>
+              <div class="deal-phone-description text-center">
+                <h5 class="mb-0">£0.00</h5>
+                <p class="text-muted fs-14 mb-0">Upfront</p>
+                <button class="btn btn-sm px-3 mt-3 rounded-pill text-blue bg-white col-md-8 deal-phone-button open-form">
+                  Get Deal
+                </button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
