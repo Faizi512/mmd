@@ -1,0 +1,488 @@
+$primary-color: #1d39f2;
+$secondary-color: #2b3f82;
+$red-color: #ff0044;
+
+#new-hq-page{
+  .bg-gradient{
+    background-image: linear-gradient(104deg, #273f83 50%, #fa0e44d6 100%);
+  }
+  .text-danger{
+    color: $red-color !important;
+  }
+  .bg-danger{
+    background-color: $red-color !important;
+  }
+  .bg-gray{
+    background-color: #f5f6f8 !important;
+  }
+  .text-gray{
+    color: #f5f6f8 !important;
+  }
+  .text-blue{
+    color: $primary-color !important;
+  }
+  .text-purple{
+    color: $secondary-color;
+  }
+  .bg-blue{
+    background-color: $primary-color !important;
+  }
+  .bg-purple{
+    background-color: $secondary-color !important;
+  }
+  .txt-ligt-blu{
+    color: #263f83 !important;
+  }
+  .h-220{
+    height: 220px;
+  }
+  .input-group-text {
+    padding: 0.1rem 0.75rem !important; 
+  }
+  .text-light-500{
+    color: #BFBFBF;
+  }
+  .bg-red{
+    background-color: #e63a67;
+  }
+  .wrapper{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1380px;
+  }
+  .shadow-custom{
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15) !important;
+  }
+  .bg-light-blur{
+    background-color: #f8f9fa94 !important
+  }
+  .progress {
+    display: flex;
+    height: 3px;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0.75rem;
+    background-color: #e9ecef;
+    border-radius: 0rem;
+  }
+
+  @media screen and (max-width: 520px){
+    .fs-sm-18{
+      font-size: 18px;
+    }
+  }
+
+  #main-banner{
+    .banner-button{
+      background-color: $red-color;
+      box-shadow: 0 0.5rem 1rem rgba(255, 0, 68 , 0.33) !important;
+    }
+    .main-banner-img{
+      height: 400px;
+      img{
+        object-fit: contain;
+      }
+      @media screen and (max-width: 575px){
+        height: 365px;
+      }
+    }
+  }
+
+  #network-logos{
+    .network-icon{
+      height: 45px;
+      width: 45px;
+      img{
+        object-fit: contain;
+      }
+    }
+  }
+
+  #deals{
+    .phone-deal{
+      height: 450px;
+      background-image: linear-gradient(45deg, #273f83 30%, #fa0e44d6 100%);
+      clip-path:polygon(0% 0%, 300% 0%, 0% 100%, 0% 100%);
+    }
+    .phone-img{
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+    }
+    .deal-banner-btn{
+      background-color: $red-color;
+      box-shadow: 0 0.5rem 1rem rgba(255, 0, 68 , 0.33) !important;
+    }
+    .deal-phone-button{
+      border: 2px solid $primary-color;
+      &:hover{
+        background-color: $primary-color !important;
+        color: #fff !important;
+      }
+    }
+    .deal-phone-name{
+      @media screen and (max-width: 575px){
+        height: 40px;
+      }
+    }
+    .sticky-banner{
+      top: 20px;
+    }
+    .deal-phone-img{
+      height: 250px;
+      img{
+        object-fit: contain;
+      }
+    }
+  }
+
+  #testimonials{
+    background-image: linear-gradient(135deg, #fa0e44d6 0%, #273f83 100%);
+    .comments{
+      transition: 0.3s all ease-in-out;
+      background-color: rgba(255,255,255,0.18);
+      .description{
+        height: 90px;
+        @media screen and (max-width: 575px){
+          height: 110px;
+        }
+        @media (min-width: 575px) and (max-width: 768px){
+          height: 164px;
+        }
+        @media (min-width: 769px) and (max-width: 992px){
+          height: 156px;
+        }
+        @media (min-width: 992px) and (max-width: 1200px){
+          height: 126px;
+        }
+      }
+      .user-image{
+        top:0;
+        transform: translateY(-50%);
+        border-width: 2px!important;
+        height: 80px;
+        width: 80px;
+        img{
+          object-fit: cover;
+        }
+      }
+      .quote-img{
+        font-size: 52px;
+        right: 0;
+        bottom: -14px;
+        opacity: 0.8;
+        @media (min-width: 992px) and (max-width: 1200px){
+          font-size: 42px;
+        }
+         @media (min-width: 768px) and (max-width: 992px){
+          font-size: 32px;
+          bottom: -6px;
+        }
+      }
+      &:hover{
+        transform: scale(1.02);
+        box-shadow: 0 16px 32px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15) !important;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #services-section{
+    .featured-box{
+      transition: 0.6s all ease-in-out;
+      .featured-inner{
+        border-color: transparent !important;
+      }
+      .featured-description{
+        color: gray;
+      }
+      .featured-box-border{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: scale(0);
+        transition: 0.5s all ease-in-out;
+      }
+      &:hover{
+        .featured-inner, h6{
+          color: #fff !important;
+          .featured-description{
+            color: #fff !important;
+            .arrow-icon{
+              transform: rotate(360deg);
+              color: #fff !important;
+            }
+          }
+        }
+        .featured-box-border{
+          transform: scale(1);
+        }
+        cursor: pointer;
+        transform: translateY(-10px);
+        background-color: #5a3c7b;
+      }
+    }
+  }
+
+  #multi-step-form{
+    .onoffswitch-label, input:checked ~ label{
+      border-color: #fa0e44 !important;
+    }
+    .onoffswitch-inner:before {
+      content: "Yes";
+      padding-left: 10px;
+      background-color: #fa0e44;
+      color: #FFFFFF;
+      text-align: left;
+    }
+    .form-icon{
+      height: 35px;
+      width: 35px;
+      img{
+        object-fit: contain;
+      }
+    }
+    .card0 {
+      background-color: #F5F5F5;
+      border-radius: 8px;
+      z-index: 0
+    }
+
+    .card00 {
+      z-index: 0
+    }
+
+    .card1 {
+      margin-left: 68px;
+      z-index: 0;
+      border-right: 1px solid #F5F5F5
+    }
+
+    .card2 {
+      display: none
+    }
+
+    .card2.show {
+      display: block
+    }
+
+    .social {
+      border-radius: 50%;
+      background-color: #FFCDD2;
+      color: $red-color;
+      height: 47px;
+      width: 47px;
+      padding-top: 16px;
+      cursor: pointer
+    }
+
+    input,
+    select {
+      padding-left: 17px;
+      border-radius: 0px;
+      box-sizing: border-box;
+      color: #000;
+      border: 1px solid #BDBDBD;
+      font-size: 16px;
+      letter-spacing: 1px;
+      height: 50px !important
+    }
+
+    select {
+      width: 100%;
+      margin-bottom: 85px
+    }
+
+    input:focus,
+    select:focus {
+      -moz-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      border: 1px solid $red-color !important;
+      outline-width: 0 !important
+    }
+
+    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+      background-color: $red-color
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+      width: 77%
+    }
+
+    .form-control-placeholder {
+      z-index: -1;
+      position: absolute;
+      top: 0px;
+      padding: 12px 2px 0 2px;
+      transition: all 300ms;
+      opacity: 0.5
+    }
+
+    .form-control:focus+.form-control-placeholder,
+    .form-control:valid+.form-control-placeholder {
+      font-size: 95%;
+      top: 10px;
+      transform: translate3d(0, -100%, 0);
+      opacity: 1;
+      background-color: #fff;
+      z-index: 1;
+    }
+
+    .next-button {
+      height: 50px;
+      background-color: $red-color;
+      color: #fff;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer
+    }
+
+    .next-button:hover {
+      background-color: $red-color;
+      color: #fff
+    }
+
+    .get-bonus {
+      margin-left: 102px
+    }
+
+    .pic {
+      height: 110px
+    }
+
+    #progressbar {
+      position: absolute;
+      left: -17px;
+      top: -5px;
+      overflow: hidden;
+      color: $red-color
+    }
+
+    #progressbar li {
+      list-style-type: none;
+      font-size: 8px;
+      font-weight: 400;
+      margin-bottom: 36px
+    }
+
+    #progressbar li:nth-child(3) {
+      margin-bottom: 88px
+    }
+
+    #progressbar .step0:before {
+      content: "";
+      color: #fff
+    }
+
+    #progressbar li:before {
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      display: block;
+      font-size: 20px;
+      background: #fff;
+      border: 2px solid $red-color;
+      border-radius: 50%;
+      margin: auto
+    }
+
+    #progressbar li:last-child:before {
+      width: 40px;
+      height: 40px
+    }
+
+    #progressbar li:after {
+      content: '';
+      width: 3px;
+      height: 66px;
+      background: #BDBDBD;
+      position: absolute;
+      left: 54px;
+      top: 15px;
+      z-index: -1
+    }
+
+    #progressbar li:last-child:after {
+      top: 147px;
+      height: 132px
+    }
+
+    #progressbar li:nth-child(3):after {
+      top: 81px
+    }
+
+    #progressbar li:nth-child(2):after {
+      top: 0px
+    }
+
+    #progressbar li:first-child:after {
+      position: absolute;
+      top: -81px
+    }
+
+    #progressbar li.active:after {
+      background: $red-color
+    }
+
+    #progressbar li.active:before {
+      background: $red-color;
+      font-family: FontAwesome;
+      content: "\f00c"
+    }
+
+    .tick {
+      width: 100px;
+      height: 100px
+    }
+
+    .prev {
+      display: block;
+      height: 50px;
+      border: 2px solid;
+      cursor: pointer;
+      background-color: $red-color;
+      color: #fff !important;
+      border-radius: 6px;
+    }
+
+    .prev:hover {
+      background-color: $red-color;
+      color: #fff !important;
+    }
+
+    @media screen and (max-width: 912px) {
+      .card00 {
+        padding-top: 30px
+      }
+
+      .card1 {
+        border: none;
+        margin-left: 50px
+      }
+
+      .card2 {
+        border-bottom: 1px solid #F5F5F5;
+        margin-bottom: 25px
+      }
+      .social {
+        height: 30px;
+        width: 30px;
+        font-size: 15px;
+        padding-top: 8px;
+        margin-top: 7px
+      }
+      .get-bonus {
+        margin-top: 40px !important;
+        margin-left: 75px
+      }
+
+      #progressbar {
+        left: -25px
+      }
+    }
+  }
+}
