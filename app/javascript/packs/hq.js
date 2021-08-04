@@ -12,8 +12,8 @@ class HQ extends Common {
     this.popupPrivacy()
     this.showTab(this.currentTab);
     $('.carousel').carousel({
-      interval: 2000
-    })
+      interval: false,
+    });
     $( ".property" ).change(function() {
       CI.TogglePopUp()
       CI.ToggleCheckBox()
