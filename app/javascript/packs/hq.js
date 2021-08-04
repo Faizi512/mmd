@@ -91,7 +91,7 @@ class HQ extends Common {
       sid: 722,
       ssid: this.getUrlParameter('ssid') || 1,
       ad_set: this.getUrlParameter('ad_set') || 1,
-      source:'social',
+      source: this.getUrlParameter('source') || 'social',
       traffictype: 'social',
       handset:this.getUrlParameter('handset') || this.phoneName || '',
       c1: this.getUrlParameter('c1') || this.getUrlParameter('bstransid') || this.getUrlParameter('transid') || '',
