@@ -18,9 +18,9 @@ class Api::V1::RedirectController < ApplicationController
   end
 
   def exit_deliveries
-    sold_deliveries = ExitDelivery.active_sold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_sold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact : ExitDelivery.active_sold_with_no_source
+    sold_deliveries = ExitDelivery.active_sold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_sold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact : ExitDelivery.active_sold_with_no_source
 
-    unsold_deliveries = ExitDelivery.active_unsold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_unsold.map{|s| s if params[:source]&.downcase&.include?(s.source || "nostring" )}.compact  : ExitDelivery.active_unsold_with_no_source
+    unsold_deliveries = ExitDelivery.active_unsold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_unsold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact  : ExitDelivery.active_unsold_with_no_source
 
     @soldUrl = get_url(sold_deliveries, 'sold')
     @unsoldUrl = get_url(unsold_deliveries, 'unsold')

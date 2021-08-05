@@ -7,8 +7,8 @@ class ExitDelivery < ApplicationRecord
   scope :unsold, -> { where(status: "unsold", is_default: false).order(priority: :asc) }
   scope :active_sold, -> { where(status: "sold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   scope :active_unsold, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
-  scope :active_sold_with_no_source, -> { where(status: "sold", is_default: false, operational: "active", functional: "active", source: nil).order(priority: :asc) }
-  scope :active_unsold_with_no_source, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active", source: nil).order(priority: :asc) }
+  scope :active_sold_with_no_source, -> { where(status: "sold", is_default: false, operational: "active", functional: "active", source: "" || nil).order(priority: :asc) }
+  scope :active_unsold_with_no_source, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active", source: "" || nil).order(priority: :asc) }
 
   scope :active, -> { where(is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   def operational?
