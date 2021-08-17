@@ -342,7 +342,24 @@ module PagesHelper
     }.to_json
   end
 
-   def hq
+  def cheapest_mobile_deals
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      form_name: 'cheapest_mobile_deals',
+      optin_url: '/cheapest_mobile_deals',
+      sid: nil,
+      ssid: nil,
+      source:'cheapest_mobile_deals',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
+    }.to_json
+  end
+
+  def hq
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
