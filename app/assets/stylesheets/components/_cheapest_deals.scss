@@ -1,0 +1,157 @@
+$background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f09838 100%);
+
+#cheapest-deals{
+	.bg-header{
+		background-image: asset-url("banner-cheap.png");
+		background-size: cover;
+		background-position: center;
+		background-color: $background-gradient;
+	}
+	.gradient{
+		background: $background-gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.shadow-btn{
+		box-shadow: 0.5rem 0.5rem 1rem #00000040 !important;
+	}
+	.btn-orang{
+		background: linear-gradient(to right, #f46c22 0%, #f09838 100%) !important;
+    border: 2px solid white !important;
+    border-radius: 50px !important;
+    font-size: 25px;
+    font-weight: 900;
+    color: white !important;
+	}
+	.btn-orang:hover{
+		background: white !important;
+    border: 2px solid #f46c22 !important;
+    color: #f46c22 !important;
+	}
+	.networking-partner{
+		width: 5%;
+	}
+	.networking-partner1{
+		width: 3%;
+	}
+	.networking-partner2{
+		width: 4%;
+	}
+	.deal-box{
+		border-radius: 15px;
+		min-height: 316px;
+		background-color: white;
+		position: relative;
+	}
+	.bg-gradient{
+		background: $background-gradient;
+	}
+	.why-icon{
+		width: 105px;
+	}
+	.deal-box2{
+		border-radius: 15px;
+		min-height: 225px;
+		background: white;
+	}
+	.step-circle{
+		width: 45px;
+    height: 45px;
+    border: 3px solid #f46c22;
+    display: flex;
+    background-color: white;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: #4eaeec;
+	}
+
+	.zoom-effect
+	{
+    display:inline-block;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(0.9); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(0.9); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(0.9);
+    transition: all 200ms ease-in;
+    transform: scale(0.9);   
+
+	}
+	.zoom-effect:hover
+	{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    position: relative;
+	}
+	.btn-absolute{
+		position: absolute;
+    right: 50%;
+    bottom: 17px;
+    transform: translate(50%);
+	}
+	ul{
+		li{
+			display: flex;
+			i{
+				padding-top: 5px;
+			}
+		}
+	}
+	@media only screen and (max-width: 520px) {
+		.networking-partner{
+			width: 12%;
+		}
+		.networking-partner1{
+			width: 5%;
+		}
+		.networking-partner2{
+			width: 7%;
+		}
+		.text-roange{
+			color: #f46c22 !important;
+			-webkit-text-fill-color: #f46c22 !important;
+			background: none;
+		}
+		.text-blu{
+			color: #4eaeec !important;
+			-webkit-text-fill-color: #4eaeec !important;
+			background: none;
+		}
+		.step-circle{
+	    color: #4eaeec !important;
+		}
+		.btn-absolute{
+			position: relative;
+	    transform: inherit;
+	    right: auto;
+	    bottom: auto;
+		}
+		.deal-box{
+			min-height: auto;
+		}
+		.deal-box2{
+			min-height: auto;
+		}
+		.head-img{
+			width: 100%;
+		}
+		h3{
+			font-size: 22px;
+		}
+		h2{
+			font-size: 24px;
+		}
+	}
+}
