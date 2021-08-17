@@ -341,7 +341,7 @@ module PagesHelper
       ipaddress: request.remote_ip,
     }.to_json
   end
-
+  
   def cheapest_mobile_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
@@ -464,6 +464,126 @@ module PagesHelper
     ]
     partners_list
   end
+
+  def o2
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      form_name: 'o2-MMD',
+      optin_url: '/o2',
+      sid: nil,
+      ssid: nil,
+      source:'google-home-page',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+      token: @randon_token,
+      ipaddress: request.remote_ip,
+    }.to_json
+
+    @featured_deals = [
+      {
+        name: "iPhone 12",
+        image: "iphone_12_black.png",
+        url:"/success",
+        deposit: "£0"
+      },
+      {
+        name: "iPhone 11 Pro Max",
+        image: "phone/1iphone-11-pro-max.png",
+        url:"/success",
+        deposit: "£0"
+      }
+    ]
+
+    @phones = [
+      {
+        name: "iPhone 12",
+        btnt_text: "Exclusive Deal",
+        image: "iphone_12_black.png"
+      },
+      {
+        name: "iPhone 11",
+        btnt_text: "Get Deal",
+        image: "phone/iphone11.png",
+      },
+      {
+        name: "Galaxy S20",
+        btnt_text: "Exclusive Deal",
+        image: "phone/samsung-galaxy-s20-plus.png"
+      },
+      {
+        name: "iPhone XS",
+        btnt_text: "Get Deal",
+        image: "phone/iphonexs.png"
+      },
+      {
+        name: "Galaxy S10",
+        btnt_text: "Get Deal",
+        image: "phone/samsungs10.png"
+      },
+      {
+        name: "iPhone 11 Pro",
+        btnt_text: "Get Deal",
+        image: "phone/iphone11pro.png"
+      },
+      {
+        name: "Note 20 5G",
+        btnt_text: "Exclusive Deal",
+        image: "phone/note-20.jpg"
+      },
+      {
+        name: "Samsung A20",
+        btnt_text: "Get Deal",
+        image: "phone/samsung-a20.png"
+      },
+      {
+        name: "Galaxy S20 5G",
+        btnt_text: "Get Deal",
+        image: "phone/galaxy-s20-5g.png"
+      },
+      {
+        name: "iPhone SE 128GB",
+        btnt_text: "Get Deal",
+        image: "phone/iphonese.jpg"
+      },
+      {
+        name: "S20 Ultra 5G",
+        btnt_text: "Get Deal",
+        image: "phone/samsung-galaxy-s20-ultra-black.png"
+      },
+      {
+        name: "Huawei P30",
+        btnt_text: "Exclusive Deal",
+        image: "phone/huaweip30.png"
+      }
+    ]
+
+    @testimonials = [
+      {
+        name: 'Sophie',
+        comment: 'Brilliant service, ordered my phone and it arrived the next day. Absolutely delighted!',
+        date: 'May 21, 2021',
+        image: 'comment1.jpg'
+      },
+      {
+        name: 'John',
+        comment: 'Got the latest iPhone with no upfront payment - really good offer.',
+        date: 'Jan 04, 2021',
+        image: 'comment3.jpg'
+      },
+      {
+        name: 'Elizabeth',
+        comment: 'Really helpful staff, got an amazing deal on my SIM only plan, saving over £15 per month now',
+        date: 'March 03, 2021',
+        image: 'comment2.jpg'
+      }
+    ]
+    partners_list
+  end
+
+
 
   def sim_deal_v2
     @details = {
