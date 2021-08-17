@@ -110,6 +110,28 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 		}
 	}
 	@media only screen and (max-width: 520px) {
+		.networking-partner{
+			width: 12%;
+		}
+		.networking-partner1{
+			width: 5%;
+		}
+		.networking-partner2{
+			width: 7%;
+		}
+		.text-roange{
+			color: #f46c22 !important;
+			-webkit-text-fill-color: #f46c22 !important;
+			background: none;
+		}
+		.text-blu{
+			color: #4eaeec !important;
+			-webkit-text-fill-color: #4eaeec !important;
+			background: none;
+		}
+		.step-circle{
+	    color: #4eaeec !important;
+		}
 		.btn-absolute{
 			position: relative;
 	    transform: inherit;
