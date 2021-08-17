@@ -19,7 +19,7 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 		background: linear-gradient(to right, #f46c22 0%, #f09838 100%) !important;
     border: 2px solid white !important;
     border-radius: 50px !important;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 900;
     color: white !important;
 	}
@@ -39,7 +39,7 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 	}
 	.deal-box{
 		border-radius: 15px;
-		min-height: 316px;
+		min-height: 320px;
 		background-color: white;
 		position: relative;
 	}
@@ -154,4 +154,18 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 			font-size: 24px;
 		}
 	}
+}
+
+.pulse {
+  animation: stretch .5s ease-out alternate infinite;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.08);
+  }
 }
