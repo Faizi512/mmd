@@ -1,5 +1,7 @@
 $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f09838 100%);
-
+$primary-color: #33a6f5;
+$secondary-color: #2b3f82;
+$red-color: #ff0044;
 #cheapest-deals{
 	.bg-header{
 		background-image: asset-url("banner-cheap.png");
@@ -7,6 +9,9 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 		background-position: center;
 		background-color: $background-gradient;
 	}
+	.font-cabin{
+    font-family: 'Cabin Sketch', cursive !important;
+  }
 	.gradient{
 		background: $background-gradient;
 		-webkit-background-clip: text;
@@ -27,6 +32,33 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 		background: white !important;
     border: 2px solid #f46c22 !important;
     color: #f46c22 !important;
+	}
+	.bg-gradient-clip{
+		border-top-left-radius: 10px;
+		height: 330px;
+		background-image: linear-gradient(45deg, #f46c22 30%, #2ea7f8 100%);
+		clip-path: polygon(0% 0%, 300% 0%, 100% 100%, 0% 63%);
+	}
+	.deal-phone{
+		top: 0;
+		border-radius: 10px;
+		.exclusive-tag{
+			background-color: #ffe600;
+			border-radius: 10px;
+			border-bottom-right-radius: 0px !important;
+			color: black;
+			position: absolute;
+			top: -20px;
+	    right: -1px;
+	    padding: 6px 25px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+
+		}
+	}
+	.font-sim{
+		font-size: 15px !important;
 	}
 	.networking-partner{
 		width: 5%;
@@ -109,6 +141,46 @@ $background-gradient: linear-gradient(to right, #f46c22 10%, #2ea7f8 25%, #f0983
 			}
 		}
 	}
+
+    .phone-deal{
+      height: 450px;
+      background-image: linear-gradient(45deg, #273f83 30%, #fa0e44d6 100%);
+      clip-path:polygon(0% 0%, 300% 0%, 0% 100%, 0% 100%);
+    }
+    .phone-img{
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+    }
+    .deal-banner-btn{
+      background-color: $red-color;
+      box-shadow: 0 0.5rem 1rem rgba(255, 0, 68 , 0.33) !important;
+    }
+    .deal-phone-button{
+    	color: #33a6f5;
+    	font-size: 17px;
+    	font-weight: 700;
+      border: 2px solid $primary-color;
+      &:hover{
+        background: linear-gradient(to right, #f46c22 0%, #f09838 100%) !important;
+        border: 2px solid #f09838;
+        color: #fff !important;
+      }
+    }
+    .deal-phone-name{
+      @media screen and (max-width: 575px){
+        height: 40px;
+      }
+    }
+    .sticky-banner{
+      top: 20px;
+    }
+    .deal-phone-img{
+      height: 250px;
+      img{
+        object-fit: contain;
+      }
+    }
 	@media only screen and (max-width: 520px) {
 		.networking-partner{
 			width: 12%;
