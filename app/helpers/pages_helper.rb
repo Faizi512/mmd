@@ -357,6 +357,48 @@ module PagesHelper
       uu_id: @cookie_uuid,
       ipaddress: request.remote_ip,
     }.to_json
+     @phones = [
+      {
+        name: "iPhone 12",
+        btnt_text: "Exclusive Deal",
+        image: "iphone_12_black.png"
+      },
+      {
+        name: "Galaxy S20",
+        btnt_text: "Get Deal",
+        image: "phone/samsung-galaxy-s20-plus.png"
+      },
+      {
+        name: "iPhone 11 Pro",
+        btnt_text: "Exclusive Deal",
+        image: "phone/iphone11pro.png"
+      },
+      {
+        name: "Note 20 5G",
+        btnt_text: "Get Deal",
+        image: "phone/note-20.jpg"
+      },
+      {
+        name: "iPhone 11",
+        btnt_text: "Exclusive Deal",
+        image: "phone/iphone11.png",
+      },
+      {
+        name: "Huawei P30",
+        btnt_text: "Get Deal",
+        image: "phone/huaweip30.png"
+      },
+      {
+        name: "iPhone SE 128GB",
+        btnt_text: "Get Deal",
+        image: "phone/iphonese.jpg"
+      },
+      {
+        name: "S20 Ultra 5G",
+        btnt_text: "Exclusive Deal",
+        image: "phone/samsung-galaxy-s20-ultra-black.png"
+      },
+    ]
   end
 
   def hq
