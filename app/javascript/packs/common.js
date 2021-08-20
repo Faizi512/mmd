@@ -618,6 +618,8 @@ class Common {
     }
     else{
       var data = this.getData();
+      var item = {county: this.getUrlParameter("county") || $(".county").val()}
+      data = _.mergeWith(item,data, (data, item))
       CI.setItemToStorage("user_data", data)
       console.log("Postdata: "+new Date())
       this.submitLead(data, this.details.camp_id)
@@ -692,7 +694,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHouseNumb() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getCounty() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}&source=${formData.source}`,
+      url: `/accept-leads?affiliate=22&api_key=a892keduKe&handset_id=${CI.productId}&title=Mr&first_name=${formData.firstname}&last_name=${formData.lastname}&dob_d=28&dob_m=02&dob_y=1991&email=${formData.email}&home_tel=${formData.phone1}&mobile_tel=${formData.phone1}&house_number=${this.getHomeAddress() || "unknown" }&street=${formData.street1 || "unknown"}&town=${formData.towncity || "unknown"}&county=${this.getLastAddress() || "unknown"}&postcode=${formData.postcode}&ip_address=${formData.ipaddress || "192.168.1.1" }&agent_string=${formData.userAgent}&source=${formData.source}`,
       success: function(data) {
         console.log(data.response)
         if(data.response && data.response.result.accepted == "1"){
@@ -785,6 +787,22 @@ class Common {
 
   getHouseNumb(){
     return this.getUrlParameter('houseNumber') || $(".houseNumber").val() || '';
+  }
+
+  getHomeAddress(){
+    if( this.getItemFromStorage("user_data") != null){
+      return this.getItemFromStorage("user_data")["building"]
+    }else{
+      return this.getHouseNumb() || this.getUrlParameter('building') || $(".building").val() || ''
+    }
+  }
+
+  getLastAddress(){
+    if( this.getItemFromStorage("user_data") != null){
+      return this.getItemFromStorage("user_data")["county"]
+    }else{
+      return this.getCounty() || this.getUrlParameter('towncity') || $(".towncity").val() || '';
+    }
   }
 
   getCounty(){
