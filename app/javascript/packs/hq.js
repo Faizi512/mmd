@@ -88,7 +88,7 @@ class HQ extends Common {
       street2: this.getUrlParameter('street2') || $(".street2").val() || 'unknown',
       building: this.getUrlParameter('building') || $(".building").val() || 'unknown',
       towncity: this.getUrlParameter('towncity') || $(".towncity").val() || 'unknown',
-      sid: 722,
+      sid: this.getUrlParameter('sid') || 722,
       ssid: this.getUrlParameter('ssid') || 1,
       ad_set: this.getUrlParameter('ad_set') || 1,
       source: this.getUrlParameter('source') || 'social',
