@@ -1,60 +1,151 @@
+<%= javascript_pack_tag 'exclusive_deals', 'data-turbolinks-track': 'reload', defer: true %>
+<%= render 'layouts/homev2/header' %>
 <div class="exclusive-deals">
-  <div class="bg-blue-banner">
+  <div class="bg-light">
     <div class="row header-banner w-100 mx-0">
-      <div class="col-6 align-self-center text-center">
+      <div class="col-6 align-self-center text-white text-center">
         <h2>
           Get iPhone 12 Pro
         </h2>
         <p >
           With double data. 2GB instead of 1GB, from £48* a month, £30 upfront.
         </p>
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-warning rounded-pill px-4 open-form">
           Get Your Deal Now!
         </button>
       </div>
       <div class="col-6">
-        <div style="width:70%; height: 100%" class="mx-auto">
-          <%= image_tag "iPhone12Pro.png", class: 'w-100 h-100'%>
+        <div class="mx-auto header-img">
+          <%= image_tag "12pro.png", class: 'w-95 h-100'%>
         </div>
       </div>
     </div>
   </div>
-  <div class="ultra-bg">
-    <div class="row fold-banner flex-row-reverse pt-5 pb-3 w-100 mx-0">
+  <div class="z-series-bg">
+    <div class="row fold-banner flex-row-reverse pt-5 pb-3 w-100 mx-0 bg-light">
       <div class="col-6 align-self-center text-center">
         <h2>
           Meet the new Z Flip3 and Z Fold3
         </h2>
-        <p >
+        <p>
           And, get up to £530 when you trade in a Samsung Galaxy device.
         </p>
-        <button type="button" class="btn btn-outline-warning">
+        <button type="button" class="btn btn-sm mb-3 rounded-pill text-blue bg-white px-4 deal-phone-button open-form">
           Get Your Deal Now!
         </button>
       </div>
       <div class="col-6">
-        <div style="width:90%; height: 100%" class="mx-auto">
+        <div class="mx-auto z-series-img">
           <%= image_tag "galaxy-fold.png", class: 'w-100 h-100'%>
         </div>
       </div>
     </div>
   </div>
-  <div class="row ultra-banner pt-5 w-100 mx-0">
-    <div class="col-6 align-self-center text-center">
-      <h2>
-        Galaxy S21 Ultra 5G
-      </h2>
-      <p >
-        And, get up to £530 when you trade in a Samsung Galaxy device.
-      </p>
-      <button type="button" class="btn btn-outline-warning">
-        Get Your Deal Now!
-      </button>
+  <div class="bg-light">
+    <div class="row ultra-banner pt-5 w-100 mx-0">
+      <div class="col-6 align-self-center text-white text-center">
+        <h2>
+          Galaxy S21 Ultra 5G
+        </h2>
+        <p >
+          And, get up to £530 when you trade in a Samsung Galaxy device.
+        </p>
+        <button type="button" class="btn btn-warning rounded-pill px-4 open-form">
+          Get Your Deal Now!
+        </button>
+      </div>
+      <div class="col-6">
+        <div class="mx-auto ultra-img">
+          <%= image_tag "s21-ultra.png", class: 'w-100 h-100'%>
+        </div>
+      </div>
     </div>
-    <div class="col-6">
-      <div style="width:60%; height: 100%" class="mx-auto">
-        <%= image_tag "s21-ultra.png", class: 'w-100 h-100'%>
+  </div>
+  <div class="phone-deals-bg">
+    <div class="bg-light deals-banner">
+      <div class="conatiner p-5 mx-5">
+        <div class="row p-5 w-100 mx-0">
+          <% @phones.each do |phone| %>
+            <div class="col-md-4 col-12 mb-4 px-1 px-md-2">
+              <div class="deal-card position-relative overflow-hidden shadow rounded py-3 px-3 px-md-0">
+                <h5 class="deal-phone-name text-center text-white mb-3 fw-bold">
+                  <%= phone[:name] %>
+                </h5>
+                <div class="deal-phone-img mb-3 position-relative overflow-hidden">
+                  <%= image_tag(phone[:image], class: "w-100 h-100" ) %>
+                </div>
+                <div class="deal-phone-description text-center">
+                  <h5 class="mb-0 text-white">£0.00</h5>
+                  <p class="text-white fs-14 mb-0">Upfront</p>
+                  <a href="#step-form">
+                    <button class="btn btn-sm px-3 mt-3 open-form rounded-pill text-white col-md-8 deal-phone-button">
+                      <%= phone[:btnt_text] %>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-light">
+    <div class="sim-deals-banner">
+      <div class="conatiner p-5 mx-5">
+        <div class="row sim-deals-page p-5 w-100 mx-0">
+          <% @sims.each do |sim| %>
+            <div class="col-lg-4 col-md-6 cursor-p my-3">
+              <div class="rounded shadow-custom bg-light">
+                <div class="position-absolute bg-gradient rounded-lg shadow-custom custom-tag">
+                  <div class="tag-sudo position-relative">
+                    <span class="text-white p-1"><%= sim[:offer]%></span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center py-4 px-2">
+                  <%= image_tag(sim[:image], class: 'col-3 pl-md-4 pl-0') %>
+                  <div class="ml-2 pl-1">
+                    <h5 class="mb-3 font-weight-bold text-blue"><%= sim[:name]%></h5>
+                    <p class="font-weight-normal gradient-text"><%= sim[:intro]%></p>
+                    <p class="mb-2 font-weight-light">Data <span class="font-weight-bold text-blue"><%= sim[:data]%></span></p>
+                    <p class="mb-2 font-weight-light"><%= sim[:calls]%></p>
+                    <p class="mb-0 font-weight-light"><%= sim[:text]%></p>
+                  </div>
+                </div>
+                <div class="text-center align-self-center">
+                  <button class="btn open-form btn-sm mb-3 rounded-pill text-blue bg-white col-md-8 deal-phone-button">
+                    Special Offer
+                  </button>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-light">
+    <div class="container">
+      <div class="row p-5 w-100 mx-0">
+        <div class="col-md-4">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+        <div class="col-md-4 bg-white">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<%= render 'layouts/common/footer' %>
+<%= render 'layouts/homev2/step_form'%>
+<%= render 'layouts/common/data_share_iframes' %>

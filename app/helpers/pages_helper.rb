@@ -506,7 +506,69 @@ module PagesHelper
     ]
     partners_list
   end
-
+  def exclusive_deals
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      bad_success_url: 'https://mtrk5.co.uk/?a=14118&c=33110',
+      form_name: 'exclusive-deals-MMD',
+      optin_url: '/exclusive-deals',
+      sid: nil,
+      ssid: nil,
+      source:'needed',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+      token: @randon_token,
+      ipaddress: request.remote_ip,
+    }.to_json
+    @phones = [
+      {
+        name: "iPhone 12",
+        btnt_text: "Exclusive Deal",
+        image: "iphone_12_black.png"
+      },
+      {
+        name: "iPhone 11",
+        btnt_text: "Get Deal",
+        image: "phone/iphone11.png",
+      },
+      {
+        name: "Galaxy S20",
+        btnt_text: "Exclusive Deal",
+        image: "phone/samsung-galaxy-s20-plus.png"
+      }
+    ]
+    @sims = [
+      {
+        offer: "6 Months half price",
+        image: "sim/voda-sim-card.png",
+        name: "Unlimited Sim Plan",
+        intro: "5g Ready",
+        data: "Unlimited",
+        calls: "Unlimited Calls",
+        text: "Unlimited Texts"
+      },
+      {
+        offer: "Special Offer",
+        image: "sim/o2-sim.png",
+        name: "150GB Sim Plan",
+        intro: "5g Ready",
+        data: "150GB",
+        calls: "Unlimited Calls",
+        text: "Unlimited Texts"
+      },
+      {
+        offer: "Commitment-free SIM plan",
+        image: "sim/Smarty.png",
+        name: "Unlimited Sim Plan",
+        intro: "5g Ready",
+        data: "Unlimited",
+        calls: "Unlimited Calls",
+        text: "Unlimited Texts"
+      }
+    ]
+  end
   def o2
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
