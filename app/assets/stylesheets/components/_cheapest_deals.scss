@@ -3,6 +3,25 @@ $primary-color: #33a6f5;
 $secondary-color: #2b3f82;
 $red-color: #ff0044;
 #cheapest-deals{
+  .ribbon span {
+    width: 150px;
+    height: 34px;
+    top: 20px;
+    right: -40px;
+    position: absolute;
+    display: block;
+    background: linear-gradient(to right, #f46c22 0%, #f09838 100%) !important;
+    color: #333;
+    font-family: arial;
+    font-size: 18px;
+    color:white;
+    text-align: center;
+    line-height: 34px;
+    z-index: 1;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+  }
 	.bg-header{
 		background-image: asset-url("banner-cheap.png");
 		background-size: cover;

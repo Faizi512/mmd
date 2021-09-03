@@ -69,8 +69,6 @@ class O2 extends Common {
     }
   }
 
-
-
   getData() {
     var track = "";
     try {
