@@ -1,6 +1,6 @@
 $primary-color: #71c0f2;
 .exclusive-deals{
-  .header-img{
+  .header-img-div{
     width:70%;
     height: 100%;
   }
@@ -28,11 +28,18 @@ $primary-color: #71c0f2;
     overflow: hidden;
   }
   .ultra-img{
-    width:60%;
+    @media only screen and (min-width: 521px){
+      width:60%;
+    }
     height: 100%;
   }
   .phone-deals-bg{
     background-color: #87CEEB;
+  }
+  .header-font{
+    @media only screen and (max-width: 521px){
+      font-size:28px;
+    }
   }
   .deals-banner{
     border-radius: 250% 250%/0 0 150px 150px;
@@ -67,6 +74,15 @@ $primary-color: #71c0f2;
     height: 250px;
     img{
       object-fit: contain;
+    }
+  }
+  @media only screen and (max-width: 520px){
+    .banner-image{
+      height: auto !important;
+      position: absolute;
+      right: -35%;
+      z-index: 5;
+      width: 183% !important;
     }
   }
 }
