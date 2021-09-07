@@ -1,0 +1,451 @@
+<%= javascript_pack_tag 'cheap-deal', 'data-turbolinks-track': 'reload', defer: true %>
+
+<%= render 'layouts/sp-exit/header' %>
+<div id="cheap-deals">
+	<div class="bg-header">
+		<div class="wave-div">
+			<div class="wave-top"></div>
+			<div class="wave-bottom"></div>
+		</div>
+		<div class="container">
+			<div class="row w-100 mx-0">
+				<div class="col-md-6 pt-md-5 pt-4 text-center text-md-left px-0 px-md-2">
+					<h1 class="font-weight-bold mb-3 text-center text-md-left fs-sm-32">Grab the Cheapest Mobile Deals in the UK</h1>
+					<ul class="list-unstyled text-left">
+						<li class="d-flex">
+							<i class="fas mr-2 mt-1 fa-bullseye"></i>
+							<p class="mb-2"> Are you looking to buy a new mobile? Do not waste your time surfing the internet in search of the best-fit mobile deals for you.</p>
+						</li>
+						<li class="d-flex">
+							<i class="fas mr-2 mt-1 fa-bullseye"></i>
+							<p class="mb-2"> We, at Mega Mobile Deals, handle the tedious task of searching and comparing all mobile deals in the UK market and then, we bring the best match right to you.</p>
+						</li>
+						<li class="d-flex">
+							<i class="fas mr-2 mt-1 fa-bullseye"></i>
+							<p class="mb-2"> Check out the best mobile deals in the UK, with just a few steps. Take the first step in less than 10 seconds.</p>
+						</li>
+					</ul>
+					<button class="btn btn-orang shadow-btn py-3 px-5 mt-4 open-form">GET YOUR QUOTE</button>
+				</div>
+				<div class="col-md-6">
+					<%= image_tag("iphone-mockup.png", class: "head-img" ) %>
+				</div>
+				<div class="mobile-company-logos">
+					<div class="row align-items-center justify-content-around">
+						<%= image_tag("mobile-companies/apple1.png", class: "mobile-network-logo1 mb-md-0 mb-2", alt: "apple-network logo" ) %>
+				    <%= image_tag("mobile-companies/google.png", class: "mobile-network-logo mb-md-0 mb-2", alt: "google logo") %>
+				    <%= image_tag("mobile-companies/samsung.png", class: "mobile-network-logo1 mb-md-0 mb-2", alt: "samsung logo") %>
+				    <%= image_tag("mobile-companies/huawei.png", class: "mobile-network-logo mb-md-0 mb-2", alt: "huawei logo") %>
+				    <%= image_tag("mobile-companies/htc.png", class: "mobile-network-logo mb-md-0 mb-2", alt: "htc logo") %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0 justify-content-center">
+			<h1 class="font-weight-bold text-center py-md-5 py-4 fs-sm-32">Our networking partners</h1>
+			<div class="row w-100 mx-0 align-items-center justify-content-around">
+        <%= image_tag("company/02.png", class: "company-top-btn" ) %>
+        <%= image_tag("company/ee.png", class: "company-top-btn" ) %>
+        <%= image_tag("company/id.png", class: "company-top-btn" ) %>
+        <%= image_tag("company/tessco.png", class: "company-top-btn2" ) %>
+        <%= image_tag("company/vodafone.png", class: "company-top-btn2" ) %>
+        <%= image_tag("company/talk.jpg", class: "company-top-btn2" ) %>
+        <%= image_tag("company/giffgaff.svg", class: "company-top-btn2" ) %>
+      </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row align-items-center justify-content-center py-5">
+			<h3 class="text-center font-weight-bold py-md-5 w-100 fs-sm-22 mb-3">There are three different types of mobile deals you can choose from</h3>
+			<div class="col-md-4">
+				<div class="deal-div rounded-lg shadow border mb-4 mb-md-0">
+					<h5 class="font-weight-bold p-3 border-bottom bg-yello text-white rounded-top">A Contract Phone Deal</h5>
+					<div class="row p-3 justify-content-center align-items-center">
+						<div class="col-9">
+							<p>A monthly fee for a new phone as well as a set number of minutes, texts, and data</p>
+						</div>
+						<div class="col-3">
+							<%= image_tag("iphone-front.png", class: "deal-img" ) %>
+						</div>
+						<button class="btn btn-orang shadow-btn py-2 px-5 mt-4 open-form">Find Your Deal</button>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="col-md-4">
+				<div class="deal-div rounded-lg shadow border mb-4 mb-md-0">
+					<h5 class="font-weight-bold p-3 border-bottom bg-yello text-white rounded-top">A SIM-only plan</h5>
+					<div class="row p-3 justify-content-center align-items-center">
+						<div class="col-9">
+							<p>A new SIM card and a 1- or 12-month mobile service contract, but not a new phone</p>
+						</div>
+						<div class="col-3">
+							<%= image_tag("sim-deal.png", class: "deal-img" ) %>
+						</div>
+						<button class="btn btn-orang shadow-btn py-2 px-5 mt-4 open-form">Find Your Deal</button>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="col-md-4">
+				<div class="deal-div rounded-lg shadow border mb-4 mb-md-0">
+					<h5 class="font-weight-bold p-3 border-bottom bg-yello text-white rounded-top">A SIM-free offer</h5>
+					<div class="row px-3 pb-3 pt-4 justify-content-center align-items-center">
+						<div class="col-9">
+							<p class="mb-2">Pay as you go, only for what you use - choose the minutes, texts, and data package that best suits your preference</p>
+						</div>
+						<div class="col-3">
+							<%= image_tag("sim.png", class: "deal-img" ) %>
+						</div>
+						<button class="btn btn-orang shadow-btn py-2 px-5 mt-4 open-form">Find Your Deal</button>
+					</div>
+				</div>
+			</div>
+			<h5 class="my-3 w-100 text-center">All three offers are available on <a class="text-decoration-none text-warning" href="/">Mega Mobile Deals</a>.</h5>
+
+			<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form">Get Your Quote</button>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0">
+			<h1 class="text-center w-100 font-weight-bold my-md-5 my-4 fs-sm-32">Why should you take a mobile deal?</h1>
+			<h5>Pay in Installments :</h5>
+			<p>If you desire to buy the latest mobile phone with high-tech features but cannot afford it, you can get it with a mobile phone contract. With our fantastic offers, you can purchase the latest models of mobile phones, which might cost hundreds of dollars without a contract, and pay in instalments.</p>
+			<h5>Get the latest models:</h5>
+			<p>The phones that come with mobile phone contracts are usually the newest models and the finest choice of phones. With a phone contract, you may get a great deal on the phone, sometimes even for free. You may be eligible for a discount on a new phone when you renew your contract.</p>
+			<h5>Access free offers:</h5>
+			<p>
+				Some mobile deals come with free offers like handsets, accessories, special discounts, cashback offers, etc. There is a wide range of cheap mobile phone deals available, offering many options for everyone. Therefore your chances to find the perfect combination of mobile phone and plan you are looking for is very high.
+			</p>
+			<h5>Exclusive Sim and Mobile deals:</h5>
+			<p>
+				Most cellphone users don't track how many times they recharge or buy data bundles in a month. As a result, they may unintentionally spend far more than anticipated. A contract has the advantage of allowing you to pay a fixed price for calls and texts rather than a changing cost that charges you per minute or text used, as with a pay-as-you-go plan. Most plans also give you the option of going unlimited.
+			</p>
+			<h4 class="w-100 text-center my-3">Our expert consultants would love to help you find your best mobile deal</h4>
+			<button class="btn btn-orang shadow-btn py-2 px-5 my-4 open-form mx-auto">Get Your Quote</button>
+		</div>
+	</div>
+	<div class="container text-center">
+		<div class="row w-100 mx-0 justify-content-center align-items-center">
+			<h1 class="font-weight-bold text-center w-100 my-md-5 my-4 fs-sm-32">Why choose Mega Mobile Deals?</h1>
+			<div class="col-md-4">
+				<div class="deal-card shadow rounded-lg p-3 text-center mb-3">
+					<%= image_tag("peace-mind.png", class: "why-sec-img" ) %>
+					<h4>Get peace of mind</h4>
+					<p>You have all the information you need in one place, at your fingertips, so you can avoid the hassle and choose the best mobile deal for you.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="deal-card shadow rounded-lg p-3 text-center mb-3">
+					<%= image_tag("save-money.png", class: "why-sec-img" ) %>
+					<h4 class="my-3">Save money</h4>
+					<p>Save big by taking advantage of the best offers of our network partners empower and take your mobile expenditures under control.</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="deal-card shadow rounded-lg p-3 text-center mb-3">
+					<%= image_tag("save-time.png", class: "why-sec-img" ) %>
+					<h4 class="my-3">Save time</h4>
+					<p class="pb-1">Get free from the nerve-racking experience of wasting hours looking for the best deals - we have already collected the best options for you.</p>
+				</div>
+			</div>
+		</div>
+		<h4 class="w-100 text-center my-3">Take advantage of the best mobile deal tailored to your needs</h4>
+		<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form mx-auto">Get Your Quote</button>
+	</div>
+	<div class="container">
+		<div class="row py-4 align-items-center justify-content-center">
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("save-money1.png", class: "sav-mny mr-2" ) %>Enjoy your savings</p>
+			</div>
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("risk-free.png", class: "risk-fre mr-2" ) %>Risk-free guaranteed</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0">
+			<h3 class="font-weight-bold text-center w-100 my-4 fs-sm-22">What is a mobile phone contract?</h3>
+			<p>A mobile phone contract allows you to purchase any phone of your choice by paying a monthly price for a certain length of time. The duration of the contract usually depends on the deal you choose and could last for about 12 months or more. The great thing about contract mobile phones is how easy it is to find your best-fit smartphone deal. With Mega Mobile Deals, you can easily compare smartphones with the help of our experts. We walk you through the most critical aspects to consider before making a purchase and offer a range of options, including the low-cost phone you're looking for.</p>
+			<h1 class="font-weight-bold text-center w-100 my-md-5 my-4 fs-sm-32">What Factors Do You Consider Before Signing a Mobile Phone Contract?</h1>
+			<p>
+				Sim and mobile deals are no longer as limited as they once were, and service providers today provide a diverse selection of customized goods to meet a wide range of customer demands.
+			</p>
+			<p>
+				Our contract choices will offer you more bang for your money while not draining your wallet, even if you have a tight budget.
+			</p>
+			<h4 class="font-weight-bold w-100 text-center">When checking for the perfect smartphone contract, here are some factors that you have to consider:</h4>
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Choosing the right Mobile Deal:</h5>
+					<p>You should first know what kind of mobile phone and mobile plan you want before purchasing a mobile phone deal. You will find an increasing number of attractive, slender, elegant, and small mobile phones in the market. Therefore, you must compare the best mobile phone deals to find the one best fits your needs. Our experts can help you get a sense of the best offers available on the market.</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("mobile-deal1.png", class: "w-75" ) %>
+				</div>
+			</div>
+			<div class="row align-items-center justify-content-center flex-sm-row-reverse my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Preferred Services:</h5>
+					<p>
+						Also, consider your current phone use and the services you use frequently. Do you like to make calls on your phone, or do you rely on mobile data for most of your communication? The answer to this question will help you more accurately determine your call, text, and data allotment requirements.
+					</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("services.png", class: "w-75" ) %>
+				</div>
+			</div>
+
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Cost:</h5>
+					<p>
+						The price of various smartphone contracts varies based on the kind of device and contract features. Contracts for higher-end flagship smartphones will be more costly than other mid-range and less expensive phones now available. To evaluate if a smartphone contract would be cheaper in the long run, you can estimate the exact amounts they spend on airtime and data each month and compare them to what you'd pay on a contract with equivalent included advantages.
+					</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("cost.png", class: "w-50" ) %>
+				</div>
+			</div>
+
+			<div class="row align-items-center justify-content-center flex-sm-row-reverse my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Creditworthiness:</h5>
+					<p>
+						Your credit is examined when you sign up for a mobile contract to determine if you will make the monthly payments on the contract. Upon being accepted, you will take advantage of the various benefits of being a contract customer.
+					</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("creditworth.png", class: "w-75" ) %>
+				</div>
+			</div>
+
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Contract Upgrade and Renewal:</h5>
+					<p>
+						You may also have to choose whether to sign a new contract or upgrade your current one on the same network. If you're not happy with your current cell service, you can go with the first choice and switch to another provider while keeping your phone number. Alternatively, you might as well update your contract to meet your current needs.
+					</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("upgrade.png", class: "w-50" ) %>
+				</div>
+			</div>
+
+			<p class="text-center">
+				To discover a package that works for you, you can inquire with Mega Mobile Deals services. Our experts are dedicated to assisting you in analyzing all of these factors and narrowing your search to find the best mobile deal for you.
+			</p>
+			<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form mx-auto">Get Your Quote</button>
+		</div>
+	</div>
+	<div class="container text-center">
+		<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+			<h1 class="text-center w-100 my-md-5 my-4 font-weight-bold fs-sm-32">Get Peace of Mind & Save Big with Your 2-Step-Journey with  Mega Mobile Deals</h1>
+			<div class="col-md-6 align-self-center">
+				<h4 class="font-weight-bold">You Point</h4>
+				<p>Simply let us know what your preferences are and we’ll get down to the task.</p>
+			</div>
+			<div class="col-md-6 align-self-center text-center">
+				<%= image_tag("prefrence.png", class: "w-50" ) %>
+			</div>
+		</div>
+
+		<div class="row w-100 mx-0 align-items-center justify-content-center flex-sm-row-reverse my-3">
+			<div class="col-md-6 align-self-center">
+				<h4 class="font-weight-bold">We SHOOT the best deal, so you can enjoy your savings</h4>
+				<p>We select the best deals so that you can choose the phone that most suits you saving up to £500.</p>
+			</div>
+			<div class="col-md-6 align-self-center text-center">
+				<%= image_tag("deal-saving.png", class: "w-75" ) %>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0 py-4 align-items-center justify-content-center">
+			<div class="w-100 text-center">
+				<h5 class="my-3 w-100 text-center">Take advantage of the best mobile deal tailored to your needs</h5>
+				<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form">Get Your Quote</button>
+			</div>
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("save-money1.png", class: "sav-mny mr-2" ) %>Enjoy your savings</p>
+			</div>
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("risk-free.png", class: "risk-fre mr-2" ) %>Risk-free guaranteed</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row w-100 mx-0 align-items-center justify-content-center">
+			<h3 class="font-weight-bold my-3 w-100 fs-sm-22">How does a Smartphone contract work in the UK?</h3>
+			<p>
+				Getting a smartphone contract in the Uk is relatively easy. Usually, the requirements for UK residents to get a Smartphone contract include; proof of address such as utility bills, a valid means of identification, you must be 18 years or older and have an active bank account to set up a direct debit. If you meet the following requirements, you can acquire your preferred mobile deal with our smartphone contract.
+			</p>
+			<p>
+				Mega Mobile Deals make it easy for you to access top service providers in the UK like EE, O2, Vodafone, and Tesco Mobile. Also, our mobile deals experts help you find the right phone and package for your needs, based on your preferences of smartphone brand and model, Price, and Features, such as storage, OS, processor speed, camera, battery capacity, colour, etc.
+			</p>
+			<h3 class="font-weight-bold my-3 w-100 fs-sm-22">How do I access the Best Mobile Deals UK?</h3>
+			<p>
+				With tons of options in the market, figuring out which mobile deals are the perfect agreement for you can be pretty challenging. If you are looking to purchase the best smartphone contracts, Sim only deals, or Sim and mobile deals in the UK, you can access a list of the best matching deals on our platform. We offer various iPhone deals such as iPhone 12, iPhone 12 Pro, iPhone 11, iPhone X, iPhone 11 Pro, and more, so you can weigh your options and choose the best deal for you.
+			</p>
+			<p>
+				If you'd prefer an android, you can check out our Samsung phone deals and other top android products in the market. At Mega Mobile Deals, we will help you find the phone you'll love and be happy with, whether it's the latest iPhone model or a more budget-friendly option.
+			</p>
+			<h3 class="font-weight-bold my-3 w-100 fs-sm-22">How to get cheaper mobile phone deals in Uk</h3>
+			<p>
+				To get cheaper mobile phone deals, you can opt for an older model, which may lack some of the latest features and have a lesser data capacity, which is one way to get a cheaper plan. You might also keep an eye out for limited-time specials, such as Black Friday, which could be a fantastic way to save money.
+			</p>
+			<p>
+				You can stay up to date on any limited-time deals using Mega Mobile Deals'' services, ensuring that you receive the most terrific offers possible.
+			</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0 py-4 align-items-center justify-content-center">
+			<div class="w-100 text-center">
+				<h5 class="my-3 w-100 text-center">Take advantage of the best mobile deal tailored to your needs</h5>
+				<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form">Get Your Quote</button>
+			</div>
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("save-money1.png", class: "sav-mny mr-2" ) %>Enjoy your savings</p>
+			</div>
+			<div class="col-md-3 align-self-center">
+				<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("risk-free.png", class: "risk-fre mr-2" ) %>Risk-free guaranteed</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row w-100 mx-0 align-items-center justify-content-center">
+			<h1 class="font-weight-bold mt-md-5 mt-4 text-center w-100 fs-sm-32">Frequently Asked Questions</h1>
+			<h5 class="mb-3 text-center">Still unsure? We’ll answers your questions here</h5>
+			<div id="accordion" class="myaccordion">
+			  <div class="card">
+			    <div class="card-header" id="headingOne">
+			      <h2 class="mb-0">
+			        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			          Are contract phones worth it?
+			          <span class="">
+			            <i class="fas "></i>
+			            <i class="fas fa-plus"></i>
+			          </span>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+			      <div class="card-body">
+			        <p>
+			        	A phone contract may be worthwhile if you don't mind being committed to a specific carrier for an extended length of time. When you opt for a £0 phone deal, you're asking the phone provider to finance your phone. While the total amount at the end of the contract may exceed the product's actual price, a contract phone is the best option if you can't afford to purchase the phone right away.
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="heading2">
+			      <h2 class="mb-0">
+			        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+			          Can I change my phone while on a contract?
+			          <span class="">
+			            <i class="fas "></i>
+			            <i class="fas fa-plus"></i>
+			          </span>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+			      <div class="card-body">
+			        <p>
+			        	If you have an ongoing SIM-only or phone-and-tariff contract, you may be required to pay the remainder of your contract before you may transfer. However, if you're on a rolling-contract SIM-only plan, you can swap whenever you want.
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="heading3">
+			      <h2 class="mb-0">
+			        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+			          How can I get out of my phone contract?
+			          <span class="">
+			            <i class="fas "></i>
+			            <i class="fas fa-plus"></i>
+			          </span>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+			      <div class="card-body">
+			        <p>
+			        	If you don't want to maintain your phone number, call your provider and inform them that you're terminating your contract.
+			        </p>
+			        <p>
+			        	If you're still under contract with your provider, you'll need to give them 30 days' notice and pay any exit costs before you can quit. If you're not locked into a contract, you can change providers whenever you want. After that, you can start a new plan with your new provider of choice.
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="heading4">
+			      <h2 class="mb-0">
+			        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+			          What happens if I lose my phone under contract?
+			          <span class="">
+			            <i class="fas "></i>
+			            <i class="fas fa-plus"></i>
+			          </span>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+			      <div class="card-body">
+			        <p>
+			        	Losing your phone while on contract could cause serious trouble. If you do not have the phone insured, you will be required to purchase a new phone and continue with your contract. Note that your contract will not be voided if you lose your phone; you will still be responsible for the monthly costs even if you don't have a phone.
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <div class="card-header" id="headingTwo">
+			      <h2 class="mb-0">
+			        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			          What happens to a contract phone when the contract ends?
+			          <span class="">
+			            <i class="fas"></i>
+			            <i class="fas fa-plus"></i>
+			          </span>
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+			      <div class="card-body">
+			        <p>
+			        	Upon complete payment of the entire contract plan, the mobile phone automatically belongs to you. Thereafter, you can choose SIM-only deals to continue using your phone.
+			        </p>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="row w-100 mx-0 py-4 align-items-center justify-content-center">
+					<div class="w-100 text-center">
+						<h5 class="my-3 w-100 text-center">Take advantage of the best mobile deal tailored to your needs</h5>
+						<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form w-auto">Get Your Quote</button>
+					</div>
+					<div class="col-md-3 align-self-center">
+						<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("save-money1.png", class: "sav-mny mr-2" ) %>Enjoy your savings</p>
+					</div>
+					<div class="col-md-3 align-self-center">
+						<p class="d-flex align-items-center justify-content-center font-weight-bold"><%= image_tag("risk-free.png", class: "risk-fre mr-2" ) %>Risk-free guaranteed</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+</div>
+<%= render 'layouts/common/footer' %>
+<%= render 'layouts/homev2/step_form'%>
+<%= render 'layouts/common/data_share_iframes' %>
