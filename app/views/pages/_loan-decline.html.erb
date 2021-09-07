@@ -2,6 +2,13 @@
 <%= render 'layouts/mmd_post/header' %>
 <%= render 'layouts/new-mmd/banner' %>
 <%= render 'layouts/mmd_post/clock_head' %>
+<div>
+	<input type="hidden" name="building" class="building" value="<%= params[:building]%>">
+	<input type="hidden" name="county" class="county" value="<%= params[:county]%>">
+	<input type="hidden" name="country" class="country" value="<%= params[:country]%>">
+	<input type="hidden" name="title" class="title" value="<%= params[:title]%>">
+	<input type="hidden" name="dob" class="dob" value="<%= params[:dob]%>">
+</div>
 <div class="mt-footer" data-details= "<%= @details %>" ></div>
 <%= render 'layouts/common/footer' %>
 <%= render 'layouts/common/data_share_iframes' %>
