@@ -474,7 +474,7 @@ class Common {
   redirectIfNoResponse(){
     var CI = this;
     setTimeout(function(){
-      window.location = `/api/v1/redirect_url?id=1&url=${CI.urlCreator('https://mtrk11.co.uk/?a=14118&c=33110')}`
+      window.location = `/api/v1/redirect_url?id=1&url=${CI.urlCreator('https://dl.reliatrk.com/?a=2&c=36&s1=exit')}`
     }, 20000);
   }
 
