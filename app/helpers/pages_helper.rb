@@ -21,8 +21,8 @@ module PagesHelper
   def new_mmd
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'MEGA-MOBILE-DEALS',
       optin_url: '/new-mmd',
       sid: nil,
@@ -38,8 +38,8 @@ module PagesHelper
   def mmd_post
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'mmd-post',
       optin_url: '/mmd-post',
       sid: nil,
@@ -55,8 +55,8 @@ module PagesHelper
   def loan_decline
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'loan-decline',
       optin_url: '/loan-decline',
       sid: 90,
@@ -72,8 +72,8 @@ module PagesHelper
   def returning_loans
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'returning-loans',
       optin_url: '/returning-loans',
       sid: nil,
@@ -89,8 +89,8 @@ module PagesHelper
   def handsets
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'handset',
       optin_url: '/handset',
       sid: 1,
@@ -157,8 +157,8 @@ module PagesHelper
   def iphone_deals
     @details = {
       camp_id: 'BREEZE-MOBILE',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'iphone-deals',
       optin_url: '/iphone-deals',
       sid: nil,
@@ -226,8 +226,8 @@ module PagesHelper
   def MMD_loans
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'MMD-loans',
       optin_url: '/MMD-loans',
       sid: nil,
@@ -243,8 +243,8 @@ module PagesHelper
   def upgrade_checker
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'upgrade-checker',
       optin_url: '/upgrade-checker',
       sid: nil,
@@ -260,8 +260,8 @@ module PagesHelper
   def step_form
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'step-form',
       optin_url: '/step-form',
       sid: nil,
@@ -277,8 +277,8 @@ module PagesHelper
   def homev1
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'Mega-Mobile-Deals-homev1',
       optin_url: '/homev1',
       sid: nil,
@@ -294,8 +294,8 @@ module PagesHelper
   def home
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'Mega-Mobile-Deals',
       optin_url: '',
       sid: nil,
@@ -311,8 +311,8 @@ module PagesHelper
   def accept_mobiles
     @details = {
       camp_id: 'ACCEPT-MOBILE-LEADS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'accept-mobiles',
       optin_url: '/accept-mobiles',
       sid: nil,
@@ -328,8 +328,8 @@ module PagesHelper
   def sim_deal
     @details = {
       camp_id: 'SIMO2',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'sim-deals',
       optin_url: '/sim-deals',
       sid: nil,
@@ -344,8 +344,8 @@ module PagesHelper
   def cheap_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'cheap-deals',
       optin_url: '/cheap-deals',
       sid: nil,
@@ -361,8 +361,8 @@ module PagesHelper
   def cheapest_mobile_deals
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'cheapest_mobile_deals',
       optin_url: '/cheapest_mobile_deals',
       sid: nil,
@@ -646,8 +646,8 @@ module PagesHelper
   def sim_deal_v2
     @details = {
       camp_id: 'SIMO2',
-      success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
-      bad_success_url: 'https://mtrk11.co.uk/?a=14118&c=33110',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'sim-deals-v2',
       optin_url: '/sim-deals-v2',
       sid: nil,

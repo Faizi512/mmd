@@ -14,6 +14,7 @@ class Api::V1::RedirectController < ApplicationController
         delivery.update!(percentage: updated_percentage )
       end
     end
+    puts params[:url]
     redirect_to params[:url]
   end
 
