@@ -130,23 +130,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
-		<div class="row w-100 mx-0 justify-content-center">
-			<h1 class="font-weight-bold text-center py-md-5 py-4 fs-sm-32">Our networking partners</h1>
-			<div class="row w-100 mx-0 align-items-center justify-content-around">
-        <%= image_tag("company/02.png", class: "company-top-btn" ) %>
-        <%= image_tag("company/ee.png", class: "company-top-btn" ) %>
-        <%= image_tag("company/id.png", class: "company-top-btn" ) %>
-        <%= image_tag("company/tessco.png", class: "company-top-btn2" ) %>
-        <%= image_tag("company/vodafone.png", class: "company-top-btn2" ) %>
-        <%= image_tag("company/talk.jpg", class: "company-top-btn2" ) %>
-        <%= image_tag("company/giffgaff.svg", class: "company-top-btn2" ) %>
-      </div>
-		</div>
-	</div>
+
 	<div class="container">
 		<div class="row align-items-center justify-content-center py-5">
-			<h3 class="text-center font-weight-bold py-md-5 w-100 fs-sm-22 mb-3">There are three different types of mobile deals you can choose from</h3>
+			<h2 class="text-center font-weight-bold py-md-5 w-100 fs-sm-22 mb-3">There are three different types of mobile deals you can choose from</h2>
 			<div class="col-md-4">
 				<div class="deal-div rounded-lg shadow border mb-4 mb-md-0">
 					<h5 class="font-weight-bold p-3 border-bottom bg-yello text-white rounded-top">A Contract Phone Deal</h5>
@@ -193,24 +180,64 @@
 			</div>
 			<h5 class="my-3 w-100 text-center">All three offers are available on <a class="text-decoration-none text-warning" href="/">Mega Mobile Deals</a>.</h5>
 
-			<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form">Get Deal Now</button>
+			<button class="btn btn-orang shadow-btn py-2 px-5 my-3 open-form">Compare All Networks Deals</button>
+		</div>
+	</div>
+	<div class="bg-lig-yellow">
+		<div class="container py-md-5 py-4">
+			<div class="row w-100 mx-0 justify-content-center">
+				<h1 class="font-weight-bold text-center pb-4 fs-sm-32">Our networking partners</h1>
+				<div class="row w-100 mx-0 align-items-center justify-content-around">
+	        <%= image_tag("company/02.png", class: "company-top-btn" ) %>
+	        <%= image_tag("company/ee.png", class: "company-top-btn" ) %>
+	        <%= image_tag("company/id.png", class: "company-top-btn" ) %>
+	        <%= image_tag("company/tessco.png", class: "company-top-btn2" ) %>
+	        <%= image_tag("company/vodafone.png", class: "company-top-btn2" ) %>
+	        <%= image_tag("company/three.png", class: "company-top-btn" ) %>
+	        <%= image_tag("company/giffgaff.svg", class: "company-top-btn2" ) %>
+	      </div>
+			</div>
 		</div>
 	</div>
 	<div class="container">
 		<div class="row w-100 mx-0">
 			<h1 class="text-center w-100 font-weight-bold my-md-5 my-4 fs-sm-32">Why should you take a mobile deal?</h1>
-			<h5>Pay in Installments :</h5>
-			<p>If you desire to buy the latest mobile phone with high-tech features but cannot afford it, you can get it with a mobile phone contract. With our fantastic offers, you can purchase the latest models of mobile phones, which might cost hundreds of dollars without a contract, and pay in instalments.</p>
-			<h5>Get the latest models:</h5>
-			<p>The phones that come with mobile phone contracts are usually the newest models and the finest choice of phones. With a phone contract, you may get a great deal on the phone, sometimes even for free. You may be eligible for a discount on a new phone when you renew your contract.</p>
-			<h5>Access free offers:</h5>
-			<p>
-				Some mobile deals come with free offers like handsets, accessories, special discounts, cashback offers, etc. There is a wide range of cheap mobile phone deals available, offering many options for everyone. Therefore your chances to find the perfect combination of mobile phone and plan you are looking for is very high.
-			</p>
-			<h5>Exclusive Sim and Mobile deals:</h5>
-			<p>
-				Most cellphone users don't track how many times they recharge or buy data bundles in a month. As a result, they may unintentionally spend far more than anticipated. A contract has the advantage of allowing you to pay a fixed price for calls and texts rather than a changing cost that charges you per minute or text used, as with a pay-as-you-go plan. Most plans also give you the option of going unlimited.
-			</p>
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Pay in Installments :</h5>
+					<p>If you desire to buy the latest mobile phone with high-tech features but cannot afford it, you can get it with a mobile phone contract. With our fantastic offers, you can purchase the latest models of mobile phones, which might cost hundreds of dollars without a contract, and pay in instalments.</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("installment.png", class: "w-50" ) %>
+				</div>
+			</div>
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3 flex-sm-row-reverse">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Get the latest models:</h5>
+					<p>The phones that come with mobile phone contracts are usually the newest models and the finest choice of phones. With a phone contract, you may get a great deal on the phone, sometimes even for free. You may be eligible for a discount on a new phone when you renew your contract.</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("letest-model.png", class: "w-50" ) %>
+				</div>
+			</div>
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Access free offers:</h5>
+					<p>Some mobile deals come with free offers like handsets, accessories, special discounts, cashback offers, etc. There is a wide range of cheap mobile phone deals available, offering many options for everyone. Therefore your chances to find the perfect combination of mobile phone and plan you are looking for is very high.</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("free-offers.png", class: "w-75" ) %>
+				</div>
+			</div>
+			<div class="row w-100 mx-0 align-items-center justify-content-center my-3 flex-sm-row-reverse">
+				<div class="col-md-6 align-self-center">
+					<h5 class="font-weight-bold">Exclusive Sim and Mobile deals:</h5>
+					<p>Most cellphone users don't track how many times they recharge or buy data bundles in a month. As a result, they may unintentionally spend far more than anticipated. A contract has the advantage of allowing you to pay a fixed price for calls and texts rather than a changing cost that charges you per minute or text used, as with a pay-as-you-go plan. Most plans also give you the option of going unlimited.</p>
+				</div>
+				<div class="col-md-6 align-self-center text-center">
+					<%= image_tag("sim-mobile.png", class: "w-75" ) %>
+				</div>
+			</div>
 			<h4 class="w-100 text-center my-3">Our expert consultants would love to help you find your best mobile deal</h4>
 			<button class="btn btn-orang shadow-btn py-2 px-5 my-4 open-form mx-auto">Give Me My Deal</button>
 		</div>
