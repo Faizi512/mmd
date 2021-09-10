@@ -19,12 +19,17 @@ class Api::V1::RedirectController < ApplicationController
   end
 
   def exit_deliveries
-    sold_deliveries = ExitDelivery.active_sold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_sold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact : ExitDelivery.active_sold_with_no_source
+    exit_urls = ExitDelivery.all
 
-    unsold_deliveries = ExitDelivery.active_unsold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact.any? ? ExitDelivery.active_unsold.map{|s| s if s.source.present? && params[:source]&.downcase&.include?(s.source || "nostring" )}.compact  : ExitDelivery.active_unsold_with_no_source
+    soldUrlsList = exit_urls.active_sold.map{|url| url if url.source.present? && url.source.include?(params[:source])}
+    unsoldUrlsList = exit_urls.active_unsold.map{|s| s if s.source.present? && s.source.include?(params[:source])}
 
-    @soldUrl = get_url(sold_deliveries, 'sold')
-    @unsoldUrl = get_url(unsold_deliveries, 'unsold')
+    sold_redirect_urls = soldUrlsList.compact.any? ? soldUrlsList.compact : exit_urls.active_sold_with_no_source
+    unsold_redirect_urls = unsoldUrlsList.compact.any? ? unsoldUrlsList.compact  : exit_urls.active_unsold_with_no_source
+
+    @soldUrl = get_url(sold_redirect_urls, 'sold')
+    @unsoldUrl = get_url(unsold_redirect_urls, 'unsold')
+
     render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
   end
 
