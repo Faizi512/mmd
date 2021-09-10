@@ -524,20 +524,35 @@ module PagesHelper
     }.to_json
     @phones = [
       {
-        name: "iPhone 12",
-        btnt_text: "Exclusive Deal",
-        image: "iphone_12_black.png"
+        name: "Galaxy S21",
+        btnt_text: "Get Galaxy S21",
+        image: "phone/samsung-galaxy-s21.png",
       },
       {
-        name: "iPhone 11",
-        btnt_text: "Get Deal",
-        image: "phone/iphone11.png",
+        name: "Galaxy S21 Plus",
+        btnt_text: "Get S21 Plus",
+        image: "phone/samsung-galaxy-s21-plus.png",
       },
       {
-        name: "Galaxy S20",
-        btnt_text: "Exclusive Deal",
-        image: "phone/samsung-galaxy-s20-plus.png"
-      }
+        name: "Galaxy S21 Ultra",
+        btnt_text: "Get S21 Ultra",
+        image: "phone/samsung-galaxy-s21-ultra1.png"
+      },
+      {
+        name: "iPhone 12 Pro Max",
+        btnt_text: "Get iPhone 12 Pro Max",
+        image: "phone/iphone_12_pacific_blue.png"
+      },
+      {
+        name: "Galaxy Z Flip3",
+        btnt_text: "Get Z Flip3 ",
+        image: "phone/z-flip3.png"
+      },
+      {
+        name: "Galaxy Z Fold3",
+        btnt_text: "Get Z Fold3",
+        image: "phone/z-fold3.png"
+      },
     ]
     @sims = [
       {

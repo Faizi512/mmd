@@ -7,12 +7,16 @@ class ExclusiveDeals extends Common{
     this.getFormDetails('#dealform')
     this.showToolTip()
     this.fillform()
+    this.showClock()
     this.popupTerms()
     this.popupPrivacy()
+    this.showClock2()
     this.showTab(this.currentTab);
     $('.carousel').carousel({
       interval: 2000
     })
+
+
     $( ".property" ).change(function() {
       CI.TogglePopUp()
       CI.ToggleCheckBox()
@@ -52,6 +56,12 @@ class ExclusiveDeals extends Common{
         event.stopPropagation()
       }
     });
+  }
+  showClock2(){
+    var clockElement = $(".clock2");
+    var clock = new FlipClock(clockElement, 9600, {
+        countdown: true
+    })
   }
 }
 export default new ExclusiveDeals();

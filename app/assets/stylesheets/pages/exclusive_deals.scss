@@ -1,14 +1,28 @@
 $primary-color: #71c0f2;
 .exclusive-deals{
-  .header-img-div{
-    width:70%;
-    height: 100%;
+  font-family: Comfortaa, sans-serif !important;
+  h1,h2,h3,h4,h5,button{
+    font-family: 'IBM Plex Sans', sans-serif !important;
   }
   .header-banner{
-    background-image: url(/assets//abstract-blue.jpg);
+    background: black;
     background-position: 50% 20%;
     border-radius: 250% 250%/0 0 150px 150px;
     overflow: hidden;
+  }
+  .btn-deals{
+    font-size: 19px !important;
+    color: white !important;
+    font-weight: 700;
+    border: 3px solid white !important;
+  }
+  .btn-deals:hover{
+    color: #ffc107 !important;
+    border: 3px solid #ffc107 !important;
+    background: none !important;
+  }
+  .w-65{
+    width: 65%;
   }
   .fold-banner{
     background-color: #1a3e7c85;
@@ -76,13 +90,115 @@ $primary-color: #71c0f2;
       object-fit: contain;
     }
   }
+  .ultra-banner{
+    .flip-clock-divider {
+      .flip-clock-label {
+        color: white !important;
+      }
+    }
+    .flip-clock-dot {
+      background: #e2dede !important;
+    }
+  }
+
+  /*Clock*/
+  .clock2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .accepted{
+  }
+  .approvel{
+    font-size: 14px !important;
+  }
+  .clock {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .flip-clock-wrapper ul li a div div.inn {
+    background-color: #2b417f;
+    color: white;
+  }
+  .flip-clock-divider {
+    .flip-clock-label {
+      font-family: Comfortaa, sans-serif !important;
+      font-size: 1rem;
+      font-weight: 600;
+      top: 6.5em;
+      right: -6rem !important;
+    }
+  }
+  /*End*/
+
+  @media only screen and (max-width: 768px) {
+    .image {
+      width: 8rem;
+      margin: 0 auto;
+    }
+    .text {
+      text-align: center;
+    }
+    .accepted {
+      font-size: 32px !important;
+    }
+    .approvel {
+      font-size: 12px !important;
+      text-align: center;
+      padding: 5px 0 !important;
+      text-align: center;
+      font-weight: 700;
+      line-height: 2.1;
+    }
+    .flip-clock-wrapper {
+      width: 98%;
+      margin: 2rem auto;
+      margin-top: 0rem;
+    }
+    .flip-clock-dot {
+      width: 7px;
+      height: 7px;
+      left: 2px;
+    }
+
+  }
+  @media only screen and (max-width: 376px) {
+    .flip-clock-dot {
+      width: 7px;
+      height: 7px;
+      left: -2px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    .sims-img {
+      height: 225px;
+    }
+    .flip-clock-divider {
+      .flip-clock-label {
+        right: -5rem !important;
+      }
+    }
+  }
+
+
+  // end
   @media only screen and (max-width: 520px){
+    .btn-deals{
+      width: 100% !important;
+    }
     .banner-image{
-      height: auto !important;
-      position: absolute;
-      right: -35%;
-      z-index: 5;
-      width: 183% !important;
+      width: 100% !important;
+    }
+    .fs-sm-12{
+      font-size: 12px !important;
+    }
+    .fs-sm-8{
+      font-size: 8px !important;
+    }
+    .fs-sm-9{
+      font-size: 9px !important;
     }
   }
 }
