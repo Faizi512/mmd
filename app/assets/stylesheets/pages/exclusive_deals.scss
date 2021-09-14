@@ -1,0 +1,204 @@
+$primary-color: #71c0f2;
+.exclusive-deals{
+  font-family: Comfortaa, sans-serif !important;
+  h1,h2,h3,h4,h5,button{
+    font-family: 'IBM Plex Sans', sans-serif !important;
+  }
+  .header-banner{
+    background: black;
+    background-position: 50% 20%;
+    border-radius: 250% 250%/0 0 150px 150px;
+    overflow: hidden;
+  }
+  .btn-deals{
+    font-size: 19px !important;
+    color: white !important;
+    font-weight: 700;
+    border: 3px solid white !important;
+  }
+  .btn-deals:hover{
+    color: #ffc107 !important;
+    border: 3px solid #ffc107 !important;
+    background: none !important;
+  }
+  .w-65{
+    width: 65%;
+  }
+  .fold-banner{
+    background-color: #1a3e7c85;
+    border-radius: 250% 250%/0 0 150px 150px;
+    overflow: hidden;
+  }
+  .z-series-bg{
+    background-image: linear-gradient(112deg, #213279, #107ac0);
+  }
+  .z-series-img{
+    width:90%;
+    height: 100%;
+  }
+  .ultra-banner{
+    background-image: linear-gradient(45deg,#23236a,#107ac0);
+    border-radius: 250% 250%/0 0 150px 150px;
+    overflow: hidden;
+  }
+  .ultra-img{
+    @media only screen and (min-width: 521px){
+      width:60%;
+    }
+    height: 100%;
+  }
+  .phone-deals-bg{
+    background-color: #87CEEB;
+  }
+  .header-font{
+    @media only screen and (max-width: 521px){
+      font-size:28px;
+    }
+  }
+  .deals-banner{
+    border-radius: 250% 250%/0 0 150px 150px;
+    overflow: hidden;
+  }
+  .sim-deals-banner{
+    background-color: #87CEEB;
+    border-radius: 250% 250%/0 0 150px 150px;
+    overflow: hidden;
+  }
+  .deal-card{
+    background-image: linear-gradient(45deg,#23236a,#107ac0);
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      cursor: pointer;
+      box-shadow: 0 0.5rem 1rem rgba(0 ,0, 0, 0.15) !important;
+    }
+  }
+  .phone-img{
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+  }
+  .deal-phone-button{
+    border: 2px solid $primary-color;
+    &:hover{
+      background-color: $primary-color !important;
+      color: #fff !important;
+    }
+  }
+  .deal-phone-img{
+    height: 250px;
+    img{
+      object-fit: contain;
+    }
+  }
+  .ultra-banner{
+    .flip-clock-divider {
+      .flip-clock-label {
+        color: white !important;
+      }
+    }
+    .flip-clock-dot {
+      background: #e2dede !important;
+    }
+  }
+
+  /*Clock*/
+  .clock2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .accepted{
+  }
+  .approvel{
+    font-size: 14px !important;
+  }
+  .clock {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .flip-clock-wrapper ul li a div div.inn {
+    background-color: #2b417f;
+    color: white;
+  }
+  .flip-clock-divider {
+    .flip-clock-label {
+      font-family: Comfortaa, sans-serif !important;
+      font-size: 1rem;
+      font-weight: 600;
+      top: 6.5em;
+      right: -6rem !important;
+    }
+  }
+  /*End*/
+
+  @media only screen and (max-width: 768px) {
+    .image {
+      width: 8rem;
+      margin: 0 auto;
+    }
+    .text {
+      text-align: center;
+    }
+    .accepted {
+      font-size: 32px !important;
+    }
+    .approvel {
+      font-size: 12px !important;
+      text-align: center;
+      padding: 5px 0 !important;
+      text-align: center;
+      font-weight: 700;
+      line-height: 2.1;
+    }
+    .flip-clock-wrapper {
+      width: 98%;
+      margin: 2rem auto;
+      margin-top: 0rem;
+    }
+    .flip-clock-dot {
+      width: 7px;
+      height: 7px;
+      left: 2px;
+    }
+
+  }
+  @media only screen and (max-width: 376px) {
+    .flip-clock-dot {
+      width: 7px;
+      height: 7px;
+      left: -2px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    .sims-img {
+      height: 225px;
+    }
+    .flip-clock-divider {
+      .flip-clock-label {
+        right: -5rem !important;
+      }
+    }
+  }
+
+
+  // end
+  @media only screen and (max-width: 520px){
+    .btn-deals{
+      width: 100% !important;
+    }
+    .banner-image{
+      width: 100% !important;
+    }
+    .fs-sm-12{
+      font-size: 12px !important;
+    }
+    .fs-sm-8{
+      font-size: 8px !important;
+    }
+    .fs-sm-9{
+      font-size: 9px !important;
+    }
+  }
+}
