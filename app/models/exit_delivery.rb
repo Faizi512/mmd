@@ -1,4 +1,5 @@
 class ExitDelivery < ApplicationRecord
+  serialize :source, Array
   validate :validate_percentage
   validate :validate_priority
   validate :is_already_default
@@ -7,8 +8,8 @@ class ExitDelivery < ApplicationRecord
   scope :unsold, -> { where(status: "unsold", is_default: false).order(priority: :asc) }
   scope :active_sold, -> { where(status: "sold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   scope :active_unsold, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
-  scope :active_sold_with_no_source, -> { where(status: "sold", is_default: false, operational: "active", functional: "active", source: "" || nil).order(priority: :asc) }
-  scope :active_unsold_with_no_source, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active", source: "" || nil).order(priority: :asc) }
+  scope :active_sold_with_no_source, -> { where(status: "sold", is_default: false, operational: "active", functional: "active", source: []|| [""]).order(priority: :asc) }
+  scope :active_unsold_with_no_source, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active", source: [] || [""]).order(priority: :asc) }
 
   scope :active, -> { where(is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   def operational?
@@ -32,10 +33,10 @@ class ExitDelivery < ApplicationRecord
   def validate_percentage
     return if self.is_default
 
-    if self.source
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: self.source).pluck(:percentage).sum
+    if self.source.present?
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false).filter{|url| url if (url.source & self.source).present?}.pluck(:percentage).sum
     else
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: nil).pluck(:percentage).sum
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: []).pluck(:percentage).sum
     end
 
     unless total_percent + self.percentage <= 100

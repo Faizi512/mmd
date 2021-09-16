@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_10_070455) do
+ActiveRecord::Schema.define(version: 2021_09_09_052424) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_05_10_070455) do
     t.string "status"
     t.integer "priority"
     t.integer "cap"
-    t.string "source"
     t.integer "count", default: 0
     t.string "operational", default: "active"
     t.datetime "created_at", precision: 6, null: false
@@ -28,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_070455) do
     t.integer "total_count"
     t.boolean "is_default", default: false
     t.string "name"
+    t.text "source"
   end
 
   create_table "lead_counts", force: :cascade do |t|

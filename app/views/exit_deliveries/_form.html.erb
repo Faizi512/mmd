@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'exit_delivery', 'data-turbolinks-track': true, defer: true %>
 <%= form_with(model: exit_delivery, local: true) do |form| %>
   <div class="row align-items-center justify-content-center">
     <% if exit_delivery.errors.any? %>
@@ -39,7 +40,7 @@
 
     <div class="field form-group col-lg-10">
       <%= form.label :source, :class=> 'control-label' %>
-      <%= form.text_field :source, :class=> 'form-control' %>
+      <%= form.select :source, options_for_select(exit_delivery.source, exit_delivery.source), {include_hidden: false},{:multiple => true, class: 'form-control source'} %>
     </div>
 
     <div class="field d-none" >
@@ -69,7 +70,7 @@
 
     <div class="actions d-flex justify-content-end col-lg-10 ">
       <%= form.submit "Save Redirect URL", :class=> "btn btn-primary mr-2"  %>
-      <%= link_to 'Back', exit_deliveries_path, :class=> 'btn btn-danger' %>
+      <%= link_to 'Back', exit_deliveries_path, :class=> 'btn btn-danger', data: { turbolinks: false } %>
     </div>
   </div>
 <% end %>

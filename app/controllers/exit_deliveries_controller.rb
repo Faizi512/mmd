@@ -77,7 +77,7 @@ class ExitDeliveriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def exit_delivery_params
       params.require(:exit_delivery).permit(:url, :name, :percentage,
-        :status, :priority, :cap, :source, :count, :operational, :is_default,
-        :functional).merge(copy_percentage: params[:exit_delivery][:percentage])
+        :status, :priority, :cap, :count, :operational, :is_default,
+        :functional, source: []).merge(copy_percentage: params[:exit_delivery][:percentage])
     end
 end
