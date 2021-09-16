@@ -5,7 +5,8 @@ class Api::V1::RedirectController < ApplicationController
     if record.cap && record.count >= record.cap
       record.update(operational: "disable")
 
-      exit_deliveies = ExitDelivery.active.where.not(id: record.id).where(status: record.status, source: record.source)
+      exit_deliveies = ExitDelivery.active.where.not(id: record.id).where(status: record.status).filter{
+        |url| url if(url.source & record.source).present? }
       total_percent = exit_deliveies.sum(&:percentage)
       individual_percent = record.percentage.to_f / total_percent
 
@@ -21,15 +22,16 @@ class Api::V1::RedirectController < ApplicationController
   def exit_deliveries
     exit_urls = ExitDelivery.all
 
-    soldUrlsList = exit_urls.active_sold.map{|url| url if url.source.present? && url.source.include?(params[:source])}
-    unsoldUrlsList = exit_urls.active_unsold.map{|s| s if s.source.present? && s.source.include?(params[:source])}
+    sold_exit_urls_list =
+      exit_urls.active_sold.map{|url| url if url.source.present? && url.source.include?(params[:source])}
+    unsold_exit_urls_list =
+      exit_urls.active_unsold.map{|s| s if s.source.present? && s.source.include?(params[:source])}
 
-    sold_redirect_urls = soldUrlsList.compact.any? ? soldUrlsList.compact : exit_urls.active_sold_with_no_source
-    unsold_redirect_urls = unsoldUrlsList.compact.any? ? unsoldUrlsList.compact  : exit_urls.active_unsold_with_no_source
+    sold_redirect_urls = sold_exit_urls_list.compact.any? ? sold_exit_urls_list.compact : exit_urls.active_sold_with_no_source
+    unsold_redirect_urls = unsold_exit_urls_list.compact.any? ? unsold_exit_urls_list.compact  : exit_urls.active_unsold_with_no_source
 
     @soldUrl = get_url(sold_redirect_urls, 'sold')
     @unsoldUrl = get_url(unsold_redirect_urls, 'unsold')
-
     render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
   end
 

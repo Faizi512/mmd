@@ -33,10 +33,10 @@ class ExitDelivery < ApplicationRecord
   def validate_percentage
     return if self.is_default
 
-    if self.source
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: self.source).pluck(:percentage).sum
+    if self.source.present?
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false).filter{|url| url if (url.source & self.source).present?}.pluck(:percentage).sum
     else
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: nil).pluck(:percentage).sum
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: []).pluck(:percentage).sum
     end
 
     unless total_percent + self.percentage <= 100
