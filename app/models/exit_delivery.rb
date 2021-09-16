@@ -1,5 +1,7 @@
 class ExitDelivery < ApplicationRecord
-  serialize :source, Array
+  if !Rails.env.production?
+    serialize :source, Array
+  end
   validate :validate_percentage
   validate :validate_priority
   validate :is_already_default
