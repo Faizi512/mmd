@@ -4,6 +4,12 @@ $primary-color: #71c0f2;
   h1,h2,h3,h4,h5,button{
     font-family: 'IBM Plex Sans', sans-serif !important;
   }
+  .black-bg{
+    background: black
+  }
+  .text-gold{
+    color: #FFE8C1 !important;
+  }
   .header-banner{
     background: black;
     background-position: 50% 20%;
@@ -161,7 +167,9 @@ $primary-color: #71c0f2;
       height: 7px;
       left: 2px;
     }
-
+    .z-series-bg{
+      background-image: linear-gradient(152deg, #213279, #107ac0);
+    }
   }
   @media only screen and (max-width: 376px) {
     .flip-clock-dot {
@@ -199,6 +207,9 @@ $primary-color: #71c0f2;
     }
     .fs-sm-9{
       font-size: 9px !important;
+    }
+    .z-series-bg{
+      background-image: linear-gradient(135deg, #213279, #107ac0)
     }
   }
 }
