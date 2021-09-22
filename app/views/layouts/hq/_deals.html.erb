@@ -10,7 +10,7 @@
             <h3 class="text-white">POPULAR CONTRACT DEALS</h3>
           </div>
           <div class="phone-img position-absolute">
-            <%= image_tag( 'phone/iphonexsmax.png', width: '180px')%>
+            <%= image_tag( 'phone/apple-iphone-13.png')%>
           </div>
           <div class="py-4 text-center">
             <a href="#step-form" class="">
@@ -24,7 +24,7 @@
           <% @phones.each do |phone| %>
             <div class="col-md-4 col-6 mb-5">
               <div class="overflow-hidden border shadow-sm rounded py-3 position-relative ">
-                <div class="ribbon"><span>50% Off</span></div>
+                <div class="ribbon"><span class="fs-14 fw-bold"><%= phone[:ribbon_text] %></span></div>
                 <h5 class="deal-phone-name text-center mb-3 fw-bold">
                   <%= phone[:name] %>
                 </h5>

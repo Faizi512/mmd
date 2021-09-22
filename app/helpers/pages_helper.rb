@@ -375,43 +375,63 @@ module PagesHelper
     }.to_json
      @phones = [
       {
+        name: "iPhone 13 Pro Max",
+        image: "phone/apple-iphone-13-pro-max.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "Galaxy Z Fold3 5G",
+        image: "phone/z-fold3.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13",
+        image: "phone/apple-iphone-13.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13 Pro",
+        image: "phone/apple-iphone-13-pro.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "Galaxy Z Flip3 5G",
+        image: "phone/z-flip3.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13 Mini",
+        image: "phone/apple-iphone-13-mini.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
         name: "iPhone 12",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "iphone_12_black.png"
       },
       {
         name: "Galaxy S20",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/samsung-galaxy-s20-plus.png"
       },
       {
         name: "iPhone 11 Pro",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/iphone11pro.png"
       },
       {
         name: "Note 20 5G",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/note-20.jpg"
       },
       {
         name: "iPhone 11",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/iphone11.png",
       },
       {
-        name: "Huawei P30",
-        btnt_text: "Get Deal",
-        image: "phone/huaweip30.png"
-      },
-      {
-        name: "iPhone SE 128GB",
-        btnt_text: "Get Deal",
-        image: "phone/iphonese.jpg"
-      },
-      {
         name: "S20 Ultra 5G",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/samsung-galaxy-s20-ultra-black.png"
       },
     ]
@@ -451,52 +471,94 @@ module PagesHelper
 
     @phones = [
       {
+        name: "iPhone 13 Pro Max",
+        image: "phone/apple-iphone-13-pro-max.png",
+        ribbon_text: "Pre Order Now",
+      },
+      {
+        name: "Samsung Galaxy Z Fold3 5G",
+        image: "phone/z-fold3.png",
+        ribbon_text: "50% Off",
+      },
+      {
+        name: "iPhone 13",
+        image: "phone/apple-iphone-13.png",
+        ribbon_text: "Pre Order Now",
+      },
+      {
+        name: "iPhone 13 Pro",
+        image: "phone/apple-iphone-13-pro.png",
+        ribbon_text: "Pre Order Now",
+      },
+      {
+        name: "Samsung Galaxy Z Flip3 5G",
+        image: "phone/z-flip3.png",
+        ribbon_text: "50% Off",
+      },
+      {
+        name: "iPhone 13 Mini",
+        image: "phone/apple-iphone-13-mini.png",
+        ribbon_text: "Pre Order Now",
+      },
+      {
         name: "iPhone 12",
-        image: "iphone_12_black.png"
+        image: "iphone_12_black.png",
+        ribbon_text: "50% Off"
       },
       {
         name: "iPhone 11",
         image: "phone/iphone11.png",
+        ribbon_text: "50% Off"
       },
       {
         name: "Galaxy S20",
-        image: "phone/samsung-galaxy-s20-plus.png"
+        image: "phone/samsung-galaxy-s20-plus.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "iPhone XS",
-        image: "phone/iphonexs.png"
+        image: "phone/iphonexs.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "Galaxy S10",
-        image: "phone/samsungs10.png"
+        image: "phone/samsungs10.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "iPhone 11 Pro",
-        image: "phone/iphone11pro.png"
+        image: "phone/iphone11pro.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "Note 20 5G",
-        image: "phone/note-20.jpg"
+        image: "phone/note-20.jpg",
+        ribbon_text: "50% Off",
       },
       {
         name: "Samsung A20",
-        image: "phone/samsung-a20.png"
+        image: "phone/samsung-a20.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "Galaxy S20 5G",
-        image: "phone/galaxy-s20-5g.png"
+        image: "phone/galaxy-s20-5g.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "iPhone SE 128GB",
-        image: "phone/iphonese.jpg"
+        image: "phone/iphonese.jpg",
+        ribbon_text: "50% Off",
       },
       {
         name: "S20 Ultra 5G",
-        image: "phone/samsung-galaxy-s20-ultra-black.png"
+        image: "phone/samsung-galaxy-s20-ultra-black.png",
+        ribbon_text: "50% Off",
       },
       {
         name: "Huawei P30",
-        image: "phone/huaweip30.png"
+        image: "phone/huaweip30.png",
+        ribbon_text: "50% Off",
       }
     ]
 
@@ -541,32 +603,32 @@ module PagesHelper
     @phones = [
       {
         name: "Galaxy S21",
-        btnt_text: "Get Galaxy S21",
+        btn_text: "Get Galaxy S21",
         image: "phone/samsung-galaxy-s21.png",
       },
       {
         name: "Galaxy S21 Plus",
-        btnt_text: "Get S21 Plus",
+        btn_text: "Get S21 Plus",
         image: "phone/samsung-galaxy-s21-plus.png",
       },
       {
         name: "Galaxy S21 Ultra",
-        btnt_text: "Get S21 Ultra",
+        btn_text: "Get S21 Ultra",
         image: "phone/samsung-galaxy-s21-ultra1.png"
       },
       {
         name: "iPhone 12 Pro Max",
-        btnt_text: "Get iPhone 12 Pro Max",
+        btn_text: "Get iPhone 12 Pro Max",
         image: "phone/iphone_12_pacific_blue.png"
       },
       {
         name: "Galaxy Z Flip3",
-        btnt_text: "Get Z Flip3 ",
+        btn_text: "Get Z Flip3 ",
         image: "phone/z-flip3.png"
       },
       {
         name: "Galaxy Z Fold3",
-        btnt_text: "Get Z Fold3",
+        btn_text: "Get Z Fold3",
         image: "phone/z-fold3.png"
       },
     ]
@@ -634,63 +696,93 @@ module PagesHelper
 
     @phones = [
       {
+        name: "iPhone 13 Pro Max",
+        image: "phone/apple-iphone-13-pro-max.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "Samsung Galaxy Z Fold3 5G",
+        image: "phone/z-fold3.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13",
+        image: "phone/apple-iphone-13.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13 Pro",
+        image: "phone/apple-iphone-13-pro.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "Samsung Galaxy Z Flip3 5G",
+        image: "phone/z-flip3.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
+        name: "iPhone 13 Mini",
+        image: "phone/apple-iphone-13-mini.png",
+        btn_text: "Exclusive Deal",
+      },
+      {
         name: "iPhone 12",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "iphone_12_black.png"
       },
       {
         name: "iPhone 11",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/iphone11.png",
       },
       {
         name: "Galaxy S20",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/samsung-galaxy-s20-plus.png"
       },
       {
         name: "iPhone XS",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/iphonexs.png"
       },
       {
         name: "Galaxy S10",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/samsungs10.png"
       },
       {
         name: "iPhone 11 Pro",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/iphone11pro.png"
       },
       {
         name: "Note 20 5G",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/note-20.jpg"
       },
       {
         name: "Samsung A20",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/samsung-a20.png"
       },
       {
         name: "Galaxy S20 5G",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/galaxy-s20-5g.png"
       },
       {
         name: "iPhone SE 128GB",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/iphonese.jpg"
       },
       {
         name: "S20 Ultra 5G",
-        btnt_text: "Get Deal",
+        btn_text: "Get Deal",
         image: "phone/samsung-galaxy-s20-ultra-black.png"
       },
       {
         name: "Huawei P30",
-        btnt_text: "Exclusive Deal",
+        btn_text: "Exclusive Deal",
         image: "phone/huaweip30.png"
       }
     ]
