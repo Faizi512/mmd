@@ -1,0 +1,69 @@
+#iphone_deals{
+	font-family: 'Quicksand', sans-serif;
+	.bg-header{
+		background: asset-url('iphone-13/whyapple.jpeg');
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 500px;
+	}
+	.btn-orang{
+		background: linear-gradient(to right, #f46c22 0%, #f09838 80%) !important;
+    border: 2px solid transparent !important;
+    border-radius: 50px !important;
+    font-size: 20px;
+    color: white !important;
+    height: 50px;
+	}
+	.btn-orang:hover{
+		background: white !important;
+    border: 2px solid #f46c22 !important;
+    color: #f46c22 !important;
+	}
+	.deal-card{
+  	border-radius: 10px;
+
+	}
+	.golden-shadow{
+		box-shadow: 0 0.5rem 1rem #fbebd5 !important;
+	}
+	.rosegolden-shadow{
+		box-shadow: 0 0.5rem 1rem #f7dad4 !important;
+	}
+	.lightblue-shadow{
+		box-shadow: 0 0.5rem 1rem #b5d5f1 !important;
+	}
+	.light-grey-shadow{
+		box-shadow: 0 0.5rem 1rem #b4b1aa !important;
+	}
+	.darkblue-shadow{
+		box-shadow: 0 0.2rem 0.7rem #1473be !important;
+	}
+	.bg-blue{
+		background: #122239;
+	}
+	.bg-ios{
+		background: asset-url('iphone-13/ios15.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 520px;
+	}
+
+	@media only screen and (max-width: 520px) {
+		.fs-sm-11{
+			font-size: 11px;
+		}
+		.bg-header{
+			height: 220px;
+		}
+		.bg-ios{
+			height: 300px;
+		}
+
+	}
+
+
+
+
+}

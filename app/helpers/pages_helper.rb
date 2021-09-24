@@ -357,6 +357,23 @@ module PagesHelper
       ipaddress: request.remote_ip,
     }.to_json
   end
+
+  def exclusive_iphone_deals
+    @details = {
+      camp_id: 'MEGA-MOBILE-DEALS',
+      success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
+      form_name: 'exclusive_iphone_deals',
+      optin_url: '/exclusive_iphone_deals',
+      sid: 1,
+      ssid: 1,
+      source:'exclusive_iphone_deals',
+      quick_submit: false,
+      submit_on_load: false,
+      uu_id: @cookie_uuid,
+      ipaddress: request.remote_ip,
+    }.to_json
+  end
   
   def cheapest_mobile_deals
     @details = {
