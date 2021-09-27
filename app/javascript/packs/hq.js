@@ -123,6 +123,8 @@ class HQ extends Common {
       devive_search_engine:this.deviveSearchEngine || '',
       device_brand:this.deviceBrand || '',
       device_name:this.deviceName || '',
+      income_type: this.getUrlParameter("income_type") || '' ,
+      residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
     };
   }
 
