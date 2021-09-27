@@ -273,6 +273,8 @@ class EEDeals extends Common {
       device: this.clickdevice || "",
       tier: this.getUrlParameter('tier'),
       campaign_name: this.details.camp_id,
+      income_type: this.getUrlParameter("income_type") || '' ,
+      residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
     };
   }
   transaction_check(){

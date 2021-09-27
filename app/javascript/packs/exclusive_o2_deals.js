@@ -62,6 +62,8 @@ class ExclusiveO2Deals extends Common {
       user_agent: window.navigator.userAgent,
       tier: this.getUrlParameter('tier'),
       campaign_name: this.details.camp_id,
+      income_type: this.getUrlParameter("income_type") || '' ,
+      residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
     };
   }
 }
