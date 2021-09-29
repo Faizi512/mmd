@@ -81,6 +81,9 @@
 .h-zindex{
   z-index: 6 !important;
 }
+.bg-black{
+  background-color: #000000 !important;
+}
 .img-logo-mmd{
   width: 178px;
 }
@@ -561,7 +564,7 @@ input:hover ~ .input-dealstv:after{
   height: 100%;
   background-size: cover;
   background-color: rgba(0,0,0,1) !important;
-  background-image: url('banner-iphone12.jpg');
+  background-image: url('iphone-13-banner.png');
 }
 .banner-img{
   display: none;
