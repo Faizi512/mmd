@@ -233,7 +233,7 @@ class Common {
             CI.sentryNotification("critical", json , "PHONE: Error Some network api is down")
             return true
           }else{
-             CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
+            CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
             CI.isPhone = true
             return true
           }
@@ -496,7 +496,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/api/v1/exit_deliveries?source=${this.getSource()}`,
+      url: `/api/v1/exit_deliveries?source=${this.getSourceFromURL()}`,
       success: function(response) {
         console.log(response)
         CI.exitUrl(response)
@@ -829,6 +829,10 @@ class Common {
 
   getSource(){
     return this.getUrlParameter('source') || this.details.source || 'google3';
+  }
+
+  getSourceFromURL(){
+    return this.getUrlParameter('source') || '';
   }
 
   getEmail(){
