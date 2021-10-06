@@ -23,20 +23,14 @@ class Api::V1::RedirectController < ApplicationController
   def exit_deliveries
     exit_urls = ExitDelivery.all
 
-    if params[:source].present?
-      sold_exit_urls_list =
-        exit_urls.active_sold.map{|url| url if url.source.present? && url.source.map(&:downcase).include?(params[:source].downcase)}
-      unsold_exit_urls_list =
-        exit_urls.active_unsold.map{|s| s if s.source.present? && s.source.map(&:downcase).include?(params[:source].downcase)}
-    else
-      sold_exit_urls_list =
-        exit_urls.active_sold.map{|url| url unless url.source.present? }.compact
-      unsold_exit_urls_list =
-        exit_urls.active_unsold.map{|s| s unless s.source.present? }.compact
-    end
+    sold_exit_urls_list =
+      exit_urls.active_sold.map{|url| url if url.source.present? && url.source.map(&:downcase).include?(params[:source].downcase)}
+    unsold_exit_urls_list =
+      exit_urls.active_unsold.map{|url| url if url.source.present? && url.source.map(&:downcase).include?(params[:source].downcase)}
 
     sold_redirect_urls = sold_exit_urls_list.compact.any? ? sold_exit_urls_list.compact : exit_urls.active_sold_with_no_source
     unsold_redirect_urls = unsold_exit_urls_list.compact.any? ? unsold_exit_urls_list.compact  : exit_urls.active_unsold_with_no_source
+
     @soldUrl = get_url(sold_redirect_urls, 'sold')
     @unsoldUrl = get_url(unsold_redirect_urls, 'unsold')
     render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
