@@ -41,5 +41,18 @@ class UpgradeChecker extends Common {
   }
   successUrl(){ }
 
+  fillform(){
+    this.getphoneNumber()
+  }
+  getphoneNumber(){
+    var number = this.getUrlParameter("phone1") || this.getUrlParameter("mobile")
+    if (number != undefined && number.length < 11) {
+      number = '0' + number
+      $(".telephone").val(number)
+    }
+    else{
+      $(".telephone").val(this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || "");
+    }
+  }
 }
 export default new UpgradeChecker();
