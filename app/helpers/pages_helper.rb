@@ -375,16 +375,16 @@ module PagesHelper
     }.to_json
   end
 
-  def samsung_deals
+  def exclusive_samsung_discounts
     @details = {
       camp_id: 'MEGA-MOBILE-DEALS',
       success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
-      form_name: 'samsung_deals',
-      optin_url: '/samsung_deals',
+      form_name: 'exclusive-samsung-discounts',
+      optin_url: '/exclusive-samsung-discounts',
       sid: nil,
       ssid: nil,
-      source:'samsung_deals',
+      source:'exclusive-samsung-discounts',
       quick_submit: false,
       submit_on_load: false,
       uu_id: @cookie_uuid,
