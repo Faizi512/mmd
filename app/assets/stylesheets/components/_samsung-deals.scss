@@ -1,0 +1,83 @@
+#samsung-deals{
+	font-family: 'Nunito', sans-serif;
+	.icon1{
+		width: 60px;
+	}
+	.icon2{
+		width: 75px;
+	}
+	.women-img{
+		width: 300px;
+		max-width: 100% !important;
+	}
+	.network-logo{
+		width: 30px;
+	}
+	.network-logo1{
+		width: 40px;
+	}
+	.div-shadow{
+    box-shadow: 0 0.5rem 1rem #1729a045 !important;
+	}
+	.icon-samsung{
+		width: 20%;
+	}
+	.btn-orange{
+		color: #ff7d07 !important;
+    border: 2px solid #ff7d07 !important;
+    border-radius: 50px !important;
+    background-color: white !important;
+    &:hover{
+    	background-color: #ff7d07 !important;
+    	color: white !important;
+    }
+	}
+	.text-blue{
+		color: #1729a0d9 !important
+	}
+	.bg-light-bl{
+		background-color: #f4f5ff !important;
+	}
+	.text-orang{
+		color: #ff8012 !important;
+	}
+	.mx-w{
+		max-width: 100% !important;
+	}
+	.call-agent-img{
+		width: 45px;
+	}
+	.risk-fre{
+		width: 50px;
+	}
+	.sav-mny{
+		width: 50px;
+	}
+	.div-why{
+		min-height: 271px;
+	}
+	.phone-img{
+		width: 100%;
+    max-width: 100% !important;
+	}
+	.deal-div{
+		border: 2px solid #1729a0 !important;
+	}
+
+	@media only screen and (max-width: 520px) {
+		.icon1{
+			width: 35px;
+		}
+		.icon2{
+			width: 45px;
+		}
+		.icon-samsung{
+			width: 40%;
+		}
+		.call-agent-img{
+			width: 115px;
+		}
+  }
+
+
+}
