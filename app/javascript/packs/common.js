@@ -547,7 +547,18 @@ class Common {
 
 // Start Lead Submit function
   firePixel(){
-    dataLayer.push({'event': 'transaction'})
+    dataLayer.push({
+      'event': 'transaction',
+      'email': $(".email").val() || this.getUrlParameter('email') || '',
+      'phone': $(".phone").val() || this.getUrlParameter('phone1') ||  '',
+      'firstname':  $(".first_name").val() || this.getUrlParameter('firstname') || '',
+      'lastname': $(".last_name").val() || this.getUrlParameter('lastname') ||  '',
+      'street': $(".street1").val() || $(".address").val() || this.getUrlParameter('street1') ||  'unknown',
+      'city': $(".towncity").val() || this.getUrlParameter('towncity') ||  'unknown',
+      'country': $(".country").val() || this.getUrlParameter('country') || "",
+      'postcode':  $(".postcode").val() || this.getUrlParameter('postcode') || '',
+      'region': 'United Kingdom'
+    })
   }
 
   getData() {
