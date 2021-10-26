@@ -553,11 +553,12 @@ class Common {
       'phone': $(".phone").val() || this.getUrlParameter('phone1') ||  '',
       'firstname':  $(".first_name").val() || this.getUrlParameter('firstname') || '',
       'lastname': $(".last_name").val() || this.getUrlParameter('lastname') ||  '',
-      'street': $(".street1").val() || $(".address").val() || this.getUrlParameter('street1') ||  'unknown',
+      'street': $(".street2").val() || $(".address").val() || this.getUrlParameter('street2') ||  'unknown',
       'city': $(".towncity").val() || this.getUrlParameter('towncity') ||  'unknown',
-      'country': $(".country").val() || this.getUrlParameter('country') || "",
+      'country': "United Kingdom",
       'postcode':  $(".postcode").val() || this.getUrlParameter('postcode') || '',
-      'region': 'United Kingdom'
+      'region': $(".county").val() || this.getUrlParameter('county') || "",
+      'building': $(".building").val() || this.getUrlParameter('building') ||  'unknown'
     })
   }
 
