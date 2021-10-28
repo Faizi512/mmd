@@ -1,5 +1,11 @@
 #samsung-deals{
 	font-family: 'Nunito', sans-serif;
+	.bg-header{
+		background-image: asset-url("samsung/bg-yellow.png");
+		background-position: center top;
+		background-size: cover;
+		min-height: 500px;
+	}
 	.icon1{
 		width: 60px;
 	}
@@ -22,14 +28,24 @@
 	.icon-samsung{
 		width: 20%;
 	}
+	.btn-orange-header{
+		color: white !important;
+    border: 2px solid white !important;
+    border-radius: 50px !important;
+    background-color: #ff7d07 !important;
+    &:hover{
+    	background-color: white !important;
+    	color: #ff7d07 !important;
+    }
+	}
 	.btn-orange{
-		color: #ff7d07 !important;
+		color: white !important;
     border: 2px solid #ff7d07 !important;
     border-radius: 50px !important;
-    background-color: white !important;
+    background-color: #ff7d07 !important;
     &:hover{
-    	background-color: #ff7d07 !important;
-    	color: white !important;
+    	background-color: white !important;
+    	color: #ff7d07 !important;
     }
 	}
 	.text-blue{
