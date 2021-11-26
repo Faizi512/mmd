@@ -10,10 +10,15 @@ class ExitDelivery < ApplicationRecord
   scope :unsold, -> { where(status: "unsold", is_default: false).order(priority: :asc) }
   scope :active_sold, -> { where(status: "sold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   scope :active_unsold, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active").order(priority: :asc) }
-  scope :active_sold_with_no_source, -> { where(status: "sold", is_default: false, operational: "active", functional: "active", source: []|| [""]).order(priority: :asc) }
-  scope :active_unsold_with_no_source, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active", source: [] || [""]).order(priority: :asc) }
+  scope :active_sold_with_no_source_smartphone, -> { where(status: "sold", is_default: false, operational: "active",is_mobile: true, functional: "active", source: []|| [""]).order(priority: :asc) }
+  scope :active_unsold_with_no_source_smartphone, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active",is_mobile: true, source: [] || [""]).order(priority: :asc) }
+
+  scope :active_sold_with_no_source_desktop, -> { where(status: "sold", is_default: false, operational: "active",is_mobile: false, functional: "active", source: []|| [""]).order(priority: :asc) }
+  scope :active_unsold_with_no_source_desktop, -> { where(status: "unsold", is_default: false, operational: "active", functional: "active",is_mobile: false, source: [] || [""]).order(priority: :asc) }
 
   scope :active, -> { where(is_default: false, operational: "active", functional: "active").order(priority: :asc) }
+  scope :is_mobile, -> {where(is_mobile: true)}
+  scope :is_desktop, -> {where(is_mobile: false)}
   def operational?
     self.operational == "active"
   end
@@ -36,9 +41,9 @@ class ExitDelivery < ApplicationRecord
     return if self.is_default
 
     if self.source.present?
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false).filter{|url| url if (url.source & self.source).present?}.pluck(:percentage).sum
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, is_mobile: self.is_mobile).filter{|url| url if (url.source & self.source).present?}.pluck(:percentage).sum
     else
-      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, source: []).pluck(:percentage).sum
+      total_percent = ExitDelivery.where.not(id: self.id).where(status: self.status, operational: "active", functional: "active" , is_default: false, is_mobile: self.is_mobile, source: []).pluck(:percentage).sum
     end
 
     unless total_percent + self.percentage <= 100
@@ -49,7 +54,7 @@ class ExitDelivery < ApplicationRecord
   end
 
   def validate_priority
-    priorities = ExitDelivery.where.not(id: self.id).where(status: self.status).pluck(:priority)
+    priorities = ExitDelivery.where.not(id: self.id).where(status: self.status, is_mobile: self.is_mobile).pluck(:priority)
     if priorities.include?(self.priority)
       errors.add(
         :priority, ": Already taken"
