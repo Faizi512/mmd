@@ -826,9 +826,9 @@ module PagesHelper
     }.to_json
     @phones = [
       {
-        name: "Galaxy S21",
-        btn_text: "Get Galaxy S21",
-        image: "phone/samsung-galaxy-s21.png",
+        name: "iPhone 13 Pro Max",
+        btn_text: "Get iPhone 13 Pro Max",
+        image: "phone/apple-iphone-13-pro-max.png",
       },
       {
         name: "Galaxy S21 Plus",
