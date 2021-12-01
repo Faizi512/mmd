@@ -29,23 +29,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_070926) do
     t.string "name"
     t.text "source"
     t.boolean "is_mobile", default: false
-  end
-
-  create_table "exit_leads", force: :cascade do |t|
-    t.string "name"
-    t.string "receiver"
-    t.string "url"
-    t.string "functional"
-    t.integer "priority"
-    t.integer "cap"
-    t.integer "total_count"
-    t.float "percentage"
-    t.float "copy_percentage"
-    t.string "operational", default: "active"
-    t.integer "count", default: 0
-    t.boolean "is_default", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "source_rule", default: 0
   end
 
   create_table "lead_counts", force: :cascade do |t|

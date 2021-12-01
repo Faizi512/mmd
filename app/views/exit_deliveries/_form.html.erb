@@ -43,6 +43,11 @@
       <%= form.select :source, options_for_select(exit_delivery.source, exit_delivery.source), {include_hidden: false},{:multiple => true, class: 'form-control source'} %>
     </div>
 
+    <div class="field form-group col-lg-10">
+      <%= form.label :source_rule%>
+      <%= form.select :source_rule, ['Is', 'Contains', 'Does not contains']%>
+    </div>
+
     <div class="field d-none" >
       <%= form.label :count, :class=> 'control-label'%>
       <%= form.number_field :count, :readonly => true, :class=> 'form-control'%>

@@ -19,6 +19,32 @@ class ExitDelivery < ApplicationRecord
   scope :active, -> { where(is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   scope :is_mobile, -> {where(is_mobile: true)}
   scope :is_desktop, -> {where(is_mobile: false)}
+
+  enum source_rule: { Is: 0, Contains: 1, Not_Contains: 2}
+
+  def self.match_type_query(urls, sourceVal)
+    @exit_urls = []
+    urls.each do |url|
+
+      sourceCount = url.source.length()
+      if url.source_rule == 'Is' and sourceCount == 1
+        @exit_urls = @exit_urls.push (url if url.source.map(&:downcase).include?(sourceVal.downcase))
+      elsif url.source_rule == 'Contains' and check_existence(url,sourceVal)
+        @exit_urls = @exit_urls.push ( url )
+      elsif url.source_rule == 'Not_Contains' and !check_existence(url,sourceVal)
+        @exit_urls = @exit_urls.push ( url )
+      end
+
+    end
+    return @exit_urls
+  end
+
+  def self.check_existence(url,sourceVal)
+    check = url.source.map{ |src| src.downcase.include?(sourceVal.downcase) }
+    check = check.include?(true)
+    return check
+  end
+
   def operational?
     self.operational == "active"
   end
