@@ -20,21 +20,20 @@ class ExitDelivery < ApplicationRecord
   scope :is_mobile, -> {where(is_mobile: true)}
   scope :is_desktop, -> {where(is_mobile: false)}
 
-  enum source_rule: { Is: 0, Contains: 1, Not_Contains: 2}
-
   def self.match_type_query(urls, sourceVal)
     @exit_urls = []
     urls.each do |url|
-
       sourceCount = url.source.length()
       if url.source_rule == 'Is' and sourceCount == 1
-        @exit_urls = @exit_urls.push (url if url.source.map(&:downcase).include?(sourceVal.downcase))
+        delivery = url if url.source.map(&:downcase).include?(sourceVal.downcase)
+        if delivery.present?
+          @exit_urls = @exit_urls.push(delivery)
+        end
       elsif url.source_rule == 'Contains' and check_existence(url,sourceVal)
         @exit_urls = @exit_urls.push ( url )
-      elsif url.source_rule == 'Not_Contains' and !check_existence(url,sourceVal)
+      elsif url.source_rule == 'Does not contains' and !check_existence(url,sourceVal)
         @exit_urls = @exit_urls.push ( url )
       end
-
     end
     return @exit_urls
   end
@@ -52,7 +51,6 @@ class ExitDelivery < ApplicationRecord
   def functional?
     self.functional == "active"
   end
-
 
   def is_already_default
     is_default = ExitDelivery.where.not(id: self.id).where(status: self.status).where(functional: "active", is_default: true).any? && self.is_default
