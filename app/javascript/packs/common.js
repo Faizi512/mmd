@@ -655,7 +655,8 @@ class Common {
         if (data.match == 0) {
           CI.formResponse =  'success'
         }else{
-          CI.submitAccpedLead(formData)
+          CI.formResponse =  'reject'
+          // CI.submitAccpedLead(formData)
         }
       },
       error: function(request){
