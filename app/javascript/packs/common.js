@@ -613,7 +613,7 @@ class Common {
       device_search_engine:this.deviceSearchEngine || '',
       device_brand:this.deviceBrand || '',
       device_name:this.deviceName || '',
-      income_type: this.getUrlParameter("income_type") || '' ,
+      incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
     };
   }
