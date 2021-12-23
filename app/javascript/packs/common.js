@@ -1,23 +1,11 @@
 import 'flipclock/dist/flipclock.min.js'
 import 'bootstrap/dist/js/bootstrap.js'
 import "parsleyjs";
-import * as Sentry from "@sentry/browser";
-import { Integrations } from "@sentry/tracing";
 import _ from 'lodash'
 
 
 class Common {
   constructor() {
-    Sentry.init({
-      dsn: "https://335f4f951f3b40f4889ac4fc120bfdb7:b27eab222bfd4d8a9ff474ed658451ed@o423834.ingest.sentry.io/5354739",
-      release: "Mega Mobile Deals@" + process.env.npm_package_version,
-      integrations: [new Integrations.BrowserTracing()],
-      // Set tracesSampleRate to 1.0 to capture 100%
-      // of transactions for performance monitoring.
-      // We recommend adjusting this value in production
-      tracesSampleRate: 1.0,
-
-    });
     var CI = this;
     this.formValidation = {}
     this.isEmail =false
@@ -138,28 +126,6 @@ class Common {
     })
   }
 
-  //Start Sentry error handling logic
-  sentryNotification(error, response , message){
-    Sentry.withScope(function(scope) {
-      scope.setLevel(error);  // on error "critical", on timout api "info",
-      scope.setContext('Error Details', {response})
-      Sentry.captureException(new Error(message), scope);
-    });
-  }
-  //Start Sentry error handling logic
-
-
-  // Start SwitchUk Logic
-  redirectTOSwitchuk(first_name){
-    if (this.allowedNetworks.includes(this.networkName)) {
-      window.location='https://switchuk.uk'
-    }else if (this.allowedDevices.includes(this.device)) {
-      window.location='https://switchuk.uk/'
-    }
-    else{
-     window.location=`https://megamobiledeals.com/credit_check?name=${first_name}`
-    }
-  }
   deviceDetection(){
     this.device=FRUBIL.device.class_code   //Desktop
     this.deviceBrowser=FRUBIL.client.class_code // Browser
@@ -168,8 +134,6 @@ class Common {
     this.deviceName=FRUBIL.device.marketname // Galaxy A5
   }
   // End SwitchUk Logic
-
-
 
 // Start Validations Logic
   validateTsp(){
@@ -229,10 +193,8 @@ class Common {
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
           }else if(json.status == "Error"){
-            CI.sentryNotification("critical", json , "PHONE: Error Some network api is down")
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
           }else{
-            CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
             CI.isPhone = true
             return true
           }
@@ -241,7 +203,6 @@ class Common {
             return $.Deferred().reject("Please Enter Valid UK Phone Number")
           }else{
             CI.isPhone = true
-            CI.sentryNotification("critical", e , "PHONE: Error API Down")
             return true
           }
         });
@@ -264,7 +225,6 @@ class Common {
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid Email Address");
           }else{
-            CI.sentryNotification("info", json , "EMAIL: Error other than the ApiDown")
             CI.isEmail = true
             return true
           }
@@ -273,7 +233,6 @@ class Common {
             return $.Deferred().reject("Please Enter Valid Email Address")
           }else{
             CI.isEmail = true
-            CI.sentryNotification("critical", e , "EMAIL: Error API Down")
             return true
           }
         });
@@ -338,7 +297,6 @@ class Common {
           },
           error: function(request){
             if (!request.status == 400) {
-              CI.sentryNotification("info", request , "POSTCODE: Error ApiDown")
             }
             console.log(request.statusText)
             request.abort();
@@ -386,7 +344,6 @@ class Common {
     return true
   }
 // End Validations Logic
-
 
 // Start Step Form Logic
   showTab(n=0) {
@@ -452,7 +409,6 @@ class Common {
     })
   }
 // End Step Form Logic
-
 
 // Start Redirect Url Logic
   successUrl(){
@@ -698,7 +654,6 @@ class Common {
         }
       },
       error: function(request){
-        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
         console.log(request.statusText)
       },
       dataType: "json"
@@ -727,7 +682,6 @@ class Common {
       },
       error: function(request){
         CI.formResponse =  'reject'
-        CI.sentryNotification("critical", request , "SubmitLead: Error on leadbyte API")
         console.log(request.statusText)
       },
       dataType: "json"
@@ -753,8 +707,6 @@ class Common {
     return i;
   }
 // End Date helper
-
-
 
 // Start Paramataer
   getUrlParameter(sParam) {
