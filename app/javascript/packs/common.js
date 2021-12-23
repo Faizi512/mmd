@@ -229,9 +229,8 @@ class Common {
           }else if(json.status == "Invalid"){
             return $.Deferred().reject("Please Enter Valid UK Phone Number");
           }else if(json.status == "Error"){
-            CI.isPhone = true
             CI.sentryNotification("critical", json , "PHONE: Error Some network api is down")
-            return true
+            return $.Deferred().reject("Please Enter Valid UK Phone Number");
           }else{
             CI.sentryNotification("info", json , "PHONE: Error other than the ApiDown")
             CI.isPhone = true
