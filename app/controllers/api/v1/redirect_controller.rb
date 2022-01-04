@@ -40,7 +40,7 @@ class Api::V1::RedirectController < ApplicationController
       exit_urls.active_unsold.map{|url| url if url.source.present? && url.source.map(&:downcase).include?(params[:source].downcase)}
 
     sold_redirect_urls = sold_exit_urls_list.compact.any? ? sold_exit_urls_list.compact : exit_urls.send("active_sold_with_no_source_#{device_scope}")
-    unsold_redirect_urls = unsold_exit_urls_list.compact.any? ? unsold_exit_urls_list.compact  : exit_urls.send("active_sold_with_no_source_#{device_scope}")
+    unsold_redirect_urls = unsold_exit_urls_list.compact.any? ? unsold_exit_urls_list.compact  : exit_urls.send("active_unsold_with_no_source_#{device_scope}")
 
     @soldUrl = get_url(sold_redirect_urls, 'sold')
     @unsoldUrl = get_url(unsold_redirect_urls, 'unsold')
