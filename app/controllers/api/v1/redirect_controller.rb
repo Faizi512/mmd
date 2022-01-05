@@ -31,9 +31,9 @@ class Api::V1::RedirectController < ApplicationController
     end
 
     if params[:source].present?
-      exit_urls = ExitDelivery.match_type_query(exit_urls, params[:source])
+      exit_url_ids = ExitDelivery.match_type_query(exit_urls, params[:source])
+      exit_urls = ExitDelivery.where(id: exit_url_ids)
     end
-
     sold_exit_urls_list =
       exit_urls.active_sold.map{|url| url if url.source.present? && url.source.map(&:downcase).include?(params[:source].downcase)}
     unsold_exit_urls_list =

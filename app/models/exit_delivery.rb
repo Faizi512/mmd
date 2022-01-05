@@ -19,29 +19,29 @@ class ExitDelivery < ApplicationRecord
   scope :active, -> { where(is_default: false, operational: "active", functional: "active").order(priority: :asc) }
   scope :is_mobile, -> {where(is_mobile: true)}
   scope :is_desktop, -> {where(is_mobile: false)}
+  enum source_rule: {Is: 0, Contains: 1, Does_not_contains: 2 }
 
   def self.match_type_query(urls, sourceVal)
-    @exit_urls = []
+    @exit_urls_ids = []
     urls.each do |url|
-      sourceCount = url.source.length()
-      if url.source_rule == 'Is' and sourceCount == 1
-        delivery = url if url.source.map(&:downcase).include?(sourceVal.downcase)
-        if delivery.present?
-          @exit_urls = @exit_urls.push(delivery)
-        end
-      elsif url.source_rule == 'Contains' and check_existence(url,sourceVal)
-        @exit_urls = @exit_urls.push ( url )
-      elsif url.source_rule == 'Does not contains' and !check_existence(url,sourceVal)
-        @exit_urls = @exit_urls.push ( url )
+      source_exists, sourceCount = check_existence(url, sourceVal)
+
+      if url.source_rule == 'Is' and sourceCount == 1 && source_exists
+        @exit_urls_ids.push(url.id)
+      elsif url.source_rule == 'Contains' and source_exists
+        debugger
+        @exit_urls_ids.push(url.id)
+      elsif url.source_rule == 'Does not contains' and !source_exists
+        @exit_urls_ids.push (url.id)
       end
     end
-    return @exit_urls
+    return @exit_urls_ids
   end
 
-  def self.check_existence(url,sourceVal)
+  def self.check_existence(url, sourceVal)
     check = url.source.map{ |src| src.downcase.include?(sourceVal.downcase) }
     check = check.include?(true)
-    return check
+    return [check, url.source.length]
   end
 
   def operational?
