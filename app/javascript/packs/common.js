@@ -451,7 +451,7 @@ class Common {
     var CI = this
     $.ajax({
       type: "GET",
-      url: `/api/v1/exit_deliveries?source=${this.getSourceFromURL()}`,
+      url: `/api/v1/exit_deliveries?source=${this.getSourceFromURL()}&device=${this.device}`,
       success: function(response) {
         console.log(response)
         CI.exitUrl(response)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_052424) do
+ActiveRecord::Schema.define(version: 2021_11_24_070926) do
 
   create_table "exit_deliveries", force: :cascade do |t|
     t.string "url"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_09_09_052424) do
     t.boolean "is_default", default: false
     t.string "name"
     t.text "source"
+    t.boolean "is_mobile", default: false
+    t.integer "source_rule", default: 0
   end
 
   create_table "lead_counts", force: :cascade do |t|
@@ -85,6 +87,14 @@ ActiveRecord::Schema.define(version: 2021_09_09_052424) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "whats_app_deliveries", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
