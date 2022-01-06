@@ -21,6 +21,7 @@ class Api::V1::RedirectController < ApplicationController
   end
 
   def exit_deliveries
+    debugger
     device = params[:device]
     if device == 'smartphone' || device == 'tablet'
       device_scope = 'smartphone'
