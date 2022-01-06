@@ -639,8 +639,8 @@ class Common {
 
   submitLead(formData, campid){
     this.submitLeadToStore(formData)
-    this.exitDelivery()
-    this.checkLeadStatus(formData)
+    // this.exitDelivery()
+    // this.checkLeadStatus(formData)
     var CI = this
     $.ajax({
       type: "POST",
@@ -651,6 +651,10 @@ class Common {
         if(data.code == 1 && data.records[0].status != "Rejected"){
           CI.formResponse =  'success'
           dataLayer.push({'transactionId': data.records[0].response.leadId, "transactionTotal": 3})
+          window.location= 'https://mobilematcher.co.uk/success2'
+        }
+        else{
+          window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
         }
       },
       error: function(request){
