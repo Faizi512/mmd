@@ -29,9 +29,10 @@ class ExitDelivery < ApplicationRecord
       if url.source_rule == 'Is' and sourceCount == 1 && source_exists
         @exit_urls_ids.push(url.id)
       elsif url.source_rule == 'Contains' and source_exists
-        debugger
         @exit_urls_ids.push(url.id)
       elsif url.source_rule == 'Does not contains' and !source_exists
+        @exit_urls_ids.push (url.id)
+      elsif url.source.empty?
         @exit_urls_ids.push (url.id)
       end
     end

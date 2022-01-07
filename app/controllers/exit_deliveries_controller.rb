@@ -78,6 +78,6 @@ class ExitDeliveriesController < ApplicationController
     def exit_delivery_params
       params.require(:exit_delivery).permit(:url, :name, :percentage,
         :status, :priority, :cap, :count, :operational, :is_default, :is_mobile, :source_rule,
-        :functional, source: []).merge(copy_percentage: params[:exit_delivery][:percentage])
+        :functional).merge(copy_percentage: params[:exit_delivery][:percentage], source: params[:exit_delivery][:source].reject(&:blank?))
     end
 end

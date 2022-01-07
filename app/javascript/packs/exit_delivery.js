@@ -3,6 +3,7 @@ class ExitDelivery{
   constructor(){
     $(document).ready(function(){
       $(".source").select2({
+        placeholder: '',
         tags: true,
         tokenSeparators: [',', ' ']
       })

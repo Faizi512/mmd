@@ -21,7 +21,6 @@ class Api::V1::RedirectController < ApplicationController
   end
 
   def exit_deliveries
-    debugger
     device = params[:device]
     if device == 'smartphone' || device == 'tablet'
       device_scope = 'smartphone'
@@ -30,7 +29,6 @@ class Api::V1::RedirectController < ApplicationController
       device_scope = 'desktop'
       exit_urls = ExitDelivery.is_desktop
     end
-
     if params[:source].present?
       exit_url_ids = ExitDelivery.match_type_query(exit_urls, params[:source])
       exit_urls = ExitDelivery.where(id: exit_url_ids)
@@ -46,6 +44,7 @@ class Api::V1::RedirectController < ApplicationController
     @soldUrl = get_url(sold_redirect_urls, 'sold')
     @unsoldUrl = get_url(unsold_redirect_urls, 'unsold')
     render json:{sold_url: @soldUrl, unsold_url: @unsoldUrl}, status: :ok
+
   end
 
   def get_url deliveries, status
