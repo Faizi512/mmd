@@ -19,6 +19,7 @@
           <th>Cap</th>
           <th>Source</th>
           <th>functional</th>
+          <th>For Mobile</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -37,6 +38,7 @@
             <td><%= exit_delivery.cap %></td>
             <td><%= exit_delivery.source %></td>
             <td><%= exit_delivery.functional %></td>
+            <td><%= exit_delivery.is_mobile %></td>
             <td><%= link_to 'Show', exit_delivery, :class => "btn btn-success btn-xs text-white btns-text" %></td>
             <td><%= link_to 'Edit', edit_exit_delivery_path(exit_delivery),
             :class => "btn btn-primary btn-xs text-white btns-text" %></td>
