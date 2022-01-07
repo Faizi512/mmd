@@ -654,6 +654,7 @@ class Common {
           // window.location= 'https://mobilematcher.co.uk/success2'
         }
         else{
+          console.log(data.records[0].status)
           // window.location= 'https://dl.reliatrk.com/?a=2&c=36&s1=exit'
         }
       },
