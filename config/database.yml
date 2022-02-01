@@ -22,6 +22,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+review:
+  database: db/test.sqlite3
+
 production:
    <<: *default
    adapter: postgresql
