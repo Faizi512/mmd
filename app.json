@@ -1,0 +1,30 @@
+{
+  "addons": ["logentries", "heroku-postgresql", "heroku-redis"],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "description": "Review app for running the migrations that are not for production",
+  "env": {
+    "RAILS_ENV": {
+      "value": "review"
+    },
+    "RACK_ENV": {
+      "value": "review"
+    },
+    "FORCE_SSL": {
+      "value": "true"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "mmd-review",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load"
+  },
+  "stack": "heroku-18"
+}
