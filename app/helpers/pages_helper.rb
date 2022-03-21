@@ -54,7 +54,7 @@ module PagesHelper
 
   def loan_decline
     @details = {
-      camp_id: 'MEGA-MOBILE-DEALS',
+      camp_id: 'L-SMS-PINGTREE',
       success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       bad_success_url: 'https://dl.reliatrk.com/?a=2&c=36&s1=exit',
       form_name: 'loan-decline',
