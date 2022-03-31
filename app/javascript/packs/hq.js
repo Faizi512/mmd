@@ -125,6 +125,7 @@ class HQ extends Common {
       device_name:this.deviceName || '',
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
+      clearStorage: false
     };
   }
 

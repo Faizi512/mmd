@@ -79,6 +79,7 @@ class MmdPost extends Common {
       dob: this.getUrlParameter('dob') || '',
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
+      clearStorage: false
     };
   }
 }
