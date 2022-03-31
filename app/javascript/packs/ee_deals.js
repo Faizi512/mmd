@@ -275,6 +275,7 @@ class EEDeals extends Common {
       campaign_name: this.details.camp_id,
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
+      clearStorage: false
     };
   }
   transaction_check(){

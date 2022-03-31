@@ -11,7 +11,6 @@ class Common {
     this.isEmail =false
     this.isPhone =false
     this.apiDown = false
-    this.ip_Address = '';
     this.currentTab = 0;
     this.submtForm = false;
     this.details = {};
@@ -34,11 +33,19 @@ class Common {
     this.adoptedUrl = ""
     this.deviceDetection()
 
-    $.getJSON('https://ipapi.co/json/', function(data) {
-      if (data != null && data.ip != undefined && typeof (data.ip) == "string") {
-        CI.ip_Address = data.ip;
+    $(window).on("load", function(){
+      if (localStorage.getItem('user_data') != null) {
+        var adopted_url = JSON.parse(localStorage.getItem('user_data')).adopted_url.split(/[: /]+/)
+        adopted_url = adopted_url.length > 1 ? adopted_url[1] : adopted_url[0]
+        if (adopted_url == '') {
+          adopted_url = adopted_url[0]
+        }
+        var clearStorgaeData = JSON.parse(localStorage.getItem('user_data')).clearStorage
+        if( (adopted_url == 'switch-mobile.co.uk' || adopted_url == 'bill-switchers.com') && ( clearStorgaeData == undefined)){
+          localStorage.removeItem('user_data')
+        }
       }
-    });
+    })
 
     $('#deal-form-modal').on('hide.bs.modal', function (e) {
       $('.clock').show()
@@ -570,6 +577,7 @@ class Common {
       device_name:this.deviceName || '',
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
+      clearStorage: false,
     };
   }
 
