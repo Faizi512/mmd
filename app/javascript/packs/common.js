@@ -31,7 +31,7 @@ class Common {
     this.allowedDevices=["iphone10","iphone11"," galaxy S10"]
     this.userStorage = false
     this.adoptedUrl = ""
-    this.deviceDetection()
+    // this.deviceDetection()
 
     $(window).on("load", function(){
       if (localStorage.getItem('user_data') != null) {
@@ -570,11 +570,11 @@ class Common {
       lead_from_local_storage: this.userStorage,
       campaign_name: this.details.camp_id,
       adopted_url: this.adoptedUrl,
-      device:this.device || '',
-      device_browser:this.deviceBrowser || '',
-      device_search_engine:this.deviceSearchEngine || '',
-      device_brand:this.deviceBrand || '',
-      device_name:this.deviceName || '',
+      // device:this.device || '',
+      // device_browser:this.deviceBrowser || '',
+      // device_search_engine:this.deviceSearchEngine || '',
+      // device_brand:this.deviceBrand || '',
+      // device_name:this.deviceName || '',
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
       clearStorage: false,
