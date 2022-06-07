@@ -30,6 +30,11 @@ class HomeV2 extends Common {
       $('.building').val($(this).find("option:selected").data("building"))
     });
 
+    $(document).on("click", '.continue-check', function(event) {
+      CI.postData()
+      event.stopPropagation()
+    });
+
     window.Parsley.on('field:error', function() {
       $(".btn-success").removeClass("in-progress")
       $(".tab").removeClass("in-progress")
@@ -45,13 +50,24 @@ class HomeV2 extends Common {
 
     $(document).on("click", '.open-form', function(event) {
       var user = localStorage.getItem("user_data")
+      debugger
       if (this.dataset.productId) {
         CI.productId = this.dataset.productId
         console.log( CI.productId)
       }
       if (user != null) {
-        CI.postData()
+        CI.phoneName = $(this).find('input').val()
+        $('#short-form-modal').modal('show')
+        // $(".tab")[4].style.display = "block"
+        $('.clock').hide()
         event.stopPropagation()
+        // CI.fixStepIndicator(3)
+        // CI.ToggleCheckBox()
+        CI.nextStep(1)
+        CI.nextStep(1)
+        CI.nextStep(1)
+        // CI.postData()
+        // event.stopPropagation()
       } else {
         CI.phoneName = $(this).find('input').val()
         $('#deal-form-modal').modal('show')
