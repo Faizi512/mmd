@@ -375,6 +375,11 @@ class Common {
     if(num >= 0) {
       progress.style.width = (num*33)+"%";
       progress.innerText = "Progress " + (num*33) + "%";
+
+      if(Number(num*33) >= 99) {
+        this.nextStep(num)
+      }
+
       if( num ==  0){
         progress.innerText = '';
       }
@@ -403,7 +408,7 @@ class Common {
       tabs[CI.currentTab].style.display = "none";
       CI.currentTab = CI.currentTab + n;
       if (CI.currentTab >= tabs.length) {
-        if (CI.customValidator('#dealform') == true && CI.isPhone == true && CI.isEmail == true){ 
+        if (CI.customValidator('#dealform') == true && CI.isPhone == true && CI.isEmail == true){
           $('.but_loader').show()
           $('.nextStep').prop('disabled', true);
           CI.postData()
