@@ -50,13 +50,19 @@ class HomeV2 extends Common {
 
     $(document).on("click", '.open-form', function(event) {
       var user = localStorage.getItem("user_data")
-      debugger
       if (this.dataset.productId) {
         CI.productId = this.dataset.productId
         console.log( CI.productId)
       }
       if (user != null) {
         CI.phoneName = $(this).find('input').val()
+        let checkboxes = $('.custom-checkbox')
+        checkboxes.each((box) => {
+          if (checkboxes[box].id !== 'mobile-accept-button'){
+            $(checkboxes[box]).remove();
+          }
+        })
+
         $('#short-form-modal').modal('show')
         // $(".tab")[4].style.display = "block"
         $('.clock').hide()
