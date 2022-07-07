@@ -1,5 +1,5 @@
 class ExitDeliveriesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_exit_delivery, only: [:show, :edit, :update, :destroy]
 
   # GET /exit_deliveries
@@ -35,7 +35,12 @@ class ExitDeliveriesController < ApplicationController
     @exit_delivery = ExitDelivery.new(exit_delivery_params)
     respond_to do |format|
       if @exit_delivery.save
-        format.html { redirect_to @exit_delivery, notice: 'Exit delivery was successfully created.' }
+        data_source =  exit_delivery_params[:source].map(&:downcase)
+        if data_source.include?("snapchat") && exit_delivery_params[:status]  == "unsold"
+          format.html { redirect_to "http://wa.link/gs4v9s" }
+        else 
+          format.html { redirect_to "https://mobilematcher.co.uk/success2" }
+        end
         format.json { render :show, status: :created, location: @exit_delivery }
       else
         format.html { render :new }
