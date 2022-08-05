@@ -32,15 +32,10 @@ class ExitDeliveriesController < ApplicationController
   # POST /exit_deliveries.json
   def create
     # exit_delivery_params[:copy_percentage] = params[:percentage]
-    @exit_delivery = ExitDelivery.new(exit_delivery_params)
+   @exit_delivery = ExitDelivery.new(exit_delivery_params)
     respond_to do |format|
       if @exit_delivery.save
-        data_source =  exit_delivery_params[:source].map(&:downcase)
-        if data_source.include?("snapchat") && exit_delivery_params[:status]  == "unsold"
-          format.html { redirect_to "http://wa.link/gs4v9s" }
-        else 
-          format.html { redirect_to "https://mobilematcher.co.uk/success2" }
-        end
+        format.html { redirect_to @exit_delivery, notice: 'Exit delivery was successfully created.' }
         format.json { render :show, status: :created, location: @exit_delivery }
       else
         format.html { render :new }
