@@ -49,13 +49,13 @@ class Api::V1::RedirectController < ApplicationController
 
   def get_url deliveries, status
     redirect_count = deliveries.any? ? deliveries.sum(&:count) :  0
-    deliveries.each do |delivery|
+    deliveries&.each do |delivery|
       percent = (delivery.count.to_f / (redirect_count+1) ) * 100
       if percent <= delivery.percentage
-        return {url: delivery.url, id: delivery.id}
+        return {url: delivery&.url, id: delivery&.id}
       end
     end
 
-    {url: ExitDelivery.find_by(status: status, is_default: true).url, id: ExitDelivery.find_by(status: status, is_default: true).id }
+    {url: ExitDelivery.find_by(status: status, is_default: true)&.url, id: ExitDelivery.find_by(status: status, is_default: true)&.id }
   end
 end
