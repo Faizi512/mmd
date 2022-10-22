@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   include SweetMobileHelper
   before_action :set_cookies
   before_action :deals_list
+  skip_before_action :verify_authenticity_token, only: [:submit_lead]
+
 
   def index
     new_mobile_data()
@@ -84,7 +86,6 @@ class PagesController < ApplicationController
   end
 
   def submit_lead
-    byebug
     url = URI.parse('https://leads-inst47-client.phonexa.uk/lead/')
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
