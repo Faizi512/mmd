@@ -84,6 +84,7 @@ class PagesController < ApplicationController
   end
 
   def submit_lead
+    byebug
     url = URI.parse('https://leads-inst47-client.phonexa.uk/lead/')
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -112,6 +113,8 @@ class PagesController < ApplicationController
     request.body = data.to_json
 
     response = http.request(request)
+
+    puts response.body.data
     render json: {data: JSON.parse(response.body)}
   end
 

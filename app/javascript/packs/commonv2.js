@@ -671,8 +671,8 @@ class Common {
         "postCode": formData.postcode,
         "street": formData.street1,
         "city": formData.towncity,
-        "apiId": "A5DB0BA533814A9A9AD70E12BA1389A0",
-        "apiPassword": "40fe38d32",
+        "apiId": "0F45A41BA83347E892B99209E9487E9E",
+        "apiPassword": "5813061",
         "productId": "176",
         "price": "0",
         "dob": formData.dob,
@@ -685,7 +685,7 @@ class Common {
       success: function(data) {
         debugger
         if(data.data.redirect_url != "" &&  data.data.redirect_url != undefined && data.data.redirect_url != null) {
-          window.location = data.data.redirect_url
+          window.location.href = data.data.redirect_url
         }
         if(data.data.rejectUrl != ""  &&  data.data.rejectUrl != undefined && data.data.rejectUrl != null)
           window.location.href = data.data.rejectUrl
