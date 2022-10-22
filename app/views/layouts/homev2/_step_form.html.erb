@@ -16,6 +16,24 @@
           <div  class="tab display-none" id="slide1">
             <div class="row justify-content-center">
               <div class="form-group col-lg-7 col-12">
+              <div>Title </div>
+              <select
+                id="titleId"
+                name="titleId"
+                class="titleId form-control"
+                data-parsley-required="true"
+                data-parsley-required-message="Please Select Title"
+                data-parsley-group="block-0"
+                required>
+                <option value="">Please Select Title</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+              </select>
+              </div>
+              <div class="form-group col-lg-7 col-12">
                 <label>First Name*</label>
                 <input
                 name="first_name"
@@ -48,6 +66,43 @@
           </div>
           <div  class="tab display-none" id="slide2">
             <div class="row justify-content-center">
+              <div class="form-group col-lg-7 col-12">
+                  <select
+                  id="employment_status"
+                  name="employmentStatus"
+                  class="employment_status form-control"
+                  data-parsley-required="true"
+                  data-parsley-required-message="Please Select Your Employment Status"
+                  data-parsley-group="block-1"
+                  required>
+                    <option value="">Select Your Employement Status</option>
+                    <option value="FULL_TIME">full time employment</option>
+                    <option value="PART_TIME">part time employment</option>
+                    <option value="SELF_EMPLOYED">self employed</option>
+                    <option value="UNEMPLOYED">unemployed</option>
+                    <option value="PENSION">pension</option>
+                    <option value="BENEFITS">benefits</option>
+                    <option value="STUDENT">student</option>
+                    <option value="OTHER">other</option>
+                  </select>
+              </div>
+              <div class="form-group col-lg-7 col-12">
+                <input 
+                required
+                data-parsley-required="true"
+                data-parsley-required-message="Please Enter date of birth" 
+                data-parsley-pattern-message="Date of birth Must Be Alphabetic" 
+                data-parsley-group="block-1"
+                type="date" 
+                name="dob" 
+                placeholder="Date of Birth"
+                class="dob form-control hero-input "
+                id="dob" />
+              </div>
+            </div>
+          </div>
+          <div  class="tab display-none" id="slide3">
+            <div class="row justify-content-center">
               <!-- postcode -->
               <div class="form-group col-lg-7  col-12">
                 <label>Postcode*</label>
@@ -57,7 +112,7 @@
                   required
                   data-parsley-required="true"
                   data-parsley-required-message="Please Enter Postcode"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-2"
                   data-parsley-validapipostcode
                   type="text"
                   class="postcode form-control ignoreStep4"
@@ -81,7 +136,7 @@
                   class="property w-100 form-control ignoreStep4 text-dark"
                   data-parsley-required="true"
                   data-parsley-required-message="Please Select Your property"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-2"
                   required>
                 </select>
               </div>
@@ -97,13 +152,13 @@
                   class="address form-control ignoreStep4"
                   data-parsley-required="true"
                   data-parsley-required-message="Please Enter Your Address"
-                  data-parsley-group="block-1"
+                  data-parsley-group="block-2"
                   type="text"
                   >
               </div>
             </div>
           </div>
-          <div  class="tab phoneEmailTab display-none" id="slide3">
+          <div  class="tab phoneEmailTab display-none" id="slide4">
             <div class="row justify-content-center">
               <div class="input-group  mb-3  col-lg-7 phone-div">
                 <label class="w-100">Mobile Number*</label>
@@ -114,7 +169,7 @@
                 data-parsley-required="true"
                 data-parsley-required-message="Please Enter Valid Uk Phone Number"
                 data-parsley-type="number"
-                data-parsley-group="block-2"
+                data-parsley-group="block-3"
                 data-parsley-validphone
                 class="form-control phone telephone"
                 placeholder="Mobile Number">
@@ -135,7 +190,7 @@
                 data-parsley-required-message="Please Enter Valid Email Address"
                 data-parsley-type="email"
                 data-parsley-type-message="Please Enter Valid Email Address"
-                data-parsley-group="block-2"
+                data-parsley-group="block-3"
                 data-parsley-validemail
                 value=""
                 class="form-control nme_inpu email"
@@ -157,7 +212,7 @@
                     class="onoffswitch-checkbox approve"
                     id="myonoffswitch"
                     data-parsley-required="true"
-                    data-parsley-group="block-2"
+                    data-parsley-group="block-3"
                     data-parsley-required-message="Please accept our terms and conditions"
                     >
                   <label class="onoffswitch-label" for="myonoffswitch">

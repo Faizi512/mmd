@@ -39,5 +39,6 @@ Rails.application.routes.draw do
   get '/exclusive_o2_deals' => 'pages#exclusive_o2_deals'
   get '/sweet-mobile' => 'pages#sweet_mobile'
   get '/:page_name' => 'pages#show'
+  post '/submit_lead' => 'pages#submit_lead'
 
 end

@@ -1,14 +1,14 @@
 <!-- Deals list section -->
 <section  class="bg-light py-5">
-  <% @phoneshome.each do |phone| %>
-    <div class="container  deals-list mb-3 open-form" data-url="<%= phone[:url] %>" data-product-id="<%= phone['product_id'] %>">
+  <% @deals_list.each do |phone| %>
+    <div class="container  deals-list mb-3 open-form" data-url="<%= phone[:url] %>" data-product-id="<%= phone[:productId] %>">
       <div class="row">
         <div class="col offset-xl-2 main-div">
           <div class="card box">
             <div class="card-body py-md-0">
               <div class="row align-items-center">
                 <div class="img">
-                  <%= image_tag(phone['image'], class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
+                  <%= image_tag(asset_path(phone[:image]), class: "horizonatal-box-img p-3", alt: "Phone image" ) %>
                   <input type="hidden" id="phone_name" name="phone_name" value="<%= phone[:handset] %>">
                 </div>
                 <div class="col-6 col-md-7 mobile price-details">
@@ -24,12 +24,12 @@
                 </div>
                 <div class="col">
                   <h5 class="font-weight-bold mb-2">
-                    <%= phone['name'] %>
+                    <%= phone[:title] %>
                   </h5>
                   <div class="row features">
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['data'] %> </h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %> </h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Data
                         </span>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['calls'] %></h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %></h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Calls
                         </span>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col px-md-2 px-1">
                       <div class="box text-center">
-                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone['texts'] %></h6>
+                        <h6 class="font-weight-bold mb-0 mt-2 fs-24" ><%= phone[:data] %></h6>
                         <span class="text-muted fs-14 font-weight-normal">
                           Texts
                         </span>
@@ -55,10 +55,10 @@
                    <hr>
                   <div class="row actions">
                     <div class="col-md-6">
-                      <button class="btn btn-primary o-btn open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">Apply now - it's free!</button>
+                      <button class="btn btn-primary o-btn open-form w-100 font-weight-bold"  data-product-id="<%= phone[:productId] %>">Apply now - it's free!</button>
                     </div>
                     <div class="col-md-6">
-                      <button class="btn btn-primary open-form w-100 font-weight-bold"  data-product-id="<%= phone[:product_id] %>">More Info</button>
+                      <button class="btn btn-primary open-form w-100 font-weight-bold"  data-product-id="<%= phone[:productId ] %>">More Info</button>
                     </div>
                   </div>
                 </div>

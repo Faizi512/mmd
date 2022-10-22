@@ -1,4 +1,4 @@
-import Common from "./common.js"
+import Common from "./commonv2.js"
 
 class HomeV2 extends Common {
   constructor() {
@@ -41,6 +41,7 @@ class HomeV2 extends Common {
     });
 
     $( "#btn-continue" ).click(() => {
+      debugger
       CI.nextStep(1)
     });
 
@@ -54,32 +55,33 @@ class HomeV2 extends Common {
         CI.productId = this.dataset.productId
         console.log( CI.productId)
       }
-      if (user != null) {
-        CI.phoneName = $(this).find('input').val()
-        let checkboxes = $('.custom-checkbox')
-        checkboxes.each((box) => {
-          if (checkboxes[box].id !== 'mobile-accept-button'){
-            $(checkboxes[box]).remove();
-          }
-        })
+      // if (user != null) {
+        // CI.phoneName = $(this).find('input').val()
+        // let checkboxes = $('.custom-checkbox')
+        // checkboxes.each((box) => {
+        //   if (checkboxes[box].id !== 'mobile-accept-button'){
+        //     $(checkboxes[box]).remove();
+        //   }
+        // })
 
-        $('#short-form-modal').modal('show')
-        // $(".tab")[4].style.display = "block"
-        $('.clock').hide()
-        event.stopPropagation()
-        // CI.fixStepIndicator(3)
-        // CI.ToggleCheckBox()
-        CI.nextStep(1)
-        CI.nextStep(1)
-        CI.nextStep(1)
-        // CI.postData()
+        // $('#short-form-modal').modal('show')
+        // // $(".tab")[4].style.display = "block"
+        // $('.clock').hide()
         // event.stopPropagation()
-      } else {
+        // // CI.fixStepIndicator(3)
+        // // CI.ToggleCheckBox()
+        // CI.nextStep(1)
+        // CI.nextStep(1)
+        // CI.nextStep(1)
+        // CI.nextStep(1)
+        // // CI.postData()
+        // // event.stopPropagation()
+      // } else {
         CI.phoneName = $(this).find('input').val()
         $('#deal-form-modal').modal('show')
         $('.clock').hide()
         event.stopPropagation()
-      }
+      // }
     });
   }
 
