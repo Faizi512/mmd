@@ -354,7 +354,6 @@ class Common {
 
 // Start Step Form Logic
   showTab(n=0) {
-    debugger
     var tabs = $(".tab");
     if (!tabs[n]) return;
     tabs[n].style.display = "block";
@@ -398,7 +397,6 @@ class Common {
   }
 
   nextStep(n) {
-    debugger
     var CI = this;
     this.showCircle()
     console.log(new Date())
@@ -406,7 +404,6 @@ class Common {
     $('#dealform').parsley().whenValidate({
       group: 'block-' + this.currentTab
     }).done(() =>{
-      debugger
       var tabs = $(".tab");
       tabs[CI.currentTab].style.display = "none";
       CI.currentTab = CI.currentTab + n;
@@ -550,7 +547,7 @@ class Common {
       towncity: $(".towncity").val() || this.getUrlParameter('towncity') ||  'unknown',
       sid: this.getUrlParameter('sid') || this.details.sid ||1,
       ssid: this.getUrlParameter('ssid') || this.details.ssid ||1,
-      handset:this.getUrlParameter('handset') || this.phoneName || '',
+      handset:this.getUrlParameter('handset') || this.phoneName || this.productId || '',
       ad_set:this.getUrlParameter('ad_set') || 1,
       source: this.getUrlParameter('source') || this.details.source || 'google3',
       c1: this.getUrlParameter('c1') || this.getUrlParameter('bstransid') || this.getUrlParameter('transid') || '',
@@ -586,6 +583,9 @@ class Common {
       incometype: this.getUrlParameter("incometype") || '' ,
       residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
       clearStorage: false,
+      employmentStatus: $("#employment_status").val() || "",
+      titleId: $("#titleId").val() || "",
+
     };
   }
 
@@ -594,26 +594,20 @@ class Common {
   }
 
   postData() {
-    debugger
     var CI = this
     $("#loaderPopup").css('height', '100%')
     // this.validateTsp()
     // this.redirectIfNoResponse()
     // this.successUrl()
-    if( this.getItemFromStorage("user_data") != null){
-      this.userStorage = true
-      this.USTransaction();
-      this.updateUserInStorage()
-      this.submitLead(this.getItemFromStorage("user_data"), this.details.camp_id)
-    }
-    else{
-      var data = this.getData();
-      var item = {county: this.getUrlParameter("county") || $(".county").val()}
-      data = _.mergeWith(item,data, (data, item))
-      CI.setItemToStorage("user_data", data)
-      console.log("Postdata: "+new Date())
-      this.submitLead(data, this.details.camp_id)
-    }
+   
+    var data = this.getData();
+    var item = {county: this.getUrlParameter("county") || $(".county").val()}
+    data = _.mergeWith(item,data, (data, item))
+    CI.setItemToStorage("user_data", data)
+    console.log("Postdata: "+new Date())
+    // this.submitLead(data, this.details.camp_id)
+    this.submitLead(data, "")
+  
   }
 
   checkLeadStatus(formData){
@@ -659,6 +653,7 @@ class Common {
     // this.exitDelivery()
     // this.checkLeadStatus(formData)
     debugger
+    
     var CI = this
     $.ajax({
       type: "POST",
@@ -678,7 +673,7 @@ class Common {
         "dob": formData.dob,
         "titleId": formData.titleId,
         "employmentStatus": formData.employmentStatus,
-        "handset": formData.productId,
+        "handset": formData.handset,
         "source": formData.source,
         "userAgent": formData.userAgent
       },
