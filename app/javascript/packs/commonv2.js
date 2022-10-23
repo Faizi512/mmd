@@ -675,7 +675,7 @@ class Common {
         "employmentStatus": formData.employmentStatus,
         "handset": formData.handset,
         "source": formData.source,
-        "userAgent": formData.userAgent
+        "userAgent": formData.user_agent
       },
       success: function(data) {
         debugger
