@@ -115,7 +115,6 @@ class PagesController < ApplicationController
 
     response = http.request(request)
 
-    puts response.body.data
     render json: {data: JSON.parse(response.body)}
   end
 
