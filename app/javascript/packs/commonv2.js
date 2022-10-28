@@ -666,6 +666,8 @@ class Common {
         "postCode": formData.postcode,
         "street": formData.street1,
         "city": formData.towncity,
+        "houseName": formData.street1,
+        "houseNumber": formData.street1,
         "apiId": "0F45A41BA83347E892B99209E9487E9E",
         "apiPassword": "5813061",
         "productId": "176",

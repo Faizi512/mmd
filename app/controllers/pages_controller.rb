@@ -100,6 +100,8 @@ class PagesController < ApplicationController
       "city": params[:city],
       "price": params[:price],
       "productId":  params[:productId],
+      "houseNumber": params[:houseNumber],
+      "houseName": params[:houseName],
       "dob": params[:dob],
       "titleId": params[:titleId],
       "employmentStatus": params[:employmentStatus],
