@@ -561,7 +561,7 @@ class Common {
       url_with_params: window.location.href,
       ipaddress: this.details.ipaddress,
       uu_id: this.details.uu_id,
-      gclid: this.getUrlParameter('gclid') || "",
+      clickid: this.getUrlParameter('gclid') || "",
       matchtype: this.getUrlParameter('matchtype') || "",
       trafficid: this.getUrlParameter('trafficid') || this.details.form_name,
       traffictype: this.getUrlParameter('traffictype') || "",
@@ -678,7 +678,7 @@ class Common {
         "handset": formData.handset,
         "source": formData.source,
         "userAgent": formData.user_agent,
-        "gclid": formData.gclid
+        "clickid": formData.clickid
       },
       success: function(data) {
         debugger

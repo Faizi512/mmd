@@ -111,7 +111,7 @@ class PagesController < ApplicationController
       "source": params[:source],
       "userIp": request.remote_ip,
       "userAgent":  params[:userAgent],
-      "gclid": params[:gclid]
+      "clickid": params[:clickid]
     }
     request = Net::HTTP::Post.new(url.path, {'Content-Type' => 'application/json'})
     request.body = data.to_json
