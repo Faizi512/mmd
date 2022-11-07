@@ -585,6 +585,7 @@ class Common {
       clearStorage: false,
       employmentStatus: $("#employment_status").val() || "",
       titleId: $("#titleId").val() || "",
+      pub: this.getUrlParameter("pub") || ''
 
     };
   }
@@ -652,7 +653,6 @@ class Common {
     // this.submitLeadToStore(formData)
     // this.exitDelivery()
     // this.checkLeadStatus(formData)
-    debugger
     
     var CI = this
     $.ajax({
@@ -678,7 +678,8 @@ class Common {
         "handset": formData.handset,
         "source": formData.source,
         "userAgent": formData.user_agent,
-        "clickid": formData.clickid
+        "clickid": formData.clickid,
+        "pub": formData.pub
       },
       success: function(data) {
         debugger

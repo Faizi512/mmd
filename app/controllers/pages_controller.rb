@@ -89,7 +89,7 @@ class PagesController < ApplicationController
     url = URI.parse('https://leads-inst47-client.phonexa.uk/lead/')
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
-    
+    api_id, api_password = get_api_credentials
     data = {
       "firstName": params[:firstName],
       "lastName": params[:lastName],
@@ -106,8 +106,8 @@ class PagesController < ApplicationController
       "titleId": params[:titleId],
       "employmentStatus": params[:employmentStatus],
       "handset": params[:handset],
-      "apiId": " 0F45A41BA83347E892B99209E9487E9E",
-      "apiPassword": "5813061",
+      "apiId": api_id,
+      "apiPassword": api_password,
       "source": params[:source],
       "userIp": request.remote_ip,
       "userAgent":  params[:userAgent],
@@ -315,5 +315,17 @@ class PagesController < ApplicationController
         color: ["#2b4552","#fae5c8","#454342","#e6e7e0"],
       },
     ]
+  end
+
+  def get_api_credentials
+    pub_id = params[:pub].to_i
+    api_key=''
+    api_password=''
+    if pub_id == 132
+      api_key, api_password = '0F45A41BA83347E892B99209E9487E9E', '5813061'
+    else
+      api_key, api_password = '0F45A41BA83347E892B99209E9487E9E', '5813061'
+    end
+    return api_key, api_password
   end
 end
