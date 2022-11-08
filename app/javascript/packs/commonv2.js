@@ -679,7 +679,8 @@ class Common {
         "source": formData.source,
         "userAgent": formData.user_agent,
         "clickid": formData.clickid,
-        "pub": formData.pub
+        "pub": formData.pub,
+        "webSiteUrl": window.location.href
       },
       success: function(data) {
         debugger

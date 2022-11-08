@@ -111,7 +111,8 @@ class PagesController < ApplicationController
       "source": params[:source],
       "userIp": request.remote_ip,
       "userAgent":  params[:userAgent],
-      "clickid": params[:clickid]
+      "clickid": params[:clickid],
+      "webSiteUrl": params[:webSiteUrl]
     }
     request = Net::HTTP::Post.new(url.path, {'Content-Type' => 'application/json'})
     request.body = data.to_json
@@ -324,7 +325,7 @@ class PagesController < ApplicationController
     if pub_id == 132
       api_key, api_password = '0F45A41BA83347E892B99209E9487E9E', '5813061'
     else
-      api_key, api_password = '0F45A41BA83347E892B99209E9487E9E', '5813061'
+      api_key, api_password = 'C172389047E348F48D370CC93890A31E', 'f047c36'
     end
     return api_key, api_password
   end
