@@ -76,7 +76,10 @@ class HQ extends Common {
         "userAgent": data.user_agent,
         "clickid": data.clickid,
         "pub": data.pub,
-        "webSiteUrl": window.location.href
+        "webSiteUrl": window.location.href,
+        "county": data.county,
+        "residentialStatus": data.residentialStatus,
+        "age": data.age,
       },
       success: function(data) {
         debugger
@@ -112,6 +115,9 @@ class HQ extends Common {
     catch (e) {}
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
+      age: this.getUrlParameter('age') || '',
+      county: this.getUrlParameter('county') || '',
+      residentialStatus: this.getUrlParameter('residentialStatus') || '',
       dob: this.getUrlParameter('dob') || '',
       titleId: this.getUrlParameter('titleId') || $(".titleId").val() || '',
       employmentStatus: this.getUrlParameter('employmentStatus') || $(".employmentStatus").val() || '',
