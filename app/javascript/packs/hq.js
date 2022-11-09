@@ -51,16 +51,49 @@ class HQ extends Common {
   }
 
   postData() {
-    var CI = this
-    $("#loaderPopup").css('height', '100%')
-    this.validateTsp()
-    this.successUrl()
     var data = this.getData();
-    console.log("Postdata: "+new Date())
-    this.firePixel();
-    this.redirectIfNoResponse()
-    this.handleCreditCheckConsent()
-    this.submitLead(data, this.details.camp_id)
+    debugger
+    $.ajax({
+      type: "POST",
+      url: "/submit_lead",
+      data: {
+        "firstName": data.firstname,
+        "lastName": data.lastname,
+        "email": data.email,
+        "mobilePhone": data.phone1,
+        "postCode": data.postcode,
+        "street": data.street1,
+        "city": data.towncity,
+        "houseName": data.street1,
+        "houseNumber": data.street1,
+        "productId": "176",
+        "price": "0",
+        "dob": data.dob,
+        "titleId": data.titleId,
+        "employmentStatus": data.employmentStatus,
+        "handset": data.handset,
+        "source": data.source,
+        "userAgent": data.user_agent,
+        "clickid": data.clickid,
+        "pub": data.pub,
+        "webSiteUrl": window.location.href
+      },
+      success: function(data) {
+        debugger
+        if(data.data.redirect_url != "" &&  data.data.redirect_url != undefined && data.data.redirect_url != null) {
+          window.location.href = data.data.redirect_url
+        }
+        if(data.data.rejectUrl != ""  &&  data.data.rejectUrl != undefined && data.data.rejectUrl != null)
+          window.location.href = data.data.rejectUrl
+        
+        console.log(data)
+      },
+      error: function (jqXhr, textStatus, errorMessage) { // error callback 
+        console.log(textStatus)
+        console.log(errorMessage)
+      },
+      dataType: "json"
+    })
   }
 
   handleCreditCheckConsent(){
@@ -79,6 +112,11 @@ class HQ extends Common {
     catch (e) {}
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
+      dob: this.getUrlParameter('dob') || '',
+      titleId: this.getUrlParameter('titleId') || $(".titleId").val() || '',
+      employmentStatus: this.getUrlParameter('employmentStatus') || $(".employmentStatus").val() || '',
+      clickid: this.getUrlParameter('gclid') || "",
+      pub: this.getUrlParameter("pub") || '',
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
       firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
       lastname: this.getUrlParameter('lastname') || $(".last_name").val() || '',
