@@ -324,6 +324,10 @@ class PagesController < ApplicationController
     api_password=''
     if pub_id == 132
       api_key, api_password = '0F45A41BA83347E892B99209E9487E9E', '5813061'
+    elsif pub_id == 136
+      api_key, api_password = '62D512CE83A84D1CB946886F8DBA2CD4', 'c314b28e76'
+    elsif pub_id == 137
+      api_key, api_password = '8F316CF6D4A84CC3957CE2DB546DCCA6', 'cb6993b'
     else
       api_key, api_password = 'C172389047E348F48D370CC93890A31E', 'f047c36'
     end
