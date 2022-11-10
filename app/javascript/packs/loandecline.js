@@ -81,20 +81,23 @@ class LoanDecline extends Common {
     catch (e) {}
     var customer_type = this.isBadCustomer( this.getUrlParameter('keyword')) || (this.getUrlParameter('bc') == "yes");
     return {
+      age: this.getUrlParameter('age') || '',
+      county: this.getUrlParameter('county') || '',
+      residentialStatus: this.getUrlParameter('residentialStatus') || '',
       dob: this.getUrlParameter('dob') || '',
       titleId: this.getUrlParameter('titleId') || $(".titleId").val() || '',
       employmentStatus: this.getUrlParameter('employmentStatus') || $(".employmentStatus").val() || '',
       clickid: this.getUrlParameter('gclid') || "",
       pub: this.getUrlParameter("pub") || '',
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
-      firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
-      lastname: this.getUrlParameter('lastname') || $(".last_name").val() || '',
+      firstname: this.getUrlParameter('firstName') || $(".firstName").val() || '',
+      lastname: this.getUrlParameter('lastName') || $(".firstName").val() || '',
       email: this.getUrlParameter('email') || $(".email").val() || '',
-      phone1: this.getUrlParameter('phone1') || $(".phone").val() || '',
-      street1: this.getUrlParameter('street1') || $(".street1").val() || $(".address").val() || 'unknown',
+      phone1: this.getUrlParameter('mobilePhone') || $(".mobilePhone").val() || '',
+      street1: this.getUrlParameter('street') || $(".street").val() || $(".address").val() || 'unknown',
       street2: this.getUrlParameter('street2') || $(".street2").val() || 'unknown',
       building: this.getUrlParameter('building') || $(".building").val() || 'unknown',
-      towncity: this.getUrlParameter('towncity') || $(".towncity").val() || 'unknown',
+      towncity: this.getUrlParameter('city') || $(".city").val() || 'unknown',
       sid: this.getUrlParameter('sid') || 722,
       ssid: this.getUrlParameter('ssid') || 1,
       ad_set: this.getUrlParameter('ad_set') || 1,
@@ -131,8 +134,9 @@ class LoanDecline extends Common {
       device_brand:this.deviceBrand || '',
       device_name:this.deviceName || '',
       incometype: this.getUrlParameter("incometype") || '' ,
-      residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
-      clearStorage: false
+      residentialstatus: this.getUrlParameter("residentialStatus") || '' ,
+      clearStorage: false,
+      userIp:  this.getUrlParameter("userIp") || '' 
     };
   }
 

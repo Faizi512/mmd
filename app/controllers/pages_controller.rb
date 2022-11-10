@@ -109,7 +109,7 @@ class PagesController < ApplicationController
       "apiId": api_id,
       "apiPassword": api_password,
       "source": params[:source],
-      "userIp": request.remote_ip,
+      "userIp": (params[:userIp] != "" || params[:userIp].present?) ? params[:userIp] : request.remote_ip,
       "userAgent":  params[:userAgent],
       "clickid": params[:clickid],
       "webSiteUrl": params[:webSiteUrl],

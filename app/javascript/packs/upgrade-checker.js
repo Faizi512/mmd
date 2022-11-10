@@ -90,13 +90,13 @@ class UpgradeChecker extends Common {
     this.getphoneNumber()
   }
   getphoneNumber(){
-    var number = this.getUrlParameter("phone1") || this.getUrlParameter("mobile")
+    var number = this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || this.getUrlParameter("mobilePhone")
     if (number != undefined && number.length < 11) {
       number = '0' + number
       $(".telephone").val(number)
     }
     else{
-      $(".telephone").val(this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || "");
+      $(".telephone").val(this.getUrlParameter("phone1") || this.getUrlParameter("mobile") || this.getUrlParameter("mobilePhone") || "");
     }
   }
 
@@ -117,14 +117,14 @@ class UpgradeChecker extends Common {
       clickid: this.getUrlParameter('gclid') || "",
       pub: this.getUrlParameter("pub") || '',
       postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
-      firstname: this.getUrlParameter('firstname') || $(".first_name").val() || '',
-      lastname: this.getUrlParameter('lastname') || $(".last_name").val() || '',
+      firstname: this.getUrlParameter('firstName') || $(".firstName").val() || '',
+      lastname: this.getUrlParameter('lastName') || $(".firstName").val() || '',
       email: this.getUrlParameter('email') || $(".email").val() || '',
-      phone1: this.getUrlParameter('phone1') || $(".phone").val() || '',
-      street1: this.getUrlParameter('street1') || $(".street1").val() || $(".address").val() || 'unknown',
+      phone1: this.getUrlParameter('mobilePhone') || $(".mobilePhone").val() || '',
+      street1: this.getUrlParameter('street') || $(".street").val() || $(".address").val() || 'unknown',
       street2: this.getUrlParameter('street2') || $(".street2").val() || 'unknown',
       building: this.getUrlParameter('building') || $(".building").val() || 'unknown',
-      towncity: this.getUrlParameter('towncity') || $(".towncity").val() || 'unknown',
+      towncity: this.getUrlParameter('city') || $(".city").val() || 'unknown',
       sid: this.getUrlParameter('sid') || 722,
       ssid: this.getUrlParameter('ssid') || 1,
       ad_set: this.getUrlParameter('ad_set') || 1,
@@ -161,8 +161,9 @@ class UpgradeChecker extends Common {
       device_brand:this.deviceBrand || '',
       device_name:this.deviceName || '',
       incometype: this.getUrlParameter("incometype") || '' ,
-      residentialstatus: this.getUrlParameter("residentialstatus") || '' ,
-      clearStorage: false
+      residentialstatus: this.getUrlParameter("residentialStatus") || '' ,
+      clearStorage: false,
+      userIp:  this.getUrlParameter("userIp") || '' 
     };
   }
 }
