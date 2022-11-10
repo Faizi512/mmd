@@ -89,7 +89,7 @@ class LoanDecline extends Common {
       employmentStatus: this.getUrlParameter('employmentStatus') || $(".employmentStatus").val() || '',
       clickid: this.getUrlParameter('gclid') || "",
       pub: this.getUrlParameter("pub") || '',
-      postcode: this.getUrlParameter('postcode') || $(".postcode").val() || '',
+      postcode: this.getUrlParameter('postCode') || $(".postCode").val() || '',
       firstname: this.getUrlParameter('firstName') || $(".firstName").val() || '',
       lastname: this.getUrlParameter('lastName') || $(".firstName").val() || '',
       email: this.getUrlParameter('email') || $(".email").val() || '',
